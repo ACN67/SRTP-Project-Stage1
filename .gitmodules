@@ -1,0 +1,36 @@
+[submodule "third_party/wanda"]
+	path = third_party/wanda
+	url = https://github.com/locuslab/wanda.git
+[submodule "third_party/sparsegpt"]
+	path = third_party/sparsegpt
+	url = https://github.com/IST-DASLab/sparsegpt.git
+[submodule "third_party/llm_pruner"]
+	path = third_party/llm_pruner
+	url = https://github.com/horseee/LLM-Pruner.git
+[submodule "third_party/dsnot"]
+	path = third_party/dsnot
+	url = https://github.com/zyxxmu/DSnoT.git
+[submodule "third_party/maskllm"]
+	path = third_party/maskllm
+	url = https://github.com/NVlabs/MaskLLM.git
+[submodule "third_party/flap"]
+	path = third_party/flap
+	url = https://github.com/CASIA-LMC-Lab/FLAP.git
+[submodule "third_party/slicegpt"]
+	path = third_party/slicegpt
+	url = https://github.com/microsoft/TransformerCompression.git
+[submodule "third_party/laco"]
+	path = third_party/laco
+	url = https://github.com/yangyifei729/LaCo.git
+[submodule "third_party/owl"]
+	path = third_party/owl
+	url = https://github.com/luuyin/OWL.git
+[submodule "third_party/pruner_zero"]
+	path = third_party/pruner_zero
+	url = https://github.com/pprp/Pruner-Zero.git
+[submodule "third_party/flab_pruner"]
+	path = third_party/flab_pruner
+	url = https://github.com/Flab-Pruner/Flab-Pruner.git
+[submodule "third_party/livecodebench"]
+	path = third_party/livecodebench
+	url = https://github.com/livecodebench/livecodebench.git

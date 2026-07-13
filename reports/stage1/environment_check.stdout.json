@@ -1,0 +1,70 @@
+{
+  "python": "3.11.15 (main, May 10 2026, 19:28:18) [Clang 22.1.3 ]",
+  "executable": "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/bin/python",
+  "cwd": "/home/keshu/projects/srtp-code-llm-pruning",
+  "env": {
+    "HF_HOME": "/home/keshu/.cache/huggingface",
+    "HUGGINGFACE_HUB_CACHE": "/home/keshu/.cache/huggingface/hub",
+    "HF_DATASETS_CACHE": "/home/keshu/.cache/huggingface/datasets",
+    "TORCH_HOME": "/home/keshu/.cache/torch"
+  },
+  "tools": {
+    "git": "/usr/bin/git",
+    "git-lfs": "/home/keshu/.local/bin/git-lfs",
+    "gh": "/home/keshu/.local/bin/gh",
+    "uv": "/home/keshu/.local/bin/uv",
+    "micromamba": "/home/keshu/.local/bin/micromamba",
+    "ninja": "/home/keshu/.local/bin/ninja",
+    "docker": "/home/keshu/.local/bin/docker",
+    "nvidia-smi": "/usr/lib/wsl/lib/nvidia-smi"
+  },
+  "commands": {
+    "git": {
+      "ok": true,
+      "stdout": "git version 2.53.0",
+      "stderr": ""
+    },
+    "git_lfs": {
+      "ok": true,
+      "stdout": "git-lfs/3.7.1 (GitHub; linux amd64; go 1.25.3; git b84b3384)",
+      "stderr": ""
+    },
+    "docker": {
+      "ok": true,
+      "stdout": "CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES",
+      "stderr": ""
+    },
+    "nvidia_smi": {
+      "ok": true,
+      "stdout": "Mon Jul 13 17:33:06 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 595.71.01              Driver Version: 596.36         CUDA Version: 13.2     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 5060 ...    On  |   00000000:01:00.0 Off |                  N/A |\n| N/A   51C    P5             19W /  115W |     399MiB /   8151MiB |     24%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+",
+      "stderr": ""
+    }
+  },
+  "modules": {
+    "torch": true,
+    "transformers": true,
+    "accelerate": true,
+    "datasets": true,
+    "evaluate": true,
+    "safetensors": true,
+    "sentencepiece": true,
+    "peft": true,
+    "yaml": true,
+    "jsonlines": true,
+    "psutil": true,
+    "evalplus": true,
+    "human_eval": true,
+    "swebench": true
+  },
+  "torch": {
+    "version": "2.11.0+cu128",
+    "cuda_runtime": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "vram_gb": 7.96,
+    "cuda_matmul": [
+      256,
+      256
+    ]
+  }
+}
