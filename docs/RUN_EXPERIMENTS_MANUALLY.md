@@ -32,6 +32,29 @@ source scripts/setup/env.sh
 scripts/run/run_plan.sh --plan configs/experiments/stage1_manual_plan.yaml --list
 ```
 
+
+## Team Ownership
+
+The run plan records responsibility fields for each job:
+
+- `owner`: primary person responsible for the run.
+- `method_group`: method family or shared pipeline area.
+- `method`: concrete method or benchmark.
+- `role`: why this run exists in the Stage 1 workflow.
+- `recommended_machine`: suggested machine class.
+- `cross_reproduction_by`: teammate expected to rerun or validate the minimum reproduction when applicable.
+
+Current ownership follows the execution book:
+
+| Owner | Scope |
+|---|---|
+| 潘阔 | Magnitude, Wanda, DSnoT, OWL, benchmark data pipeline |
+| 李长骏 | SparseGPT, MaskLLM, Pruner-Zero, FLAP, environment audit |
+| 常珂舒 | LLM-Pruner, SliceGPT, LaCo, Flab-Pruner, repository integration |
+| shared | Common environment checks |
+
+These fields are copied into `reports/stage1/manual_run_results.jsonl`, so results from three machines can be merged without losing responsibility information.
+
 ## 3. Run Only Light Checks
 
 This should be quick and does not run pruning:

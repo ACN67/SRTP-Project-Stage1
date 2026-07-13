@@ -124,8 +124,8 @@ def write_markdown_summary(jsonl_path: Path, md_path: Path) -> None:
         "",
         f"Source: `{jsonl_path.relative_to(ROOT)}`",
         "",
-        "| time | job | status | seconds | returncode | run_dir |",
-        "|---|---|---:|---:|---:|---|",
+        "| time | owner | group | job | status | seconds | returncode | run_dir |",
+        "|---|---|---|---|---:|---:|---:|---|",
     ]
     for row in rows:
         run_dir = row.get("run_dir", "")
@@ -134,8 +134,10 @@ def write_markdown_summary(jsonl_path: Path, md_path: Path) -> None:
         except Exception:
             pass
         lines.append(
-            "| {time} | `{job}` | {status} | {sec} | {rc} | `{run_dir}` |".format(
+            "| {time} | {owner} | {group} | `{job}` | {status} | {sec} | {rc} | `{run_dir}` |".format(
                 time=row.get("end_time", ""),
+                owner=row.get("owner", ""),
+                group=row.get("method_group", ""),
                 job=row.get("job_id", ""),
                 status=row.get("status", ""),
                 sec=row.get("duration_sec", ""),
@@ -171,6 +173,12 @@ def run_job(job: dict[str, Any], plan: dict[str, Any], summary_path: Path) -> di
         "run_id": run_id,
         "description": job.get("description", ""),
         "tags": job.get("tags", []),
+        "owner": job.get("owner", "unassigned"),
+        "method_group": job.get("method_group", ""),
+        "method": job.get("method", ""),
+        "role": job.get("role", ""),
+        "recommended_machine": job.get("recommended_machine", ""),
+        "cross_reproduction_by": job.get("cross_reproduction_by", ""),
         "heavy": bool(job.get("heavy", False)),
         "start_time": now_iso(),
         "cwd": str(cwd),
@@ -253,7 +261,7 @@ def select_jobs(plan: dict[str, Any], only: set[str], include_disabled: bool, li
         for job in jobs:
             enabled = bool(job.get("enabled", False))
             heavy = bool(job.get("heavy", False))
-            print(f"{job['id']}\tenabled={enabled}\theavy={heavy}\t{job.get('description', '')}")
+            print(f"{job['id']}\towner={job.get('owner', '')}\tgroup={job.get('method_group', '')}\tenabled={enabled}\theavy={heavy}\t{job.get('description', '')}")
         return []
     selected = []
     for job in jobs:

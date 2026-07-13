@@ -1,180 +1,230 @@
 name: stage1_manual_plan
 default_timeout_seconds: 7200
 resource_poll_interval_seconds: 5
-
 env:
-  TOKENIZERS_PARALLELISM: "false"
-  HF_HUB_ENABLE_HF_TRANSFER: "0"
-
+  TOKENIZERS_PARALLELISM: 'false'
+  HF_HUB_ENABLE_HF_TRANSFER: '0'
 jobs:
-  - id: env_check
-    enabled: true
-    heavy: false
-    env: common
-    cwd: .
-    description: "Check common Python environment, CUDA visibility, Git LFS, and Docker access."
-    command: "python scripts/audit/check_environment.py"
-    timeout_seconds: 300
+- id: env_check
+  enabled: true
+  heavy: false
+  env: common
+  cwd: .
+  description: Check common Python environment, CUDA visibility, Git LFS, and Docker access.
+  command: python scripts/audit/check_environment.py
+  timeout_seconds: 300
+  owner: shared
+  method_group: common
+  method: environment
+  role: 公共环境检查
+  recommended_machine: all
+- id: import_core_method_envs
+  enabled: true
+  heavy: false
+  env: common
+  cwd: .
+  description: Light import checks for the most important method environments.
+  command: '.venv-wanda/bin/python -c "import torch, transformers, datasets; print(''wanda'', torch.cuda.is_available(), torch.__version__,
+    transformers.__version__)"
 
-  - id: import_core_method_envs
-    enabled: true
-    heavy: false
-    env: common
-    cwd: .
-    description: "Light import checks for the most important method environments."
-    command: |
-      .venv-wanda/bin/python -c "import torch, transformers, datasets; print('wanda', torch.cuda.is_available(), torch.__version__, transformers.__version__)"
-      .venv-sparsegpt/bin/python -c "import torch, transformers, datasets; print('sparsegpt', torch.cuda.is_available(), torch.__version__, transformers.__version__)"
-      .venv-llm_pruner/bin/python -c "import torch, transformers, peft; print('llm_pruner', torch.cuda.is_available(), torch.__version__, transformers.__version__)"
-      .venv-slicegpt/bin/python -c "import torch, transformers, slicegpt; print('slicegpt', torch.cuda.is_available(), torch.__version__, transformers.__version__)"
-      .venv-livecodebench/bin/python -c "import torch, lcb_runner; print('livecodebench', torch.cuda.is_available(), torch.__version__)"
-    timeout_seconds: 300
+    .venv-sparsegpt/bin/python -c "import torch, transformers, datasets; print(''sparsegpt'', torch.cuda.is_available(), torch.__version__,
+    transformers.__version__)"
 
-  - id: sparsegpt_opt125m_gmp_smoke
-    enabled: false
-    heavy: true
-    env: sparsegpt
-    cwd: third_party/sparsegpt
-    tags: ["R1", "official", "SparseGPT", "OPT-125M", "baseline"]
-    description: "Official SparseGPT repository GMP baseline on facebook/opt-125m with reduced calibration samples."
-    command: |
-      python opt.py facebook/opt-125m c4 \
-        --sparsity .5 \
-        --gmp \
-        --nsamples 8 \
-        --save "$RUN_DIR/opt125m_gmp.pt"
-    timeout_seconds: 7200
+    .venv-llm_pruner/bin/python -c "import torch, transformers, peft; print(''llm_pruner'', torch.cuda.is_available(), torch.__version__,
+    transformers.__version__)"
 
-  - id: sparsegpt_opt125m_sparsegpt_smoke
-    enabled: false
-    heavy: true
-    env: sparsegpt
-    cwd: third_party/sparsegpt
-    tags: ["R1", "official", "SparseGPT", "OPT-125M"]
-    description: "Official SparseGPT pruning on facebook/opt-125m with reduced calibration samples."
-    command: |
-      python opt.py facebook/opt-125m c4 \
-        --sparsity .5 \
-        --nsamples 8 \
-        --save "$RUN_DIR/opt125m_sparsegpt.pt"
-    timeout_seconds: 7200
+    .venv-slicegpt/bin/python -c "import torch, transformers, slicegpt; print(''slicegpt'', torch.cuda.is_available(), torch.__version__,
+    transformers.__version__)"
 
-  - id: wanda_opt125m_magnitude_smoke
-    enabled: false
-    heavy: true
-    env: wanda
-    cwd: third_party/wanda
-    tags: ["R1", "official", "Wanda", "Magnitude", "OPT-125M"]
-    description: "Wanda repository magnitude baseline on facebook/opt-125m."
-    command: |
-      python main_opt.py \
-        --model facebook/opt-125m \
-        --prune_method magnitude \
-        --sparsity_ratio 0.3 \
-        --sparsity_type unstructured \
-        --nsamples 8 \
-        --save "$RUN_DIR/magnitude_results" \
-        --save_model "$RUN_DIR/magnitude_model"
-    timeout_seconds: 7200
+    .venv-livecodebench/bin/python -c "import torch, lcb_runner; print(''livecodebench'', torch.cuda.is_available(), torch.__version__)"
 
-  - id: wanda_opt125m_wanda_smoke
-    enabled: false
-    heavy: true
-    env: wanda
-    cwd: third_party/wanda
-    tags: ["R1", "official", "Wanda", "OPT-125M"]
-    description: "Wanda pruning on facebook/opt-125m with reduced calibration samples."
-    command: |
-      python main_opt.py \
-        --model facebook/opt-125m \
-        --prune_method wanda \
-        --sparsity_ratio 0.3 \
-        --sparsity_type unstructured \
-        --nsamples 8 \
-        --save "$RUN_DIR/wanda_results" \
-        --save_model "$RUN_DIR/wanda_model"
-    timeout_seconds: 7200
-
-  - id: prunerzero_opt125m_smoke
-    enabled: false
-    heavy: true
-    env: pruner_zero
-    cwd: third_party/pruner_zero
-    tags: ["R1", "official", "Pruner-Zero", "OPT-125M"]
-    description: "Pruner-Zero repository OPT entry point on facebook/opt-125m. This may require upstream fixes."
-    command: |
-      python main_opt.py \
-        --model facebook/opt-125m \
-        --prune_method pruner-zero \
-        --sparsity_ratio 0.3 \
-        --sparsity_type unstructured \
-        --nsamples 8 \
-        --save "$RUN_DIR/prunerzero_results" \
-        --save_model "$RUN_DIR/prunerzero_model"
-    timeout_seconds: 7200
-
-  - id: dsnot_llama_official_template
-    enabled: false
-    heavy: true
-    env: dsnot
-    cwd: third_party/dsnot
-    tags: ["R1", "official", "DSnoT", "template"]
-    description: "DSnoT official LLaMA-style command template. Requires a valid accessible LLaMA-compatible HF model."
-    command: |
-      python main.py \
-        --model "${DSNOT_MODEL:-decapoda-research/llama-7b-hf}" \
-        --prune_method DSnoT \
-        --initial_method wanda \
-        --sparsity_ratio 0.5 \
-        --sparsity_type unstructured \
-        --max_cycle_time 10 \
-        --update_threshold 0.1 \
-        --pow_of_var_regrowing 1
-    timeout_seconds: 14400
-
-  - id: flap_llama_official_template
-    enabled: false
-    heavy: true
-    env: flap
-    cwd: third_party/flap
-    tags: ["R1", "official", "FLAP", "template"]
-    description: "FLAP official LLaMA-style command template. Set FLAP_MODEL to an accessible model before running."
-    command: |
-      python main.py \
-        --model "${FLAP_MODEL:-decapoda-research/llama-7b-hf}" \
-        --prune_method flap \
-        --pruning_ratio 0.2 \
-        --remove_heads -1 \
-        --metrics WIFV \
-        --structure AL-AM \
-        --nsamples 16 \
-        --save_model "$RUN_DIR/flap_model" \
-        --eval
-    timeout_seconds: 14400
-
-  - id: slicegpt_phi2_template
-    enabled: false
-    heavy: true
-    env: slicegpt
-    cwd: third_party/slicegpt/experiments
-    tags: ["R1", "official", "SliceGPT", "template"]
-    description: "SliceGPT official Phi-2 command with reduced sample size if supported by upstream options."
-    command: |
-      python run_slicegpt.py \
-        --model microsoft/phi-2 \
-        --save-dir "$RUN_DIR/sliced_model" \
-        --sparsity 0.1 \
-        --device cuda:0 \
-        --eval-baseline \
-        --no-wandb
-    timeout_seconds: 21600
-
-  - id: livecodebench_import_and_help
-    enabled: false
-    heavy: false
-    env: livecodebench
-    cwd: third_party/livecodebench
-    tags: ["benchmark", "LiveCodeBench"]
-    description: "Check LiveCodeBench runner CLI without executing generation."
-    command: "python -m lcb_runner.runner.main --help | head -n 80"
-    timeout_seconds: 300
+    '
+  timeout_seconds: 300
+  owner: shared
+  method_group: common
+  method: environment
+  role: 公共方法环境导入检查
+  recommended_machine: all
+- id: sparsegpt_opt125m_gmp_smoke
+  enabled: false
+  heavy: true
+  env: sparsegpt
+  cwd: third_party/sparsegpt
+  tags:
+  - R1
+  - official
+  - SparseGPT
+  - OPT-125M
+  - baseline
+  description: Official SparseGPT repository GMP baseline on facebook/opt-125m with reduced calibration samples.
+  command: "python opt.py facebook/opt-125m c4 \\\n  --sparsity .5 \\\n  --gmp \\\n  --nsamples 8 \\\n  --save \"$RUN_DIR/opt125m_gmp.pt\"\
+    \n"
+  timeout_seconds: 7200
+  owner: 李长骏
+  method_group: reconstruction
+  method: SparseGPT
+  role: 官方R1基线/环境审计
+  recommended_machine: RTX 4060 or RTX 5060
+  cross_reproduction_by: 常珂舒
+- id: sparsegpt_opt125m_sparsegpt_smoke
+  enabled: false
+  heavy: true
+  env: sparsegpt
+  cwd: third_party/sparsegpt
+  tags:
+  - R1
+  - official
+  - SparseGPT
+  - OPT-125M
+  description: Official SparseGPT pruning on facebook/opt-125m with reduced calibration samples.
+  command: "python opt.py facebook/opt-125m c4 \\\n  --sparsity .5 \\\n  --nsamples 8 \\\n  --save \"$RUN_DIR/opt125m_sparsegpt.pt\"\
+    \n"
+  timeout_seconds: 7200
+  owner: 李长骏
+  method_group: reconstruction
+  method: SparseGPT
+  role: 官方R1复现
+  recommended_machine: RTX 4060 or RTX 5060
+  cross_reproduction_by: 常珂舒
+- id: wanda_opt125m_magnitude_smoke
+  enabled: false
+  heavy: true
+  env: wanda
+  cwd: third_party/wanda
+  tags:
+  - R1
+  - official
+  - Wanda
+  - Magnitude
+  - OPT-125M
+  description: Wanda repository magnitude baseline on facebook/opt-125m.
+  command: "python main_opt.py \\\n  --model facebook/opt-125m \\\n  --prune_method magnitude \\\n  --sparsity_ratio 0.3 \\\
+    \n  --sparsity_type unstructured \\\n  --nsamples 8 \\\n  --save \"$RUN_DIR/magnitude_results\" \\\n  --save_model \"\
+    $RUN_DIR/magnitude_model\"\n"
+  timeout_seconds: 7200
+  owner: 潘阔
+  method_group: activation_mask_allocation
+  method: Magnitude
+  role: 官方R1/最低基线
+  recommended_machine: RTX 4060 or RTX 5060
+  cross_reproduction_by: 李长骏
+- id: wanda_opt125m_wanda_smoke
+  enabled: false
+  heavy: true
+  env: wanda
+  cwd: third_party/wanda
+  tags:
+  - R1
+  - official
+  - Wanda
+  - OPT-125M
+  description: Wanda pruning on facebook/opt-125m with reduced calibration samples.
+  command: "python main_opt.py \\\n  --model facebook/opt-125m \\\n  --prune_method wanda \\\n  --sparsity_ratio 0.3 \\\n\
+    \  --sparsity_type unstructured \\\n  --nsamples 8 \\\n  --save \"$RUN_DIR/wanda_results\" \\\n  --save_model \"$RUN_DIR/wanda_model\"\
+    \n"
+  timeout_seconds: 7200
+  owner: 潘阔
+  method_group: activation_mask_allocation
+  method: Wanda
+  role: 官方R1复现
+  recommended_machine: RTX 4060 or RTX 5060
+  cross_reproduction_by: 李长骏
+- id: prunerzero_opt125m_smoke
+  enabled: false
+  heavy: true
+  env: pruner_zero
+  cwd: third_party/pruner_zero
+  tags:
+  - R1
+  - official
+  - Pruner-Zero
+  - OPT-125M
+  description: Pruner-Zero repository OPT entry point on facebook/opt-125m. This may require upstream fixes.
+  command: "python main_opt.py \\\n  --model facebook/opt-125m \\\n  --prune_method pruner-zero \\\n  --sparsity_ratio 0.3\
+    \ \\\n  --sparsity_type unstructured \\\n  --nsamples 8 \\\n  --save \"$RUN_DIR/prunerzero_results\" \\\n  --save_model\
+    \ \"$RUN_DIR/prunerzero_model\"\n"
+  timeout_seconds: 7200
+  owner: 李长骏
+  method_group: reconstruction
+  method: Pruner-Zero
+  role: 官方R1流程复现
+  recommended_machine: RTX 4060 or RTX 5060
+  cross_reproduction_by: 常珂舒
+- id: dsnot_llama_official_template
+  enabled: false
+  heavy: true
+  env: dsnot
+  cwd: third_party/dsnot
+  tags:
+  - R1
+  - official
+  - DSnoT
+  - template
+  description: DSnoT official LLaMA-style command template. Requires a valid accessible LLaMA-compatible HF model.
+  command: "python main.py \\\n  --model \"${DSNOT_MODEL:-decapoda-research/llama-7b-hf}\" \\\n  --prune_method DSnoT \\\n\
+    \  --initial_method wanda \\\n  --sparsity_ratio 0.5 \\\n  --sparsity_type unstructured \\\n  --max_cycle_time 10 \\\n\
+    \  --update_threshold 0.1 \\\n  --pow_of_var_regrowing 1\n"
+  timeout_seconds: 14400
+  owner: 潘阔
+  method_group: activation_mask_allocation
+  method: DSnoT
+  role: 官方R1模板/组合策略
+  recommended_machine: RTX 4060 or RTX 5060
+  cross_reproduction_by: 李长骏
+- id: flap_llama_official_template
+  enabled: false
+  heavy: true
+  env: flap
+  cwd: third_party/flap
+  tags:
+  - R1
+  - official
+  - FLAP
+  - template
+  description: FLAP official LLaMA-style command template. Set FLAP_MODEL to an accessible model before running.
+  command: "python main.py \\\n  --model \"${FLAP_MODEL:-decapoda-research/llama-7b-hf}\" \\\n  --prune_method flap \\\n \
+    \ --pruning_ratio 0.2 \\\n  --remove_heads -1 \\\n  --metrics WIFV \\\n  --structure AL-AM \\\n  --nsamples 16 \\\n  --save_model\
+    \ \"$RUN_DIR/flap_model\" \\\n  --eval\n"
+  timeout_seconds: 14400
+  owner: 李长骏
+  method_group: reconstruction
+  method: FLAP
+  role: 官方R1模板/结构化代表
+  recommended_machine: RTX 4060 or RTX 5060
+  cross_reproduction_by: 常珂舒
+- id: slicegpt_phi2_template
+  enabled: false
+  heavy: true
+  env: slicegpt
+  cwd: third_party/slicegpt/experiments
+  tags:
+  - R1
+  - official
+  - SliceGPT
+  - template
+  description: SliceGPT official Phi-2 command with reduced sample size if supported by upstream options.
+  command: "python run_slicegpt.py \\\n  --model microsoft/phi-2 \\\n  --save-dir \"$RUN_DIR/sliced_model\" \\\n  --sparsity\
+    \ 0.1 \\\n  --device cuda:0 \\\n  --eval-baseline \\\n  --no-wandb\n"
+  timeout_seconds: 21600
+  owner: 常珂舒
+  method_group: structured_depth_width
+  method: SliceGPT
+  role: 官方R1模板/维度剪枝
+  recommended_machine: RTX 5060 preferred
+  cross_reproduction_by: 潘阔
+- id: livecodebench_import_and_help
+  enabled: false
+  heavy: false
+  env: livecodebench
+  cwd: third_party/livecodebench
+  tags:
+  - benchmark
+  - LiveCodeBench
+  description: Check LiveCodeBench runner CLI without executing generation.
+  command: python -m lcb_runner.runner.main --help | head -n 80
+  timeout_seconds: 300
+  owner: 潘阔
+  method_group: benchmark_pipeline
+  method: LiveCodeBench
+  role: Benchmark入口检查
+  recommended_machine: any
