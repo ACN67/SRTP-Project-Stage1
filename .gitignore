@@ -1,0 +1,9 @@
+.venv*/
+__pycache__/
+*.py[cod]
+.cache/
+.hf_cache/
+.env
+.DS_Store
+results/raw/*/tmp/
+artifacts/models/cache/

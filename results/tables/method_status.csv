@@ -1,0 +1,13 @@
+method,owner,upstream_repo,upstream_commit,r0_status,r1_status,r2_status,r3_status,qwen_compatible,humaneval_ready,mbpp_ready,livecodebench_ready,swebench_lite_ready,artifact_complete,cross_reproduced,blocking_issue,notes
+Magnitude,潘阔,,,,,,,,,,,,,,,
+Wanda,潘阔,,,,,,,,,,,,,,,
+SparseGPT,李长骏,,,,,,,,,,,,,,,
+LLM-Pruner,常珂舒,,,,,,,,,,,,,,,
+DSnoT,潘阔,,,,,,,,,,,,,,,
+MaskLLM,李长骏,,,,,,,,,,,,,,,
+FLAP,李长骏,,,,,,,,,,,,,,,
+SliceGPT,常珂舒,,,,,,,,,,,,,,,
+LaCo,常珂舒,,,,,,,,,,,,,,,
+OWL,潘阔,,,,,,,,,,,,,,,
+Pruner-Zero,李长骏,,,,,,,,,,,,,,,
+Flab-Pruner,常珂舒,,,,,,,,,,,,,,,
