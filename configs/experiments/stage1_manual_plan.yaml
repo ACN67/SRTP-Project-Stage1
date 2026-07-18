@@ -313,6 +313,26 @@ jobs:
   role: 阶段缺口检查/轻量审计
   recommended_machine: all
   cross_reproduction_by: shared
+- id: create_humaneval_mbpp_smoke_splits
+  enabled: false
+  heavy: false
+  env: common
+  cwd: .
+  tags:
+  - benchmark
+  - split
+  - HumanEval
+  - MBPP
+  - smoke
+  description: Create deterministic 4-guide/4-eval smoke splits for HumanEval and MBPP.
+  command: python scripts/data/create_smoke_splits.py --guide-count 4 --eval-count 4
+  timeout_seconds: 900
+  owner: 潘阔
+  method_group: benchmark_pipeline
+  method: HumanEval-MBPP
+  role: Benchmark smoke guide/eval split generation
+  recommended_machine: any with network
+  cross_reproduction_by: shared
 - id: flab_pruner_import_probe
   enabled: false
   heavy: false

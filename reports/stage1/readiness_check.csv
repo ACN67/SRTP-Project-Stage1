@@ -6,10 +6,10 @@ qwen_3b_probe,True,Qwen 3B config probe recorded
 method_status,True,Method status table present
 flab_notes,True,Flab-Pruner method notes present
 laco_blocker,True,LaCo blocker recorded
-humaneval_guide,False,HumanEval guide split present
-humaneval_eval,False,HumanEval eval split present
-mbpp_guide,False,MBPP guide split present
-mbpp_eval,False,MBPP eval split present
+humaneval_guide,True,HumanEval guide split present
+humaneval_eval,True,HumanEval eval split present
+mbpp_guide,True,MBPP guide split present
+mbpp_eval,True,MBPP eval split present
 livecodebench_guide,False,LiveCodeBench guide split present
 livecodebench_eval,False,LiveCodeBench eval split present
 swebench_guide,False,SWE-bench Lite guide split present

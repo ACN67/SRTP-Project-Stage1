@@ -1,0 +1,33 @@
+{
+  "job_id": "stage1_readiness_check",
+  "run_id": "stage1_readiness_check_20260718_184509",
+  "description": "Check visible Stage 1 readiness gaps without running heavy experiments.",
+  "tags": [
+    "audit",
+    "readiness",
+    "Stage1"
+  ],
+  "owner": "shared",
+  "method_group": "common",
+  "method": "readiness",
+  "role": "阶段缺口检查/轻量审计",
+  "recommended_machine": "all",
+  "cross_reproduction_by": "shared",
+  "heavy": false,
+  "start_time": "2026-07-18T18:45:09+08:00",
+  "cwd": "/home/keshu/projects/srtp-code-llm-pruning",
+  "env": "common",
+  "command": "python scripts/audit/check_stage1_readiness.py || true",
+  "effective_command": "set -euo pipefail && cd /home/keshu/projects/srtp-code-llm-pruning && source scripts/setup/env.sh && source .venv-common/bin/activate && cd /home/keshu/projects/srtp-code-llm-pruning && python scripts/audit/check_stage1_readiness.py || true",
+  "run_dir": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/stage1_readiness_check_20260718_184509",
+  "host": "AC-LAPTOP",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.11.15 (main, May 10 2026, 19:28:18) [Clang 22.1.3 ]",
+  "end_time": "2026-07-18T18:45:09+08:00",
+  "duration_sec": 0.096,
+  "returncode": 0,
+  "status": "success",
+  "stdout": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/stage1_readiness_check_20260718_184509/stdout.log",
+  "stderr": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/stage1_readiness_check_20260718_184509/stderr.log",
+  "resource_csv": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/stage1_readiness_check_20260718_184509/resource.csv"
+}

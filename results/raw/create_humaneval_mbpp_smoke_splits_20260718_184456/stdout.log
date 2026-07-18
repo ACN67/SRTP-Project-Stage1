@@ -1,0 +1,6 @@
+humaneval: guide=4 eval=4
+humaneval: guide_sha256=0d3fe117b93c0e52ad11064ced4552a8f449f738efd44228fd6416747e604e29
+humaneval: eval_sha256=b15f41d4dd76246f4db3350701cc6bb98ead6abb39e377563195285c4c223154
+mbpp: guide=4 eval=4
+mbpp: guide_sha256=d37125ff3bbee2697e359fde105666df1bcfe19b06192ff937e9b112c038ee0e
+mbpp: eval_sha256=e16c98ec1d6bbdf4a92b3d5bd40ce68f746fa4a35fe9b8c6461058109bee4e99
