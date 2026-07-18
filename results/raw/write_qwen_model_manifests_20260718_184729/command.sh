@@ -1,0 +1,1 @@
+set -euo pipefail && cd /home/keshu/projects/srtp-code-llm-pruning && source scripts/setup/env.sh && source .venv-common/bin/activate && cd /home/keshu/projects/srtp-code-llm-pruning && python scripts/data/write_qwen_model_manifests.py

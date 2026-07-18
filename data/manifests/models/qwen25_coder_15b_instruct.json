@@ -1,0 +1,75 @@
+{
+  "model_short_name": "qwen25_coder_15b_instruct",
+  "model_id": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "role": "baseline_and_debug",
+  "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+  "tokenizer_revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+  "dtype": "torch.bfloat16",
+  "local_cache": "not_committed",
+  "loads_weights_in_probe": false,
+  "config": {
+    "model_type": "qwen2",
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "num_hidden_layers": 28,
+    "hidden_size": 1536,
+    "intermediate_size": 8960,
+    "num_attention_heads": 12,
+    "num_key_value_heads": 2,
+    "max_position_embeddings": 32768,
+    "vocab_size": 151936,
+    "torch_dtype": "torch.bfloat16",
+    "tie_word_embeddings": true,
+    "rope_theta": null,
+    "sliding_window": null,
+    "use_sliding_window": false
+  },
+  "tokenizer": {
+    "class": "Qwen2Tokenizer",
+    "vocab_size": 151643,
+    "model_max_length": 32768,
+    "pad_token": "<|endoftext|>",
+    "eos_token": "<|im_end|>",
+    "bos_token": null,
+    "padding_side": "right"
+  },
+  "files": [
+    {
+      "name": "config.json",
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "name": "generation_config.json",
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "name": "merges.txt",
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "name": "model.safetensors",
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "name": "tokenizer.json",
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "name": "tokenizer_config.json",
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "name": "vocab.json",
+      "size_bytes": null,
+      "sha256": null
+    }
+  ],
+  "notes": "Lightweight manifest from config/tokenizer probe and HF metadata; raw model weights are not committed."
+}

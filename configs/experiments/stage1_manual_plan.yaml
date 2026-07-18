@@ -333,6 +333,24 @@ jobs:
   role: Benchmark smoke guide/eval split generation
   recommended_machine: any with network
   cross_reproduction_by: shared
+- id: write_qwen_model_manifests
+  enabled: false
+  heavy: false
+  env: common
+  cwd: .
+  tags:
+  - Qwen
+  - manifest
+  - model
+  description: Write lightweight Qwen 1.5B/3B model manifests from config probes and HF metadata without downloading weights.
+  command: python scripts/data/write_qwen_model_manifests.py
+  timeout_seconds: 300
+  owner: shared
+  method_group: qwen_adaptation
+  method: Qwen2.5-Coder
+  role: Qwen模型清单/revision固定
+  recommended_machine: any with network
+  cross_reproduction_by: shared
 - id: flab_pruner_import_probe
   enabled: false
   heavy: false

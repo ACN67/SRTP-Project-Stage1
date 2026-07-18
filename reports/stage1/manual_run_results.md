@@ -16,3 +16,4 @@ Source: `reports/stage1/manual_run_results.jsonl`
 | 2026-07-18T18:40:33+08:00 | 常珂舒 | structured_depth_width | `flab_pruner_import_probe` | success | 10.099 | 0 | `results/raw/flab_pruner_import_probe_20260718_184023` |
 | 2026-07-18T18:45:01+08:00 | 潘阔 | benchmark_pipeline | `create_humaneval_mbpp_smoke_splits` | success | 5.148 | 0 | `results/raw/create_humaneval_mbpp_smoke_splits_20260718_184456` |
 | 2026-07-18T18:45:09+08:00 | shared | common | `stage1_readiness_check` | success | 0.096 | 0 | `results/raw/stage1_readiness_check_20260718_184509` |
+| 2026-07-18T18:47:30+08:00 | shared | qwen_adaptation | `write_qwen_model_manifests` | success | 1.118 | 0 | `results/raw/write_qwen_model_manifests_20260718_184729` |
