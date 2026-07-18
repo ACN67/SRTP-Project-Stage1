@@ -1,0 +1,27 @@
+{
+  "job_id": "flab_pruner_import_probe",
+  "run_id": "flab_pruner_import_probe_20260718_184023",
+  "description": "Import Flab-Pruner Qwen2 modeling utilities and inspect script availability without loading model weights.",
+  "tags": [
+    "R0",
+    "Flab-Pruner",
+    "Qwen2",
+    "import-probe"
+  ],
+  "owner": "常珂舒",
+  "method_group": "structured_depth_width",
+  "method": "Flab-Pruner",
+  "role": "R0入口检查/Qwen2工具导入",
+  "recommended_machine": "any",
+  "cross_reproduction_by": "潘阔",
+  "heavy": false,
+  "start_time": "2026-07-18T18:40:23+08:00",
+  "cwd": "/home/keshu/projects/srtp-code-llm-pruning/third_party/flab_pruner",
+  "env": "flab_pruner",
+  "command": "python - <<'PY'\nfrom hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM, Qwen2Config\nimport ffn_prune, vocab_prune\nprint('flab_pruner_qwen2_import_ok')\nprint('model_class', Qwen2ForCausalLM.__name__)\nprint('config_class', Qwen2Config.__name__)\nPY",
+  "effective_command": "set -euo pipefail && cd /home/keshu/projects/srtp-code-llm-pruning && source scripts/setup/env.sh && source .venv-flab_pruner/bin/activate && cd /home/keshu/projects/srtp-code-llm-pruning/third_party/flab_pruner && python - <<'PY'\nfrom hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM, Qwen2Config\nimport ffn_prune, vocab_prune\nprint('flab_pruner_qwen2_import_ok')\nprint('model_class', Qwen2ForCausalLM.__name__)\nprint('config_class', Qwen2Config.__name__)\nPY",
+  "run_dir": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/flab_pruner_import_probe_20260718_184023",
+  "host": "AC-LAPTOP",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.11.15 (main, May 10 2026, 19:28:18) [Clang 22.1.3 ]"
+}

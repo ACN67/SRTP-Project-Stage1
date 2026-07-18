@@ -295,6 +295,43 @@ jobs:
   role: Q3结构探测/3B对比目标检查
   recommended_machine: any with network
   cross_reproduction_by: shared
+- id: stage1_readiness_check
+  enabled: true
+  heavy: false
+  env: common
+  cwd: .
+  tags:
+  - audit
+  - readiness
+  - Stage1
+  description: Check visible Stage 1 readiness gaps without running heavy experiments.
+  command: python scripts/audit/check_stage1_readiness.py || true
+  timeout_seconds: 300
+  owner: shared
+  method_group: common
+  method: readiness
+  role: 阶段缺口检查/轻量审计
+  recommended_machine: all
+  cross_reproduction_by: shared
+- id: flab_pruner_import_probe
+  enabled: false
+  heavy: false
+  env: flab_pruner
+  cwd: third_party/flab_pruner
+  tags:
+  - R0
+  - Flab-Pruner
+  - Qwen2
+  - import-probe
+  description: Import Flab-Pruner Qwen2 modeling utilities and inspect script availability without loading model weights.
+  command: "python - <<'PY'\nfrom hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM, Qwen2Config\nimport ffn_prune, vocab_prune\nprint('flab_pruner_qwen2_import_ok')\nprint('model_class', Qwen2ForCausalLM.__name__)\nprint('config_class', Qwen2Config.__name__)\nPY"
+  timeout_seconds: 300
+  owner: 常珂舒
+  method_group: structured_depth_width
+  method: Flab-Pruner
+  role: R0入口检查/Qwen2工具导入
+  recommended_machine: any
+  cross_reproduction_by: 潘阔
 - id: livecodebench_import_and_help
   enabled: false
   heavy: false

@@ -1,0 +1,3 @@
+flab_pruner_qwen2_import_ok
+model_class Qwen2ForCausalLM
+config_class Qwen2Config

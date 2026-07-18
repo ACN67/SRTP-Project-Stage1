@@ -1,0 +1,123 @@
+{
+  "ready": 7,
+  "total": 15,
+  "missing": [
+    {
+      "id": "humaneval_guide",
+      "ok": false,
+      "description": "HumanEval guide split present"
+    },
+    {
+      "id": "humaneval_eval",
+      "ok": false,
+      "description": "HumanEval eval split present"
+    },
+    {
+      "id": "mbpp_guide",
+      "ok": false,
+      "description": "MBPP guide split present"
+    },
+    {
+      "id": "mbpp_eval",
+      "ok": false,
+      "description": "MBPP eval split present"
+    },
+    {
+      "id": "livecodebench_guide",
+      "ok": false,
+      "description": "LiveCodeBench guide split present"
+    },
+    {
+      "id": "livecodebench_eval",
+      "ok": false,
+      "description": "LiveCodeBench eval split present"
+    },
+    {
+      "id": "swebench_guide",
+      "ok": false,
+      "description": "SWE-bench Lite guide split present"
+    },
+    {
+      "id": "swebench_eval",
+      "ok": false,
+      "description": "SWE-bench Lite eval split present"
+    }
+  ],
+  "checks": [
+    {
+      "id": "execution_book",
+      "ok": true,
+      "description": "Stage 1 execution book present"
+    },
+    {
+      "id": "qwen_route",
+      "ok": true,
+      "description": "Qwen 3B execution route present"
+    },
+    {
+      "id": "qwen_15b_probe",
+      "ok": true,
+      "description": "Qwen 1.5B config probe recorded"
+    },
+    {
+      "id": "qwen_3b_probe",
+      "ok": true,
+      "description": "Qwen 3B config probe recorded"
+    },
+    {
+      "id": "method_status",
+      "ok": true,
+      "description": "Method status table present"
+    },
+    {
+      "id": "flab_notes",
+      "ok": true,
+      "description": "Flab-Pruner method notes present"
+    },
+    {
+      "id": "laco_blocker",
+      "ok": true,
+      "description": "LaCo blocker recorded"
+    },
+    {
+      "id": "humaneval_guide",
+      "ok": false,
+      "description": "HumanEval guide split present"
+    },
+    {
+      "id": "humaneval_eval",
+      "ok": false,
+      "description": "HumanEval eval split present"
+    },
+    {
+      "id": "mbpp_guide",
+      "ok": false,
+      "description": "MBPP guide split present"
+    },
+    {
+      "id": "mbpp_eval",
+      "ok": false,
+      "description": "MBPP eval split present"
+    },
+    {
+      "id": "livecodebench_guide",
+      "ok": false,
+      "description": "LiveCodeBench guide split present"
+    },
+    {
+      "id": "livecodebench_eval",
+      "ok": false,
+      "description": "LiveCodeBench eval split present"
+    },
+    {
+      "id": "swebench_guide",
+      "ok": false,
+      "description": "SWE-bench Lite guide split present"
+    },
+    {
+      "id": "swebench_eval",
+      "ok": false,
+      "description": "SWE-bench Lite eval split present"
+    }
+  ]
+}
