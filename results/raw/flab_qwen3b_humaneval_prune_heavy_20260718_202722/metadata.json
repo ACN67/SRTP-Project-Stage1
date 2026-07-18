@@ -1,0 +1,29 @@
+{
+  "job_id": "flab_qwen3b_humaneval_prune_heavy",
+  "run_id": "flab_qwen3b_humaneval_prune_heavy_20260718_202722",
+  "description": "Heavy Flab-Pruner Qwen 3B pruning run with HumanEval guide split. Loads Qwen3B weights and saves a pruned model.",
+  "tags": [
+    "Flab-Pruner",
+    "Qwen",
+    "Qwen2.5-Coder-3B",
+    "HumanEval",
+    "heavy",
+    "pruning"
+  ],
+  "owner": "常珂舒",
+  "method_group": "structured_depth_width",
+  "method": "Flab-Pruner",
+  "role": "Qwen3B剪枝长任务/HumanEval guide",
+  "recommended_machine": "RTX 5060 preferred; may need long download and memory headroom",
+  "cross_reproduction_by": "潘阔",
+  "heavy": true,
+  "start_time": "2026-07-18T20:27:22+08:00",
+  "cwd": "/home/keshu/projects/srtp-code-llm-pruning",
+  "env": "flab_pruner",
+  "command": "python scripts/adapt/flab_qwen_prune.py \\\n  --model Qwen/Qwen2.5-Coder-3B-Instruct \\\n  --guide-file data/splits/humaneval/guide.jsonl \\\n  --save-dir \"$RUN_DIR/flab_qwen3b_humaneval\" \\\n  --stage top \\\n  --prune-ratio 0.10 \\\n  --max-guide-samples 4 \\\n  --dtype bf16 \\\n  --device-map auto",
+  "effective_command": "set -euo pipefail && cd /home/keshu/projects/srtp-code-llm-pruning && source scripts/setup/env.sh && source .venv-flab_pruner/bin/activate && cd /home/keshu/projects/srtp-code-llm-pruning && python scripts/adapt/flab_qwen_prune.py \\\n  --model Qwen/Qwen2.5-Coder-3B-Instruct \\\n  --guide-file data/splits/humaneval/guide.jsonl \\\n  --save-dir \"$RUN_DIR/flab_qwen3b_humaneval\" \\\n  --stage top \\\n  --prune-ratio 0.10 \\\n  --max-guide-samples 4 \\\n  --dtype bf16 \\\n  --device-map auto",
+  "run_dir": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_202722",
+  "host": "AC-LAPTOP",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.11.15 (main, May 10 2026, 19:28:18) [Clang 22.1.3 ]"
+}

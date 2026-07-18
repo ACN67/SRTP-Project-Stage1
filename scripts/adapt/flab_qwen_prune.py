@@ -204,6 +204,10 @@ def main() -> int:
     from hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM
     import torch
 
+    # Flab's vendored Qwen2 class follows the Transformers 4 convention where
+    # `_tied_weights_keys` was a list. Transformers 5 expects a mapping.
+    Qwen2ForCausalLM._tied_weights_keys = {"lm_head.weight": "model.embed_tokens.weight"}
+
     dtype = {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[args.dtype]
     load_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
     ensure_qwen2_compat_config(load_config)

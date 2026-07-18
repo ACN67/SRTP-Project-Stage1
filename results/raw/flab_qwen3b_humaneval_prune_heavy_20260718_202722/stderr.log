@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] Qwen2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/flab_qwen_prune.py", line 250, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/flab_qwen_prune.py", line 220, in main
+    model = Qwen2ForCausalLM.from_pretrained(args.model, config=load_config, torch_dtype=dtype, device_map=args.device_map)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-flab_pruner/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4324, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py", line 1285, in __init__
+    self.post_init()
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-flab_pruner/lib/python3.11/site-packages/transformers/modeling_utils.py", line 1413, in post_init
+    self.all_tied_weights_keys = self.get_expanded_tied_weights_keys(all_submodels=False)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-flab_pruner/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2648, in get_expanded_tied_weights_keys
+    if all(common_case_regex.match(k) for k in tied_mapping.keys() | tied_mapping.values()):
+                                               ^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'keys'

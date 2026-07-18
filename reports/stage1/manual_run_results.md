@@ -22,3 +22,4 @@ Source: `reports/stage1/manual_run_results.jsonl`
 | 2026-07-18T19:40:16+08:00 | 常珂舒 | structured_depth_width | `flab_qwen3b_humaneval_dry_run` | success | 9.298 | 0 | `results/raw/flab_qwen3b_humaneval_dry_run_20260718_194007` |
 | 2026-07-18T20:09:37+08:00 | 常珂舒 | structured_depth_width | `flab_qwen3b_humaneval_prune_heavy` | failed | 1540.226 | 1 | `results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_194356` |
 | 2026-07-18T20:15:58+08:00 | 常珂舒 | structured_depth_width | `flab_qwen3b_humaneval_dry_run` | success | 6.345 | 0 | `results/raw/flab_qwen3b_humaneval_dry_run_20260718_201552` |
+| 2026-07-18T20:27:33+08:00 | 常珂舒 | structured_depth_width | `flab_qwen3b_humaneval_prune_heavy` | failed | 10.605 | 1 | `results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_202722` |
