@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [25:24<25:24, 1524.24s/it]Fetching 2 files: 100%|██████████| 2/2 [25:27<00:00, 629.26s/it] Fetching 2 files: 100%|██████████| 2/2 [25:27<00:00, 763.51s/it]
+[transformers] Qwen2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/flab_qwen_prune.py", line 227, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/flab_qwen_prune.py", line 198, in main
+    model = Qwen2ForCausalLM.from_pretrained(args.model, torch_dtype=dtype, device_map=args.device_map)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-flab_pruner/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4324, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py", line 1280, in __init__
+    self.model = Qwen2Model(config)
+                 ^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py", line 1060, in __init__
+    [Qwen2DecoderLayer(config, layer_idx) for layer_idx in range(config.num_hidden_layers)]
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py", line 1060, in <listcomp>
+    [Qwen2DecoderLayer(config, layer_idx) for layer_idx in range(config.num_hidden_layers)]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py", line 860, in __init__
+    self.self_attn = QWEN2_ATTENTION_CLASSES[config._attn_implementation](config, layer_idx)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py", line 306, in __init__
+    self.rope_theta = config.rope_theta
+                      ^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-flab_pruner/lib/python3.11/site-packages/transformers/configuration_utils.py", line 454, in __getattribute__
+    return super().__getattribute__(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Qwen2Config' object has no attribute 'rope_theta'

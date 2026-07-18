@@ -90,6 +90,23 @@ def validate_remain(config, args) -> dict:
     }
 
 
+def ensure_qwen2_compat_config(config):
+    """Patch config fields expected by Flab's vendored Qwen2 implementation."""
+    compat_defaults = {
+        "rope_theta": 1000000.0,
+        "attention_dropout": 0.0,
+        "sliding_window": None,
+        "use_sliding_window": False,
+        "max_window_layers": getattr(config, "num_hidden_layers", 0),
+    }
+    patched = {}
+    for key, value in compat_defaults.items():
+        if not hasattr(config, key) or getattr(config, key) is None:
+            setattr(config, key, value)
+            patched[key] = value
+    return patched
+
+
 def estimate_params(config, plan: dict) -> dict:
     vocab = int(config.vocab_size)
     layers = plan["num_hidden_layers"]
@@ -140,6 +157,7 @@ def main() -> int:
     save_dir = (ROOT / args.save_dir).resolve() if not Path(args.save_dir).is_absolute() else Path(args.save_dir)
     guide_rows, guide_hash = load_guide(guide_file, args.max_guide_samples)
     config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
+    compat_patches = ensure_qwen2_compat_config(config)
     tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
     plan = validate_remain(config, args)
     estimate = estimate_params(config, plan)
@@ -169,6 +187,7 @@ def main() -> int:
             "pad_token": tokenizer.pad_token,
             "eos_token": tokenizer.eos_token,
         },
+        "compat_patches": compat_patches,
         "prune_plan": plan,
         "rough_param_estimate": estimate,
         "benchmark_guidance_status": "guide file recorded and validated; upstream Flab stage selection is still structural/top-bottom-random unless scoring patch is added",
@@ -186,7 +205,10 @@ def main() -> int:
     import torch
 
     dtype = {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[args.dtype]
+    load_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
+    ensure_qwen2_compat_config(load_config)
     prune_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
+    ensure_qwen2_compat_config(prune_config)
     prune_config.update(
         {
             "hidden_size_remain": plan["hidden_size_remain"],
@@ -195,13 +217,14 @@ def main() -> int:
             "ffn_hidden_size_remain": plan["ffn_hidden_size_remain"],
         }
     )
-    model = Qwen2ForCausalLM.from_pretrained(args.model, torch_dtype=dtype, device_map=args.device_map)
+    model = Qwen2ForCausalLM.from_pretrained(args.model, config=load_config, torch_dtype=dtype, device_map=args.device_map)
     model.eval()
     params_before = sum(p.numel() for p in model.parameters())
     model.prune(config=prune_config, stage=args.stage)
     params_after = sum(p.numel() for p in model.parameters())
 
     new_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
+    ensure_qwen2_compat_config(new_config)
     new_config.hidden_size = plan["hidden_size_remain"]
     new_config.intermediate_size = plan["ffn_hidden_size_remain"]
     new_config.num_attention_heads = plan["num_attention_heads_remain"]
