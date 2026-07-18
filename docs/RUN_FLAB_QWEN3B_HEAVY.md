@@ -41,6 +41,8 @@ scripts/run/run_plan.sh \
   --include-disabled
 ```
 
+The job intentionally uses `--device-map cuda:0` instead of `auto`. Flab-Pruner mutates linear layer weights in place, and `device_map=auto` can offload layers to CPU/meta tensors, which is incompatible with the current upstream pruning function.
+
 Expected success line:
 
 ```text
