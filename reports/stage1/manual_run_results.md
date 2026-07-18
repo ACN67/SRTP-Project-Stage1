@@ -19,3 +19,4 @@ Source: `reports/stage1/manual_run_results.jsonl`
 | 2026-07-18T18:47:30+08:00 | shared | qwen_adaptation | `write_qwen_model_manifests` | success | 1.118 | 0 | `results/raw/write_qwen_model_manifests_20260718_184729` |
 | 2026-07-18T19:33:09+08:00 | 潘阔 | benchmark_pipeline | `create_lcb_swebench_smoke_splits` | success | 1813.722 | 0 | `results/raw/create_lcb_swebench_smoke_splits_20260718_190255` |
 | 2026-07-18T19:34:12+08:00 | shared | common | `stage1_readiness_check` | success | 0.125 | 0 | `results/raw/stage1_readiness_check_20260718_193412` |
+| 2026-07-18T19:40:16+08:00 | 常珂舒 | structured_depth_width | `flab_qwen3b_humaneval_dry_run` | success | 9.298 | 0 | `results/raw/flab_qwen3b_humaneval_dry_run_20260718_194007` |

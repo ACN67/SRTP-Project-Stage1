@@ -3,7 +3,7 @@
 Owner: 常珂舒  
 Group: structured_depth_width  
 Stage: 1  
-Current status: R0 inspected, Qwen path promising but not directly runnable for Qwen2.5-Coder-3B without patching.
+Current status: R0 inspected, Qwen 3B project wrapper dry-run succeeded; heavy pruning run pending.
 
 ## Upstream State
 
@@ -59,3 +59,47 @@ A project-compatible Flab-Pruner path should:
 Flab-Pruner should be prioritized for Qwen 3B target adaptation after the benchmark guide/eval split interface is created.
 
 Until the CLI and path constants are patched, it should be recorded as R0 inspected and Qwen-promising, not as R1/R2 complete.
+
+## Project Wrapper
+
+The project-side wrapper is:
+
+```text
+scripts/adapt/flab_qwen_prune.py
+```
+
+It avoids editing the upstream repository directly and provides:
+
+- `--model`
+- `--guide-file`
+- `--save-dir`
+- `--stage`
+- `--prune-ratio`
+- `--dry-run`
+- explicit remain-size overrides
+
+Dry-run status:
+
+```text
+Run ID: flab_qwen3b_humaneval_dry_run_20260718_194007
+Model: Qwen/Qwen2.5-Coder-3B-Instruct
+Guide: data/splits/humaneval/guide.jsonl
+Stage: top
+Requested prune ratio: 0.10
+Status: success
+```
+
+Dry-run plan:
+
+```text
+hidden_size: 2048 -> 1792
+intermediate_size: 11008 -> 9728
+attention_heads: 16 -> 14
+kv_heads: 2 -> 2
+head_dim: 128 -> 128
+rough parameter ratio: 0.7923
+```
+
+Important limitation:
+
+The current wrapper validates and records benchmark guide input, but upstream Flab's Qwen2 prune path still uses structural `top` / `bottom` / `random` style mask selection. A further scoring patch is required before claiming fully benchmark-guided pruning decisions.
