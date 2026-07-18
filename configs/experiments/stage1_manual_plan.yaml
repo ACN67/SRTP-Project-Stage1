@@ -275,6 +275,26 @@ jobs:
   role: R2结构探测/适配前检查
   recommended_machine: any with network
   cross_reproduction_by: shared
+- id: qwen25_coder_3b_config_probe
+  enabled: false
+  heavy: false
+  env: common
+  cwd: .
+  tags:
+  - Q3
+  - Qwen
+  - Qwen2.5-Coder
+  - adapter-probe
+  - comparison-target
+  description: Lightweight Qwen2.5-Coder-3B config/tokenizer probe for the Stage 1 Qwen 3B pruning comparison target. Does not load model weights.
+  command: python scripts/audit/probe_qwen_model.py --model Qwen/Qwen2.5-Coder-3B-Instruct --output "$RUN_DIR/qwen_probe.json"
+  timeout_seconds: 900
+  owner: shared
+  method_group: qwen_adaptation
+  method: Qwen2.5-Coder
+  role: Q3结构探测/3B对比目标检查
+  recommended_machine: any with network
+  cross_reproduction_by: shared
 - id: livecodebench_import_and_help
   enabled: false
   heavy: false

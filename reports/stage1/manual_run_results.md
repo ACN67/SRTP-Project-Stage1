@@ -11,3 +11,4 @@ Source: `reports/stage1/manual_run_results.jsonl`
 | 2026-07-18T17:56:46+08:00 | 常珂舒 | structured_depth_width | `llmpruner_tiny_llama_layerwise_smoke` | success | 42.282 | 0 | `results/raw/llmpruner_tiny_llama_layerwise_smoke_20260718_175604` |
 | 2026-07-18T17:57:43+08:00 | 常珂舒 | structured_depth_width | `llmpruner_tiny_llama_layerwise_smoke` | success | 34.275 | 0 | `results/raw/llmpruner_tiny_llama_layerwise_smoke_20260718_175708` |
 | 2026-07-18T18:21:58+08:00 | shared | qwen_adaptation | `qwen25_coder_15b_config_probe` | success | 14.468 | 0 | `results/raw/qwen25_coder_15b_config_probe_20260718_182144` |
+| 2026-07-18T18:30:05+08:00 | shared | qwen_adaptation | `qwen25_coder_3b_config_probe` | success | 11.611 | 0 | `results/raw/qwen25_coder_3b_config_probe_20260718_182954` |
