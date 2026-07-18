@@ -333,6 +333,26 @@ jobs:
   role: Benchmark smoke guide/eval split generation
   recommended_machine: any with network
   cross_reproduction_by: shared
+- id: create_lcb_swebench_smoke_splits
+  enabled: false
+  heavy: true
+  env: livecodebench
+  cwd: .
+  tags:
+  - benchmark
+  - split
+  - LiveCodeBench
+  - SWE-bench
+  - smoke
+  description: Create deterministic 4-guide/4-eval smoke splits for LiveCodeBench and SWE-bench Lite. May take time while downloading datasets.
+  command: python scripts/data/create_lcb_swebench_smoke_splits.py --guide-count 4 --eval-count 4
+  timeout_seconds: 7200
+  owner: 潘阔
+  method_group: benchmark_pipeline
+  method: LiveCodeBench-SWE-bench-Lite
+  role: Benchmark smoke guide/eval split generation
+  recommended_machine: any with stable network
+  cross_reproduction_by: shared
 - id: write_qwen_model_manifests
   enabled: false
   heavy: false
