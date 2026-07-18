@@ -192,6 +192,28 @@ jobs:
   role: 官方R1模板/结构化代表
   recommended_machine: RTX 4060 or RTX 5060
   cross_reproduction_by: 常珂舒
+- id: llmpruner_tiny_llama_layerwise_smoke
+  enabled: false
+  heavy: true
+  env: llm_pruner
+  cwd: third_party/llm_pruner
+  tags:
+  - R1
+  - official
+  - LLM-Pruner
+  - tiny-llama
+  - smoke
+  description: LLM-Pruner official hf_prune.py layer-wise smoke on a tiny random LLaMA-compatible model.
+  command: "python hf_prune.py \\\n  --base_model trl-internal-testing/tiny-random-LlamaForCausalLM \\\n  --save_ckpt_log_name\
+    \ \"$RUN_ID\" \\\n  --pruning_ratio 0.5 \\\n  --pruner_type l2 \\\n  --layer_wise \\\n  --layer 1 \\\n  --max_seq_len\
+    \ 64 \\\n  --device cuda \\\n  --eval_device cuda \\\n  --seed 42"
+  timeout_seconds: 7200
+  owner: 常珂舒
+  method_group: structured_depth_width
+  method: LLM-Pruner
+  role: 官方R1最小smoke/tiny LLaMA layer-wise
+  recommended_machine: RTX 5060 preferred
+  cross_reproduction_by: 潘阔
 - id: slicegpt_opt125m_smoke
   enabled: false
   heavy: true
