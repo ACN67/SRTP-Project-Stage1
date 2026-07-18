@@ -10,7 +10,7 @@ humaneval_guide,True,HumanEval guide split present
 humaneval_eval,True,HumanEval eval split present
 mbpp_guide,True,MBPP guide split present
 mbpp_eval,True,MBPP eval split present
-livecodebench_guide,False,LiveCodeBench guide split present
-livecodebench_eval,False,LiveCodeBench eval split present
-swebench_guide,False,SWE-bench Lite guide split present
-swebench_eval,False,SWE-bench Lite eval split present
+livecodebench_guide,True,LiveCodeBench guide split present
+livecodebench_eval,True,LiveCodeBench eval split present
+swebench_guide,True,SWE-bench Lite guide split present
+swebench_eval,True,SWE-bench Lite eval split present
