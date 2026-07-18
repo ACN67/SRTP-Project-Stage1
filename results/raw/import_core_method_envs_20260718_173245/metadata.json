@@ -1,0 +1,22 @@
+{
+  "job_id": "import_core_method_envs",
+  "run_id": "import_core_method_envs_20260718_173245",
+  "description": "Light import checks for the most important method environments.",
+  "tags": [],
+  "owner": "shared",
+  "method_group": "common",
+  "method": "environment",
+  "role": "公共方法环境导入检查",
+  "recommended_machine": "all",
+  "cross_reproduction_by": "",
+  "heavy": false,
+  "start_time": "2026-07-18T17:32:45+08:00",
+  "cwd": "/home/keshu/projects/srtp-code-llm-pruning",
+  "env": "common",
+  "command": ".venv-wanda/bin/python -c \"import torch, transformers, datasets; print('wanda', torch.cuda.is_available(), torch.__version__, transformers.__version__)\"\n.venv-sparsegpt/bin/python -c \"import torch, transformers, datasets; print('sparsegpt', torch.cuda.is_available(), torch.__version__, transformers.__version__)\"\n.venv-llm_pruner/bin/python -c \"import torch, transformers, peft; print('llm_pruner', torch.cuda.is_available(), torch.__version__, transformers.__version__)\"\n.venv-slicegpt/bin/python -c \"import torch, transformers, slicegpt; print('slicegpt', torch.cuda.is_available(), torch.__version__, transformers.__version__)\"\n.venv-livecodebench/bin/python -c \"import torch, lcb_runner; print('livecodebench', torch.cuda.is_available(), torch.__version__)\"\n",
+  "effective_command": "set -euo pipefail && cd /home/keshu/projects/srtp-code-llm-pruning && source scripts/setup/env.sh && source .venv-common/bin/activate && cd /home/keshu/projects/srtp-code-llm-pruning && .venv-wanda/bin/python -c \"import torch, transformers, datasets; print('wanda', torch.cuda.is_available(), torch.__version__, transformers.__version__)\"\n.venv-sparsegpt/bin/python -c \"import torch, transformers, datasets; print('sparsegpt', torch.cuda.is_available(), torch.__version__, transformers.__version__)\"\n.venv-llm_pruner/bin/python -c \"import torch, transformers, peft; print('llm_pruner', torch.cuda.is_available(), torch.__version__, transformers.__version__)\"\n.venv-slicegpt/bin/python -c \"import torch, transformers, slicegpt; print('slicegpt', torch.cuda.is_available(), torch.__version__, transformers.__version__)\"\n.venv-livecodebench/bin/python -c \"import torch, lcb_runner; print('livecodebench', torch.cuda.is_available(), torch.__version__)\"\n",
+  "run_dir": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/import_core_method_envs_20260718_173245",
+  "host": "AC-LAPTOP",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.11.15 (main, May 10 2026, 19:28:18) [Clang 22.1.3 ]"
+}

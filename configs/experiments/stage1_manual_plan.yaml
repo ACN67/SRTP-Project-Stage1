@@ -192,6 +192,28 @@ jobs:
   role: 官方R1模板/结构化代表
   recommended_machine: RTX 4060 or RTX 5060
   cross_reproduction_by: 常珂舒
+- id: slicegpt_opt125m_smoke
+  enabled: false
+  heavy: true
+  env: slicegpt
+  cwd: third_party/slicegpt/experiments
+  tags:
+  - R1
+  - official
+  - SliceGPT
+  - OPT-125M
+  - smoke
+  description: SliceGPT official pipeline on facebook/opt-125m with tiny calibration/eval settings for first local smoke reproduction.
+  command: "python run_slicegpt.py \\\n  --model facebook/opt-125m \\\n  --save-dir \"$RUN_DIR/sliced_model\" \\\n  --sparsity\
+    \ 0.1 \\\n  --cal-dataset wikitext2 \\\n  --cal-nsamples 4 \\\n  --cal-batch-size 1 \\\n  --cal-max-seqlen 128 \\\n  --ppl-eval-nsamples\
+    \ 4 \\\n  --ppl-eval-batch-size 1 \\\n  --ppl-eval-seqlen 128 \\\n  --device cuda:0 \\\n  --no-wandb"
+  timeout_seconds: 7200
+  owner: 常珂舒
+  method_group: structured_depth_width
+  method: SliceGPT
+  role: 官方R1最小smoke/OPT小模型
+  recommended_machine: RTX 5060 preferred
+  cross_reproduction_by: 潘阔
 - id: slicegpt_phi2_template
   enabled: false
   heavy: true
