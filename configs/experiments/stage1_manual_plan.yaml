@@ -256,6 +256,25 @@ jobs:
   role: 官方R1模板/维度剪枝
   recommended_machine: RTX 5060 preferred
   cross_reproduction_by: 潘阔
+- id: qwen25_coder_15b_config_probe
+  enabled: false
+  heavy: false
+  env: common
+  cwd: .
+  tags:
+  - R2
+  - Qwen
+  - Qwen2.5-Coder
+  - adapter-probe
+  description: Lightweight Qwen2.5-Coder-1.5B config/tokenizer probe for R2 adaptation planning. Does not load model weights.
+  command: python scripts/audit/probe_qwen_model.py --model Qwen/Qwen2.5-Coder-1.5B-Instruct --output "$RUN_DIR/qwen_probe.json"
+  timeout_seconds: 900
+  owner: shared
+  method_group: qwen_adaptation
+  method: Qwen2.5-Coder
+  role: R2结构探测/适配前检查
+  recommended_machine: any with network
+  cross_reproduction_by: shared
 - id: livecodebench_import_and_help
   enabled: false
   heavy: false

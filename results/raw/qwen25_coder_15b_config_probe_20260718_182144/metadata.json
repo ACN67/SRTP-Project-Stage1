@@ -1,0 +1,27 @@
+{
+  "job_id": "qwen25_coder_15b_config_probe",
+  "run_id": "qwen25_coder_15b_config_probe_20260718_182144",
+  "description": "Lightweight Qwen2.5-Coder-1.5B config/tokenizer probe for R2 adaptation planning. Does not load model weights.",
+  "tags": [
+    "R2",
+    "Qwen",
+    "Qwen2.5-Coder",
+    "adapter-probe"
+  ],
+  "owner": "shared",
+  "method_group": "qwen_adaptation",
+  "method": "Qwen2.5-Coder",
+  "role": "R2结构探测/适配前检查",
+  "recommended_machine": "any with network",
+  "cross_reproduction_by": "shared",
+  "heavy": false,
+  "start_time": "2026-07-18T18:21:44+08:00",
+  "cwd": "/home/keshu/projects/srtp-code-llm-pruning",
+  "env": "common",
+  "command": "python scripts/audit/probe_qwen_model.py --model Qwen/Qwen2.5-Coder-1.5B-Instruct --output \"$RUN_DIR/qwen_probe.json\"",
+  "effective_command": "set -euo pipefail && cd /home/keshu/projects/srtp-code-llm-pruning && source scripts/setup/env.sh && source .venv-common/bin/activate && cd /home/keshu/projects/srtp-code-llm-pruning && python scripts/audit/probe_qwen_model.py --model Qwen/Qwen2.5-Coder-1.5B-Instruct --output \"$RUN_DIR/qwen_probe.json\"",
+  "run_dir": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/qwen25_coder_15b_config_probe_20260718_182144",
+  "host": "AC-LAPTOP",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.11.15 (main, May 10 2026, 19:28:18) [Clang 22.1.3 ]"
+}
