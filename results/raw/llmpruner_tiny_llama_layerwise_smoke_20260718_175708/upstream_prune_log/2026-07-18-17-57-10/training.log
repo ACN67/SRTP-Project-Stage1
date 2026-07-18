@@ -1,0 +1,5 @@
+2026-07-18 17:57:12 - INFO :       Use l2 pruner...
+2026-07-18 17:57:12 - INFO :       #Param before: 1032272, #Param after: 1028144, Ratio = 99.6001%
+2026-07-18 17:57:42 - INFO :       PPL after pruning: {'wikitext2': 32299.676704110814, 'ptb': 32553.006208238}
+2026-07-18 17:57:42 - INFO :       Memory Requirement: 10.11962890625 MiB
+

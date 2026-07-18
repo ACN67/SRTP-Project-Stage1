@@ -1,0 +1,11 @@
+set -euo pipefail && cd /home/keshu/projects/srtp-code-llm-pruning && source scripts/setup/env.sh && source .venv-llm_pruner/bin/activate && cd /home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner && python hf_prune.py \
+  --base_model trl-internal-testing/tiny-random-LlamaForCausalLM \
+  --save_ckpt_log_name "$RUN_ID" \
+  --pruning_ratio 0.5 \
+  --pruner_type l2 \
+  --layer_wise \
+  --layer 1 \
+  --max_seq_len 64 \
+  --device cuda \
+  --eval_device cuda \
+  --seed 42

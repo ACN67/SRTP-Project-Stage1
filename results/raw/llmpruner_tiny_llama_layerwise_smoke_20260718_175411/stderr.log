@@ -1,0 +1,35 @@
+/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+You are using the legacy behaviour of the <class 'transformers.models.llama.tokenization_llama.LlamaTokenizer'>. This means that tokens that come after special tokens will not be properly handled. We recommend you to read the related pull request available at https://github.com/huggingface/transformers/pull/24565
+/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+2026-07-18 17:54:17 - INFO :       Use l2 pruner...
+2026-07-18 17:54:17 - INFO :       #Param before: 1032272, #Param after: 1028144, Ratio = 99.6001%
+Token indices sequence length is longer than the specified maximum sequence length for this model (341469 > 2048). Running this sequence through the model will result in indexing errors
+  0%|          | 0/1334 [00:00<?, ?it/s]  0%|          | 1/1334 [00:00<11:20,  1.96it/s]  1%|▏         | 19/1334 [00:00<00:32, 40.63it/s]  4%|▍         | 56/1334 [00:00<00:10, 118.59it/s]  9%|▉         | 119/1334 [00:00<00:04, 246.89it/s] 13%|█▎        | 178/1334 [00:00<00:03, 336.77it/s] 18%|█▊        | 239/1334 [00:01<00:02, 410.75it/s] 22%|██▏       | 300/1334 [00:01<00:02, 466.54it/s] 27%|██▋       | 359/1334 [00:01<00:01, 501.14it/s] 31%|███▏      | 419/1334 [00:01<00:01, 527.57it/s] 36%|███▌      | 476/1334 [00:01<00:01, 531.33it/s] 40%|███▉      | 532/1334 [00:01<00:01, 533.44it/s] 44%|████▍     | 588/1334 [00:01<00:01, 531.83it/s] 48%|████▊     | 643/1334 [00:01<00:01, 533.87it/s] 52%|█████▏    | 698/1334 [00:01<00:01, 533.99it/s] 56%|█████▋    | 753/1334 [00:01<00:01, 530.65it/s] 61%|██████    | 809/1334 [00:02<00:00, 536.87it/s] 65%|██████▍   | 864/1334 [00:02<00:00, 540.57it/s] 69%|██████▉   | 919/1334 [00:02<00:00, 541.88it/s] 73%|███████▎  | 977/1334 [00:02<00:00, 551.93it/s] 78%|███████▊  | 1039/1334 [00:02<00:00, 571.55it/s] 83%|████████▎ | 1101/1334 [00:02<00:00, 584.41it/s] 87%|████████▋ | 1164/1334 [00:02<00:00, 596.36it/s] 92%|█████████▏| 1227/1334 [00:02<00:00, 603.95it/s] 97%|█████████▋| 1288/1334 [00:02<00:00, 602.72it/s]100%|██████████| 1334/1334 [00:02<00:00, 455.89it/s]
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/hf_prune.py", line 314, in <module>
+    main(args)
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/hf_prune.py", line 267, in main
+    ppl = PPLMetric(model, tokenizer, ['wikitext2', 'ptb'], args.max_seq_len, device=args.eval_device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/evaluator/ppl.py", line 10, in PPLMetric
+    _, test_loader = get_loaders(dataset, tokenizer, seq_len=seq_len, batch_size = batch_size)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/datasets/ppl_dataset.py", line 50, in get_loaders
+    train_data, test_data = get_ptb(seq_len, tokenizer)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/datasets/ppl_dataset.py", line 19, in get_ptb
+    traindata = load_dataset('ptb_text_only', 'penn_treebank', split='train')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/datasets/load.py", line 1698, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/datasets/load.py", line 1325, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/datasets/load.py", line 1217, in dataset_module_factory
+    raise e1 from None
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/datasets/load.py", line 1177, in dataset_module_factory
+    raise RuntimeError(f"Dataset scripts are no longer supported, but found {filename}")
+RuntimeError: Dataset scripts are no longer supported, but found ptb_text_only.py

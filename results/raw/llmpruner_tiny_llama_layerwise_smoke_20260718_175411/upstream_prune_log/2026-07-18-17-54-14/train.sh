@@ -1,0 +1,1 @@
+python hf_prune.py --base_model trl-internal-testing/tiny-random-LlamaForCausalLM --save_ckpt_log_name llmpruner_tiny_llama_layerwise_smoke_20260718_175411 --pruning_ratio 0.5 --pruner_type l2 --layer_wise --layer 1 --max_seq_len 64 --device cuda --eval_device cuda --seed 42
