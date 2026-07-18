@@ -1,0 +1,35 @@
+/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Running SliceGPT experiment.
+PyTorch device: cuda:0
+Number of available cuda devices: 1
+Loading facebook/opt-125m config and model weights from Hugging Face
+Loading model done
+Loading dataset: wikitext2
+Downloading readme: 0.00B [00:00, ?B/s]Downloading readme: 10.5kB [00:00, 27.5MB/s]
+Downloading data:   0%|          | 0.00/733k [00:00<?, ?B/s]Downloading data: 100%|██████████| 733k/733k [00:01<00:00, 443kB/s]Downloading data: 100%|██████████| 733k/733k [00:01<00:00, 443kB/s]
+Downloading data:   0%|          | 0.00/6.36M [00:00<?, ?B/s]Downloading data: 100%|██████████| 6.36M/6.36M [00:02<00:00, 2.46MB/s]Downloading data: 100%|██████████| 6.36M/6.36M [00:02<00:00, 2.46MB/s]
+Downloading data:   0%|          | 0.00/657k [00:00<?, ?B/s]Downloading data: 100%|██████████| 657k/657k [00:01<00:00, 467kB/s]Downloading data: 100%|██████████| 657k/657k [00:01<00:00, 466kB/s]
+Generating test split:   0%|          | 0/4358 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 4358/4358 [00:00<00:00, 179658.12 examples/s]
+Generating train split:   0%|          | 0/36718 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 36718/36718 [00:00<00:00, 1024960.43 examples/s]
+Generating validation split:   0%|          | 0/3760 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 3760/3760 [00:00<00:00, 1078846.84 examples/s]
+Loading dataset done
+Preparing dataloader
+Filter:   0%|          | 0/36718 [00:00<?, ? examples/s]Filter: 100%|██████████| 36718/36718 [00:00<00:00, 869326.78 examples/s]
+Preparing dataloader done
+Preparing test dataloader
+Preparing test dataloader done
+Replacing layers
+Replacing layers done
+Fusing layernorm modules
+Fusing layernorm modules done
+Original model parameters: 163,860,064
+New embedding dimension: 688 (sparsity 10.4167 %)
+Rotate and slice layers
+Rotating and slicing:   0%|          | 0/12 [00:00<?, ?layer/s]Rotating and slicing:   8%|▊         | 1/12 [00:00<00:08,  1.27layer/s]Rotating and slicing:  17%|█▋        | 2/12 [00:01<00:06,  1.59layer/s]Rotating and slicing:  25%|██▌       | 3/12 [00:01<00:05,  1.75layer/s]Rotating and slicing:  33%|███▎      | 4/12 [00:02<00:04,  1.76layer/s]Rotating and slicing:  42%|████▏     | 5/12 [00:02<00:03,  1.81layer/s]Rotating and slicing:  50%|█████     | 6/12 [00:03<00:03,  1.88layer/s]Rotating and slicing:  58%|█████▊    | 7/12 [00:03<00:02,  1.87layer/s]Rotating and slicing:  67%|██████▋   | 8/12 [00:04<00:02,  1.90layer/s]Rotating and slicing:  75%|███████▌  | 9/12 [00:05<00:01,  1.85layer/s]Rotating and slicing:  83%|████████▎ | 10/12 [00:05<00:01,  1.84layer/s]Rotating and slicing:  92%|█████████▏| 11/12 [00:06<00:00,  1.79layer/s]Rotating and slicing: 100%|██████████| 12/12 [00:06<00:00,  1.81layer/s]Rotating and slicing: 100%|██████████| 12/12 [00:06<00:00,  1.79layer/s]
+Rotate and slice layers done
+Saved sliced model to /home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_opt125m_smoke_20260718_173646/sliced_model
+Evaluating perplexity...
+Time spent on evaluation: 00:00:20.2212
+After rotating and slicing 1050.7227
+Sliced model parameters: 162,486,160 (sliced fraction 0.0084)

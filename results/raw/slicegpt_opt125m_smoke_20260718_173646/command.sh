@@ -1,0 +1,13 @@
+set -euo pipefail && cd /home/keshu/projects/srtp-code-llm-pruning && source scripts/setup/env.sh && source .venv-slicegpt/bin/activate && cd /home/keshu/projects/srtp-code-llm-pruning/third_party/slicegpt/experiments && python run_slicegpt.py \
+  --model facebook/opt-125m \
+  --save-dir "$RUN_DIR/sliced_model" \
+  --sparsity 0.1 \
+  --cal-dataset wikitext2 \
+  --cal-nsamples 4 \
+  --cal-batch-size 1 \
+  --cal-max-seqlen 128 \
+  --ppl-eval-nsamples 4 \
+  --ppl-eval-batch-size 1 \
+  --ppl-eval-seqlen 128 \
+  --device cuda:0 \
+  --no-wandb
