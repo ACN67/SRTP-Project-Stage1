@@ -1,0 +1,58 @@
+=== Run ID ===
+flab_qwen3b_pruned_humaneval_smoke_eval_20260721_182050
+
+=== Generate evalplus samples ===
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/435 [00:00<?, ?it/s]Loading weights:   0%|          | 1/435 [00:00<04:56,  1.46it/s]Loading weights:  17%|█▋        | 75/435 [00:00<00:02, 128.54it/s]Loading weights:  27%|██▋       | 118/435 [00:00<00:02, 154.09it/s]Loading weights:  35%|███▍      | 151/435 [00:01<00:01, 168.08it/s]Loading weights:  41%|████      | 179/435 [00:01<00:01, 187.12it/s]Loading weights:  48%|████▊     | 207/435 [00:01<00:01, 201.88it/s]Loading weights:  54%|█████▍    | 234/435 [00:01<00:01, 190.74it/s]Loading weights:  59%|█████▉    | 258/435 [00:01<00:00, 200.71it/s]Loading weights:  65%|██████▍   | 282/435 [00:01<00:00, 202.72it/s]Loading weights:  70%|███████   | 305/435 [00:01<00:00, 202.40it/s]Loading weights:  78%|███████▊  | 340/435 [00:02<00:00, 222.89it/s]Loading weights:  84%|████████▎ | 364/435 [00:02<00:00, 218.99it/s]Loading weights:  89%|████████▉ | 388/435 [00:02<00:00, 207.36it/s]Loading weights:  95%|█████████▍| 413/435 [00:02<00:00, 215.30it/s]Loading weights: 100%|██████████| 435/435 [00:02<00:00, 179.99it/s]
+{"task_id": "HumanEval/101", "completion_chars": 725, "gen_seconds": 7.491}
+{"task_id": "HumanEval/102", "completion_chars": 299, "gen_seconds": 6.795}
+{"task_id": "HumanEval/103", "completion_chars": 270, "gen_seconds": 6.931}
+{"task_id": "HumanEval/104", "completion_chars": 258, "gen_seconds": 6.856}
+{
+  "status": "success",
+  "model": "results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006/flab_qwen3b_humaneval/pruned_model",
+  "split": "data/splits/humaneval/eval.jsonl",
+  "samples": "results/raw/flab_qwen3b_pruned_humaneval_smoke_eval_20260721_182050/samples.jsonl",
+  "generations": "results/raw/flab_qwen3b_pruned_humaneval_smoke_eval_20260721_182050/generations.jsonl",
+  "task_count": 4,
+  "elapsed_seconds": 31.673887252807617,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}
+
+=== Score HumanEval smoke split ===
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval/eval.jsonl",
+  "samples": "results/raw/flab_qwen3b_pruned_humaneval_smoke_eval_20260721_182050/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 4
+  }
+}
+
+=== Score summary ===
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval/eval.jsonl",
+  "samples": "results/raw/flab_qwen3b_pruned_humaneval_smoke_eval_20260721_182050/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 4
+  }
+}
+=== Score details ===
+{"task_id": "HumanEval/101", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}
+{"task_id": "HumanEval/102", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}
+{"task_id": "HumanEval/103", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}
+{"task_id": "HumanEval/104", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}

@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "model": "results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006/flab_qwen3b_humaneval/pruned_model",
+  "split": "data/splits/humaneval/eval.jsonl",
+  "samples": "results/raw/flab_qwen3b_pruned_humaneval_smoke_eval_20260721_182050/samples.jsonl",
+  "generations": "results/raw/flab_qwen3b_pruned_humaneval_smoke_eval_20260721_182050/generations.jsonl",
+  "task_count": 4,
+  "elapsed_seconds": 31.673887252807617,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}
