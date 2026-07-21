@@ -1,0 +1,31 @@
+=== Run ID ===
+flab_qwen3b_pruned_load_generate_check_20260721_173111
+
+=== Model dir ===
+results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006/flab_qwen3b_humaneval/pruned_model
+chat_template.jinja	2507 bytes
+config.json	1576 bytes
+model.safetensors	5383473264 bytes
+tokenizer.json	11421892 bytes
+tokenizer_config.json	693 bytes
+
+=== Python / CUDA ===
+torch: 2.11.0+cu128
+cuda_available: True
+gpu: NVIDIA GeForce RTX 5060 Laptop GPU
+vram_gb: 7.96
+
+=== Load and generate ===
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/435 [00:00<?, ?it/s]Loading weights:   0%|          | 1/435 [00:00<04:52,  1.48it/s]Loading weights:  12%|█▏        | 52/435 [00:00<00:04, 89.42it/s]Loading weights:  19%|█▊        | 81/435 [00:00<00:02, 123.53it/s]Loading weights:  25%|██▍       | 108/435 [00:01<00:02, 154.52it/s]Loading weights:  31%|███       | 135/435 [00:01<00:01, 178.10it/s]Loading weights:  37%|███▋      | 161/435 [00:01<00:01, 170.92it/s]Loading weights:  42%|████▏     | 184/435 [00:01<00:01, 172.86it/s]Loading weights:  48%|████▊     | 209/435 [00:01<00:01, 189.31it/s]Loading weights:  53%|█████▎    | 232/435 [00:01<00:01, 187.17it/s]Loading weights:  59%|█████▉    | 256/435 [00:01<00:01, 178.29it/s]Loading weights:  63%|██████▎   | 276/435 [00:01<00:00, 181.57it/s]Loading weights:  68%|██████▊   | 296/435 [00:02<00:00, 170.44it/s]Loading weights:  73%|███████▎  | 316/435 [00:02<00:00, 171.99it/s]Loading weights:  78%|███████▊  | 340/435 [00:02<00:00, 175.25it/s]Loading weights:  82%|████████▏ | 358/435 [00:03<00:01, 58.51it/s] Loading weights:  86%|████████▌ | 372/435 [00:04<00:01, 34.88it/s]Loading weights:  89%|████████▉ | 388/435 [00:04<00:01, 41.52it/s]Loading weights:  92%|█████████▏| 400/435 [00:04<00:00, 44.53it/s]Loading weights:  95%|█████████▍| 412/435 [00:04<00:00, 51.76it/s]Loading weights:  98%|█████████▊| 426/435 [00:04<00:00, 62.90it/s]Loading weights: 100%|██████████| 435/435 [00:04<00:00, 91.83it/s]
+{
+  "status": "success",
+  "model_dir": "results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006/flab_qwen3b_humaneval/pruned_model",
+  "prompt": "Write a Python function add(a, b) that returns the sum of a and b.",
+  "generated_text": "Write a Python function add(a, b) that returns the sum of a and b.\n ”号文编\n\n语言学\n学\n学\n 语言学\n式样\n 语法\n型\n\n\n\n\n 丁\n是上天\n是下天 何是下天\n\n法式化文是上天了天是天天天的是天天的是天的是天的是的是天的是的是天的是的是天的是的是天的是的是天的是天的是天的是天的是天的是天的是天的是",
+  "load_seconds": 6.375316619873047,
+  "generate_seconds": 3.5493671894073486,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}

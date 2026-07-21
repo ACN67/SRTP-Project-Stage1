@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "model_dir": "results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006/flab_qwen3b_humaneval/pruned_model",
+  "prompt": "Write a Python function add(a, b) that returns the sum of a and b.",
+  "generated_text": "Write a Python function add(a, b) that returns the sum of a and b.\n ”号文编\n\n语言学\n学\n学\n 语言学\n式样\n 语法\n型\n\n\n\n\n 丁\n是上天\n是下天 何是下天\n\n法式化文是上天了天是天天天的是天天的是天的是天的是的是天的是的是天的是的是天的是的是天的是的是天的是天的是天的是天的是天的是天的是天的是",
+  "load_seconds": 6.375316619873047,
+  "generate_seconds": 3.5493671894073486,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}
