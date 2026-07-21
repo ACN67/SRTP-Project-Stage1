@@ -1,0 +1,58 @@
+=== Run ID ===
+flab_qwen3b_pruned_mbpp_smoke_eval_20260721_185132
+
+=== Generate evalplus samples ===
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/435 [00:00<?, ?it/s]Loading weights:   0%|          | 1/435 [00:00<04:55,  1.47it/s]Loading weights:  15%|█▍        | 64/435 [00:00<00:03, 109.37it/s]Loading weights:  23%|██▎       | 100/435 [00:00<00:02, 144.62it/s]Loading weights:  30%|███       | 131/435 [00:01<00:01, 170.59it/s]Loading weights:  37%|███▋      | 160/435 [00:01<00:01, 179.43it/s]Loading weights:  43%|████▎     | 186/435 [00:01<00:01, 188.29it/s]Loading weights:  48%|████▊     | 210/435 [00:01<00:01, 194.47it/s]Loading weights:  56%|█████▌    | 244/435 [00:01<00:00, 207.54it/s]Loading weights:  62%|██████▏   | 268/435 [00:01<00:00, 201.83it/s]Loading weights:  68%|██████▊   | 294/435 [00:01<00:00, 215.65it/s]Loading weights:  73%|███████▎  | 318/435 [00:01<00:00, 220.99it/s]Loading weights:  79%|███████▊  | 342/435 [00:02<00:00, 223.66it/s]Loading weights:  84%|████████▍ | 366/435 [00:02<00:00, 223.14it/s]Loading weights:  89%|████████▉ | 389/435 [00:02<00:00, 221.89it/s]Loading weights:  95%|█████████▍| 413/435 [00:02<00:00, 220.64it/s]Loading weights: 100%|██████████| 435/435 [00:02<00:00, 181.62it/s]
+{"task_id": "Mbpp/17", "completion_chars": 266, "gen_seconds": 7.23}
+{"task_id": "Mbpp/18", "completion_chars": 406, "gen_seconds": 6.707}
+{"task_id": "Mbpp/19", "completion_chars": 458, "gen_seconds": 6.77}
+{"task_id": "Mbpp/20", "completion_chars": 274, "gen_seconds": 6.699}
+{
+  "status": "success",
+  "model": "results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006/flab_qwen3b_humaneval/pruned_model",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "results/raw/flab_qwen3b_pruned_mbpp_smoke_eval_20260721_185132/samples.jsonl",
+  "generations": "results/raw/flab_qwen3b_pruned_mbpp_smoke_eval_20260721_185132/generations.jsonl",
+  "task_count": 4,
+  "elapsed_seconds": 30.92323613166809,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}
+
+=== Score MBPP smoke split ===
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "results/raw/flab_qwen3b_pruned_mbpp_smoke_eval_20260721_185132/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 4
+  }
+}
+
+=== Score summary ===
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "results/raw/flab_qwen3b_pruned_mbpp_smoke_eval_20260721_185132/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 4
+  }
+}
+=== Score details ===
+{"task_id": "Mbpp/17", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}
+{"task_id": "Mbpp/18", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}
+{"task_id": "Mbpp/19", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}
+{"task_id": "Mbpp/20", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}
