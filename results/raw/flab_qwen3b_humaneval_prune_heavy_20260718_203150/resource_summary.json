@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_203150/resource.csv",
+  "sample_count": 5,
+  "duration_observed_sec": 20.249,
+  "peak_process_rss_mb": 2250.83,
+  "mean_process_rss_mb": 1362.626,
+  "peak_gpu_memory_used_mb": 7557.0,
+  "mean_gpu_memory_used_mb": 4438.4,
+  "first_timestamp": "2026-07-18T20:31:50+08:00",
+  "last_timestamp": "2026-07-18T20:32:10+08:00"
+}

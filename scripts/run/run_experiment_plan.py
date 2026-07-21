@@ -107,6 +107,43 @@ def monitor_resources(pid: int, csv_path: Path, stop: threading.Event, interval:
             stop.wait(interval)
 
 
+def summarize_resource_csv(path: Path) -> dict[str, Any]:
+    rows: list[dict[str, str]] = []
+    if not path.exists():
+        return {
+            "status": "missing",
+            "source": str(path),
+            "sample_count": 0,
+        }
+    with path.open("r", encoding="utf-8", newline="") as f:
+        rows = list(csv.DictReader(f))
+
+    def parse_float(value: str | None) -> float | None:
+        if value is None or value == "":
+            return None
+        try:
+            return float(value)
+        except ValueError:
+            return None
+
+    process_values = [v for row in rows if (v := parse_float(row.get("process_rss_mb"))) is not None]
+    gpu_values = [v for row in rows if (v := parse_float(row.get("gpu_memory_used_mb"))) is not None]
+    elapsed_values = [v for row in rows if (v := parse_float(row.get("elapsed_sec"))) is not None]
+
+    return {
+        "status": "success",
+        "source": str(path),
+        "sample_count": len(rows),
+        "duration_observed_sec": max(elapsed_values) if elapsed_values else None,
+        "peak_process_rss_mb": max(process_values) if process_values else None,
+        "mean_process_rss_mb": sum(process_values) / len(process_values) if process_values else None,
+        "peak_gpu_memory_used_mb": max(gpu_values) if gpu_values else None,
+        "mean_gpu_memory_used_mb": sum(gpu_values) / len(gpu_values) if gpu_values else None,
+        "first_timestamp": rows[0].get("timestamp") if rows else None,
+        "last_timestamp": rows[-1].get("timestamp") if rows else None,
+    }
+
+
 def append_jsonl(path: Path, row: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as f:
@@ -248,7 +285,19 @@ def run_job(job: dict[str, Any], plan: dict[str, Any], summary_path: Path) -> di
         "stdout": str(stdout_path),
         "stderr": str(stderr_path),
         "resource_csv": str(resource_path),
+        "resource_summary": str(run_dir / "resource_summary.json"),
     }
+    resource_summary = summarize_resource_csv(resource_path)
+    (run_dir / "resource_summary.json").write_text(
+        json.dumps(resource_summary, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    summary.update(
+        {
+            "peak_process_rss_mb": resource_summary.get("peak_process_rss_mb"),
+            "peak_gpu_memory_used_mb": resource_summary.get("peak_gpu_memory_used_mb"),
+        }
+    )
     (run_dir / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     append_jsonl(summary_path, summary)
     write_markdown_summary(summary_path, summary_path.with_suffix(".md"))

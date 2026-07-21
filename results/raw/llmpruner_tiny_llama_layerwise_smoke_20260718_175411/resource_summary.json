@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/llmpruner_tiny_llama_layerwise_smoke_20260718_175411/resource.csv",
+  "sample_count": 5,
+  "duration_observed_sec": 20.197,
+  "peak_process_rss_mb": 1604.47,
+  "mean_process_rss_mb": 834.5600000000001,
+  "peak_gpu_memory_used_mb": 809.0,
+  "mean_gpu_memory_used_mb": 702.4,
+  "first_timestamp": "2026-07-18T17:54:11+08:00",
+  "last_timestamp": "2026-07-18T17:54:32+08:00"
+}

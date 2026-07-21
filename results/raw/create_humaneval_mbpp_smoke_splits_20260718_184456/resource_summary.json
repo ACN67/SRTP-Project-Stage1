@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/create_humaneval_mbpp_smoke_splits_20260718_184456/resource.csv",
+  "sample_count": 1,
+  "duration_observed_sec": 0.0,
+  "peak_process_rss_mb": 3.5,
+  "mean_process_rss_mb": 3.5,
+  "peak_gpu_memory_used_mb": 606.0,
+  "mean_gpu_memory_used_mb": 606.0,
+  "first_timestamp": "2026-07-18T18:44:56+08:00",
+  "last_timestamp": "2026-07-18T18:44:56+08:00"
+}

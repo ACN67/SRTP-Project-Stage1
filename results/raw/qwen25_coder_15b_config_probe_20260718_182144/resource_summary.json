@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/qwen25_coder_15b_config_probe_20260718_182144/resource.csv",
+  "sample_count": 3,
+  "duration_observed_sec": 10.157,
+  "peak_process_rss_mb": 810.42,
+  "mean_process_rss_mb": 489.25999999999993,
+  "peak_gpu_memory_used_mb": 613.0,
+  "mean_gpu_memory_used_mb": 603.3333333333334,
+  "first_timestamp": "2026-07-18T18:21:44+08:00",
+  "last_timestamp": "2026-07-18T18:21:54+08:00"
+}

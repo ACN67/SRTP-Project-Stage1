@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/create_lcb_swebench_smoke_splits_20260718_190255/resource.csv",
+  "sample_count": 357,
+  "duration_observed_sec": 1810.705,
+  "peak_process_rss_mb": 5450.39,
+  "mean_process_rss_mb": 208.84324929971885,
+  "peak_gpu_memory_used_mb": 667.0,
+  "mean_gpu_memory_used_mb": 613.0336134453781,
+  "first_timestamp": "2026-07-18T19:02:55+08:00",
+  "last_timestamp": "2026-07-18T19:33:06+08:00"
+}

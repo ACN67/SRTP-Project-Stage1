@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/write_qwen_model_manifests_20260718_184729/resource.csv",
+  "sample_count": 1,
+  "duration_observed_sec": 0.0,
+  "peak_process_rss_mb": 3.55,
+  "mean_process_rss_mb": 3.55,
+  "peak_gpu_memory_used_mb": 606.0,
+  "mean_gpu_memory_used_mb": 606.0,
+  "first_timestamp": "2026-07-18T18:47:29+08:00",
+  "last_timestamp": "2026-07-18T18:47:29+08:00"
+}

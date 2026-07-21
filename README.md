@@ -15,11 +15,17 @@ docs/execution/stage1_execution.md
 The first stage focuses on six practical targets:
 
 - Reproduce official or author-recognized implementations of classical and mainstream pruning methods.
-- Check whether each method can be adapted to Qwen2.5-Coder small models.
+- Select a realistic pruning model for each method based on upstream support: use CodeLlama for LLaMA-compatible methods, keep Qwen2.5-Coder for methods with Qwen support, and otherwise use the method's officially supported model.
 - Build a unified experiment layout for HumanEval, MBPP, LiveCodeBench, and SWE-bench Lite.
-- Keep scripts, configs, logs, failures, results, and environment snapshots inside Git or Git LFS.
+- Keep scripts, configs, logs, failures, results, resource traces, metric summaries, and environment snapshots inside Git or Git LFS.
 - Make every successful or failed run traceable through metadata and logs.
 - Ensure at least one teammate can rerun another teammate's minimum reproduction.
+
+The active model-selection and metric policy is documented in:
+
+```text
+docs/stage1_model_selection_and_metrics.md
+```
 
 ## Method Scope
 
@@ -180,10 +186,12 @@ Typical contents:
 ```text
 metadata.json
 summary.json
+summary.md
 command.sh
 stdout.log
 stderr.log
 resource.csv
+resource_summary.json
 ```
 
 If a run fails, keep the run directory. Failed runs are part of the Stage 1 evidence and should not be deleted.
@@ -220,12 +228,13 @@ Configured on the current machine:
 Known caveats:
 
 - Current WSL distro is Ubuntu 26.04, while the execution book recommends Ubuntu 22.04 LTS for team parity.
-- Some upstream methods are LLaMA-family first and may require accessible model credentials or Qwen adapters.
+- Some upstream methods are LLaMA-family first. These should now use CodeLlama-family models where practical instead of forcing Qwen adapters.
+- Flab-Pruner remains the Qwen2.5-Coder path because it already includes Qwen2 support and has a successful Qwen3B pruning run.
 - SWE-bench Lite and LiveCodeBench integration may require additional benchmark-specific setup during formal evaluation.
 
 ## Recommended First Runs
 
-Start with small official reproductions before Qwen adaptation:
+Start with small official reproductions before method-family pruning:
 
 ```bash
 scripts/run/run_plan.sh --plan configs/experiments/stage1_manual_plan.yaml --only sparsegpt_opt125m_gmp_smoke --include-disabled

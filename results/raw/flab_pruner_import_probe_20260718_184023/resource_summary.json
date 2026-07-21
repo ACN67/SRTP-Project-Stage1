@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/flab_pruner_import_probe_20260718_184023/resource.csv",
+  "sample_count": 2,
+  "duration_observed_sec": 5.103,
+  "peak_process_rss_mb": 644.43,
+  "mean_process_rss_mb": 323.98999999999995,
+  "peak_gpu_memory_used_mb": 612.0,
+  "mean_gpu_memory_used_mb": 606.0,
+  "first_timestamp": "2026-07-18T18:40:23+08:00",
+  "last_timestamp": "2026-07-18T18:40:28+08:00"
+}

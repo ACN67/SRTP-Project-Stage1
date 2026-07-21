@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/flab_qwen3b_humaneval_dry_run_20260718_194007/resource.csv",
+  "sample_count": 2,
+  "duration_observed_sec": 5.1,
+  "peak_process_rss_mb": 736.2,
+  "mean_process_rss_mb": 369.88500000000005,
+  "peak_gpu_memory_used_mb": 609.0,
+  "mean_gpu_memory_used_mb": 605.5,
+  "first_timestamp": "2026-07-18T19:40:07+08:00",
+  "last_timestamp": "2026-07-18T19:40:12+08:00"
+}

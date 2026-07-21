@@ -1,14 +1,34 @@
-# Qwen Adaptation And Benchmark-Guided Pruning Plan
+# Historical Qwen Adaptation Plan
 
 Stage: 1  
+Status: superseded by `docs/stage1_model_selection_and_metrics.md`  
 Coverage model: Qwen/Qwen2.5-Coder-1.5B-Instruct  
 Comparison model: Qwen/Qwen2.5-Coder-3B-Instruct  
 Fallback base models: Qwen/Qwen2.5-Coder-1.5B and Qwen/Qwen2.5-Coder-3B  
 Goal: reproduce pruning methods, adapt representative methods to Qwen, prune Qwen 3B with benchmark guide data, and compare against Qwen 1.5B.
 
+## Current Policy Update
+
+This file records the earlier Qwen-only route. It is no longer the active policy for all methods.
+
+The active Stage 1 policy is:
+
+- Use Qwen2.5-Coder for methods with explicit Qwen/Qwen2 support, currently represented by Flab-Pruner.
+- Use CodeLlama-family models for methods whose official code supports LLaMA-family models, such as LLM-Pruner, SliceGPT, FLAP, SparseGPT/Wanda when their local LLaMA paths are used, and related methods.
+- Use each method's own officially supported model when CodeLlama is not practical.
+- Compare methods with normalized retention and resource-reduction metrics, not by raw scores across different base models.
+
+See:
+
+```text
+docs/stage1_model_selection_and_metrics.md
+```
+
 ## Why This Exists
 
-Stage 1 is not complete if it only reproduces OPT, LLaMA, or tiny random models. Those runs prove that upstream methods and local environments can execute, but the project target is pruning code LLMs, with Qwen2.5-Coder as the target family.
+This section reflects the earlier plan before the model-selection adjustment.
+
+Stage 1 is not complete if it only reproduces tiny random models. Those runs prove that upstream methods and local environments can execute, but the project target is pruning code LLMs. The current code-LLM families are method-dependent: Qwen2.5-Coder for Qwen-supported methods and CodeLlama for LLaMA-supported methods.
 
 The execution book uses Qwen2.5-Coder-1.5B as the coverage-first model and Qwen2.5-Coder-3B as the representative expansion model. The end target is not merely to show that Qwen can load; it is to prune Qwen 3B with benchmark guide data and compare the pruned result with Qwen 1.5B baselines.
 

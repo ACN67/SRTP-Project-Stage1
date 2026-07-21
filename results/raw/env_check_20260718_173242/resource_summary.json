@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/env_check_20260718_173242/resource.csv",
+  "sample_count": 1,
+  "duration_observed_sec": 0.0,
+  "peak_process_rss_mb": 3.59,
+  "mean_process_rss_mb": 3.59,
+  "peak_gpu_memory_used_mb": 652.0,
+  "mean_gpu_memory_used_mb": 652.0,
+  "first_timestamp": "2026-07-18T17:32:42+08:00",
+  "last_timestamp": "2026-07-18T17:32:42+08:00"
+}

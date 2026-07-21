@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/slicegpt_opt125m_smoke_20260718_173646/resource.csv",
+  "sample_count": 25,
+  "duration_observed_sec": 121.019,
+  "peak_process_rss_mb": 2395.84,
+  "mean_process_rss_mb": 1118.2352,
+  "peak_gpu_memory_used_mb": 1968.0,
+  "mean_gpu_memory_used_mb": 846.08,
+  "first_timestamp": "2026-07-18T17:36:46+08:00",
+  "last_timestamp": "2026-07-18T17:38:47+08:00"
+}

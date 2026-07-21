@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "results/raw/import_core_method_envs_20260718_173245/resource.csv",
+  "sample_count": 3,
+  "duration_observed_sec": 10.213,
+  "peak_process_rss_mb": 820.02,
+  "mean_process_rss_mb": 474.61999999999995,
+  "peak_gpu_memory_used_mb": 645.0,
+  "mean_gpu_memory_used_mb": 642.3333333333334,
+  "first_timestamp": "2026-07-18T17:32:45+08:00",
+  "last_timestamp": "2026-07-18T17:32:55+08:00"
+}
