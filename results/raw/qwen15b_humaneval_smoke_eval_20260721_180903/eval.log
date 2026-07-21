@@ -1,0 +1,50 @@
+=== Run ID ===
+qwen15b_humaneval_smoke_eval_20260721_180903
+
+=== Generate evalplus samples ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:55,  2.93it/s]Loading weights:  22%|██▏       | 76/338 [00:00<00:01, 222.99it/s]Loading weights:  36%|███▌      | 121/338 [00:00<00:00, 269.58it/s]Loading weights:  48%|████▊     | 162/338 [00:00<00:00, 269.18it/s]Loading weights:  58%|█████▊    | 197/338 [00:00<00:00, 274.30it/s]Loading weights:  68%|██████▊   | 231/338 [00:00<00:00, 279.89it/s]Loading weights:  79%|███████▊  | 266/338 [00:01<00:00, 296.82it/s]Loading weights:  88%|████████▊ | 299/338 [00:01<00:00, 292.40it/s]Loading weights:  98%|█████████▊| 331/338 [00:01<00:00, 281.57it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 259.36it/s]
+{"task_id": "HumanEval/101", "completion_chars": 699, "gen_seconds": 6.051}
+{"task_id": "HumanEval/102", "completion_chars": 313, "gen_seconds": 5.43}
+{"task_id": "HumanEval/103", "completion_chars": 488, "gen_seconds": 5.331}
+{"task_id": "HumanEval/104", "completion_chars": 228, "gen_seconds": 5.27}
+{
+  "status": "success",
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "split": "data/splits/humaneval/eval.jsonl",
+  "samples": "results/raw/qwen15b_humaneval_smoke_eval_20260721_180903/samples.jsonl",
+  "generations": "results/raw/qwen15b_humaneval_smoke_eval_20260721_180903/generations.jsonl",
+  "task_count": 4,
+  "elapsed_seconds": 27.635873794555664,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}
+
+=== EvalPlus HumanEval base-only scoring ===
+Downloading dataset from https://github.com/evalplus/humanevalplus_release/releases/download/v0.1.10/HumanEvalPlus.jsonl.gz
+Computing expected output...
+Expected outputs computed in 8.02s
+Reading samples...
+0it [00:00, ?it/s]4it [00:00, 166.57it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/evalplus/evaluate.py", line 363, in <module>
+    main()
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/evalplus/evaluate.py", line 359, in main
+    Fire(evaluate)
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/evalplus/evaluate.py", line 230, in evaluate
+    assert len(completion_id) == len(problems), "Missing problems in samples"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Missing problems in samples
