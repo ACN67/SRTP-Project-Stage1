@@ -1,0 +1,27 @@
+=== Run ID ===
+qwen15b_baseline_load_generate_check_20260721_173527
+
+=== Model ===
+Qwen/Qwen2.5-Coder-1.5B-Instruct
+
+=== Python / CUDA ===
+torch: 2.11.0+cu128
+cuda_available: True
+gpu: NVIDIA GeForce RTX 5060 Laptop GPU
+vram_gb: 7.96
+
+=== Load and generate ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:55,  2.91it/s]Loading weights:  36%|███▋      | 123/338 [00:00<00:00, 336.01it/s]Loading weights:  54%|█████▎    | 181/338 [00:00<00:00, 349.03it/s]Loading weights:  68%|██████▊   | 230/338 [00:00<00:00, 329.15it/s]Loading weights:  80%|████████  | 271/338 [00:00<00:00, 303.50it/s]Loading weights:  91%|█████████▏| 309/338 [00:01<00:00, 320.25it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 307.12it/s]
+{
+  "status": "success",
+  "model_id": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "prompt": "Write a Python function add(a, b) that returns the sum of a and b.",
+  "generated_text": "Write a Python function add(a, b) that returns the sum of a and b. The function should be able to handle both integer and floating-point numbers.\n\n```python\ndef add(a, b):\n    return a + b\n\n# Test cases\nprint(add(3, 5))  # Output: 8\nprint(add(2.5, 4.7))  # Output: 7.2\n```\n\nIn this solution, the `add` function takes two parameters, `a` and `b`, which can be either integers",
+  "load_seconds": 746.1496937274933,
+  "generate_seconds": 2.786076784133911,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}

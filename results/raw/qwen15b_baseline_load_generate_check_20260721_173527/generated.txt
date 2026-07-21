@@ -1,0 +1,12 @@
+Write a Python function add(a, b) that returns the sum of a and b. The function should be able to handle both integer and floating-point numbers.
+
+```python
+def add(a, b):
+    return a + b
+
+# Test cases
+print(add(3, 5))  # Output: 8
+print(add(2.5, 4.7))  # Output: 7.2
+```
+
+In this solution, the `add` function takes two parameters, `a` and `b`, which can be either integers
