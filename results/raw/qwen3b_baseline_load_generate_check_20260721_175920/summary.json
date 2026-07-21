@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "model_id": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "prompt": "Write a Python function add(a, b) that returns the sum of a and b.",
+  "generated_text": "Write a Python function add(a, b) that returns the sum of a and b. The function should handle both integer and floating-point inputs.\n\nHere's an example of how to use the function:\n\n```python\nresult = add(3, 5)\nprint(result)  # Output: 8\n\nresult = add(2.5, 4.5)\nprint(result)  # Output: 7.0\n```\n\nIn this example, the `add` function is used to calculate the sum of two integers (3 and 5) and",
+  "load_seconds": 10.029638767242432,
+  "generate_seconds": 3.7661147117614746,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}

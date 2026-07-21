@@ -1,0 +1,13 @@
+Write a Python function add(a, b) that returns the sum of a and b. The function should handle both integer and floating-point inputs.
+
+Here's an example of how to use the function:
+
+```python
+result = add(3, 5)
+print(result)  # Output: 8
+
+result = add(2.5, 4.5)
+print(result)  # Output: 7.0
+```
+
+In this example, the `add` function is used to calculate the sum of two integers (3 and 5) and

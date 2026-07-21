@@ -1,0 +1,27 @@
+=== Run ID ===
+qwen3b_baseline_load_generate_check_20260721_175920
+
+=== Model ===
+Qwen/Qwen2.5-Coder-3B-Instruct
+
+=== Python / CUDA ===
+torch: 2.11.0+cu128
+cuda_available: True
+gpu: NVIDIA GeForce RTX 5060 Laptop GPU
+vram_gb: 7.96
+
+=== Load and generate ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<03:14,  2.23it/s]Loading weights:  12%|█▏        | 51/434 [00:00<00:03, 115.40it/s]Loading weights:  17%|█▋        | 75/434 [00:00<00:02, 129.05it/s]Loading weights:  23%|██▎       | 99/434 [00:00<00:02, 140.01it/s]Loading weights:  28%|██▊       | 123/434 [00:01<00:02, 146.17it/s]Loading weights:  33%|███▎      | 143/434 [00:01<00:01, 158.53it/s]Loading weights:  37%|███▋      | 162/434 [00:01<00:01, 147.97it/s]Loading weights:  41%|████      | 179/434 [00:02<00:04, 53.78it/s] Loading weights:  44%|████▍     | 191/434 [00:03<00:07, 33.55it/s]Loading weights:  46%|████▌     | 200/434 [00:03<00:06, 36.68it/s]Loading weights:  50%|█████     | 219/434 [00:03<00:04, 50.33it/s]Loading weights:  56%|█████▌    | 243/434 [00:03<00:02, 69.36it/s]Loading weights:  62%|██████▏   | 267/434 [00:03<00:01, 86.52it/s]Loading weights:  65%|██████▍   | 281/434 [00:03<00:01, 93.90it/s]Loading weights:  70%|██████▉   | 303/434 [00:03<00:01, 108.21it/s]Loading weights:  75%|███████▌  | 327/434 [00:03<00:00, 124.91it/s]Loading weights:  79%|███████▉  | 344/434 [00:04<00:00, 134.16it/s]Loading weights:  84%|████████▎ | 363/434 [00:04<00:00, 133.22it/s]Loading weights:  89%|████████▉ | 387/434 [00:04<00:00, 144.46it/s]Loading weights:  93%|█████████▎| 403/434 [00:04<00:00, 98.41it/s] Loading weights:  97%|█████████▋| 423/434 [00:04<00:00, 112.24it/s]Loading weights: 100%|██████████| 434/434 [00:04<00:00, 90.42it/s] 
+{
+  "status": "success",
+  "model_id": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "prompt": "Write a Python function add(a, b) that returns the sum of a and b.",
+  "generated_text": "Write a Python function add(a, b) that returns the sum of a and b. The function should handle both integer and floating-point inputs.\n\nHere's an example of how to use the function:\n\n```python\nresult = add(3, 5)\nprint(result)  # Output: 8\n\nresult = add(2.5, 4.5)\nprint(result)  # Output: 7.0\n```\n\nIn this example, the `add` function is used to calculate the sum of two integers (3 and 5) and",
+  "load_seconds": 10.029638767242432,
+  "generate_seconds": 3.7661147117614746,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}
