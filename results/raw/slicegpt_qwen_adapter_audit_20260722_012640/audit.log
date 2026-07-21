@@ -1,0 +1,892 @@
+=== Run ID ===
+slicegpt_qwen_adapter_audit_20260722_012640
+
+=== Git status ===
+## main...origin/main
+?? results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006/flab_qwen3b_humaneval/pruned_model/model.safetensors
+?? results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006/flab_qwen3b_humaneval/pruned_model/tokenizer.json
+?? results/raw/flab_qwen3b_pruned_load_generate_check_20260721_173013/
+?? results/raw/laco_r1_official_audit_20260721_172603/
+?? results/raw/laco_r1_official_audit_20260721_172646/
+?? results/raw/slicegpt_opt125m_smoke_20260718_173646/sliced_model/opt-125m_0.1.pt
+?? results/raw/slicegpt_qwen_adapter_audit_20260722_012554/
+?? results/raw/slicegpt_qwen_adapter_audit_20260722_012640/
+
+=== SliceGPT source files ===
+third_party/slicegpt/src/slicegpt/__init__.py
+third_party/slicegpt/src/slicegpt/__pycache__/__init__.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/config.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/data_utils.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/gpu_utils.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/hf_utils.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/layernorm_fusion.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/model_adapter.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/model_utils.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/modules.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/rotate.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/slicing_scheduler.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/__pycache__/utils.cpython-311.pyc
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py
+third_party/slicegpt/src/slicegpt/config.py
+third_party/slicegpt/src/slicegpt/data_utils.py
+third_party/slicegpt/src/slicegpt/gpu_utils.py
+third_party/slicegpt/src/slicegpt/hf_utils.py
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py
+third_party/slicegpt/src/slicegpt/model_adapter.py
+third_party/slicegpt/src/slicegpt/model_utils.py
+third_party/slicegpt/src/slicegpt/modules.py
+third_party/slicegpt/src/slicegpt/rotate.py
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py
+third_party/slicegpt/src/slicegpt/utils.py
+
+=== model_adapter.py first 260 lines ===
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+from __future__ import annotations
+
+import copy
+import inspect
+import json
+from abc import ABC, abstractmethod
+from collections.abc import Sequence
+from dataclasses import asdict, dataclass, field
+from typing import Any, final
+
+import torch
+from torch import FloatTensor, Tensor
+from torch.nn import Linear, Module
+from transformers import PreTrainedTokenizerBase
+
+"""
+To add support for a new model, you need to create a new adapter class that inherits from ModelAdapter, and a new 
+adapter class that inherits from LayerAdapter. The ModelAdapter class tells sliceGPT how to interact with the model, 
+an instance of which is stored at self.model. For example, how to access each of the layers of the model. Similarly, 
+the LayerAdapter class tells sliceGPT how to interact with each layer of the model. For example, how to access the 
+attention and MLP components of the layer, and how to update the arguments to the layer's forward method.
+See src/slicegpt/adapters/llama_adapter.py for an example of how to implement these classes.
+"""
+
+
+class LayerAdapter(ABC):
+    """
+    To implement a new layer adapter, implement the interface defined in this class
+    """
+
+    @property
+    @abstractmethod
+    def layer(self) -> Module:
+        """
+        Instance of the transformer layer to be wrapped. This contains the forward() method of the original model
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def hidden_states_args_position(self) -> int:
+        """
+        Returns the position of the hidden_states argument in the layer's forward method.
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def hidden_states_output_position(self) -> int:
+        """
+        Returns the position of the hidden_states in the output of the layer's forward method.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_first_layernorm(self) -> Module:
+        """
+        Returns the first layer norm in the layer, usually the one before the attention component.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_second_layernorm(self) -> Module:
+        """
+        Returns the second layer norm in the layer, usually the one before the MLP component.
+        In the case where the layer has only one LayerNorm, should raise an exception.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_attention_inputs(self) -> Sequence[Linear]:
+        """
+        Returns a list of the Linear layers (nn.modules) that are inputs to the attention component.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_attention_output(self) -> Linear:
+        """
+        Returns the Linear layer (nn.module) that is the output of the attention component.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_mlp_inputs(self) -> Sequence[Linear]:
+        """
+        Returns a list of the Linear layers (nn.modules) that are inputs to the MLP component.
+        For simple mlps, this will be a list of length 1. For gated mlps (as in the Llama models) there will be two.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_mlp_output(self) -> Linear:
+        """
+        Returns the Linear layer (nn.module) that is the output of the MLP component (usually fc2 or down_proj)
+        """
+        raise NotImplementedError
+
+    def get_updated_args(self, hidden_states: Any, args: tuple) -> tuple:
+        """
+        `args` is a tuple of the arguments to the layer's forward method. hidden_states is the new value for the
+        hidden_states argument. This method returns a new tuple of arguments with the hidden_states argument updated.
+        """
+        return (
+            args[: self.hidden_states_args_position] + (hidden_states,) + args[self.hidden_states_args_position + 1 :]
+        )
+
+
+class ModelAdapter(ABC):
+    """
+    To implement a new model adapter, implement the interface defined in this class
+    """
+
+    def __init__(self):
+        self.slicing_conf: SlicingConfig | None = None
+
+    @property
+    @abstractmethod
+    def model(self) -> Module:
+        """
+        The original model that slicegpt interacts with.
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def config(self) -> object:
+        """
+        The model config
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def config_type(self) -> type:
+        """
+        Type of the config class
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def parallel_blocks(self) -> bool:
+        """
+        Whether the model has parallel attention and mlp blocks (True in phi2) or sequential (False in llama).
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def seqlen(self) -> int:
+        """
+        The (maximum) sequence length of the model
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def hidden_size(self) -> int:
+        """
+        The hidden size of the model
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def should_bake_mean_into_linear(self) -> bool:
+        """
+        Whether the model's normalization layers (e.g. LayerNorm) contain a mean-subtraction
+        operation that needs to be absorbed into previous linear layers.
+        For LayerNorm, this is True. For RMSNorm, this is False.
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def original_layer_type(self) -> type:
+        """
+        Type of the transformer layer containing forward() method of the original model
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def original_layer_norm_type(self) -> type:
+        """
+        The class of the LayerNorm (or equivalent) in the original model, so that we can replace it with RMSNorm
+        (needed for computational invariance).
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def layer_adapter_type(self) -> type:
+        """
+        Type of the class implementing the sliceGPT.LayerAdapter interface
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def compressed_layer_type(self) -> type:
+        """
+        Type of the compressed transformer layer defined by the user;
+        subclasses the transformer layer class;
+        contains the adapted forward() method for the compressed model
+        """
+        raise NotImplementedError
+
+    @property
+    @abstractmethod
+    def use_cache(self) -> bool:
+        """Must define a setter"""
+        raise NotImplementedError
+
+    @use_cache.setter
+    @abstractmethod
+    def use_cache(self, value: bool) -> None:
+        raise NotImplementedError
+
+    @abstractmethod
+    def compute_output_logits(self, input_ids: Tensor) -> FloatTensor:
+        """
+        Returns the logits for the model on the given input_ids. For example, this might look like:
+            `self._model(input_ids=input_ids).logits`
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def convert_layer_to_compressed(self, layer: Module, layer_idx: int | None) -> Module:
+        """
+        Replace the given layer with a compressed version of the layer.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_layers(self) -> Sequence[LayerAdapter]:
+        """
+        Returns a list of LayerAdapters, one for each layer in the model.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_raw_layer_at(self, index: int) -> Module:
+        """
+        Returns the raw layer (no adapter) at the given index.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def set_raw_layer_at(self, index: int, new_layer: Module) -> None:
+        """
+        Assigns the given layer to the model at the given index.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_embeddings(self) -> list[Module]:
+
+=== model_adapter.py next 260 lines ===
+        """
+        Returns a list of the embedding modules in the model.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_pre_head_layernorm(self) -> Module:
+        """
+        Returns the layer norm (or equivalent) before the head of the model.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_lm_head(self) -> Linear:
+        """
+        Returns the linear layer at the head of the model (usually of size hidden-size x vocab-size)
+        """
+        raise NotImplementedError
+
+    @property
+    def no_split_module_classes(self) -> list[str] | None:
+        """
+        A list of strings specifying the class names of modules that should not be split.
+        See https://huggingface.co/docs/accelerate/concept_guides/big_model_inference for more details.
+        """
+        return [self.original_layer_type.__name__, self.compressed_layer_type.__name__]
+
+    @final
+    def convert_layer_to_compressed_and_register_buffers(self, layer: Module, layer_idx: int | None) -> Module:
+        """
+        Replace the given layer with a compressed version of the layer. Also register the shortcut_Q matrices
+        to be used in Compressed transformer layer's forward() method to be updated during slicing.
+        """
+        compressed_layer = self.convert_layer_to_compressed(layer, layer_idx)
+        if not self.parallel_blocks:
+            compressed_layer.register_parameter('mlp_shortcut_Q', None)
+        compressed_layer.register_parameter('attn_shortcut_Q', None)
+        return compressed_layer
+
+    def post_init(self, tokenizer: PreTrainedTokenizerBase) -> None:
+        """
+        This method is called after the model is initialized and all the properties are set.
+        Override in subclasses to perform any additional setup.
+        """
+        pass
+
+    @classmethod
+    def from_model(
+        cls,
+        model_name: str,
+        model_path: str,
+        *,
+        model_type: str = 'pretrained',
+        dtype: torch.dtype = torch.float16,
+        local_files_only: bool = False,
+        token: str | bool | None = None,
+    ) -> ModelAdapter:
+        """
+        Create the model based on the given name path and return the corresponding ModelAdapter instance.
+        Raise NotImplementedError if the model is not supported.
+        Note: for this method to work the corresponding ModelAdapter subclass must be imported.
+
+        Args:
+            model_name: The name of the model, e.g. 'microsoft/phi-2'.
+            model_path: The path to the model.
+            model_type: The type of the model to create. Can be 'pretrained' or 'uninitialized'.
+            dtype: The torch dtype to create the model with.
+            local_files_only: Whether to only load local files (no attempt to download).
+            token: The token to use for authentication.
+
+        Returns:
+            The corresponding ModelAdapter instance.
+        """
+
+        def find_recursively(adapter_cls: type[ModelAdapter]) -> ModelAdapter | None:
+            """
+            Recursively search for a subclass that can handle the model.
+            """
+            # depth first search to find the most specific subclass that can handle the model
+            for subclass in adapter_cls.__subclasses__():
+                candidate = find_recursively(subclass)
+                if candidate is not None:
+                    return candidate
+
+            if inspect.isabstract(adapter_cls):
+                return None
+
+            return adapter_cls._from_model(
+                model_name,
+                model_path=model_path,
+                model_type=model_type,
+                dtype=dtype,
+                local_files_only=local_files_only,
+                token=token,
+            )
+
+        adapter = find_recursively(cls)
+        if adapter is not None:
+            return adapter
+
+        raise NotImplementedError(f"{model_path} is neither a Hugging Face model nor a supported local model.")
+
+    @classmethod
+    def _from_model(
+        cls,
+        model_name: str,
+        model_path: str,
+        *,
+        model_type: str = 'pretrained',
+        dtype: torch.dtype = torch.float16,
+        local_files_only: bool = False,
+        token: str | bool | None = None,
+    ) -> ModelAdapter | None:
+        match model_type:
+            case 'pretrained':
+                return cls._from_pretrained(
+                    model_name,
+                    model_path=model_path,
+                    dtype=dtype,
+                    local_files_only=local_files_only,
+                    token=token,
+                )
+
+            case 'uninitialized':
+                return cls._from_uninitialized(
+                    model_name,
+                    model_path=model_path,
+                    dtype=dtype,
+                    local_files_only=local_files_only,
+                    token=token,
+                )
+            case _:
+                raise ValueError(f"Unknown model type: {model_type}")
+
+    @classmethod
+    @abstractmethod
+    def _from_pretrained(
+        cls,
+        model_name: str,
+        model_path: str,
+        *,
+        dtype: torch.dtype = torch.float16,
+        local_files_only: bool = False,
+        token: str | bool | None = None,
+    ) -> ModelAdapter | None:
+        """
+        Load the pretrained model from the given path and return a ModelAdapter instance.
+        Return None if the model_name is not supported.
+        See `from_model` for more details.
+        """
+        raise NotImplementedError
+
+    @classmethod
+    @abstractmethod
+    def _from_uninitialized(
+        cls,
+        model_name: str,
+        model_path: str,
+        *,
+        dtype: torch.dtype = torch.float16,
+        local_files_only: bool = False,
+        token: str | bool | None = None,
+    ) -> ModelAdapter | None:
+        """
+        Create an uninitialized model from the given path and return a ModelAdapter instance.
+        Return None if the model_name is not supported.
+        See `from_model` for more details.
+        """
+        raise NotImplementedError
+
+
+@dataclass
+class SlicingConfig:
+    """Slicing configuration such as individual layer dimensions and whether to slice head."""
+
+    hidden_size: int = 0
+    layers_num: int = 0
+    do_slice_head: bool = False
+    parallel_blocks: bool = False
+
+    # use dict[int, int] instead of list[int] to allow for arbitrary order updates and default dicts
+    embedding_dimensions: dict[int, int] = field(default_factory=dict)
+
+    attention_input_dimensions: dict[int, int] = field(default_factory=dict)
+    attention_output_dimensions: dict[int, int] = field(default_factory=dict)
+
+    mlp_input_dimensions: dict[int, int] = field(default_factory=dict)
+    mlp_output_dimensions: dict[int, int] = field(default_factory=dict)
+
+    head_dimension: int | None = None
+
+    const_dimension: int | None = None  # to be able to load models without config, sliced with const sparsity
+
+    @staticmethod
+    def from_dict(d: dict) -> 'SlicingConfig':
+        """Return a SliceConfig object constructed from the provided dictionary."""
+
+        def convert_dict_keys_to_int(d: Any) -> Any:
+            # recursively convert all numeric string keys to int
+            if not isinstance(d, dict):
+                return d
+
+            if all(isinstance(k, str) and k.isnumeric() for k in d.keys()):
+                d = {int(k): v for k, v in d.items()}
+            else:
+                d = {k: convert_dict_keys_to_int(v) for k, v in d.items()}
+
+            return d
+
+        return SlicingConfig(**convert_dict_keys_to_int(d))
+
+    @staticmethod
+    def from_json_string(json_str: str) -> 'SlicingConfig':
+        """Return a SliceConfig object constructed from the provided JSON string."""
+        return SlicingConfig.from_dict(json.loads(json_str))
+
+    def to_dict(self) -> dict:
+        """Return a dictionary representation of this object."""
+        # workaround until 'dataclasses.asdict support defaultdict fields #32056' is in the Python release used
+        self.embedding_dimensions = {k: v for k, v in self.embedding_dimensions.items()}
+
+        return asdict(self)
+
+    def to_json_string(self) -> str:
+        """Return a JSON representation of this object."""
+        return json.dumps(self.to_dict())
+
+    def clone(self) -> 'SlicingConfig':
+        """Return a clone of this object."""
+        return copy.deepcopy(self)
+
+=== Search architecture adapters ===
+third_party/slicegpt/src/slicegpt/hf_utils.py:11:from .layernorm_fusion import fuse_modules, replace_layers
+third_party/slicegpt/src/slicegpt/hf_utils.py:74:    model_type = "uninitialized" if uninitialized else "pretrained"
+third_party/slicegpt/src/slicegpt/hf_utils.py:94:        model_type=model_type,
+third_party/slicegpt/src/slicegpt/hf_utils.py:140:    replace_layers(model_adapter)
+third_party/slicegpt/src/slicegpt/hf_utils.py:144:    for layer_adapter in model_adapter.get_layers():
+third_party/slicegpt/src/slicegpt/hf_utils.py:146:            layer_adapter.layer.mlp_shortcut_Q = torch.nn.Parameter(
+third_party/slicegpt/src/slicegpt/gpu_utils.py:113:    layers = model_adapter.get_layers()
+third_party/slicegpt/src/slicegpt/gpu_utils.py:114:    for idx, layer_adapter in enumerate(layers):
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:14:def replace_layers(model_adapter: ModelAdapter, verbose: bool = True) -> None:
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:15:    """Replace layers with compressed versions.
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:21:        logging.info("Replacing layers")
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:27:        replace_layers=True,
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:31:        logging.info("Replacing layers done")
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:44:    replace_layers: bool,
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:61:            if replace_layers:  # layernorm_fusion.replace_layers case where transformer layers are replaced
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:66:            replace_modules(module, type_to_replace, new_module_factory, replace_layers)
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:92:    layers = model_adapter.get_layers()
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:95:    for layer_adapter in layers:
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:99:                layer_adapter.get_attention_inputs() + layer_adapter.get_mlp_inputs(),
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:103:            fuse_ln_linear(layer_adapter.get_second_layernorm(), layer_adapter.get_mlp_inputs())
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:106:            # Then we bake the mean substitution into the previous linear layers
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:108:            bake_mean_into_linear(layer_adapter.get_mlp_output())
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:116:        replace_layers=False,
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:137:def fuse_ln_linear(layernorm: Module, linear_layers: Iterable[Linear]) -> None:
+third_party/slicegpt/src/slicegpt/layernorm_fusion.py:141:    for linear in linear_layers:
+third_party/slicegpt/src/slicegpt/model_utils.py:23:    This relies on all arguments to subsequent layers being the same.
+third_party/slicegpt/src/slicegpt/model_utils.py:25:    NB: this won't work from OPT 350m.
+third_party/slicegpt/src/slicegpt/model_utils.py:40:    layer0_adapter = model_adapter.get_layers()[0]
+third_party/slicegpt/src/slicegpt/model_utils.py:78:    mlp_ln_inputs = []
+third_party/slicegpt/src/slicegpt/model_utils.py:85:        mlp_ln_inputs.append(inp.cpu())
+third_party/slicegpt/src/slicegpt/model_utils.py:100:        if mlp_ln_inputs[i].ndim == 2:
+third_party/slicegpt/src/slicegpt/model_utils.py:102:            mlp_ln_inputs[i] = mlp_ln_inputs[i].reshape(batch_size, seqlen, -1)
+third_party/slicegpt/src/slicegpt/model_utils.py:105:    return mlp_ln_inputs, outputs
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:34:    def layers_num(self) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:35:        """Return the number of layers."""
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:36:        return self.slicing_conf.layers_num
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:43:    def setup(self, *, hidden_size: int, layers_num: int, parallel_blocks: bool) -> None:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:46:        self.slicing_conf.layers_num = layers_num
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:75:            return self.get_mlp_output_dimension(idx)
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:77:        use_head_dim = match_head_dim and idx == self.layers_num - 1
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:87:    def get_mlp_input_dimension(self, idx: int) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:88:        """Return the mlp input dimension for the specified layer index."""
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:92:        val = self._get_mlp_input_dimension(idx)
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:93:        self.slicing_conf.mlp_input_dimensions[idx] = val
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:97:    def _get_mlp_input_dimension(self, idx: int) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:101:    def get_mlp_output_dimension(self, idx: int) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:102:        """Return the mlp output dimension for the specified layer index."""
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:103:        use_head_dim = idx == self.layers_num - 1
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:104:        val = self._get_mlp_output_dimension(idx) if not use_head_dim else self.get_head_dimension()
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:105:        self.slicing_conf.mlp_output_dimensions[idx] = val
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:109:    def _get_mlp_output_dimension(self, idx: int) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:140:    def _get_mlp_input_dimension(self, idx: int) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:141:        return self.slicing_conf.mlp_input_dimensions[idx]
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:143:    def _get_mlp_output_dimension(self, idx: int) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:144:        return self.slicing_conf.mlp_output_dimensions[idx]
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:166:    def _get_mlp_input_dimension(self, idx: int) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:169:    def _get_mlp_output_dimension(self, idx: int) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:178:    An abstract scheduler that enforces dimension consistency across layers.
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:191:        return self._get_mlp_output_dimension(idx - 1)
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:194:    def _get_mlp_input_dimension(self, idx: int) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:206:        mlp_sparsity_func: Callable[[float], float],
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:212:        self.mlp_sparsity: Callable[[float], float] = mlp_sparsity_func
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:217:        loc = idx / (self.layers_num - 1)
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:219:        sparsity = self.attn_sparsity(loc) if is_attn_layer else self.mlp_sparsity(loc)
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:231:    def _get_mlp_output_dimension(self, idx: int) -> int:
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:235:        return self._get_layer_dimension(self.layers_num - 1)
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:239:        mlp_start: float,
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:240:        mlp_end: float,
+third_party/slicegpt/src/slicegpt/slicing_scheduler.py:255:            mlp_sparsity_func=linear(mlp_start, mlp_end),
+third_party/slicegpt/src/slicegpt/rotate.py:56:def rotate_mlp_input(layer_adapter: LayerAdapter, Q: torch.Tensor) -> None:
+third_party/slicegpt/src/slicegpt/rotate.py:58:    for W in layer_adapter.get_mlp_inputs():
+third_party/slicegpt/src/slicegpt/rotate.py:64:def slice_mlp_input(layer_adapter: LayerAdapter, new_embedding_dimension: int) -> None:
+third_party/slicegpt/src/slicegpt/rotate.py:66:    for W in layer_adapter.get_mlp_inputs():
+third_party/slicegpt/src/slicegpt/rotate.py:71:def rotate_mlp_output(layer_adapter: LayerAdapter, Q: torch.Tensor) -> None:
+third_party/slicegpt/src/slicegpt/rotate.py:73:    W = layer_adapter.get_mlp_output()
+third_party/slicegpt/src/slicegpt/rotate.py:82:def slice_mlp_output(layer_adapter: LayerAdapter, new_embedding_dimension: int) -> None:
+third_party/slicegpt/src/slicegpt/rotate.py:84:    W = layer_adapter.get_mlp_output()
+third_party/slicegpt/src/slicegpt/rotate.py:165:    layers = model_adapter.get_layers()
+third_party/slicegpt/src/slicegpt/rotate.py:166:    slicing_scheduler.setup(hidden_size=model_adapter.hidden_size, layers_num=len(layers), parallel_blocks=False)
+third_party/slicegpt/src/slicegpt/rotate.py:177:    logging.info("Rotate and slice layers")
+third_party/slicegpt/src/slicegpt/rotate.py:178:    for idx, layer_adapter in enumerate(tqdm(layers, unit="layer", desc="Rotating and slicing")):
+third_party/slicegpt/src/slicegpt/rotate.py:186:        # get signal between attention and mlp, rotate and slice
+third_party/slicegpt/src/slicegpt/rotate.py:195:        mlp_ln_inputs, _ = get_signals(layer_adapter, args, kwargs)
+third_party/slicegpt/src/slicegpt/rotate.py:196:        eig_val, Q = pca_calc(mlp_ln_inputs, ignore_masks)
+third_party/slicegpt/src/slicegpt/rotate.py:215:        layer.mlp_shortcut_Q = nn.Parameter(
+third_party/slicegpt/src/slicegpt/rotate.py:216:            Q.T.clone().to(dtype=dtype)[: slicing_scheduler.get_mlp_input_dimension(idx), :]
+third_party/slicegpt/src/slicegpt/rotate.py:218:        rotate_mlp_input(layer_adapter, Q)
+third_party/slicegpt/src/slicegpt/rotate.py:219:        slice_mlp_input(layer_adapter, slicing_scheduler.get_mlp_input_dimension(idx))
+third_party/slicegpt/src/slicegpt/rotate.py:225:        # with slicing between Attention and mlp.
+third_party/slicegpt/src/slicegpt/rotate.py:229:            R = random_orthogonal_upper_left(Q.shape[0], slicing_scheduler.get_mlp_output_dimension(idx))
+third_party/slicegpt/src/slicegpt/rotate.py:232:        layer.mlp_shortcut_Q = nn.Parameter(torch.matmul(layer.mlp_shortcut_Q, Q.to(dtype=dtype)))
+third_party/slicegpt/src/slicegpt/rotate.py:234:        # optionally slice the mlp/head connection in the last layer
+third_party/slicegpt/src/slicegpt/rotate.py:235:        rotate_mlp_output(layer_adapter, Q)
+third_party/slicegpt/src/slicegpt/rotate.py:236:        slice_mlp_output(layer_adapter, slicing_scheduler.get_mlp_output_dimension(idx))
+third_party/slicegpt/src/slicegpt/rotate.py:237:        layer.mlp_shortcut_Q = nn.Parameter(layer.mlp_shortcut_Q[:, : slicing_scheduler.get_mlp_output_dimension(idx)])
+third_party/slicegpt/src/slicegpt/rotate.py:251:    logging.info("Rotate and slice layers done")
+third_party/slicegpt/src/slicegpt/rotate.py:279:    layers = model_adapter.get_layers()
+third_party/slicegpt/src/slicegpt/rotate.py:280:    slicing_scheduler.setup(hidden_size=model_adapter.hidden_size, layers_num=len(layers), parallel_blocks=True)
+third_party/slicegpt/src/slicegpt/rotate.py:291:    logging.info("Rotate and slice layers")
+third_party/slicegpt/src/slicegpt/rotate.py:292:    layers = model_adapter.get_layers()
+third_party/slicegpt/src/slicegpt/rotate.py:293:    for idx, layer_adapter in enumerate(tqdm(layers, unit="layer", desc="Rotating and slicing")):
+third_party/slicegpt/src/slicegpt/rotate.py:297:        # rotate and slice the inputs to match previous layer (both attention and mlp)
+third_party/slicegpt/src/slicegpt/rotate.py:299:        rotate_mlp_input(layer_adapter, Q)
+third_party/slicegpt/src/slicegpt/rotate.py:301:        slice_mlp_input(layer_adapter, slicing_scheduler.get_attention_input_dimension(idx))
+third_party/slicegpt/src/slicegpt/rotate.py:329:            R = random_orthogonal_upper_left(Q.shape[0], slicing_scheduler.get_mlp_output_dimension(idx))
+third_party/slicegpt/src/slicegpt/rotate.py:335:        # optionally slice the mlp/head connection in the last layer
+third_party/slicegpt/src/slicegpt/rotate.py:336:        rotate_mlp_output(layer_adapter, Q)
+third_party/slicegpt/src/slicegpt/rotate.py:338:        slice_mlp_output(layer_adapter, slicing_scheduler.get_mlp_output_dimension(idx))
+third_party/slicegpt/src/slicegpt/rotate.py:339:        slice_attention_output(layer_adapter, slicing_scheduler.get_mlp_output_dimension(idx))
+third_party/slicegpt/src/slicegpt/rotate.py:343:            layer.attn_shortcut_Q[:, : slicing_scheduler.get_mlp_output_dimension(idx)]
+third_party/slicegpt/src/slicegpt/rotate.py:358:    logging.info("Rotate and slice layers done")
+third_party/slicegpt/src/slicegpt/rotate.py:370:    # List of layers to rotate.
+third_party/slicegpt/src/slicegpt/rotate.py:371:    layers = model_adapter.get_layers()
+third_party/slicegpt/src/slicegpt/rotate.py:388:    logging.info("Rotate layers")
+third_party/slicegpt/src/slicegpt/rotate.py:389:    for layer_adapter in tqdm(layers, unit="layer", desc="Rotating"):
+third_party/slicegpt/src/slicegpt/rotate.py:394:        mlp_ln_inputs, outs = get_signals(layer_adapter, args, kwargs)
+third_party/slicegpt/src/slicegpt/rotate.py:395:        _, Q_3 = pca_calc(mlp_ln_inputs)
+third_party/slicegpt/src/slicegpt/rotate.py:410:        rotate_mlp_input(layer_adapter, Q_3)
+third_party/slicegpt/src/slicegpt/rotate.py:413:        layer.mlp_shortcut_Q = nn.Parameter(torch.matmul(Q_3.clone().T, Q_5.clone()).to(device="cpu", dtype=dtype))
+third_party/slicegpt/src/slicegpt/rotate.py:416:        rotate_mlp_output(layer_adapter, Q_5)
+third_party/slicegpt/src/slicegpt/rotate.py:425:    logging.info("Rotate layers done")
+third_party/slicegpt/src/slicegpt/rotate.py:433:    layers = model_adapter.get_layers()
+third_party/slicegpt/src/slicegpt/rotate.py:440:                layers_num=len(layers),
+third_party/slicegpt/src/slicegpt/rotate.py:449:    # slice layers
+third_party/slicegpt/src/slicegpt/rotate.py:450:    for i, layer_adapter in enumerate(layers):
+third_party/slicegpt/src/slicegpt/rotate.py:455:        # slice mlp input 2nd dimension
+third_party/slicegpt/src/slicegpt/rotate.py:456:        slice_mlp_input(layer_adapter, slicing_scheduler.get_mlp_input_dimension(i))
+third_party/slicegpt/src/slicegpt/rotate.py:458:        # slice mlp shortcut 1st dimension
+third_party/slicegpt/src/slicegpt/rotate.py:459:        # slice mlp shortcut
+third_party/slicegpt/src/slicegpt/rotate.py:461:            layer.mlp_shortcut_Q = nn.Parameter(layer.mlp_shortcut_Q[: slicing_scheduler.get_mlp_input_dimension(i), :])
+third_party/slicegpt/src/slicegpt/rotate.py:463:        # slice mlp weights 1st dimension
+third_party/slicegpt/src/slicegpt/rotate.py:464:        slice_mlp_output(layer_adapter, slicing_scheduler.get_mlp_output_dimension(i))
+third_party/slicegpt/src/slicegpt/rotate.py:477:            layer.mlp_shortcut_Q = nn.Parameter(
+third_party/slicegpt/src/slicegpt/rotate.py:478:                layer.mlp_shortcut_Q[:, : slicing_scheduler.get_mlp_output_dimension(i)]
+third_party/slicegpt/src/slicegpt/model_adapter.py:19:To add support for a new model, you need to create a new adapter class that inherits from ModelAdapter, and a new 
+third_party/slicegpt/src/slicegpt/model_adapter.py:20:adapter class that inherits from LayerAdapter. The ModelAdapter class tells sliceGPT how to interact with the model, 
+third_party/slicegpt/src/slicegpt/model_adapter.py:21:an instance of which is stored at self.model. For example, how to access each of the layers of the model. Similarly, 
+third_party/slicegpt/src/slicegpt/model_adapter.py:28:class LayerAdapter(ABC):
+third_party/slicegpt/src/slicegpt/model_adapter.py:75:        Returns a list of the Linear layers (nn.modules) that are inputs to the attention component.
+third_party/slicegpt/src/slicegpt/model_adapter.py:87:    def get_mlp_inputs(self) -> Sequence[Linear]:
+third_party/slicegpt/src/slicegpt/model_adapter.py:89:        Returns a list of the Linear layers (nn.modules) that are inputs to the MLP component.
+third_party/slicegpt/src/slicegpt/model_adapter.py:90:        For simple mlps, this will be a list of length 1. For gated mlps (as in the Llama models) there will be two.
+third_party/slicegpt/src/slicegpt/model_adapter.py:95:    def get_mlp_output(self) -> Linear:
+third_party/slicegpt/src/slicegpt/model_adapter.py:111:class ModelAdapter(ABC):
+third_party/slicegpt/src/slicegpt/model_adapter.py:147:        Whether the model has parallel attention and mlp blocks (True in phi2) or sequential (False in llama).
+third_party/slicegpt/src/slicegpt/model_adapter.py:171:        Whether the model's normalization layers (e.g. LayerNorm) contain a mean-subtraction
+third_party/slicegpt/src/slicegpt/model_adapter.py:172:        operation that needs to be absorbed into previous linear layers.
+third_party/slicegpt/src/slicegpt/model_adapter.py:198:        Type of the class implementing the sliceGPT.LayerAdapter interface
+third_party/slicegpt/src/slicegpt/model_adapter.py:239:    def get_layers(self) -> Sequence[LayerAdapter]:
+third_party/slicegpt/src/slicegpt/model_adapter.py:296:            compressed_layer.register_parameter('mlp_shortcut_Q', None)
+third_party/slicegpt/src/slicegpt/model_adapter.py:313:        model_type: str = 'pretrained',
+third_party/slicegpt/src/slicegpt/model_adapter.py:326:            model_type: The type of the model to create. Can be 'pretrained' or 'uninitialized'.
+third_party/slicegpt/src/slicegpt/model_adapter.py:351:                model_type=model_type,
+third_party/slicegpt/src/slicegpt/model_adapter.py:369:        model_type: str = 'pretrained',
+third_party/slicegpt/src/slicegpt/model_adapter.py:374:        match model_type:
+third_party/slicegpt/src/slicegpt/model_adapter.py:393:                raise ValueError(f"Unknown model type: {model_type}")
+third_party/slicegpt/src/slicegpt/model_adapter.py:437:    layers_num: int = 0
+third_party/slicegpt/src/slicegpt/model_adapter.py:447:    mlp_input_dimensions: dict[int, int] = field(default_factory=dict)
+third_party/slicegpt/src/slicegpt/model_adapter.py:448:    mlp_output_dimensions: dict[int, int] = field(default_factory=dict)
+third_party/slicegpt/src/slicegpt/__init__.py:4:from .adapters.llama_adapter import LlamaModelAdapter
+third_party/slicegpt/src/slicegpt/__init__.py:5:from .adapters.opt_adapter import OPTModelAdapter
+third_party/slicegpt/src/slicegpt/__init__.py:6:from .adapters.phi2_adapter import Phi2ModelAdapter
+third_party/slicegpt/src/slicegpt/__init__.py:7:from .adapters.phi3_adapter import Phi3ModelAdapter
+third_party/slicegpt/src/slicegpt/__init__.py:11:from .layernorm_fusion import fuse_modules, replace_layers
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:14:from transformers.models.phi.modeling_phi import PhiConfig, PhiDecoderLayer, PhiForCausalLM
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:19:class CompressedPhiDecoderLayer(PhiDecoderLayer):
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:21:    This class simulates the PhiDecoderlayer class from PhiModel (PhiForCausalLM)
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:45:                Whether to return the attentions tensors of all attention layers. See `attentions` under
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:58:        attn_outputs, self_attn_weights, present_key_value = self.self_attn(
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:68:        feed_forward_hidden_states = self.resid_dropout(self.mlp(hidden_states))
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:79:            outputs += (self_attn_weights,)
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:87:class Phi2LayerAdapter(LayerAdapter):
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:88:    def __init__(self, layer: PhiDecoderLayer) -> None:
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:90:        self._layer: PhiDecoderLayer = layer
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:111:        return [self.layer.self_attn.q_proj, self.layer.self_attn.k_proj, self.layer.self_attn.v_proj]
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:114:        return self.layer.self_attn.dense
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:116:    def get_mlp_inputs(self) -> list[Linear]:
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:117:        return [self.layer.mlp.fc1]
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:119:    def get_mlp_output(self) -> Linear:
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:120:        return self.layer.mlp.fc2
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:123:class Phi2ModelAdapter(ModelAdapter):
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:124:    def __init__(self, model: PhiForCausalLM) -> None:
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:126:        self._model: PhiForCausalLM = model
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:138:        return PhiConfig
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:158:        return PhiDecoderLayer
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:166:        return Phi2LayerAdapter
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:170:        return CompressedPhiDecoderLayer
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:188:    def get_layers(self) -> list[LayerAdapter]:
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:189:        return [self.layer_adapter_type(layer) for layer in self.model.model.layers]
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:192:        return self.model.model.layers[index]
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:195:        self.model.model.layers[index] = new_layer
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:209:        # Phi-2 doesn't have a pad token by default
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:226:        model = PhiForCausalLM.from_pretrained(
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:231:        return Phi2ModelAdapter(model)
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:246:        class UninitializedPhiForCausalLM(PhiForCausalLM):
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:251:        config = PhiConfig.from_pretrained(
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:254:        model = UninitializedPhiForCausalLM(config)
+third_party/slicegpt/src/slicegpt/adapters/phi2_adapter.py:257:        return Phi2ModelAdapter(model)
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:13:from transformers.models.opt.modeling_opt import OPTConfig, OPTDecoderLayer, OPTForCausalLM
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:18:class CompressedOPTDecoderLayer(OPTDecoderLayer):
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:20:    This class simulates the OPTDecoderLayer class from transformers
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:42:                Whether to return the attentions tensors of all attention layers. See `attentions` under
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:54:            hidden_states = self.self_attn_layer_norm(hidden_states)
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:57:        hidden_states, self_attn_weights, present_key_value = self.self_attn(
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:93:        if self.mlp_shortcut_Q is not None:
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:94:            rotated_shortcut = matmul(residual, self.mlp_shortcut_Q)
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:106:            outputs += (self_attn_weights,)
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:114:class OPTLayerAdapter(LayerAdapter):
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:115:    def __init__(self, layer: OPTDecoderLayer) -> None:
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:117:        self._layer: OPTDecoderLayer = layer
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:132:        return self.layer.self_attn_layer_norm
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:138:        return [self.layer.self_attn.q_proj, self.layer.self_attn.k_proj, self.layer.self_attn.v_proj]
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:141:        return self.layer.self_attn.out_proj
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:143:    def get_mlp_inputs(self) -> list[Linear]:
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:146:    def get_mlp_output(self) -> Linear:
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:150:class OPTModelAdapter(ModelAdapter):
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:151:    def __init__(self, model: OPTForCausalLM) -> None:
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:153:        self._model: OPTForCausalLM = model
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:165:        return OPTConfig
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:185:        return OPTDecoderLayer
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:193:        return OPTLayerAdapter
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:197:        return CompressedOPTDecoderLayer
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:215:    def get_layers(self) -> list[LayerAdapter]:
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:216:        return [self.layer_adapter_type(layer) for layer in self.model.model.decoder.layers]
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:219:        return self.model.model.decoder.layers[index]
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:222:        self.model.model.decoder.layers[index] = new_layer
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:248:        model = OPTForCausalLM.from_pretrained(model_path, torch_dtype=dtype, local_files_only=local_files_only)
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:251:        return OPTModelAdapter(model)
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:266:        class UninitializedOPTForCausalLM(OPTForCausalLM):
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:271:        config = OPTConfig.from_pretrained(model_path, torch_dtype=dtype, local_files_only=local_files_only)
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:272:        model = UninitializedOPTForCausalLM(config)
+third_party/slicegpt/src/slicegpt/adapters/opt_adapter.py:275:        return OPTModelAdapter(model)
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:13:from transformers.models.llama.modeling_llama import LlamaConfig, LlamaDecoderLayer, LlamaForCausalLM, LlamaRMSNorm
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:18:class CompressedLlamaDecoderLayer(LlamaDecoderLayer):
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:20:    This class simulates the LlamaDecoderLayer class from transformers
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:41:                Whether to return the attentions tensors of all attention layers. See `attentions` under
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:54:        hidden_states, self_attn_weights, present_key_value = self.self_attn(
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:72:        hidden_states = self.mlp(hidden_states)
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:74:        if self.mlp_shortcut_Q is not None:
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:75:            rotated_residual = matmul(residual, self.mlp_shortcut_Q)
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:83:            outputs += (self_attn_weights,)
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:91:class LlamaLayerAdapter(LayerAdapter):
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:92:    def __init__(self, layer: LlamaDecoderLayer) -> None:
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:94:        self._layer: LlamaDecoderLayer = layer
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:115:        return [self.layer.self_attn.q_proj, self.layer.self_attn.k_proj, self.layer.self_attn.v_proj]
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:118:        return self.layer.self_attn.o_proj
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:120:    def get_mlp_inputs(self) -> list[Linear]:
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:121:        return [self.layer.mlp.gate_proj, self.layer.mlp.up_proj]
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:123:    def get_mlp_output(self) -> Linear:
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:124:        return self.layer.mlp.down_proj
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:127:class LlamaModelAdapter(ModelAdapter):
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:128:    def __init__(self, model: LlamaForCausalLM) -> None:
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:130:        self._model: LlamaForCausalLM = model
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:142:        return LlamaConfig
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:162:        return LlamaDecoderLayer
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:166:        return LlamaRMSNorm
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:170:        return LlamaLayerAdapter
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:174:        return CompressedLlamaDecoderLayer
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:192:    def get_layers(self) -> list[LayerAdapter]:
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:193:        return [self.layer_adapter_type(layer) for layer in self.model.model.layers]
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:196:        return self.model.model.layers[index]
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:199:        self.model.model.layers[index] = new_layer
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:213:        # Llama-2 and Llama-3 don't have a pad tokens by default
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:227:        if not (model_name.startswith("meta-llama/Llama-2") or model_name.startswith("meta-llama/Meta-Llama-3")):
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:230:        model = LlamaForCausalLM.from_pretrained(
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:235:        return LlamaModelAdapter(model)
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:247:        if not (model_name.startswith("meta-llama/Llama-2") or model_name.startswith("meta-llama/Meta-Llama-3")):
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:250:        class UninitializedLlamaForCausalLM(LlamaForCausalLM):
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:255:        config = LlamaConfig.from_pretrained(
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:258:        model = UninitializedLlamaForCausalLM(config)
+third_party/slicegpt/src/slicegpt/adapters/llama_adapter.py:261:        return LlamaModelAdapter(model)
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:22:from transformers.models.phi3.modeling_phi3 import Phi3Config, Phi3DecoderLayer, Phi3ForCausalLM, Phi3RMSNorm
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:27:class CompressedPhi3DecoderLayer(Phi3DecoderLayer):
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:29:    This class simulates the Phi3DecoderLayer class from transformers
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:59:                Whether or not to return the attentions tensors of all attention layers. See `attentions` under
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:72:        attn_outputs, self_attn_weights, present_key_value = self.self_attn(
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:89:        hidden_states = self.mlp(hidden_states)
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:91:        if self.mlp_shortcut_Q is not None:
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:92:            rotated_residual = matmul(residual, self.mlp_shortcut_Q)
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:93:            hidden_states = rotated_residual + self.resid_mlp_dropout(hidden_states)
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:95:            hidden_states = residual + self.resid_mlp_dropout(hidden_states)
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:100:            outputs += (self_attn_weights,)
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:108:class Phi3LayerAdapter(LayerAdapter):
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:109:    def __init__(self, layer: Phi3DecoderLayer) -> None:
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:111:        self._layer: Phi3DecoderLayer = layer
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:132:        return [self.layer.self_attn.qkv_proj]
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:135:        return self.layer.self_attn.o_proj
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:137:    def get_mlp_inputs(self) -> list[Linear]:
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:138:        return [self.layer.mlp.gate_up_proj]
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:140:    def get_mlp_output(self) -> Linear:
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:141:        return self.layer.mlp.down_proj
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:144:class Phi3ModelAdapter(ModelAdapter):
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:145:    def __init__(self, model: Phi3ForCausalLM) -> None:
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:147:        self._model: Phi3ForCausalLM = model
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:159:        return Phi3Config
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:180:        return Phi3DecoderLayer
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:184:        return Phi3RMSNorm
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:188:        return Phi3LayerAdapter
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:192:        return CompressedPhi3DecoderLayer
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:210:    def get_layers(self) -> list[LayerAdapter]:
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:211:        return [self.layer_adapter_type(layer) for layer in self.model.model.layers]
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:214:        return self.model.model.layers[index]
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:217:        self.model.model.layers[index] = new_layer
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:240:        if not model_name.startswith("microsoft/Phi-3-mini-4k-instruct"):
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:243:        model = Phi3ForCausalLM.from_pretrained(
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:248:        return Phi3ModelAdapter(model)
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:260:        if not model_name.startswith("microsoft/Phi-3-mini-4k-instruct"):
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:263:        class UninitializedPhi3ForCausalLM(Phi3ForCausalLM):
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:268:        config = Phi3Config.from_pretrained(
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:271:        model = UninitializedPhi3ForCausalLM(config)
+third_party/slicegpt/src/slicegpt/adapters/phi3_adapter.py:274:        return Phi3ModelAdapter(model)
+third_party/slicegpt/experiments/bo_finetuning.py:113:    # Add model-specific config options such as model type, model path and layers to fine-tune
+third_party/slicegpt/experiments/run_finetuning.py:192:        default="attn_head_and_mlp",
+third_party/slicegpt/experiments/run_finetuning.py:193:        help="target module option to apply lora to (names of attn i/p, attn o/p and mlp in LayerAdapter)",
+third_party/slicegpt/experiments/run_slicegpt.py:195:    layernorm_fusion.replace_layers(model_adapter)
+third_party/slicegpt/experiments/bo_options.py:7:                'attn_head_and_mlp': ['k_proj', 'q_proj', 'v_proj', 'dense', 'fc1', 'fc2'],
+third_party/slicegpt/experiments/bo_options.py:8:                'attn_head_and_mlp_with_Q': ['k_proj', 'q_proj', 'v_proj', 'dense', 'fc1', 'fc2', 'attn_shortcut_Q'],
+third_party/slicegpt/experiments/bo_options.py:9:                'attn_head_mlp_lm_head_with_Q': [
+third_party/slicegpt/experiments/bo_options.py:24:                'attn_head_and_mlp': ['k_proj', 'q_proj', 'v_proj', 'out_proj', 'fc1', 'fc2'],
+third_party/slicegpt/experiments/bo_options.py:25:                'attn_head_and_mlp_with_Q': [
+
+=== run_slicegpt model loading area ===
+28:        "--model-path",
+34:        "--sliced-model-path",
+140:        model_adapter, tokenizer = hf_utils.load_sliced_model(
+149:        model_adapter, tokenizer = hf_utils.get_model_and_tokenizer(
+153:    model = model_adapter.model
+158:            gpu_utils.distribute_model(model_adapter)
+195:    layernorm_fusion.replace_layers(model_adapter)
+198:    layernorm_fusion.fuse_modules(model_adapter)
+217:    new_embedding_dimension = int((1 - args.sparsity) * model_adapter.hidden_size)
+221:        f"New embedding dimension: {new_embedding_dimension} (sparsity {100*(1 - new_embedding_dimension / model_adapter.hidden_size):.4f} %)"
+225:    rotate.rotate_and_slice(model_adapter, train_loader, scheduler, final_orientation=args.final_orientation)
+238:        config_path.write_text(model_adapter.slicing_conf.to_json_string())
+
+=== Qwen config reference ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+## Qwen/Qwen2.5-Coder-1.5B-Instruct
+model_type: qwen2
+architectures: ['Qwen2ForCausalLM']
+num_hidden_layers: 28
+hidden_size: 1536
+num_attention_heads: 12
+num_key_value_heads: 2
+
+## Qwen/Qwen2.5-Coder-3B-Instruct
+model_type: qwen2
+architectures: ['Qwen2ForCausalLM']
+num_hidden_layers: 36
+hidden_size: 2048
+num_attention_heads: 16
+num_key_value_heads: 2
