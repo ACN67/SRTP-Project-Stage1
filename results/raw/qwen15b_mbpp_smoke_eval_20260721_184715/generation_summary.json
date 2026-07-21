@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "results/raw/qwen15b_mbpp_smoke_eval_20260721_184715/samples.jsonl",
+  "generations": "results/raw/qwen15b_mbpp_smoke_eval_20260721_184715/generations.jsonl",
+  "task_count": 4,
+  "elapsed_seconds": 16.2043399810791,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}

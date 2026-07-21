@@ -1,0 +1,62 @@
+=== Run ID ===
+qwen15b_mbpp_smoke_eval_20260721_184715
+
+=== Generate evalplus samples ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<02:12,  2.55it/s]Loading weights:  26%|██▌       | 87/338 [00:00<00:01, 228.33it/s]Loading weights:  40%|████      | 136/338 [00:00<00:00, 253.82it/s]Loading weights:  52%|█████▏    | 176/338 [00:00<00:00, 269.36it/s]Loading weights:  63%|██████▎   | 213/338 [00:00<00:00, 277.69it/s]Loading weights:  73%|███████▎  | 247/338 [00:01<00:00, 278.51it/s]Loading weights:  83%|████████▎ | 279/338 [00:01<00:00, 282.46it/s]Loading weights:  92%|█████████▏| 311/338 [00:01<00:00, 289.34it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 252.63it/s]
+{"task_id": "Mbpp/17", "completion_chars": 1, "gen_seconds": 2.029}
+{"task_id": "Mbpp/18", "completion_chars": 524, "gen_seconds": 2.797}
+{"task_id": "Mbpp/19", "completion_chars": 83, "gen_seconds": 0.434}
+{"task_id": "Mbpp/20", "completion_chars": 704, "gen_seconds": 5.104}
+{
+  "status": "success",
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "results/raw/qwen15b_mbpp_smoke_eval_20260721_184715/samples.jsonl",
+  "generations": "results/raw/qwen15b_mbpp_smoke_eval_20260721_184715/generations.jsonl",
+  "task_count": 4,
+  "elapsed_seconds": 16.2043399810791,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}
+
+=== Score MBPP smoke split ===
+Computing expected output...
+Expected outputs computed in 24.53s
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "results/raw/qwen15b_mbpp_smoke_eval_20260721_184715/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 1,
+  "base_pass_rate": 0.25,
+  "base_status_counter": {
+    "fail": 3,
+    "pass": 1
+  }
+}
+
+=== Score summary ===
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "results/raw/qwen15b_mbpp_smoke_eval_20260721_184715/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 1,
+  "base_pass_rate": 0.25,
+  "base_status_counter": {
+    "fail": 3,
+    "pass": 1
+  }
+}
+=== Score details ===
+{"task_id": "Mbpp/17", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}
+{"task_id": "Mbpp/18", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}
+{"task_id": "Mbpp/19", "base_status": "pass", "base_pass": true, "plus_status": null, "plus_pass": null}
+{"task_id": "Mbpp/20", "base_status": "fail", "base_pass": false, "plus_status": null, "plus_pass": null}
