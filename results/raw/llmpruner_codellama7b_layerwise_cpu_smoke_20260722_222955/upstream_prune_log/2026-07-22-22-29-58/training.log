@@ -1,0 +1,4 @@
+2026-07-22 22:33:33 - INFO :       Use l2 pruner...
+2026-07-22 22:33:33 - INFO :       #Param before: 6738546688, #Param after: 6536163328, Ratio = 96.9966%
+2026-07-22 22:33:43 - WARNING :       Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub
+2026-07-22 22:33:43 - WARNING :       Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/keshu/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Sat Jul 18 17:38:21 2026).

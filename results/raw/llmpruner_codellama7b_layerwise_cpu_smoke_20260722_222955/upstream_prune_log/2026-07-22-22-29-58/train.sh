@@ -1,0 +1,1 @@
+python hf_prune.py --base_model /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6 --save_ckpt_log_name llmpruner_codellama7b_layerwise_cpu_smoke_20260722_222955 --pruning_ratio 0.03125 --pruner_type l2 --layer_wise --layer 31 --max_seq_len 64 --device cpu --eval_device cpu --seed 42
