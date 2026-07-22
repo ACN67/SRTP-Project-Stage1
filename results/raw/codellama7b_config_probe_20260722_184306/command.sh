@@ -1,0 +1,1 @@
+set -euo pipefail && cd /home/keshu/projects/srtp-code-llm-pruning && source scripts/setup/env.sh && source .venv-common/bin/activate && cd /home/keshu/projects/srtp-code-llm-pruning && python scripts/audit/probe_hf_model.py --model codellama/CodeLlama-7b-hf --model-short-name codellama7b --output "$RUN_DIR/model_probe.json"

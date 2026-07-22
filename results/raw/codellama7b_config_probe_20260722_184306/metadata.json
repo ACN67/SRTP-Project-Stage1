@@ -1,0 +1,26 @@
+{
+  "job_id": "codellama7b_config_probe",
+  "run_id": "codellama7b_config_probe_20260722_184306",
+  "description": "Lightweight CodeLlama 7B config/tokenizer probe for LLaMA-compatible Stage 1 methods. Does not load model weights.",
+  "tags": [
+    "model-probe",
+    "CodeLlama",
+    "LLaMA-family"
+  ],
+  "owner": "shared",
+  "method_group": "model_selection",
+  "method": "CodeLlama",
+  "role": "CodeLlama模型清单/配置探测",
+  "recommended_machine": "any with network and HF access if required",
+  "cross_reproduction_by": "",
+  "heavy": false,
+  "start_time": "2026-07-22T18:43:06+08:00",
+  "cwd": "/home/keshu/projects/srtp-code-llm-pruning",
+  "env": "common",
+  "command": "python scripts/audit/probe_hf_model.py --model codellama/CodeLlama-7b-hf --model-short-name codellama7b --output \"$RUN_DIR/model_probe.json\"",
+  "effective_command": "set -euo pipefail && cd /home/keshu/projects/srtp-code-llm-pruning && source scripts/setup/env.sh && source .venv-common/bin/activate && cd /home/keshu/projects/srtp-code-llm-pruning && python scripts/audit/probe_hf_model.py --model codellama/CodeLlama-7b-hf --model-short-name codellama7b --output \"$RUN_DIR/model_probe.json\"",
+  "run_dir": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/codellama7b_config_probe_20260722_184306",
+  "host": "AC-LAPTOP",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.11.15 (main, May 10 2026, 19:28:18) [Clang 22.1.3 ]"
+}

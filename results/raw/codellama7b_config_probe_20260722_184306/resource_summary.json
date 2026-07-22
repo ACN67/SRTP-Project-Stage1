@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "source": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/codellama7b_config_probe_20260722_184306/resource.csv",
+  "sample_count": 3,
+  "duration_observed_sec": 10.36,
+  "peak_process_rss_mb": 824.45,
+  "mean_process_rss_mb": 514.0466666666666,
+  "peak_gpu_memory_used_mb": 605.0,
+  "mean_gpu_memory_used_mb": 592.6666666666666,
+  "first_timestamp": "2026-07-22T18:43:06+08:00",
+  "last_timestamp": "2026-07-22T18:43:16+08:00"
+}

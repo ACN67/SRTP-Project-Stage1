@@ -25,3 +25,4 @@ Source: `reports/stage1/manual_run_results.jsonl`
 | 2026-07-18T20:27:33+08:00 | 常珂舒 | structured_depth_width | `flab_qwen3b_humaneval_prune_heavy` | failed | 10.605 | 1 | `results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_202722` |
 | 2026-07-18T20:32:13+08:00 | 常珂舒 | structured_depth_width | `flab_qwen3b_humaneval_prune_heavy` | failed | 23.294 | 1 | `results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_203150` |
 | 2026-07-18T20:40:38+08:00 | 常珂舒 | structured_depth_width | `flab_qwen3b_humaneval_prune_heavy` | success | 32.188 | 0 | `results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006` |
+| 2026-07-22T18:43:21+08:00 | shared | model_selection | `codellama7b_config_probe` | success | 14.723 | 0 | `results/raw/codellama7b_config_probe_20260722_184306` |
