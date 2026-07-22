@@ -1,0 +1,12 @@
+{
+  "status": "failed",
+  "method": "SliceGPT",
+  "owner": "常珂舒",
+  "model_id": "codellama/CodeLlama-7b-hf",
+  "run_id": "slicegpt_codellama7b_adapter_probe_20260722_200041",
+  "probe_type": "uninitialized_adapter_probe",
+  "loaded_weights": false,
+  "failure_category": "RESOURCE",
+  "failure_summary": "Process terminated locally while constructing the uninitialized CodeLlama-7B model object after the CodeLlama allowlist patch.",
+  "interpretation": "CodeLlama config is LLaMA-compatible, but the upstream SliceGPT uninitialized path still constructs a large 7B model object and can exceed local WSL memory."
+}

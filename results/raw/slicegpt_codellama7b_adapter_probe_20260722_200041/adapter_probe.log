@@ -1,0 +1,8 @@
+=== Run ID ===
+slicegpt_codellama7b_adapter_probe_20260722_200041
+
+=== SliceGPT CodeLlama adapter probe ===
+/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
