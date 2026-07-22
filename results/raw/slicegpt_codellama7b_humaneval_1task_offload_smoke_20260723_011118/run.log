@@ -1,0 +1,47 @@
+=== Run ID ===
+slicegpt_codellama7b_humaneval_1task_offload_smoke_20260723_011118
+
+=== SliceGPT CodeLlama-7B HumanEval 1-task offload smoke ===
+/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Loading tokenizer from /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6
+Loading CodeLlama weights on CPU
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:23<00:23, 23.57s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:29<00:00, 13.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:29<00:00, 14.65s/it]
+Loading dataset: wikitext2
+Loading dataset done
+Preparing dataloader
+Preparing dataloader done
+Replacing and fusing SliceGPT layers
+Replacing layers
+Replacing layers done
+Fusing layernorm modules
+Fusing layernorm modules done
+Running rotate_and_slice: hidden_size=4096 new_embedding_dimension=4048
+Rotate and slice layers
+Rotating and slicing:   0%|          | 0/32 [00:00<?, ?layer/s]Rotating and slicing:   3%|▎         | 1/32 [00:21<10:52, 21.03s/layer]Rotating and slicing:   6%|▋         | 2/32 [00:41<10:22, 20.74s/layer]Rotating and slicing:   9%|▉         | 3/32 [01:01<09:46, 20.23s/layer]Rotating and slicing:  12%|█▎        | 4/32 [01:22<09:33, 20.49s/layer]Rotating and slicing:  16%|█▌        | 5/32 [01:41<09:05, 20.22s/layer]Rotating and slicing:  19%|█▉        | 6/32 [02:01<08:44, 20.17s/layer]Rotating and slicing:  22%|██▏       | 7/32 [02:21<08:20, 20.01s/layer]Rotating and slicing:  25%|██▌       | 8/32 [02:43<08:12, 20.54s/layer]Rotating and slicing:  28%|██▊       | 9/32 [03:04<07:58, 20.82s/layer]Rotating and slicing:  31%|███▏      | 10/32 [03:30<08:14, 22.46s/layer]Rotating and slicing:  34%|███▍      | 11/32 [03:52<07:48, 22.29s/layer]Rotating and slicing:  38%|███▊      | 12/32 [04:17<07:38, 22.90s/layer]Rotating and slicing:  41%|████      | 13/32 [04:38<07:05, 22.42s/layer]Rotating and slicing:  44%|████▍     | 14/32 [05:02<06:53, 22.98s/layer]Rotating and slicing:  47%|████▋     | 15/32 [05:26<06:35, 23.24s/layer]Rotating and slicing:  50%|█████     | 16/32 [05:49<06:12, 23.30s/layer]Rotating and slicing:  53%|█████▎    | 17/32 [06:14<05:54, 23.61s/layer]Rotating and slicing:  56%|█████▋    | 18/32 [06:41<05:47, 24.82s/layer]Rotating and slicing:  59%|█████▉    | 19/32 [07:04<05:14, 24.23s/layer]Rotating and slicing:  62%|██████▎   | 20/32 [07:26<04:42, 23.51s/layer]Rotating and slicing:  66%|██████▌   | 21/32 [07:54<04:33, 24.88s/layer]Rotating and slicing:  69%|██████▉   | 22/32 [08:17<04:01, 24.13s/layer]Rotating and slicing:  72%|███████▏  | 23/32 [08:38<03:29, 23.30s/layer]Rotating and slicing:  75%|███████▌  | 24/32 [09:03<03:10, 23.77s/layer]Rotating and slicing:  78%|███████▊  | 25/32 [09:31<02:54, 24.98s/layer]Rotating and slicing:  81%|████████▏ | 26/32 [09:57<02:31, 25.33s/layer]Rotating and slicing:  84%|████████▍ | 27/32 [10:18<02:01, 24.27s/layer]Rotating and slicing:  88%|████████▊ | 28/32 [10:50<01:45, 26.30s/layer]Rotating and slicing:  91%|█████████ | 29/32 [11:13<01:16, 25.49s/layer]Rotating and slicing:  94%|█████████▍| 30/32 [11:37<00:50, 25.07s/layer]Rotating and slicing:  97%|█████████▋| 31/32 [11:58<00:23, 23.70s/layer]Rotating and slicing: 100%|██████████| 32/32 [12:22<00:00, 23.94s/layer]Rotating and slicing: 100%|██████████| 32/32 [12:22<00:00, 23.21s/layer]
+Rotate and slice layers done
+Some parameters are on the meta device because they were offloaded to the cpu.
+{"task_id": "HumanEval/101", "completion_chars": 31, "gen_seconds": 629.704}
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/slicegpt_codellama_smoke.py", line 281, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/slicegpt_codellama_smoke.py", line 233, in main
+    model.cpu()
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1165, in cpu
+    return self._apply(lambda t: t.cpu())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 934, in _apply
+    module._apply(fn)
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 934, in _apply
+    module._apply(fn)
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 934, in _apply
+    module._apply(fn)
+  [Previous line repeated 2 more times]
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 965, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1165, in <lambda>
+    return self._apply(lambda t: t.cpu())
+                                 ^^^^^^^
+NotImplementedError: Cannot copy out of meta tensor; no data!

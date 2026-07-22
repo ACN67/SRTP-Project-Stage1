@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval/eval.jsonl",
+  "samples": "results/raw/slicegpt_codellama7b_humaneval_1task_offload_smoke_20260723_011118/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 1,
+    "missing": 3
+  }
+}

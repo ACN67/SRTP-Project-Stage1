@@ -230,7 +230,11 @@ def main() -> int:
                     )
                 )
 
-        model.cpu()
+        if args.generate_device_map == "auto":
+            del model
+            del model_adapter
+        else:
+            model.cpu()
         utils.cleanup_memory()
         generation_summary = {
             "split": str(args.generate_split),
