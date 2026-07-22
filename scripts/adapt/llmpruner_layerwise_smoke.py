@@ -62,6 +62,9 @@ def main() -> int:
     parser.add_argument("--generate-limit", type=int, default=0)
     parser.add_argument("--max-new-tokens", type=int, default=64)
     parser.add_argument("--device", default="cpu")
+    parser.add_argument("--device-map", default="none", help="Optional HF/accelerate device_map, e.g. auto.")
+    parser.add_argument("--max-memory-json", help='Optional JSON max_memory, e.g. {"cuda:0":"6GiB","cpu":"20GiB"}.')
+    parser.add_argument("--offload-folder", type=Path)
     args = parser.parse_args()
 
     started = time.time()
@@ -69,12 +72,25 @@ def main() -> int:
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
     tokenizer = LlamaTokenizer.from_pretrained(args.model_path, local_files_only=True)
-    model = LlamaForCausalLM.from_pretrained(
-        args.model_path,
-        low_cpu_mem_usage=True,
-        torch_dtype=dtype_from_name(args.dtype),
-        local_files_only=True,
-    )
+    load_kwargs = {
+        "low_cpu_mem_usage": True,
+        "torch_dtype": dtype_from_name(args.dtype),
+        "local_files_only": True,
+    }
+    use_device_map = args.device_map and args.device_map != "none"
+    if use_device_map:
+        load_kwargs["device_map"] = args.device_map
+        if args.max_memory_json:
+            max_memory = json.loads(args.max_memory_json)
+            load_kwargs["max_memory"] = {
+                int(key) if isinstance(key, str) and key.isdigit() else key: value
+                for key, value in max_memory.items()
+            }
+        if args.offload_folder:
+            args.offload_folder.mkdir(parents=True, exist_ok=True)
+            load_kwargs["offload_folder"] = str(args.offload_folder)
+
+    model = LlamaForCausalLM.from_pretrained(args.model_path, **load_kwargs)
     model.eval()
 
     layers_before = len(model.model.layers)
@@ -86,9 +102,22 @@ def main() -> int:
     layers_after = len(model.model.layers)
     params_after = count_params(model)
 
-    use_cuda = args.device.startswith("cuda") and torch.cuda.is_available()
+    use_cuda = args.device.startswith("cuda") and torch.cuda.is_available() and not use_device_map
     if use_cuda:
         model = model.to(args.device)
+
+    def input_device() -> torch.device:
+        if use_device_map:
+            hf_device_map = getattr(model, "hf_device_map", {}) or {}
+            for value in hf_device_map.values():
+                if isinstance(value, int):
+                    return torch.device(f"cuda:{value}")
+                if isinstance(value, str) and value.startswith("cuda"):
+                    return torch.device(value)
+            return next(model.parameters()).device
+        if use_cuda:
+            return torch.device(args.device)
+        return torch.device("cpu")
 
     generation_summary = None
     if args.generate_split:
@@ -103,8 +132,8 @@ def main() -> int:
                 task_id = item["task_id"]
                 prompt = item["prompt"]
                 inputs = tokenizer(prompt, return_tensors="pt")
-                if use_cuda:
-                    inputs = {key: value.to(args.device) for key, value in inputs.items()}
+                target_device = input_device()
+                inputs = {key: value.to(target_device) for key, value in inputs.items()}
 
                 gen_started = time.time()
                 with torch.no_grad():
@@ -163,6 +192,10 @@ def main() -> int:
         "loaded_weights": True,
         "dtype": args.dtype,
         "device": args.device if use_cuda else "cpu",
+        "device_map": getattr(model, "hf_device_map", None),
+        "requested_device_map": args.device_map,
+        "max_memory": json.loads(args.max_memory_json) if args.max_memory_json else None,
+        "offload_folder": str(args.offload_folder) if args.offload_folder else None,
         "layers_before": layers_before,
         "layers_after": layers_after,
         "parameters_before": params_before,
