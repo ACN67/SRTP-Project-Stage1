@@ -1,0 +1,118 @@
+=== Run ID ===
+llmpruner_codellama7b_mbpp_4task_offload_smoke_20260722_233633
+
+=== Generate 4-task MBPP smoke samples ===
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'CodeLlamaTokenizer'. 
+The class this function is called from is 'LlamaTokenizer'.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:41<00:41, 41.60s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:06<00:00, 31.52s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:06<00:00, 33.05s/it]
+Some weights of LlamaForCausalLM were not initialized from the model checkpoint at /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6 and are newly initialized: ['model.layers.5.self_attn.rotary_emb.inv_freq', 'model.layers.2.self_attn.rotary_emb.inv_freq', 'model.layers.19.self_attn.rotary_emb.inv_freq', 'model.layers.16.self_attn.rotary_emb.inv_freq', 'model.layers.27.self_attn.rotary_emb.inv_freq', 'model.layers.1.self_attn.rotary_emb.inv_freq', 'model.layers.28.self_attn.rotary_emb.inv_freq', 'model.layers.10.self_attn.rotary_emb.inv_freq', 'model.layers.26.self_attn.rotary_emb.inv_freq', 'model.layers.7.self_attn.rotary_emb.inv_freq', 'model.layers.14.self_attn.rotary_emb.inv_freq', 'model.layers.12.self_attn.rotary_emb.inv_freq', 'model.layers.9.self_attn.rotary_emb.inv_freq', 'model.layers.18.self_attn.rotary_emb.inv_freq', 'model.layers.30.self_attn.rotary_emb.inv_freq', 'model.layers.22.self_attn.rotary_emb.inv_freq', 'model.layers.4.self_attn.rotary_emb.inv_freq', 'model.layers.3.self_attn.rotary_emb.inv_freq', 'model.layers.25.self_attn.rotary_emb.inv_freq', 'model.layers.20.self_attn.rotary_emb.inv_freq', 'model.layers.24.self_attn.rotary_emb.inv_freq', 'model.layers.13.self_attn.rotary_emb.inv_freq', 'model.layers.21.self_attn.rotary_emb.inv_freq', 'model.layers.6.self_attn.rotary_emb.inv_freq', 'model.layers.31.self_attn.rotary_emb.inv_freq', 'model.layers.0.self_attn.rotary_emb.inv_freq', 'model.layers.8.self_attn.rotary_emb.inv_freq', 'model.layers.29.self_attn.rotary_emb.inv_freq', 'model.layers.23.self_attn.rotary_emb.inv_freq', 'model.layers.17.self_attn.rotary_emb.inv_freq', 'model.layers.11.self_attn.rotary_emb.inv_freq', 'model.layers.15.self_attn.rotary_emb.inv_freq']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some parameters are on the meta device because they were offloaded to the cpu.
+/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/transformers/generation/utils.py:1270: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed soon, in a future version. Please use a generation configuration file (see https://huggingface.co/docs/transformers/main_classes/text_generation )
+  warnings.warn(
+{"task_id": "Mbpp/17", "completion_chars": 60, "gen_seconds": 113.895}
+{"task_id": "Mbpp/18", "completion_chars": 96, "gen_seconds": 39.245}
+{"task_id": "Mbpp/19", "completion_chars": 90, "gen_seconds": 38.592}
+{"task_id": "Mbpp/20", "completion_chars": 81, "gen_seconds": 37.902}
+{
+  "status": "success",
+  "method": "LLM-Pruner",
+  "model_path": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "wrapper": "scripts/adapt/llmpruner_layerwise_smoke.py",
+  "loaded_weights": true,
+  "dtype": "fp16",
+  "device": "cpu",
+  "device_map": {
+    "model.embed_tokens": 0,
+    "model.layers.0": 0,
+    "model.layers.1": 0,
+    "model.layers.2": 0,
+    "model.layers.3": 0,
+    "model.layers.4": 0,
+    "model.layers.5": 0,
+    "model.layers.6": 0,
+    "model.layers.7": 0,
+    "model.layers.8": 0,
+    "model.layers.9": 0,
+    "model.layers.10": 0,
+    "model.layers.11": 0,
+    "model.layers.12": 0,
+    "model.layers.13": "cpu",
+    "model.layers.14": "cpu",
+    "model.layers.15": "cpu",
+    "model.layers.16": "cpu",
+    "model.layers.17": "cpu",
+    "model.layers.18": "cpu",
+    "model.layers.19": "cpu",
+    "model.layers.20": "cpu",
+    "model.layers.21": "cpu",
+    "model.layers.22": "cpu",
+    "model.layers.23": "cpu",
+    "model.layers.24": "cpu",
+    "model.layers.25": "cpu",
+    "model.layers.26": "cpu",
+    "model.layers.27": "cpu",
+    "model.layers.28": "cpu",
+    "model.layers.29": "cpu",
+    "model.layers.30": "cpu",
+    "model.layers.31": "cpu",
+    "model.norm": "cpu",
+    "lm_head": "cpu"
+  },
+  "requested_device_map": "auto",
+  "max_memory": {
+    "0": "6GiB",
+    "cpu": "24GiB"
+  },
+  "offload_folder": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/llmpruner_codellama7b_mbpp_4task_offload_smoke_20260722_233633/offload",
+  "layers_before": 32,
+  "layers_after": 31,
+  "parameters_before": 6738546688,
+  "parameters_after": 6536163328,
+  "parameter_keep_ratio": 0.9699663192420401,
+  "parameter_reduction_rate": 0.03003368075795987,
+  "generation": {
+    "split": "data/splits/mbpp_evalplus/eval.jsonl",
+    "task_count": 4,
+    "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/llmpruner_codellama7b_mbpp_4task_offload_smoke_20260722_233633/samples.jsonl",
+    "generations": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/llmpruner_codellama7b_mbpp_4task_offload_smoke_20260722_233633/generations.jsonl",
+    "max_new_tokens": 32
+  },
+  "process_rss_mb_after": 8871.54296875,
+  "elapsed_seconds": 300.75301599502563,
+  "torch": "2.11.0+cu128"
+}
+
+=== Score MBPP smoke split ===
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/llmpruner_codellama7b_mbpp_4task_offload_smoke_20260722_233633/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 1,
+  "base_pass_rate": 0.25,
+  "base_status_counter": {
+    "pass": 1,
+    "fail": 3
+  }
+}
+
+=== Score summary ===
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/llmpruner_codellama7b_mbpp_4task_offload_smoke_20260722_233633/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 1,
+  "base_pass_rate": 0.25,
+  "base_status_counter": {
+    "pass": 1,
+    "fail": 3
+  }
+}
