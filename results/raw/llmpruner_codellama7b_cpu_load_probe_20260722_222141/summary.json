@@ -1,0 +1,10 @@
+{
+  "status": "failed",
+  "method": "LLM-Pruner",
+  "model_id": "codellama/CodeLlama-7b-hf",
+  "probe_type": "cpu_weight_load_only_local_cache_by_model_id",
+  "loaded_weights": false,
+  "failure_category": "CACHE_RESOLUTION",
+  "failure_summary": "local_files_only=True with the model id did not resolve the already downloaded Hugging Face snapshot.",
+  "next_step": "Retry from_pretrained with the explicit local snapshot path."
+}

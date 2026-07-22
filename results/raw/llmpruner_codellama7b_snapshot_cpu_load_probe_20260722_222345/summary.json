@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "method": "LLM-Pruner",
+  "model_path": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "probe_type": "cpu_weight_load_only_explicit_snapshot",
+  "loaded_weights": true,
+  "device": "cpu",
+  "torch_dtype_requested": "float16",
+  "model_class": "LlamaForCausalLM",
+  "tokenizer_class": "LlamaTokenizer",
+  "param_count": 6738546688,
+  "process_rss_mb_after_load": 13048.7109375,
+  "elapsed_seconds": 57.6063916683197,
+  "torch": "2.11.0+cu128"
+}
