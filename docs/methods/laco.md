@@ -3,7 +3,7 @@
 Owner: 常珂舒  
 Group: structured_depth_width  
 Stage: 1  
-Status: R1 blocked by upstream form
+Status: R1 blocked by limited upstream support
 
 ## Upstream State
 
@@ -20,17 +20,17 @@ third_party/laco/laco_llama-13b.ipynb
 
 No standalone Python entry point was found under `third_party/laco`.
 
-The upstream README describes the implementation as preliminary and points users to the LLaMA2 and Baichuan2 notebooks.
+The upstream README describes the implementation as preliminary and points users to the LLaMA2 and Baichuan2 notebooks. No CodeLlama-specific implementation, configuration, or documented support path is provided.
 
 ## Reproduction Assessment
 
-For Stage 1, this means LaCo can be analyzed and documented, but it is not suitable for the same scripted R1 smoke workflow used for SliceGPT and LLM-Pruner without converting the notebook logic into a script.
+For Stage 1, this means LaCo can be analyzed and documented, but it is not suitable for the same scripted R1 smoke workflow used for SliceGPT and LLM-Pruner without converting the notebook logic into a script. Under the current model-family policy, LaCo is also not moved to the CodeLlama route, because the official material covers LLaMA2/Baichuan2 notebooks rather than CodeLlama.
 
 Current decision:
 
 - Do not run a heavy LaCo experiment in Stage 1.
 - Record LaCo as method analyzed.
-- Record R1 reproduction as blocked by upstream notebook-only implementation.
+- Record R1 reproduction as blocked by limited official support: notebook-only and no CodeLlama support.
 - Keep future work focused on extracting a scriptable minimal workflow if LaCo becomes necessary for Stage 2.
 
 ## Suggested Future Work

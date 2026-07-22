@@ -53,7 +53,7 @@ Minimum guide usage:
 3. Move LLM-Pruner and SliceGPT to CodeLlama-family targets instead of spending Stage 1 effort on Qwen adapters:
    - LLM-Pruner is LLaMA-bound in its official `hf_prune.py`.
    - SliceGPT already has a LLaMA adapter and lacks Qwen2 support.
-4. Treat LaCo as blocked until notebook logic is extracted.
+4. Treat LaCo as blocked because official support is too limited: upstream is notebook-only and does not provide a CodeLlama route.
 
 ## Immediate Small Tasks
 

@@ -55,8 +55,8 @@ Smoke 结果只用于证明流程跑通，不作为正式性能结论。
 3. **既不能稳定使用 CodeLlama，也没有 Qwen 支持的方法，使用官方支持模型。**  
    例如 OPT、Phi、官方 tiny model 或方法 README 指定的小模型。
 
-4. **notebook-only 或入口不稳定的方法可以跳过。**  
-   LaCo 当前仅保留 R0/R1 blocker 证据，暂不投入 notebook 转脚本。
+4. **notebook-only、入口不稳定或官方支持范围过窄的方法可以跳过。**  
+   LaCo 当前仅保留 R0/R1 blocker 证据：官方支持过少，并不支持 CodeLlama，暂不投入 notebook 转脚本。
 
 现行模型策略的机器可读表为：
 
@@ -76,7 +76,7 @@ docs/stage1_model_selection_and_metrics.md
 
 | 成员 | 方法范围 | 当前模型策略 |
 |---|---|---|
-| 常珂舒 | LLM-Pruner、SliceGPT、LaCo、Flab-Pruner | Flab-Pruner 用 Qwen2.5-Coder；LLM-Pruner/SliceGPT 转 CodeLlama；LaCo 跳过 |
+| 常珂舒 | LLM-Pruner、SliceGPT、LaCo、Flab-Pruner | Flab-Pruner 用 Qwen2.5-Coder；LLM-Pruner/SliceGPT 转 CodeLlama；LaCo 因官方支持过少且不支持 CodeLlama 跳过 |
 | 潘阔 | Magnitude、Wanda、DSnoT、OWL、benchmark 数据 | 能用 CodeLlama 则用 CodeLlama；否则保留官方支持模型 |
 | 李长骏 | SparseGPT、MaskLLM、Pruner-Zero、FLAP、环境/资源审计 | 能用 CodeLlama 则用 CodeLlama；否则保留官方支持模型 |
 
@@ -92,7 +92,7 @@ docs/stage1_model_selection_and_metrics.md
 | MaskLLM | 半结构化剪枝 | N:M / 掩码学习路线 |
 | FLAP | 训练自由结构化剪枝 | 结构化代表 |
 | SliceGPT | 隐藏维度压缩 | LLaMA-family 宽度压缩代表 |
-| LaCo | 层合并 | notebook-only，第一阶段跳过 |
+| LaCo | 层合并 | 官方支持过少，并不支持 CodeLlama，第一阶段跳过 |
 | OWL | 非均匀稀疏率分配 | 层间分配策略 |
 | Pruner-Zero | 自动搜索重要性指标 | 自动化剪枝路线 |
 | Flab-Pruner | 代码模型剪枝 | Qwen2.5-Coder 代表闭环 |
@@ -395,7 +395,7 @@ scripts/run/run_plan.sh \
 | LiveCodeBench / SWE-bench Lite smoke split | 完成 |
 | SliceGPT R1 OPT-125M smoke | 完成 |
 | LLM-Pruner R1 tiny LLaMA smoke | 完成 |
-| LaCo R0/R1 blocker | 完成，后续跳过 |
+| LaCo R0/R1 blocker | 完成：官方支持过少，并不支持 CodeLlama，后续跳过 |
 | Flab-Pruner Qwen3B 剪枝 | 完成 |
 | Flab-Pruner pruned Qwen3B load/generate | 完成 |
 | Qwen1.5B / Qwen3B baseline load/generate | 完成 |
@@ -417,7 +417,7 @@ Flab-Pruner 当前已完成第一阶段代表闭环。它不是正式性能结�
 2. 如果最终要计算资源减负率，补跑 monitored load/generate 或 eval；
 3. 按新策略推进 SliceGPT CodeLlama 路线；
 4. 按新策略推进 LLM-Pruner CodeLlama 路线；
-5. LaCo 继续跳过，除非单独分配 notebook-to-script 工作。
+5. LaCo 继续跳过；其官方支持过少，并不支持 CodeLlama，除非后续单独分配 notebook-to-script 与模型适配工作。
 
 ### 潘阔
 

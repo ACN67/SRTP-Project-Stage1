@@ -95,7 +95,7 @@ Smoke tests may use only HumanEval and MBPP guide samples. Formal Stage 1 eviden
 |---|---|---|
 | SliceGPT | OPT-125M R1 smoke succeeded | Needs Qwen2 adapter or confirmation that Qwen can be mapped to an existing LLaMA-style adapter; guide data supplies hidden states. |
 | LLM-Pruner | tiny LLaMA R1 smoke succeeded | Current script imports custom LLaMA classes; likely needs an AutoModel/Qwen path or adapter patch; guide data supplies gradient/importance signal. |
-| LaCo | blocked because upstream is notebook-only | Needs notebook-to-script extraction before Qwen work. |
+| LaCo | blocked because official support is too limited | Upstream is notebook-only and does not provide a CodeLlama route; do not pursue Qwen or CodeLlama adaptation in Stage 1. |
 | Flab-Pruner | pending R0/R1 inspection | Inspect official entry points before Qwen judgment. |
 
 ## First Qwen Task

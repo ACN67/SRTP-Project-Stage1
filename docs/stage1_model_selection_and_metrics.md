@@ -13,7 +13,7 @@ Priority order:
 1. Use CodeLlama when the method officially supports LLaMA-family Hugging Face models.
 2. Use Qwen2.5-Coder when the method has explicit Qwen/Qwen2 support or a completed Qwen adapter.
 3. Use the method's own officially supported small model when neither CodeLlama nor Qwen is practical.
-4. Keep notebook-only or non-scriptable methods as analyzed/skipped unless converting them is explicitly assigned.
+4. Keep notebook-only, non-scriptable, or too-narrowly-supported methods as analyzed/skipped unless converting them is explicitly assigned.
 
 This makes the experiment fairer: each method is evaluated on a model family it can actually prune, while final reporting uses normalized metrics rather than pretending all methods operate on one identical model.
 
@@ -24,7 +24,7 @@ This makes the experiment fairer: each method is evaluated on a model family it 
 | 常珂舒 | Flab-Pruner | `Qwen/Qwen2.5-Coder-3B-Instruct` | `Qwen/Qwen2.5-Coder-1.5B-Instruct` and original 3B | Upstream includes Qwen2 code and the local Qwen3B pruning path has already succeeded. |
 | 常珂舒 | SliceGPT | CodeLlama-family model, preferably `codellama/CodeLlama-7b-hf` if resources allow | same-family unpruned CodeLlama | Official adapters include LLaMA, OPT, Phi-2, and Phi-3; Qwen2 adapter is missing. |
 | 常珂舒 | LLM-Pruner | CodeLlama-family model, preferably `codellama/CodeLlama-7b-hf` if resources allow | same-family unpruned CodeLlama | Official `hf_prune.py` is LLaMA-bound; Qwen requires a deeper adapter. |
-| 常珂舒 | LaCo | skipped for Stage 1 | N/A | Official implementation is notebook-only; conversion is deferred. |
+| 常珂舒 | LaCo | skipped for Stage 1 | N/A | Official support is too limited for the active policy: the repository provides LLaMA2/Baichuan2 notebooks and no CodeLlama route. |
 | 潘阔 | Wanda / Magnitude | CodeLlama-family model if the local Wanda path supports LLaMA; otherwise OPT smoke model | same-family unpruned model | Wanda supports LLaMA-style workflows in common use; confirm exact local entry before heavy runs. |
 | 潘阔 | DSnoT / OWL | CodeLlama-family model if the local method path supports LLaMA; otherwise method-supported model | same-family unpruned model | Mask allocation methods should use CodeLlama when the upstream scripts accept LLaMA models. |
 | 李长骏 | SparseGPT | CodeLlama-family model if the local SparseGPT LLaMA path is usable; otherwise OPT smoke model | same-family unpruned model | SparseGPT has LLaMA-family support upstream, but resource needs are higher than OPT smoke. |
