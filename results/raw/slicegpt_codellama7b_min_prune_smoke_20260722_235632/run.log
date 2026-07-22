@@ -1,0 +1,61 @@
+=== Run ID ===
+slicegpt_codellama7b_min_prune_smoke_20260722_235632
+
+=== System before ===
+               total        used        free      shared  buff/cache   available
+Mem:            13Gi       568Mi        13Gi       3.3Mi       115Mi        13Gi
+Swap:           32Gi       8.1Mi        31Gi
+NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 380 MiB
+
+=== SliceGPT CodeLlama-7B minimal prune smoke ===
+/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Loading tokenizer from /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6
+Loading CodeLlama weights on CPU
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:41<00:41, 41.06s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:44<00:00, 18.82s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:44<00:00, 22.15s/it]
+Loading dataset: wikitext2
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/keshu/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Sat Jul 18 17:38:21 2026).
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/keshu/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Sat Jul 18 17:38:21 2026).
+Loading dataset done
+Preparing dataloader
+Preparing dataloader done
+Replacing and fusing SliceGPT layers
+Replacing layers
+Replacing layers done
+Fusing layernorm modules
+Fusing layernorm modules done
+Running rotate_and_slice: hidden_size=4096 new_embedding_dimension=4048
+Rotate and slice layers
+Rotating and slicing:   0%|          | 0/32 [00:00<?, ?layer/s]Rotating and slicing:   3%|▎         | 1/32 [00:20<10:38, 20.60s/layer]Rotating and slicing:   6%|▋         | 2/32 [00:41<10:24, 20.82s/layer]Rotating and slicing:   9%|▉         | 3/32 [01:02<09:59, 20.67s/layer]Rotating and slicing:  12%|█▎        | 4/32 [01:23<09:42, 20.81s/layer]Rotating and slicing:  16%|█▌        | 5/32 [01:44<09:24, 20.90s/layer]Rotating and slicing:  19%|█▉        | 6/32 [02:06<09:14, 21.31s/layer]Rotating and slicing:  22%|██▏       | 7/32 [02:26<08:43, 20.96s/layer]Rotating and slicing:  25%|██▌       | 8/32 [02:47<08:20, 20.85s/layer]Rotating and slicing:  28%|██▊       | 9/32 [03:10<08:14, 21.50s/layer]Rotating and slicing:  31%|███▏      | 10/32 [03:31<07:53, 21.53s/layer]Rotating and slicing:  34%|███▍      | 11/32 [03:55<07:49, 22.36s/layer]Rotating and slicing:  38%|███▊      | 12/32 [04:16<07:18, 21.94s/layer]Rotating and slicing:  41%|████      | 13/32 [04:45<07:36, 24.05s/layer]Rotating and slicing:  44%|████▍     | 14/32 [05:09<07:12, 24.05s/layer]Rotating and slicing:  47%|████▋     | 15/32 [05:31<06:36, 23.34s/layer]Rotating and slicing:  50%|█████     | 16/32 [05:55<06:17, 23.56s/layer]Rotating and slicing:  53%|█████▎    | 17/32 [06:16<05:40, 22.67s/layer]Rotating and slicing:  56%|█████▋    | 18/32 [06:38<05:15, 22.51s/layer]Rotating and slicing:  59%|█████▉    | 19/32 [06:59<04:47, 22.13s/layer]Rotating and slicing:  62%|██████▎   | 20/32 [07:23<04:30, 22.55s/layer]Rotating and slicing:  66%|██████▌   | 21/32 [07:45<04:08, 22.60s/layer]Rotating and slicing:  69%|██████▉   | 22/32 [08:11<03:54, 23.44s/layer]Rotating and slicing:  72%|███████▏  | 23/32 [08:40<03:45, 25.09s/layer]Rotating and slicing:  75%|███████▌  | 24/32 [09:04<03:18, 24.81s/layer]Rotating and slicing:  78%|███████▊  | 25/32 [09:37<03:12, 27.45s/layer]Rotating and slicing:  81%|████████▏ | 26/32 [10:02<02:40, 26.68s/layer]Rotating and slicing:  84%|████████▍ | 27/32 [10:30<02:14, 26.95s/layer]Rotating and slicing:  88%|████████▊ | 28/32 [10:56<01:46, 26.62s/layer]Rotating and slicing:  91%|█████████ | 29/32 [11:22<01:19, 26.56s/layer]Rotating and slicing:  94%|█████████▍| 30/32 [11:49<00:53, 26.73s/layer]Rotating and slicing:  97%|█████████▋| 31/32 [12:13<00:25, 25.83s/layer]Rotating and slicing: 100%|██████████| 32/32 [12:39<00:00, 25.86s/layer]Rotating and slicing: 100%|██████████| 32/32 [12:39<00:00, 23.73s/layer]
+Rotate and slice layers done
+{
+  "status": "success",
+  "method": "SliceGPT",
+  "model_path": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "wrapper": "scripts/adapt/slicegpt_codellama_smoke.py",
+  "loaded_weights": true,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "cal_dataset": "wikitext2",
+  "cal_nsamples": 1,
+  "cal_batch_size": 1,
+  "cal_max_seqlen": 32,
+  "sparsity_requested": 0.01,
+  "new_embedding_dimension": 4048,
+  "parameters_before": 6738280448,
+  "parameters_after": 7710299136,
+  "parameter_keep_ratio": 1.144253225359373,
+  "parameter_reduction_rate": -0.1442532253593729,
+  "generation": null,
+  "process_rss_mb_after": 11298.28515625,
+  "elapsed_seconds": 1291.039627790451,
+  "torch": "2.11.0+cu128"
+}
+
+=== System after ===
+               total        used        free      shared  buff/cache   available
+Mem:            13Gi       517Mi        12Gi       2.3Mi       364Mi        13Gi
+Swap:           32Gi        79Mi        31Gi
+NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 370 MiB

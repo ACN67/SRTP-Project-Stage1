@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "method": "SliceGPT",
+  "model_path": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "wrapper": "scripts/adapt/slicegpt_codellama_smoke.py",
+  "loaded_weights": true,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "cal_dataset": "wikitext2",
+  "cal_nsamples": 1,
+  "cal_batch_size": 1,
+  "cal_max_seqlen": 32,
+  "sparsity_requested": 0.01,
+  "new_embedding_dimension": 4048,
+  "parameters_before": 6738280448,
+  "parameters_after": 7710299136,
+  "parameter_keep_ratio": 1.144253225359373,
+  "parameter_reduction_rate": -0.1442532253593729,
+  "generation": null,
+  "process_rss_mb_after": 11298.28515625,
+  "elapsed_seconds": 1291.039627790451,
+  "torch": "2.11.0+cu128"
+}
