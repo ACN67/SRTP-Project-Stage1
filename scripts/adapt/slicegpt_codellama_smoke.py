@@ -63,6 +63,11 @@ def main() -> int:
     parser.add_argument("--generate-split", type=Path)
     parser.add_argument("--generate-limit", type=int, default=0)
     parser.add_argument("--max-new-tokens", type=int, default=32)
+    parser.add_argument(
+        "--generate-device",
+        default="cpu",
+        help="Device for post-slicing generation. Default is cpu to avoid moving the full 7B sliced model to GPU.",
+    )
     args = parser.parse_args()
 
     started = time.time()
@@ -128,13 +133,16 @@ def main() -> int:
         samples_path = args.out_dir / "samples.jsonl"
         generations_path = args.out_dir / "generations.jsonl"
 
-        model.to(config.device)
+        generate_device = torch.device(
+            args.generate_device if args.generate_device.startswith("cuda") and torch.cuda.is_available() else "cpu"
+        )
+        model.to(generate_device)
         with samples_path.open("w", encoding="utf-8") as sf, generations_path.open("w", encoding="utf-8") as gf:
             for item in tasks:
                 task_id = item["task_id"]
                 prompt = item["prompt"]
                 inputs = tokenizer(prompt, return_tensors="pt")
-                inputs = {key: value.to(config.device) for key, value in inputs.items()}
+                inputs = {key: value.to(generate_device) for key, value in inputs.items()}
 
                 gen_started = time.time()
                 with torch.no_grad():
@@ -183,6 +191,7 @@ def main() -> int:
             "samples": str(samples_path),
             "generations": str(generations_path),
             "max_new_tokens": args.max_new_tokens,
+            "device": str(generate_device),
         }
 
     summary = {
@@ -193,6 +202,7 @@ def main() -> int:
         "loaded_weights": True,
         "dtype": args.dtype,
         "device": str(config.device),
+        "generate_device": args.generate_device,
         "cal_dataset": args.cal_dataset,
         "cal_nsamples": args.cal_nsamples,
         "cal_batch_size": args.cal_batch_size,
