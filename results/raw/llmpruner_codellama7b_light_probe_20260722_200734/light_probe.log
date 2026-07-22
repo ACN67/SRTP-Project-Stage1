@@ -1,0 +1,39 @@
+=== Run ID ===
+llmpruner_codellama7b_light_probe_20260722_200734
+
+=== LLM-Pruner CodeLlama light probe ===
+/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'CodeLlamaTokenizer'. 
+The class this function is called from is 'LlamaTokenizer'.
+{
+  "status": "success",
+  "method": "LLM-Pruner",
+  "model_id": "codellama/CodeLlama-7b-hf",
+  "probe_type": "config_tokenizer_import_only",
+  "loaded_weights": false,
+  "constructed_full_model": false,
+  "auto_config_class": "LlamaConfig",
+  "llama_config_class": "LlamaConfig",
+  "model_type": "llama",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "num_hidden_layers": 32,
+  "hidden_size": 4096,
+  "intermediate_size": 11008,
+  "num_attention_heads": 32,
+  "num_key_value_heads": 32,
+  "max_position_embeddings": 16384,
+  "vocab_size": 32016,
+  "tokenizer_class": "LlamaTokenizer",
+  "tokenizer_vocab_size": 32016,
+  "llmpruner_model_class": "LlamaForCausalLM",
+  "llmpruner_attention_class": "LlamaAttention",
+  "llmpruner_mlp_class": "LlamaMLP",
+  "llmpruner_rmsnorm_class": "LlamaRMSNorm",
+  "hf_llama_pruner_module": "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/pruner/hf_llama_pruner.py",
+  "elapsed_seconds": 5.058452844619751,
+  "torch": "2.11.0+cu128"
+}

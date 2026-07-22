@@ -1,0 +1,30 @@
+{
+  "status": "success",
+  "method": "LLM-Pruner",
+  "model_id": "codellama/CodeLlama-7b-hf",
+  "probe_type": "config_tokenizer_import_only",
+  "loaded_weights": false,
+  "constructed_full_model": false,
+  "auto_config_class": "LlamaConfig",
+  "llama_config_class": "LlamaConfig",
+  "model_type": "llama",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "num_hidden_layers": 32,
+  "hidden_size": 4096,
+  "intermediate_size": 11008,
+  "num_attention_heads": 32,
+  "num_key_value_heads": 32,
+  "max_position_embeddings": 16384,
+  "vocab_size": 32016,
+  "tokenizer_class": "LlamaTokenizer",
+  "tokenizer_vocab_size": 32016,
+  "llmpruner_model_class": "LlamaForCausalLM",
+  "llmpruner_attention_class": "LlamaAttention",
+  "llmpruner_mlp_class": "LlamaMLP",
+  "llmpruner_rmsnorm_class": "LlamaRMSNorm",
+  "hf_llama_pruner_module": "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/pruner/hf_llama_pruner.py",
+  "elapsed_seconds": 5.058452844619751,
+  "torch": "2.11.0+cu128"
+}
