@@ -1,0 +1,10 @@
+{
+  "status": "failed",
+  "method": "LLM-Pruner",
+  "model_id": "codellama/CodeLlama-7b-hf",
+  "probe_type": "cpu_weight_load_only",
+  "loaded_weights": false,
+  "failure_category": "DOWNLOAD_STALLED",
+  "failure_summary": "from_pretrained stayed at Downloading shards 0/2 without Hugging Face cache growth for more than 10 minutes.",
+  "next_step": "Use an explicit Hugging Face snapshot/pre-download step before retrying CPU load."
+}

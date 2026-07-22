@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "method": "shared",
+  "owner": "常珂舒",
+  "model_id": "codellama/CodeLlama-7b-hf",
+  "run_id": "codellama7b_snapshot_download_20260722_202939",
+  "snapshot_path": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "downloaded_files": 17,
+  "elapsed": "1:49:11",
+  "cache_size_after": "34G",
+  "disk_available_after": "896G",
+  "cleanup_policy": "deferred; keep downloaded weights to prioritize experiment execution"
+}
