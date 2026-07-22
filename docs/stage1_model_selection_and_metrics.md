@@ -110,7 +110,22 @@ Derived metrics:
 | peak VRAM reduction rate | `1 - pruned_peak_gpu_memory_mb / baseline_peak_gpu_memory_mb`, only for comparable tasks on same hardware |
 | artifact size reduction rate | `1 - artifact_size_bytes_after / artifact_size_bytes_before` |
 
-Smoke results may be used to prove pipeline connectivity. Formal conclusions require larger eval splits and controlled decoding settings.
+Smoke results may be used to prove pipeline connectivity. Formal Stage 1 conclusions require R4 half-set eval splits and controlled decoding settings.
+
+## R4 Formal Evaluation Policy
+
+R4 is required before a result can be treated as Stage 1 formal evidence.
+
+Minimum R4 benchmark set:
+
+| Benchmark | Requirement |
+|---|---|
+| HumanEval | required half-set guide/eval |
+| MBPP | required half-set guide/eval, using EvalPlus-compatible task IDs/prompts for scoring |
+| LiveCodeBench | optional extension if time and resources allow |
+| SWE-bench Lite | interface-only for Stage 1 unless separately assigned |
+
+R4 must use the same model family for baseline and pruned comparison. Cross-family comparisons must be reported through normalized retention/reduction indicators only.
 
 ## Reporting Rule
 

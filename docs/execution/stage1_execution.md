@@ -99,7 +99,7 @@ docs/stage1_model_selection_and_metrics.md
 
 ---
 
-## 4. R0-R3 定义
+## 4. R0-R4 定义
 
 ### R0：官方材料与环境审计
 
@@ -151,10 +151,26 @@ resource_summary.json
 
 目标：
 
-- 使用 HumanEval、MBPP、LiveCodeBench、SWE-bench Lite 的 guide/eval split；
+- 使用 HumanEval、MBPP、LiveCodeBench、SWE-bench Lite 的 smoke guide/eval split；
 - guide split 用于剪枝阶段的校准、激活、梯度、隐藏状态或候选选择；
 - eval split 用于剪枝后验证；
-- 保存 baseline 与 pruned 结果，用统一指标计算能力保留率和资源减负率。
+- 保存 baseline 与 pruned 结果；
+- 证明生成、评分、日志、资源记录和结果入库流程能跑通。
+
+R3 的结论只能说明 benchmark-guided 管线可运行，不能作为第一阶段正式性能结论。
+
+### R4：半集规模 benchmark-guided 正式复现
+
+目标：
+
+- 至少选择 HumanEval 与 MBPP 的半集作为正式 guide/eval 数据；
+- guide split 必须实际参与剪枝阶段的校准、激活、梯度、隐藏状态或候选选择；
+- eval split 用于剪枝后的正式评测；
+- 同一模型族内完成 baseline 与 pruned 对照；
+- 保存参数量、artifact manifest、运行时长、峰值显存、峰值 RSS、pass rate 与派生指标；
+- 输出可进入第一阶段报告的能力保留率和资源减负率。
+
+LiveCodeBench 可作为 R4 扩展项：如果时间和资源允许，应补一个小规模正式子集；如果阶段时间不足，至少保留其 smoke 数据接口和后续计划。SWE-bench Lite 暂作为软件工程任务接口验证，不作为本阶段必须完成的半集正式评测。
 
 ---
 
@@ -198,10 +214,10 @@ CodeLlama-family
 
 | Benchmark | 用途 |
 |---|---|
-| HumanEval | 代码生成函数题 smoke / formal eval |
-| MBPP | 代码生成函数题 smoke / formal eval |
-| LiveCodeBench | 后续更真实代码任务 |
-| SWE-bench Lite | 后续软件工程任务 |
+| HumanEval | R3 smoke 与 R4 半集正式评测 |
+| MBPP | R3 smoke 与 R4 半集正式评测 |
+| LiveCodeBench | R3 smoke，R4 可选扩展 |
+| SWE-bench Lite | R3 数据接口，后续软件工程任务扩展 |
 
 数据分为：
 
@@ -225,6 +241,16 @@ MBPP 注意：
 - 原始 `data/splits/mbpp/` 保留自然语言任务；
 - EvalPlus 打分使用 `data/splits/mbpp_evalplus/`；
 - 这是数据接口对齐，不是修改题目。
+
+R4 需要新增或生成半集 split：
+
+```text
+data/splits/humaneval_half/
+data/splits/mbpp_evalplus_half/
+data/splits/livecodebench_half/        optional
+```
+
+半集 split 应固定随机种子并记录 manifest，避免每次运行的题目集合变化。
 
 ---
 
@@ -405,7 +431,7 @@ scripts/run/run_plan.sh \
 | LLM-Pruner Qwen adapter audit | 完成，确认深度绑定 LLaMA |
 | 模型策略调整 | 完成，转为 CodeLlama/Qwen/官方模型分流 |
 
-Flab-Pruner 当前已完成第一阶段代表闭环。它不是正式性能结论，但已经证明 Qwen2.5-Coder 剪枝、保存、加载、生成和 smoke eval 管线可运行。
+Flab-Pruner 当前已完成 R2/R3 代表闭环。它不是正式性能结论，但已经证明 Qwen2.5-Coder 剪枝、保存、加载、生成和 smoke eval 管线可运行。若要作为第一阶段最终成果，还需要进入 R4：使用 HumanEval/MBPP 半集完成一次 benchmark-guided 正式剪枝与评测。
 
 ---
 
@@ -414,10 +440,12 @@ Flab-Pruner 当前已完成第一阶段代表闭环。它不是正式性能结�
 ### 常珂舒
 
 1. 保留 Flab-Pruner 现有 Qwen 闭环；
-2. 如果最终要计算资源减负率，补跑 monitored load/generate 或 eval；
-3. 按新策略推进 SliceGPT CodeLlama 路线；
-4. 按新策略推进 LLM-Pruner CodeLlama 路线；
-5. LaCo 继续跳过；其官方支持过少，并不支持 CodeLlama，除非后续单独分配 notebook-to-script 与模型适配工作。
+2. 按新策略推进 SliceGPT CodeLlama 路线的 R2/R3；
+3. 按新策略推进 LLM-Pruner CodeLlama 路线的 R2/R3；
+4. 为 R4 生成 HumanEval/MBPP 半集 split；
+5. 在至少一个代表方法上完成 R4 半集 benchmark-guided 剪枝与正式评测，优先使用已跑通的 Flab-Pruner/Qwen 或资源可承受的 CodeLlama 方法；
+6. 如果最终要计算资源减负率，补跑 monitored load/generate 或 eval；
+7. LaCo 继续跳过；其官方支持过少，并不支持 CodeLlama，除非后续单独分配 notebook-to-script 与模型适配工作。
 
 ### 潘阔
 
@@ -441,13 +469,15 @@ Flab-Pruner 当前已完成第一阶段代表闭环。它不是正式性能结�
 
 1. 每个方法的 R0 审计记录；
 2. 尽可能多的方法完成 R1 官方最小复现；
-3. 至少一个方法完成代码模型剪枝闭环，当前为 Flab-Pruner/Qwen2.5-Coder；
-4. LLaMA-compatible 方法明确 CodeLlama 路线或失败证据；
-5. HumanEval/MBPP smoke 评测管线可运行；
-6. LiveCodeBench/SWE-bench Lite 数据接口存在；
-7. 所有关键 run 有 `summary.md`、日志、资源记录或补指标计划；
-8. 大文件不误提交，必要 hash/manifest 已入库；
-9. 三名成员的结果可在统一 Git 仓库追溯。
+3. 尽可能多的方法完成 R2 代码模型剪枝或给出失败证据；
+4. 至少一个方法完成 R3 smoke 闭环，当前为 Flab-Pruner/Qwen2.5-Coder；
+5. 至少一个代表方法完成 R4 HumanEval/MBPP 半集 benchmark-guided 正式剪枝与评测；
+6. LLaMA-compatible 方法明确 CodeLlama 路线或失败证据；
+7. HumanEval/MBPP smoke 与半集正式评测管线可运行；
+8. LiveCodeBench/SWE-bench Lite 数据接口存在，LiveCodeBench R4 视资源作为扩展项；
+9. 所有关键 run 有 `summary.md`、日志、资源记录或补指标计划；
+10. 大文件不误提交，必要 hash/manifest 已入库；
+11. 三名成员的结果可在统一 Git 仓库追溯。
 
 ---
 
@@ -456,6 +486,7 @@ Flab-Pruner 当前已完成第一阶段代表闭环。它不是正式性能结�
 - 不因分数低删除实验记录；
 - 不跨模型族直接比较 raw score 并宣称方法优劣；
 - 不把 smoke 结果写成正式性能结论；
+- 不把 R3 smoke 替代为 R4 半集正式复现；
 - 不强迫所有方法适配 Qwen；
 - 不提交 Hugging Face cache；
 - 不提交大权重文件，除非团队明确决定使用 Git LFS；
