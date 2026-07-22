@@ -11,6 +11,7 @@ from pathlib import Path
 
 import psutil
 import torch
+from accelerate import dispatch_model, infer_auto_device_map
 from transformers import AutoTokenizer
 from transformers.models.llama.modeling_llama import LlamaForCausalLM
 
@@ -47,6 +48,16 @@ def extract_completion(prompt: str, generated: str) -> str:
     return generated[len(prompt) :] if generated.startswith(prompt) else generated
 
 
+def parse_max_memory(raw: str | None) -> dict[int | str, str] | None:
+    if not raw:
+        return None
+    parsed = json.loads(raw)
+    return {
+        int(key) if isinstance(key, str) and key.isdigit() else key: value
+        for key, value in parsed.items()
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-path", required=True, type=Path)
@@ -68,6 +79,14 @@ def main() -> int:
         default="cpu",
         help="Device for post-slicing generation. Default is cpu to avoid moving the full 7B sliced model to GPU.",
     )
+    parser.add_argument(
+        "--generate-device-map",
+        default="none",
+        choices=["none", "auto"],
+        help="Optional accelerate dispatch for post-slicing generation.",
+    )
+    parser.add_argument("--max-memory-json", help='Optional JSON max_memory, e.g. {"0":"6GiB","cpu":"24GiB"}.')
+    parser.add_argument("--offload-folder", type=Path)
     args = parser.parse_args()
 
     started = time.time()
@@ -133,10 +152,38 @@ def main() -> int:
         samples_path = args.out_dir / "samples.jsonl"
         generations_path = args.out_dir / "generations.jsonl"
 
-        generate_device = torch.device(
-            args.generate_device if args.generate_device.startswith("cuda") and torch.cuda.is_available() else "cpu"
-        )
-        model.to(generate_device)
+        generation_device_map = None
+        if args.generate_device_map == "auto":
+            max_memory = parse_max_memory(args.max_memory_json)
+            if args.offload_folder:
+                args.offload_folder.mkdir(parents=True, exist_ok=True)
+            generation_device_map = infer_auto_device_map(
+                model,
+                max_memory=max_memory,
+                no_split_module_classes=model_adapter.no_split_module_classes,
+            )
+            dispatch_model(
+                model,
+                device_map=generation_device_map,
+                offload_buffers=True,
+                offload_dir=str(args.offload_folder) if args.offload_folder else None,
+            )
+
+            def infer_input_device() -> torch.device:
+                for value in generation_device_map.values():
+                    if isinstance(value, int):
+                        return torch.device(f"cuda:{value}")
+                    if isinstance(value, str) and value.startswith("cuda"):
+                        return torch.device(value)
+                return torch.device("cpu")
+
+            generate_device = infer_input_device()
+        else:
+            generate_device = torch.device(
+                args.generate_device if args.generate_device.startswith("cuda") and torch.cuda.is_available() else "cpu"
+            )
+            model.to(generate_device)
+
         with samples_path.open("w", encoding="utf-8") as sf, generations_path.open("w", encoding="utf-8") as gf:
             for item in tasks:
                 task_id = item["task_id"]
@@ -192,6 +239,7 @@ def main() -> int:
             "generations": str(generations_path),
             "max_new_tokens": args.max_new_tokens,
             "device": str(generate_device),
+            "device_map": generation_device_map,
         }
 
     summary = {
@@ -203,6 +251,9 @@ def main() -> int:
         "dtype": args.dtype,
         "device": str(config.device),
         "generate_device": args.generate_device,
+        "generate_device_map": args.generate_device_map,
+        "max_memory": json.loads(args.max_memory_json) if args.max_memory_json else None,
+        "offload_folder": str(args.offload_folder) if args.offload_folder else None,
         "cal_dataset": args.cal_dataset,
         "cal_nsamples": args.cal_nsamples,
         "cal_batch_size": args.cal_batch_size,
