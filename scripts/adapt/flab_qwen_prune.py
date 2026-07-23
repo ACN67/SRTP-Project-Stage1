@@ -7,6 +7,8 @@ import argparse
 import hashlib
 import json
 import sys
+import time
+import types
 from pathlib import Path
 
 
@@ -36,6 +38,24 @@ def load_guide(path: Path, max_samples: int) -> tuple[list[dict], str]:
         if row.get("contains_solution"):
             raise ValueError(f"guide row contains_solution=true: {row.get('task_id')}")
     return rows, sha256_file(path)
+
+
+def load_guides(paths: list[Path], max_samples_per_file: int) -> tuple[list[dict], list[dict]]:
+    all_rows = []
+    manifests = []
+    for path in paths:
+        rows, digest = load_guide(path, max_samples_per_file)
+        all_rows.extend(rows)
+        manifests.append(
+            {
+                "path": str(path.relative_to(ROOT) if path.is_relative_to(ROOT) else path),
+                "sha256": digest,
+                "samples_used": len(rows),
+                "task_ids": [row.get("task_id") for row in rows],
+                "benchmarks": sorted({row.get("benchmark") for row in rows}),
+            }
+        )
+    return all_rows, manifests
 
 
 def round_to_multiple(value: int, multiple: int) -> int:
@@ -131,17 +151,135 @@ def estimate_params(config, plan: dict) -> dict:
     }
 
 
+def topk_index(scores, keep: int):
+    import torch
+
+    if keep >= scores.numel():
+        return torch.arange(scores.numel(), dtype=torch.long)
+    return torch.topk(scores, keep, largest=True).indices.sort().values.to(torch.long)
+
+
+def mask_from_index(size: int, index, device):
+    import torch
+
+    mask = torch.zeros(size, dtype=torch.bool, device=device)
+    mask[index.to(device)] = True
+    return mask
+
+
+def build_benchmark_guided_zs(model, tokenizer, guide_rows: list[dict], plan: dict, max_length: int, save_dir: Path) -> tuple[dict, dict]:
+    import torch
+
+    started = time.time()
+    device = next(model.parameters()).device
+    layer_count = plan["num_hidden_layers"]
+    hidden_size = plan["hidden_size"]
+    intermediate_size = plan["intermediate_size"]
+    head_count = plan["num_attention_heads"]
+    kv_head_count = plan["num_key_value_heads"]
+    head_dim = plan["head_dim_original"]
+
+    hidden_scores = torch.zeros(hidden_size, dtype=torch.float64)
+    intermediate_scores = [torch.zeros(intermediate_size, dtype=torch.float64) for _ in range(layer_count)]
+    head_scores = [torch.zeros(head_count, dtype=torch.float64) for _ in range(layer_count)]
+    kv_head_scores = [torch.zeros(kv_head_count, dtype=torch.float64) for _ in range(layer_count)]
+
+    hooks = []
+
+    def add_hidden(_, __, output):
+        tensor = output[0] if isinstance(output, tuple) else output
+        hidden_scores.add_(tensor.detach().float().abs().sum(dim=(0, 1)).cpu().double())
+
+    def make_intermediate_hook(layer_idx: int):
+        def hook(_, __, output):
+            intermediate_scores[layer_idx].add_(output.detach().float().abs().sum(dim=(0, 1)).cpu().double())
+
+        return hook
+
+    def make_head_hook(layer_idx: int, heads: int, dim: int, store: list):
+        def hook(_, __, output):
+            values = output.detach().float().abs().sum(dim=(0, 1)).cpu().double()
+            store[layer_idx].add_(values.reshape(heads, dim).sum(dim=1))
+
+        return hook
+
+    hooks.append(model.model.embed_tokens.register_forward_hook(add_hidden))
+    for layer_idx, layer in enumerate(model.model.layers):
+        hooks.append(layer.register_forward_hook(add_hidden))
+        hooks.append(layer.mlp.gate_proj.register_forward_hook(make_intermediate_hook(layer_idx)))
+        hooks.append(layer.self_attn.q_proj.register_forward_hook(make_head_hook(layer_idx, head_count, head_dim, head_scores)))
+        hooks.append(layer.self_attn.k_proj.register_forward_hook(make_head_hook(layer_idx, kv_head_count, head_dim, kv_head_scores)))
+
+    processed = 0
+    token_count = 0
+    model.eval()
+    with torch.no_grad():
+        for row in guide_rows:
+            prompt = row.get("prompt") or ""
+            if not prompt.strip():
+                continue
+            inputs = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=max_length)
+            inputs = {key: value.to(device) for key, value in inputs.items()}
+            token_count += int(inputs["input_ids"].numel())
+            model(**inputs, use_cache=False)
+            processed += 1
+            if processed % 25 == 0:
+                print(json.dumps({"importance_samples_processed": processed, "tokens": token_count}, ensure_ascii=False), flush=True)
+
+    for hook in hooks:
+        hook.remove()
+
+    hidden_index = topk_index(hidden_scores, plan["hidden_size_remain"])
+    head_indexes = [topk_index(scores, plan["num_attention_heads_remain"]) for scores in head_scores]
+    kv_head_indexes = [topk_index(scores, plan["num_key_value_heads_remain"]) for scores in kv_head_scores]
+    intermediate_indexes = [topk_index(scores, plan["ffn_hidden_size_remain"]) for scores in intermediate_scores]
+
+    zs = {
+        "hidden_mask": mask_from_index(hidden_size, hidden_index, device),
+        "hidden_index": hidden_index.to(device),
+        "head_masks": [mask_from_index(head_count, index, device) for index in head_indexes],
+        "kv_head_masks": [mask_from_index(kv_head_count, index, device) for index in kv_head_indexes],
+        "intermediate_masks": [mask_from_index(intermediate_size, index, device) for index in intermediate_indexes],
+        "head_indexes": [index.to(device) for index in head_indexes],
+        "kv_head_indexes": [index.to(device) for index in kv_head_indexes],
+        "intermediate_indexes": [index.to(device) for index in intermediate_indexes],
+    }
+
+    summary = {
+        "mode": "benchmark_forward_activation_magnitude",
+        "samples_processed": processed,
+        "tokens_processed": token_count,
+        "max_length": max_length,
+        "elapsed_seconds": time.time() - started,
+        "hidden_keep": int(hidden_index.numel()),
+        "head_keep_per_layer": [int(index.numel()) for index in head_indexes],
+        "kv_head_keep_per_layer": [int(index.numel()) for index in kv_head_indexes],
+        "intermediate_keep_per_layer": [int(index.numel()) for index in intermediate_indexes],
+        "hidden_index_preview": hidden_index[:32].tolist(),
+        "head_index_preview": [index.tolist() for index in head_indexes[:3]],
+        "kv_head_index_preview": [index.tolist() for index in kv_head_indexes[:3]],
+        "intermediate_index_preview": [index[:32].tolist() for index in intermediate_indexes[:2]],
+    }
+    (save_dir / "benchmark_importance_summary.json").write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return zs, summary
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Flab-Pruner Qwen2.5-Coder wrapper.")
     parser.add_argument("--model", default="Qwen/Qwen2.5-Coder-3B-Instruct")
-    parser.add_argument("--guide-file", required=True)
+    parser.add_argument("--guide-file", required=True, action="append", help="Guide JSONL file. May be repeated.")
     parser.add_argument("--save-dir", required=True)
     parser.add_argument("--stage", default="top", choices=["top", "bottom", "random", "middle"])
     parser.add_argument("--prune-ratio", type=float, default=0.10)
-    parser.add_argument("--max-guide-samples", type=int, default=4)
+    parser.add_argument("--max-guide-samples", type=int, default=4, help="Maximum guide rows to read from each --guide-file.")
     parser.add_argument("--dtype", default="bf16", choices=["bf16", "fp16", "fp32"])
     parser.add_argument("--device-map", default="auto")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--importance-mode", default="structural", choices=["structural", "benchmark"])
+    parser.add_argument("--importance-max-length", type=int, default=256)
     parser.add_argument("--hidden-size-remain", type=int)
     parser.add_argument("--ffn-hidden-size-remain", type=int)
     parser.add_argument("--num-attention-heads-remain", type=int)
@@ -153,9 +291,12 @@ def main() -> int:
 
     from transformers import AutoConfig, AutoTokenizer
 
-    guide_file = (ROOT / args.guide_file).resolve() if not Path(args.guide_file).is_absolute() else Path(args.guide_file)
+    guide_files = [
+        (ROOT / item).resolve() if not Path(item).is_absolute() else Path(item)
+        for item in args.guide_file
+    ]
     save_dir = (ROOT / args.save_dir).resolve() if not Path(args.save_dir).is_absolute() else Path(args.save_dir)
-    guide_rows, guide_hash = load_guide(guide_file, args.max_guide_samples)
+    guide_rows, guide_manifests = load_guides(guide_files, args.max_guide_samples)
     config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
     compat_patches = ensure_qwen2_compat_config(config)
     tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
@@ -166,8 +307,7 @@ def main() -> int:
         "status": "dry_run" if args.dry_run else "planned_heavy_run",
         "method": "Flab-Pruner",
         "model": args.model,
-        "guide_file": str(guide_file.relative_to(ROOT) if guide_file.is_relative_to(ROOT) else guide_file),
-        "guide_sha256": guide_hash,
+        "guide_files": guide_manifests,
         "guide_samples_used": len(guide_rows),
         "guide_task_ids": [row.get("task_id") for row in guide_rows],
         "stage": args.stage,
@@ -190,7 +330,13 @@ def main() -> int:
         "compat_patches": compat_patches,
         "prune_plan": plan,
         "rough_param_estimate": estimate,
-        "benchmark_guidance_status": "guide file recorded and validated; upstream Flab stage selection is still structural/top-bottom-random unless scoring patch is added",
+        "importance_mode": args.importance_mode,
+        "importance_max_length": args.importance_max_length,
+        "benchmark_guidance_status": (
+            "guide files recorded and validated only; structural stage selection"
+            if args.importance_mode == "structural"
+            else "benchmark guide forward activations will determine hidden/head/intermediate keep indexes"
+        ),
     }
 
     save_dir.mkdir(parents=True, exist_ok=True)
@@ -224,6 +370,14 @@ def main() -> int:
     model = Qwen2ForCausalLM.from_pretrained(args.model, config=load_config, torch_dtype=dtype, device_map=args.device_map)
     model.eval()
     params_before = sum(p.numel() for p in model.parameters())
+    if args.importance_mode == "benchmark":
+        zs, importance_summary = build_benchmark_guided_zs(model, tokenizer, guide_rows, plan, args.importance_max_length, save_dir)
+
+        def init_prune_zs_from_benchmark(self, config, stage):
+            return zs
+
+        model.init_prune_zs = types.MethodType(init_prune_zs_from_benchmark, model)
+        result["benchmark_importance_summary"] = importance_summary
     model.prune(config=prune_config, stage=args.stage)
     params_after = sum(p.numel() for p in model.parameters())
 
