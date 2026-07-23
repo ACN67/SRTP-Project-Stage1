@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/qwen25c3b_r4_baseline_evalhalf_20260723_193503/humaneval/samples.jsonl",
+  "generations": "results/raw/qwen25c3b_r4_baseline_evalhalf_20260723_193503/humaneval/generations.jsonl",
+  "task_count": 82,
+  "elapsed_seconds": 482.0463809967041,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}

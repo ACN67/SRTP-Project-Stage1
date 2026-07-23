@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/qwen25c3b_r4_baseline_evalhalf_20260723_193503/mbpp/samples.jsonl",
+  "generations": "results/raw/qwen25c3b_r4_baseline_evalhalf_20260723_193503/mbpp/generations.jsonl",
+  "task_count": 224,
+  "elapsed_seconds": 765.7034311294556,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}

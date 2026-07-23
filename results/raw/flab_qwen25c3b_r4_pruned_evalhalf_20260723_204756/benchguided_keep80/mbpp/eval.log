@@ -1,0 +1,266 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/435 [00:00<?, ?it/s]Loading weights:   0%|          | 1/435 [00:00<04:35,  1.58it/s]Loading weights:  17%|█▋        | 76/435 [00:00<00:02, 137.95it/s]Loading weights:  27%|██▋       | 119/435 [00:00<00:01, 171.83it/s]Loading weights:  35%|███▌      | 154/435 [00:01<00:01, 200.63it/s]Loading weights:  44%|████▍     | 192/435 [00:01<00:01, 239.22it/s]Loading weights:  56%|█████▌    | 242/435 [00:01<00:00, 297.17it/s]Loading weights:  67%|██████▋   | 292/435 [00:01<00:00, 347.92it/s]Loading weights:  78%|███████▊  | 340/435 [00:01<00:00, 380.42it/s]Loading weights:  89%|████████▉ | 389/435 [00:01<00:00, 405.57it/s]Loading weights: 100%|██████████| 435/435 [00:01<00:00, 266.49it/s]
+{"task_id": "Mbpp/11", "completion_chars": 1312, "gen_seconds": 8.026}
+{"task_id": "Mbpp/12", "completion_chars": 842, "gen_seconds": 6.035}
+{"task_id": "Mbpp/14", "completion_chars": 1258, "gen_seconds": 6.062}
+{"task_id": "Mbpp/16", "completion_chars": 482, "gen_seconds": 6.045}
+{"task_id": "Mbpp/17", "completion_chars": 925, "gen_seconds": 6.032}
+{"task_id": "Mbpp/18", "completion_chars": 1438, "gen_seconds": 6.055}
+{"task_id": "Mbpp/19", "completion_chars": 1439, "gen_seconds": 6.131}
+{"task_id": "Mbpp/20", "completion_chars": 1144, "gen_seconds": 6.128}
+{"task_id": "Mbpp/56", "completion_chars": 1156, "gen_seconds": 6.27}
+{"task_id": "Mbpp/57", "completion_chars": 1351, "gen_seconds": 6.105}
+{"task_id": "Mbpp/58", "completion_chars": 1408, "gen_seconds": 6.2}
+{"task_id": "Mbpp/59", "completion_chars": 1259, "gen_seconds": 6.174}
+{"task_id": "Mbpp/61", "completion_chars": 1, "gen_seconds": 6.064}
+{"task_id": "Mbpp/62", "completion_chars": 289, "gen_seconds": 6.073}
+{"task_id": "Mbpp/63", "completion_chars": 1322, "gen_seconds": 6.118}
+{"task_id": "Mbpp/64", "completion_chars": 140, "gen_seconds": 6.107}
+{"task_id": "Mbpp/65", "completion_chars": 1194, "gen_seconds": 6.062}
+{"task_id": "Mbpp/66", "completion_chars": 1, "gen_seconds": 6.111}
+{"task_id": "Mbpp/67", "completion_chars": 1227, "gen_seconds": 6.089}
+{"task_id": "Mbpp/68", "completion_chars": 1227, "gen_seconds": 6.113}
+{"task_id": "Mbpp/69", "completion_chars": 1217, "gen_seconds": 6.105}
+{"task_id": "Mbpp/70", "completion_chars": 1022, "gen_seconds": 6.09}
+{"task_id": "Mbpp/71", "completion_chars": 1229, "gen_seconds": 6.102}
+{"task_id": "Mbpp/72", "completion_chars": 1262, "gen_seconds": 6.113}
+{"task_id": "Mbpp/74", "completion_chars": 1282, "gen_seconds": 6.148}
+{"task_id": "Mbpp/75", "completion_chars": 1234, "gen_seconds": 6.155}
+{"task_id": "Mbpp/77", "completion_chars": 1132, "gen_seconds": 6.17}
+{"task_id": "Mbpp/79", "completion_chars": 1135, "gen_seconds": 6.182}
+{"task_id": "Mbpp/80", "completion_chars": 1204, "gen_seconds": 6.28}
+{"task_id": "Mbpp/82", "completion_chars": 1027, "gen_seconds": 6.162}
+{"task_id": "Mbpp/84", "completion_chars": 868, "gen_seconds": 6.212}
+{"task_id": "Mbpp/85", "completion_chars": 1262, "gen_seconds": 6.249}
+{"task_id": "Mbpp/86", "completion_chars": 1317, "gen_seconds": 6.192}
+{"task_id": "Mbpp/87", "completion_chars": 259, "gen_seconds": 6.149}
+{"task_id": "Mbpp/88", "completion_chars": 1185, "gen_seconds": 6.188}
+{"task_id": "Mbpp/89", "completion_chars": 79, "gen_seconds": 7.779}
+{"task_id": "Mbpp/90", "completion_chars": 84, "gen_seconds": 9.198}
+{"task_id": "Mbpp/91", "completion_chars": 1245, "gen_seconds": 8.512}
+{"task_id": "Mbpp/92", "completion_chars": 1401, "gen_seconds": 7.646}
+{"task_id": "Mbpp/93", "completion_chars": 1006, "gen_seconds": 7.497}
+{"task_id": "Mbpp/94", "completion_chars": 75, "gen_seconds": 7.672}
+{"task_id": "Mbpp/95", "completion_chars": 1176, "gen_seconds": 7.52}
+{"task_id": "Mbpp/96", "completion_chars": 1076, "gen_seconds": 7.254}
+{"task_id": "Mbpp/97", "completion_chars": 1266, "gen_seconds": 7.249}
+{"task_id": "Mbpp/98", "completion_chars": 1206, "gen_seconds": 7.116}
+{"task_id": "Mbpp/99", "completion_chars": 1282, "gen_seconds": 7.455}
+{"task_id": "Mbpp/100", "completion_chars": 51, "gen_seconds": 7.914}
+{"task_id": "Mbpp/101", "completion_chars": 260, "gen_seconds": 6.205}
+{"task_id": "Mbpp/102", "completion_chars": 1232, "gen_seconds": 6.195}
+{"task_id": "Mbpp/103", "completion_chars": 1207, "gen_seconds": 6.149}
+{"task_id": "Mbpp/104", "completion_chars": 1181, "gen_seconds": 6.252}
+{"task_id": "Mbpp/105", "completion_chars": 641, "gen_seconds": 6.214}
+{"task_id": "Mbpp/106", "completion_chars": 1230, "gen_seconds": 6.187}
+{"task_id": "Mbpp/108", "completion_chars": 257, "gen_seconds": 6.189}
+{"task_id": "Mbpp/109", "completion_chars": 1258, "gen_seconds": 6.149}
+{"task_id": "Mbpp/111", "completion_chars": 445, "gen_seconds": 6.141}
+{"task_id": "Mbpp/113", "completion_chars": 1152, "gen_seconds": 6.101}
+{"task_id": "Mbpp/116", "completion_chars": 843, "gen_seconds": 6.128}
+{"task_id": "Mbpp/118", "completion_chars": 1187, "gen_seconds": 6.121}
+{"task_id": "Mbpp/119", "completion_chars": 1, "gen_seconds": 6.127}
+{"task_id": "Mbpp/120", "completion_chars": 1474, "gen_seconds": 6.114}
+{"task_id": "Mbpp/123", "completion_chars": 1110, "gen_seconds": 6.187}
+{"task_id": "Mbpp/124", "completion_chars": 1163, "gen_seconds": 6.223}
+{"task_id": "Mbpp/125", "completion_chars": 1132, "gen_seconds": 6.309}
+{"task_id": "Mbpp/126", "completion_chars": 1076, "gen_seconds": 6.249}
+{"task_id": "Mbpp/127", "completion_chars": 1155, "gen_seconds": 6.285}
+{"task_id": "Mbpp/128", "completion_chars": 1, "gen_seconds": 6.187}
+{"task_id": "Mbpp/129", "completion_chars": 1069, "gen_seconds": 6.184}
+{"task_id": "Mbpp/130", "completion_chars": 279, "gen_seconds": 6.108}
+{"task_id": "Mbpp/131", "completion_chars": 861, "gen_seconds": 6.169}
+{"task_id": "Mbpp/132", "completion_chars": 998, "gen_seconds": 6.205}
+{"task_id": "Mbpp/133", "completion_chars": 1301, "gen_seconds": 6.148}
+{"task_id": "Mbpp/135", "completion_chars": 1259, "gen_seconds": 6.202}
+{"task_id": "Mbpp/137", "completion_chars": 1145, "gen_seconds": 6.251}
+{"task_id": "Mbpp/138", "completion_chars": 1, "gen_seconds": 6.184}
+{"task_id": "Mbpp/139", "completion_chars": 814, "gen_seconds": 6.207}
+{"task_id": "Mbpp/140", "completion_chars": 1164, "gen_seconds": 6.251}
+{"task_id": "Mbpp/141", "completion_chars": 1229, "gen_seconds": 6.283}
+{"task_id": "Mbpp/142", "completion_chars": 1024, "gen_seconds": 6.273}
+{"task_id": "Mbpp/145", "completion_chars": 1462, "gen_seconds": 6.281}
+{"task_id": "Mbpp/160", "completion_chars": 1077, "gen_seconds": 6.263}
+{"task_id": "Mbpp/161", "completion_chars": 1229, "gen_seconds": 6.218}
+{"task_id": "Mbpp/162", "completion_chars": 1148, "gen_seconds": 6.167}
+{"task_id": "Mbpp/165", "completion_chars": 674, "gen_seconds": 6.241}
+{"task_id": "Mbpp/166", "completion_chars": 502, "gen_seconds": 6.216}
+{"task_id": "Mbpp/167", "completion_chars": 1076, "gen_seconds": 6.17}
+{"task_id": "Mbpp/168", "completion_chars": 1410, "gen_seconds": 6.137}
+{"task_id": "Mbpp/170", "completion_chars": 259, "gen_seconds": 6.124}
+{"task_id": "Mbpp/171", "completion_chars": 821, "gen_seconds": 6.117}
+{"task_id": "Mbpp/172", "completion_chars": 885, "gen_seconds": 6.132}
+{"task_id": "Mbpp/222", "completion_chars": 1156, "gen_seconds": 6.907}
+{"task_id": "Mbpp/223", "completion_chars": 1177, "gen_seconds": 8.992}
+{"task_id": "Mbpp/224", "completion_chars": 919, "gen_seconds": 9.028}
+{"task_id": "Mbpp/226", "completion_chars": 1438, "gen_seconds": 8.415}
+{"task_id": "Mbpp/227", "completion_chars": 1024, "gen_seconds": 6.917}
+{"task_id": "Mbpp/230", "completion_chars": 1109, "gen_seconds": 7.174}
+{"task_id": "Mbpp/232", "completion_chars": 260, "gen_seconds": 7.855}
+{"task_id": "Mbpp/233", "completion_chars": 1234, "gen_seconds": 7.438}
+{"task_id": "Mbpp/234", "completion_chars": 925, "gen_seconds": 7.312}
+{"task_id": "Mbpp/235", "completion_chars": 823, "gen_seconds": 7.347}
+{"task_id": "Mbpp/237", "completion_chars": 1132, "gen_seconds": 7.186}
+{"task_id": "Mbpp/238", "completion_chars": 622, "gen_seconds": 7.308}
+{"task_id": "Mbpp/239", "completion_chars": 104, "gen_seconds": 7.778}
+{"task_id": "Mbpp/240", "completion_chars": 829, "gen_seconds": 7.533}
+{"task_id": "Mbpp/242", "completion_chars": 1263, "gen_seconds": 7.223}
+{"task_id": "Mbpp/244", "completion_chars": 841, "gen_seconds": 6.907}
+{"task_id": "Mbpp/245", "completion_chars": 825, "gen_seconds": 6.651}
+{"task_id": "Mbpp/247", "completion_chars": 1211, "gen_seconds": 6.475}
+{"task_id": "Mbpp/250", "completion_chars": 688, "gen_seconds": 6.373}
+{"task_id": "Mbpp/251", "completion_chars": 880, "gen_seconds": 6.334}
+{"task_id": "Mbpp/252", "completion_chars": 1039, "gen_seconds": 6.388}
+{"task_id": "Mbpp/253", "completion_chars": 514, "gen_seconds": 6.274}
+{"task_id": "Mbpp/255", "completion_chars": 897, "gen_seconds": 6.166}
+{"task_id": "Mbpp/256", "completion_chars": 1332, "gen_seconds": 6.105}
+{"task_id": "Mbpp/257", "completion_chars": 601, "gen_seconds": 6.106}
+{"task_id": "Mbpp/259", "completion_chars": 1300, "gen_seconds": 6.247}
+{"task_id": "Mbpp/260", "completion_chars": 1059, "gen_seconds": 6.273}
+{"task_id": "Mbpp/261", "completion_chars": 1562, "gen_seconds": 6.192}
+{"task_id": "Mbpp/262", "completion_chars": 697, "gen_seconds": 6.536}
+{"task_id": "Mbpp/264", "completion_chars": 458, "gen_seconds": 6.359}
+{"task_id": "Mbpp/265", "completion_chars": 1144, "gen_seconds": 6.236}
+{"task_id": "Mbpp/266", "completion_chars": 1000, "gen_seconds": 6.163}
+{"task_id": "Mbpp/267", "completion_chars": 1352, "gen_seconds": 6.156}
+{"task_id": "Mbpp/268", "completion_chars": 1024, "gen_seconds": 6.156}
+{"task_id": "Mbpp/269", "completion_chars": 826, "gen_seconds": 6.177}
+{"task_id": "Mbpp/270", "completion_chars": 1076, "gen_seconds": 6.341}
+{"task_id": "Mbpp/271", "completion_chars": 1, "gen_seconds": 6.25}
+{"task_id": "Mbpp/272", "completion_chars": 607, "gen_seconds": 6.272}
+{"task_id": "Mbpp/273", "completion_chars": 768, "gen_seconds": 6.269}
+{"task_id": "Mbpp/274", "completion_chars": 1076, "gen_seconds": 6.282}
+{"task_id": "Mbpp/276", "completion_chars": 1211, "gen_seconds": 6.274}
+{"task_id": "Mbpp/277", "completion_chars": 1, "gen_seconds": 6.257}
+{"task_id": "Mbpp/278", "completion_chars": 550, "gen_seconds": 6.275}
+{"task_id": "Mbpp/279", "completion_chars": 1255, "gen_seconds": 6.249}
+{"task_id": "Mbpp/280", "completion_chars": 1231, "gen_seconds": 6.288}
+{"task_id": "Mbpp/281", "completion_chars": 1217, "gen_seconds": 6.172}
+{"task_id": "Mbpp/282", "completion_chars": 768, "gen_seconds": 6.223}
+{"task_id": "Mbpp/283", "completion_chars": 1, "gen_seconds": 6.159}
+{"task_id": "Mbpp/284", "completion_chars": 1208, "gen_seconds": 6.136}
+{"task_id": "Mbpp/285", "completion_chars": 1182, "gen_seconds": 6.184}
+{"task_id": "Mbpp/286", "completion_chars": 1351, "gen_seconds": 6.165}
+{"task_id": "Mbpp/287", "completion_chars": 1088, "gen_seconds": 6.13}
+{"task_id": "Mbpp/290", "completion_chars": 297, "gen_seconds": 6.123}
+{"task_id": "Mbpp/292", "completion_chars": 1399, "gen_seconds": 6.154}
+{"task_id": "Mbpp/293", "completion_chars": 506, "gen_seconds": 6.148}
+{"task_id": "Mbpp/294", "completion_chars": 436, "gen_seconds": 6.133}
+{"task_id": "Mbpp/296", "completion_chars": 1046, "gen_seconds": 7.285}
+{"task_id": "Mbpp/297", "completion_chars": 273, "gen_seconds": 8.099}
+{"task_id": "Mbpp/299", "completion_chars": 85, "gen_seconds": 7.773}
+{"task_id": "Mbpp/300", "completion_chars": 1246, "gen_seconds": 7.465}
+{"task_id": "Mbpp/301", "completion_chars": 1081, "gen_seconds": 7.422}
+{"task_id": "Mbpp/305", "completion_chars": 888, "gen_seconds": 7.258}
+{"task_id": "Mbpp/306", "completion_chars": 990, "gen_seconds": 7.624}
+{"task_id": "Mbpp/308", "completion_chars": 331, "gen_seconds": 7.137}
+{"task_id": "Mbpp/309", "completion_chars": 1418, "gen_seconds": 6.282}
+{"task_id": "Mbpp/310", "completion_chars": 1151, "gen_seconds": 6.346}
+{"task_id": "Mbpp/311", "completion_chars": 1089, "gen_seconds": 7.799}
+{"task_id": "Mbpp/312", "completion_chars": 980, "gen_seconds": 6.369}
+{"task_id": "Mbpp/388", "completion_chars": 58, "gen_seconds": 6.106}
+{"task_id": "Mbpp/389", "completion_chars": 329, "gen_seconds": 6.185}
+{"task_id": "Mbpp/390", "completion_chars": 1212, "gen_seconds": 6.147}
+{"task_id": "Mbpp/391", "completion_chars": 683, "gen_seconds": 6.125}
+{"task_id": "Mbpp/392", "completion_chars": 1, "gen_seconds": 6.074}
+{"task_id": "Mbpp/394", "completion_chars": 1376, "gen_seconds": 6.102}
+{"task_id": "Mbpp/395", "completion_chars": 1267, "gen_seconds": 6.217}
+{"task_id": "Mbpp/397", "completion_chars": 529, "gen_seconds": 6.481}
+{"task_id": "Mbpp/398", "completion_chars": 1027, "gen_seconds": 6.261}
+{"task_id": "Mbpp/404", "completion_chars": 1393, "gen_seconds": 6.15}
+{"task_id": "Mbpp/405", "completion_chars": 1304, "gen_seconds": 6.169}
+{"task_id": "Mbpp/406", "completion_chars": 1002, "gen_seconds": 6.166}
+{"task_id": "Mbpp/409", "completion_chars": 1275, "gen_seconds": 6.195}
+{"task_id": "Mbpp/410", "completion_chars": 1062, "gen_seconds": 6.219}
+{"task_id": "Mbpp/412", "completion_chars": 1, "gen_seconds": 6.296}
+{"task_id": "Mbpp/413", "completion_chars": 1201, "gen_seconds": 6.355}
+{"task_id": "Mbpp/414", "completion_chars": 1276, "gen_seconds": 6.22}
+{"task_id": "Mbpp/415", "completion_chars": 1239, "gen_seconds": 6.243}
+{"task_id": "Mbpp/418", "completion_chars": 75, "gen_seconds": 6.219}
+{"task_id": "Mbpp/419", "completion_chars": 670, "gen_seconds": 6.118}
+{"task_id": "Mbpp/420", "completion_chars": 1354, "gen_seconds": 6.148}
+{"task_id": "Mbpp/421", "completion_chars": 1182, "gen_seconds": 6.113}
+{"task_id": "Mbpp/422", "completion_chars": 881, "gen_seconds": 6.064}
+{"task_id": "Mbpp/424", "completion_chars": 1322, "gen_seconds": 6.072}
+{"task_id": "Mbpp/425", "completion_chars": 1289, "gen_seconds": 6.117}
+{"task_id": "Mbpp/426", "completion_chars": 717, "gen_seconds": 6.292}
+{"task_id": "Mbpp/427", "completion_chars": 1585, "gen_seconds": 6.142}
+{"task_id": "Mbpp/428", "completion_chars": 568, "gen_seconds": 6.18}
+{"task_id": "Mbpp/429", "completion_chars": 421, "gen_seconds": 6.164}
+{"task_id": "Mbpp/430", "completion_chars": 1103, "gen_seconds": 6.211}
+{"task_id": "Mbpp/432", "completion_chars": 702, "gen_seconds": 6.175}
+{"task_id": "Mbpp/433", "completion_chars": 108, "gen_seconds": 6.2}
+{"task_id": "Mbpp/435", "completion_chars": 1338, "gen_seconds": 6.182}
+{"task_id": "Mbpp/436", "completion_chars": 692, "gen_seconds": 6.133}
+{"task_id": "Mbpp/437", "completion_chars": 1213, "gen_seconds": 6.165}
+{"task_id": "Mbpp/439", "completion_chars": 1234, "gen_seconds": 6.19}
+{"task_id": "Mbpp/440", "completion_chars": 796, "gen_seconds": 6.174}
+{"task_id": "Mbpp/441", "completion_chars": 1207, "gen_seconds": 6.283}
+{"task_id": "Mbpp/445", "completion_chars": 1076, "gen_seconds": 6.12}
+{"task_id": "Mbpp/446", "completion_chars": 448, "gen_seconds": 6.076}
+{"task_id": "Mbpp/447", "completion_chars": 427, "gen_seconds": 6.125}
+{"task_id": "Mbpp/448", "completion_chars": 821, "gen_seconds": 6.114}
+{"task_id": "Mbpp/450", "completion_chars": 1369, "gen_seconds": 6.702}
+{"task_id": "Mbpp/451", "completion_chars": 1235, "gen_seconds": 9.193}
+{"task_id": "Mbpp/453", "completion_chars": 1077, "gen_seconds": 8.343}
+{"task_id": "Mbpp/454", "completion_chars": 1114, "gen_seconds": 7.711}
+{"task_id": "Mbpp/455", "completion_chars": 1114, "gen_seconds": 7.22}
+{"task_id": "Mbpp/456", "completion_chars": 688, "gen_seconds": 6.769}
+{"task_id": "Mbpp/457", "completion_chars": 977, "gen_seconds": 6.864}
+{"task_id": "Mbpp/458", "completion_chars": 1156, "gen_seconds": 7.031}
+{"task_id": "Mbpp/459", "completion_chars": 1402, "gen_seconds": 7.109}
+{"task_id": "Mbpp/460", "completion_chars": 1229, "gen_seconds": 7.309}
+{"task_id": "Mbpp/462", "completion_chars": 1359, "gen_seconds": 7.167}
+{"task_id": "Mbpp/463", "completion_chars": 1188, "gen_seconds": 7.346}
+{"task_id": "Mbpp/465", "completion_chars": 607, "gen_seconds": 7.269}
+{"task_id": "Mbpp/468", "completion_chars": 1139, "gen_seconds": 6.167}
+{"task_id": "Mbpp/470", "completion_chars": 777, "gen_seconds": 6.102}
+{"task_id": "Mbpp/471", "completion_chars": 314, "gen_seconds": 6.097}
+{"task_id": "Mbpp/472", "completion_chars": 1260, "gen_seconds": 6.119}
+{"task_id": "Mbpp/473", "completion_chars": 1011, "gen_seconds": 6.254}
+{"task_id": "Mbpp/474", "completion_chars": 1283, "gen_seconds": 6.535}
+{"task_id": "Mbpp/475", "completion_chars": 670, "gen_seconds": 6.369}
+{"task_id": "Mbpp/476", "completion_chars": 1076, "gen_seconds": 6.201}
+{"task_id": "Mbpp/477", "completion_chars": 1234, "gen_seconds": 6.218}
+{"task_id": "Mbpp/478", "completion_chars": 1323, "gen_seconds": 6.231}
+{"task_id": "Mbpp/479", "completion_chars": 1338, "gen_seconds": 6.129}
+{
+  "status": "success",
+  "model": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_prune_20260723_192329/flab_qwen25c3b_r4_benchguided_keep80/pruned_model",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_pruned_evalhalf_20260723_204756/benchguided_keep80/mbpp/samples.jsonl",
+  "generations": "results/raw/flab_qwen25c3b_r4_pruned_evalhalf_20260723_204756/benchguided_keep80/mbpp/generations.jsonl",
+  "task_count": 224,
+  "elapsed_seconds": 1460.434446811676,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_pruned_evalhalf_20260723_204756/benchguided_keep80/mbpp/samples.jsonl",
+  "base_only": true,
+  "task_count": 224,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 224
+  }
+}
+=== benchguided_keep80 MBPP summary ===
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_pruned_evalhalf_20260723_204756/benchguided_keep80/mbpp/samples.jsonl",
+  "base_only": true,
+  "task_count": 224,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 224
+  }
+}

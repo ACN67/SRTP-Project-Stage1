@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/qwen25c3b_r4_baseline_evalhalf_20260723_193503/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 82,
+  "base_pass_count": 2,
+  "base_pass_rate": 0.024390243902439025,
+  "base_status_counter": {
+    "fail": 80,
+    "pass": 2
+  }
+}

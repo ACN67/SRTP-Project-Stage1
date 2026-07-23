@@ -1,0 +1,124 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/435 [00:00<?, ?it/s]Loading weights:   0%|          | 1/435 [00:00<05:45,  1.25it/s]Loading weights:  18%|█▊        | 77/435 [00:00<00:03, 116.33it/s]Loading weights:  28%|██▊       | 122/435 [00:01<00:01, 163.94it/s]Loading weights:  37%|███▋      | 161/435 [00:01<00:01, 180.20it/s]Loading weights:  44%|████▍     | 193/435 [00:01<00:01, 206.99it/s]Loading weights:  52%|█████▏    | 225/435 [00:01<00:00, 215.63it/s]Loading weights:  59%|█████▊    | 255/435 [00:01<00:00, 231.86it/s]Loading weights:  66%|██████▌   | 285/435 [00:01<00:00, 231.25it/s]Loading weights:  72%|███████▏  | 313/435 [00:01<00:00, 242.23it/s]Loading weights:  78%|███████▊  | 341/435 [00:01<00:00, 222.93it/s]Loading weights:  84%|████████▍ | 366/435 [00:02<00:00, 151.52it/s]Loading weights:  89%|████████▊ | 386/435 [00:02<00:00, 136.38it/s]Loading weights:  93%|█████████▎| 403/435 [00:02<00:00, 80.24it/s] Loading weights:  96%|█████████▌| 416/435 [00:03<00:00, 74.55it/s]Loading weights:  98%|█████████▊| 427/435 [00:03<00:00, 73.10it/s]Loading weights: 100%|██████████| 435/435 [00:03<00:00, 129.70it/s]
+{"task_id": "HumanEval/1", "completion_chars": 838, "gen_seconds": 10.925}
+{"task_id": "HumanEval/5", "completion_chars": 451, "gen_seconds": 6.565}
+{"task_id": "HumanEval/6", "completion_chars": 353, "gen_seconds": 6.53}
+{"task_id": "HumanEval/7", "completion_chars": 380, "gen_seconds": 6.806}
+{"task_id": "HumanEval/11", "completion_chars": 447, "gen_seconds": 6.489}
+{"task_id": "HumanEval/12", "completion_chars": 310, "gen_seconds": 6.312}
+{"task_id": "HumanEval/15", "completion_chars": 260, "gen_seconds": 6.066}
+{"task_id": "HumanEval/19", "completion_chars": 417, "gen_seconds": 5.998}
+{"task_id": "HumanEval/20", "completion_chars": 508, "gen_seconds": 6.14}
+{"task_id": "HumanEval/22", "completion_chars": 274, "gen_seconds": 8.835}
+{"task_id": "HumanEval/24", "completion_chars": 290, "gen_seconds": 7.677}
+{"task_id": "HumanEval/27", "completion_chars": 393, "gen_seconds": 8.919}
+{"task_id": "HumanEval/28", "completion_chars": 321, "gen_seconds": 8.198}
+{"task_id": "HumanEval/29", "completion_chars": 603, "gen_seconds": 7.724}
+{"task_id": "HumanEval/32", "completion_chars": 847, "gen_seconds": 7.056}
+{"task_id": "HumanEval/33", "completion_chars": 314, "gen_seconds": 7.985}
+{"task_id": "HumanEval/35", "completion_chars": 326, "gen_seconds": 6.935}
+{"task_id": "HumanEval/37", "completion_chars": 456, "gen_seconds": 6.878}
+{"task_id": "HumanEval/39", "completion_chars": 485, "gen_seconds": 6.652}
+{"task_id": "HumanEval/43", "completion_chars": 269, "gen_seconds": 7.256}
+{"task_id": "HumanEval/45", "completion_chars": 308, "gen_seconds": 6.892}
+{"task_id": "HumanEval/47", "completion_chars": 275, "gen_seconds": 6.048}
+{"task_id": "HumanEval/49", "completion_chars": 272, "gen_seconds": 6.045}
+{"task_id": "HumanEval/50", "completion_chars": 321, "gen_seconds": 6.071}
+{"task_id": "HumanEval/51", "completion_chars": 317, "gen_seconds": 6.115}
+{"task_id": "HumanEval/53", "completion_chars": 306, "gen_seconds": 6.008}
+{"task_id": "HumanEval/54", "completion_chars": 297, "gen_seconds": 6.071}
+{"task_id": "HumanEval/57", "completion_chars": 383, "gen_seconds": 6.046}
+{"task_id": "HumanEval/59", "completion_chars": 274, "gen_seconds": 6.042}
+{"task_id": "HumanEval/61", "completion_chars": 300, "gen_seconds": 5.983}
+{"task_id": "HumanEval/62", "completion_chars": 352, "gen_seconds": 6.025}
+{"task_id": "HumanEval/64", "completion_chars": 260, "gen_seconds": 6.064}
+{"task_id": "HumanEval/67", "completion_chars": 323, "gen_seconds": 6.112}
+{"task_id": "HumanEval/69", "completion_chars": 348, "gen_seconds": 6.09}
+{"task_id": "HumanEval/70", "completion_chars": 266, "gen_seconds": 6.092}
+{"task_id": "HumanEval/72", "completion_chars": 367, "gen_seconds": 6.107}
+{"task_id": "HumanEval/73", "completion_chars": 809, "gen_seconds": 6.141}
+{"task_id": "HumanEval/78", "completion_chars": 582, "gen_seconds": 6.16}
+{"task_id": "HumanEval/79", "completion_chars": 259, "gen_seconds": 6.221}
+{"task_id": "HumanEval/80", "completion_chars": 358, "gen_seconds": 6.228}
+{"task_id": "HumanEval/83", "completion_chars": 270, "gen_seconds": 6.178}
+{"task_id": "HumanEval/86", "completion_chars": 260, "gen_seconds": 5.987}
+{"task_id": "HumanEval/87", "completion_chars": 283, "gen_seconds": 6.066}
+{"task_id": "HumanEval/90", "completion_chars": 439, "gen_seconds": 6.071}
+{"task_id": "HumanEval/91", "completion_chars": 317, "gen_seconds": 6.14}
+{"task_id": "HumanEval/94", "completion_chars": 585, "gen_seconds": 6.195}
+{"task_id": "HumanEval/96", "completion_chars": 439, "gen_seconds": 6.208}
+{"task_id": "HumanEval/98", "completion_chars": 344, "gen_seconds": 6.193}
+{"task_id": "HumanEval/100", "completion_chars": 301, "gen_seconds": 6.13}
+{"task_id": "HumanEval/101", "completion_chars": 334, "gen_seconds": 6.145}
+{"task_id": "HumanEval/103", "completion_chars": 275, "gen_seconds": 6.225}
+{"task_id": "HumanEval/105", "completion_chars": 486, "gen_seconds": 6.23}
+{"task_id": "HumanEval/108", "completion_chars": 273, "gen_seconds": 6.256}
+{"task_id": "HumanEval/109", "completion_chars": 312, "gen_seconds": 6.212}
+{"task_id": "HumanEval/111", "completion_chars": 401, "gen_seconds": 6.232}
+{"task_id": "HumanEval/112", "completion_chars": 348, "gen_seconds": 6.076}
+{"task_id": "HumanEval/113", "completion_chars": 278, "gen_seconds": 6.18}
+{"task_id": "HumanEval/116", "completion_chars": 254, "gen_seconds": 6.135}
+{"task_id": "HumanEval/117", "completion_chars": 500, "gen_seconds": 6.174}
+{"task_id": "HumanEval/120", "completion_chars": 298, "gen_seconds": 6.144}
+{"task_id": "HumanEval/121", "completion_chars": 264, "gen_seconds": 6.102}
+{"task_id": "HumanEval/122", "completion_chars": 469, "gen_seconds": 6.148}
+{"task_id": "HumanEval/124", "completion_chars": 282, "gen_seconds": 6.299}
+{"task_id": "HumanEval/125", "completion_chars": 318, "gen_seconds": 6.14}
+{"task_id": "HumanEval/127", "completion_chars": 741, "gen_seconds": 6.152}
+{"task_id": "HumanEval/130", "completion_chars": 485, "gen_seconds": 6.593}
+{"task_id": "HumanEval/133", "completion_chars": 1170, "gen_seconds": 7.777}
+{"task_id": "HumanEval/136", "completion_chars": 524, "gen_seconds": 8.789}
+{"task_id": "HumanEval/138", "completion_chars": 333, "gen_seconds": 7.739}
+{"task_id": "HumanEval/139", "completion_chars": 598, "gen_seconds": 7.142}
+{"task_id": "HumanEval/140", "completion_chars": 381, "gen_seconds": 7.385}
+{"task_id": "HumanEval/142", "completion_chars": 285, "gen_seconds": 7.731}
+{"task_id": "HumanEval/144", "completion_chars": 401, "gen_seconds": 7.677}
+{"task_id": "HumanEval/147", "completion_chars": 266, "gen_seconds": 8.92}
+{"task_id": "HumanEval/149", "completion_chars": 668, "gen_seconds": 7.45}
+{"task_id": "HumanEval/153", "completion_chars": 327, "gen_seconds": 8.122}
+{"task_id": "HumanEval/154", "completion_chars": 588, "gen_seconds": 6.734}
+{"task_id": "HumanEval/155", "completion_chars": 459, "gen_seconds": 6.092}
+{"task_id": "HumanEval/156", "completion_chars": 268, "gen_seconds": 6.096}
+{"task_id": "HumanEval/157", "completion_chars": 473, "gen_seconds": 6.215}
+{"task_id": "HumanEval/160", "completion_chars": 707, "gen_seconds": 6.249}
+{"task_id": "HumanEval/163", "completion_chars": 380, "gen_seconds": 6.155}
+{
+  "status": "success",
+  "model": "results/raw/flab_qwen25c3b_r4_default_keep80_prune_20260723_193222/flab_qwen25c3b_r4_default_keep80/pruned_model",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_pruned_evalhalf_20260723_204756/default_keep80/humaneval/samples.jsonl",
+  "generations": "results/raw/flab_qwen25c3b_r4_pruned_evalhalf_20260723_204756/default_keep80/humaneval/generations.jsonl",
+  "task_count": 82,
+  "elapsed_seconds": 551.0232963562012,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_pruned_evalhalf_20260723_204756/default_keep80/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 82,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 82
+  }
+}
+=== default_keep80 HumanEval summary ===
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_pruned_evalhalf_20260723_204756/default_keep80/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 82,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 82
+  }
+}

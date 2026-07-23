@@ -8,6 +8,7 @@ import time
 from pathlib import Path
 
 import torch
+from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
@@ -40,6 +41,7 @@ def main() -> int:
     parser.add_argument("--model", required=True)
     parser.add_argument("--split", required=True, type=Path)
     parser.add_argument("--out-dir", required=True, type=Path)
+    parser.add_argument("--adapter", default="")
     parser.add_argument("--max-new-tokens", type=int, default=256)
     parser.add_argument("--dtype", choices=["fp16", "bf16", "fp32"], default="fp16")
     parser.add_argument("--device", default="cuda:0")
@@ -69,6 +71,8 @@ def main() -> int:
         torch_dtype=dtype_map[args.dtype],
         device_map=device_map,
     )
+    if args.adapter:
+        model = PeftModel.from_pretrained(model, args.adapter)
     model.eval()
 
     samples_path = args.out_dir / "samples.jsonl"
@@ -117,6 +121,7 @@ def main() -> int:
     summary = {
         "status": "success",
         "model": args.model,
+        "adapter": args.adapter,
         "split": str(args.split),
         "samples": str(samples_path),
         "generations": str(generations_path),

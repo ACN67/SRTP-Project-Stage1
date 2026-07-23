@@ -83,22 +83,29 @@ def main() -> int:
         debug=False,
     )
 
+    official_detail = metrics.get("detail", {}).get("pass@1", {})
+    official_pass_by_index = {
+        int(key): bool(value)
+        for key, value in official_detail.items()
+    }
     pass_count = 0
     status_counter: Counter[str] = Counter()
     detail_rows = []
     for idx, detail in enumerate(details):
-        passed = bool(results[idx][0]) and all(results[idx][0])
+        passed = official_pass_by_index.get(idx, False)
         pass_count += int(passed)
         status_counter["pass" if passed else "fail"] += 1
         detail_rows.append(
             {
                 **detail,
                 "pass": passed,
+                "official_pass_at_1": metrics.get("detail", {}).get("pass@1", {}).get(str(idx)),
                 "result": results[idx][0],
                 "metadata": metadata[idx][0] if idx < len(metadata) and metadata[idx] else None,
             }
         )
 
+    official_pass_rate = metrics.get("pass@1")
     summary = {
         "status": "success",
         "benchmark": "livecodebench",
@@ -107,7 +114,7 @@ def main() -> int:
         "generations": str(args.generations),
         "task_count": len(split_rows),
         "pass_count": pass_count,
-        "pass_rate": pass_count / len(split_rows) if split_rows else None,
+        "pass_rate": official_pass_rate if official_pass_rate is not None else (pass_count / len(split_rows) if split_rows else None),
         "status_counter": dict(status_counter),
         "official_metrics": metrics,
     }
