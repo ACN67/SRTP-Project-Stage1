@@ -1,0 +1,305 @@
+=== Root ID ===
+slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439
+
+=== System before ===
+               total        used        free      shared  buff/cache   available
+Mem:            13Gi       579Mi        12Gi       3.5Mi       480Mi        13Gi
+Swap:           32Gi          0B        32Gi
+NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 386 MiB, 0 %
+
+=== SliceGPT CodeLlama-7B HumanEval 4-task smoke ===
+/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Loading tokenizer from /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6
+Loading CodeLlama weights on CPU
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:30<00:30, 30.94s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:35<00:00, 15.54s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:35<00:00, 17.91s/it]
+Loading dataset: wikitext2
+Loading dataset done
+Preparing dataloader
+Preparing dataloader done
+Replacing and fusing SliceGPT layers
+Replacing layers
+Replacing layers done
+Fusing layernorm modules
+Fusing layernorm modules done
+Running rotate_and_slice: hidden_size=4096 new_embedding_dimension=4048
+Rotate and slice layers
+Rotating and slicing:   0%|          | 0/32 [00:00<?, ?layer/s]Rotating and slicing:   3%|▎         | 1/32 [00:20<10:22, 20.09s/layer]Rotating and slicing:   6%|▋         | 2/32 [00:40<10:08, 20.29s/layer]Rotating and slicing:   9%|▉         | 3/32 [01:00<09:50, 20.36s/layer]Rotating and slicing:  12%|█▎        | 4/32 [01:22<09:41, 20.78s/layer]Rotating and slicing:  16%|█▌        | 5/32 [01:42<09:11, 20.44s/layer]Rotating and slicing:  19%|█▉        | 6/32 [02:05<09:19, 21.51s/layer]Rotating and slicing:  22%|██▏       | 7/32 [02:26<08:53, 21.33s/layer]Rotating and slicing:  25%|██▌       | 8/32 [02:48<08:33, 21.41s/layer]Rotating and slicing:  28%|██▊       | 9/32 [03:11<08:25, 21.97s/layer]Rotating and slicing:  31%|███▏      | 10/32 [03:31<07:49, 21.33s/layer]Rotating and slicing:  34%|███▍      | 11/32 [03:52<07:28, 21.34s/layer]Rotating and slicing:  38%|███▊      | 12/32 [04:16<07:23, 22.18s/layer]Rotating and slicing:  41%|████      | 13/32 [04:41<07:13, 22.81s/layer]Rotating and slicing:  44%|████▍     | 14/32 [05:01<06:38, 22.16s/layer]Rotating and slicing:  47%|████▋     | 15/32 [05:22<06:07, 21.63s/layer]Rotating and slicing:  50%|█████     | 16/32 [05:43<05:42, 21.43s/layer]Rotating and slicing:  53%|█████▎    | 17/32 [06:07<05:32, 22.18s/layer]Rotating and slicing:  56%|█████▋    | 18/32 [06:29<05:11, 22.26s/layer]Rotating and slicing:  59%|█████▉    | 19/32 [06:53<04:57, 22.87s/layer]Rotating and slicing:  62%|██████▎   | 20/32 [07:14<04:25, 22.12s/layer]Rotating and slicing:  66%|██████▌   | 21/32 [07:39<04:12, 22.91s/layer]Rotating and slicing:  69%|██████▉   | 22/32 [08:10<04:13, 25.34s/layer]Rotating and slicing:  72%|███████▏  | 23/32 [08:30<03:35, 23.93s/layer]Rotating and slicing:  75%|███████▌  | 24/32 [08:54<03:11, 23.96s/layer]Rotating and slicing:  78%|███████▊  | 25/32 [09:18<02:48, 24.06s/layer]Rotating and slicing:  81%|████████▏ | 26/32 [09:42<02:23, 23.89s/layer]Rotating and slicing:  84%|████████▍ | 27/32 [10:10<02:04, 24.91s/layer]Rotating and slicing:  88%|████████▊ | 28/32 [10:34<01:39, 24.79s/layer]Rotating and slicing:  91%|█████████ | 29/32 [10:57<01:12, 24.21s/layer]Rotating and slicing:  94%|█████████▍| 30/32 [11:24<00:50, 25.08s/layer]Rotating and slicing:  97%|█████████▋| 31/32 [11:47<00:24, 24.39s/layer]Rotating and slicing: 100%|██████████| 32/32 [12:15<00:00, 25.53s/layer]Rotating and slicing: 100%|██████████| 32/32 [12:15<00:00, 22.98s/layer]
+Rotate and slice layers done
+Some parameters are on the meta device because they were offloaded to the cpu.
+{"task_id": "HumanEval/101", "completion_chars": 67, "gen_seconds": 849.887}
+{"task_id": "HumanEval/102", "completion_chars": 101, "gen_seconds": 648.359}
+{"task_id": "HumanEval/103", "completion_chars": 35, "gen_seconds": 633.01}
+{"task_id": "HumanEval/104", "completion_chars": 32, "gen_seconds": 521.405}
+{
+  "status": "success",
+  "method": "SliceGPT",
+  "model_path": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "wrapper": "scripts/adapt/slicegpt_codellama_smoke.py",
+  "loaded_weights": true,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "generate_device": "cpu",
+  "generate_device_map": "auto",
+  "max_memory": {
+    "0": "6GiB",
+    "cpu": "24GiB"
+  },
+  "offload_folder": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/humaneval/offload",
+  "cal_dataset": "wikitext2",
+  "cal_nsamples": 1,
+  "cal_batch_size": 1,
+  "cal_max_seqlen": 32,
+  "sparsity_requested": 0.01,
+  "new_embedding_dimension": 4048,
+  "parameters_before": 6738280448,
+  "parameters_after": 7710299136,
+  "parameter_keep_ratio": 1.144253225359373,
+  "parameter_reduction_rate": -0.1442532253593729,
+  "generation": {
+    "split": "data/splits/humaneval/eval.jsonl",
+    "task_count": 4,
+    "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/humaneval/samples.jsonl",
+    "generations": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/humaneval/generations.jsonl",
+    "max_new_tokens": 32,
+    "device": "cuda:0",
+    "device_map": {
+      "model.embed_tokens": 0,
+      "model.layers.0": 0,
+      "model.layers.1": 0,
+      "model.layers.2": 0,
+      "model.layers.3": 0,
+      "model.layers.4": 0,
+      "model.layers.5": 0,
+      "model.layers.6": 0,
+      "model.layers.7": 0,
+      "model.layers.8": 0,
+      "model.layers.9": 0,
+      "model.layers.10": 0,
+      "model.layers.11": 0,
+      "model.layers.12": "cpu",
+      "model.layers.13": "cpu",
+      "model.layers.14": "cpu",
+      "model.layers.15": "cpu",
+      "model.layers.16": "cpu",
+      "model.layers.17": "cpu",
+      "model.layers.18": "cpu",
+      "model.layers.19": "cpu",
+      "model.layers.20": "cpu",
+      "model.layers.21": "cpu",
+      "model.layers.22": "cpu",
+      "model.layers.23": "cpu",
+      "model.layers.24": "cpu",
+      "model.layers.25": "cpu",
+      "model.layers.26": "cpu",
+      "model.layers.27": "cpu",
+      "model.layers.28": "cpu",
+      "model.layers.29": "cpu",
+      "model.layers.30": "cpu",
+      "model.layers.31": "cpu",
+      "model.norm": "cpu",
+      "lm_head": "cpu"
+    }
+  },
+  "process_rss_mb_after": 6463.6328125,
+  "elapsed_seconds": 3970.0166726112366,
+  "torch": "2.11.0+cu128"
+}
+
+=== Score HumanEval 4-task smoke ===
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval/eval.jsonl",
+  "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 4
+  }
+}
+
+=== HumanEval pass rate ===
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval/eval.jsonl",
+  "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 4
+  }
+}
+=== SliceGPT CodeLlama-7B MBPP 4-task smoke ===
+/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Loading tokenizer from /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6
+Loading CodeLlama weights on CPU
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:07<01:07, 67.47s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:11<00:00, 30.01s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:11<00:00, 35.63s/it]
+Loading dataset: wikitext2
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/keshu/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Sat Jul 18 17:38:21 2026).
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /home/keshu/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Sat Jul 18 17:38:21 2026).
+Loading dataset done
+Preparing dataloader
+Preparing dataloader done
+Replacing and fusing SliceGPT layers
+Replacing layers
+Replacing layers done
+Fusing layernorm modules
+Fusing layernorm modules done
+Running rotate_and_slice: hidden_size=4096 new_embedding_dimension=4048
+Rotate and slice layers
+Rotating and slicing:   0%|          | 0/32 [00:00<?, ?layer/s]Rotating and slicing:   3%|▎         | 1/32 [00:20<10:20, 20.03s/layer]Rotating and slicing:   6%|▋         | 2/32 [00:40<10:02, 20.08s/layer]Rotating and slicing:   9%|▉         | 3/32 [00:59<09:37, 19.92s/layer]Rotating and slicing:  12%|█▎        | 4/32 [01:19<09:12, 19.74s/layer]Rotating and slicing:  16%|█▌        | 5/32 [01:40<09:08, 20.31s/layer]Rotating and slicing:  19%|█▉        | 6/32 [02:00<08:47, 20.28s/layer]Rotating and slicing:  22%|██▏       | 7/32 [02:20<08:23, 20.13s/layer]Rotating and slicing:  25%|██▌       | 8/32 [02:40<08:03, 20.14s/layer]Rotating and slicing:  28%|██▊       | 9/32 [03:02<07:52, 20.53s/layer]Rotating and slicing:  31%|███▏      | 10/32 [03:23<07:36, 20.76s/layer]Rotating and slicing:  34%|███▍      | 11/32 [03:46<07:28, 21.37s/layer]Rotating and slicing:  38%|███▊      | 12/32 [04:15<07:52, 23.63s/layer]Rotating and slicing:  41%|████      | 13/32 [04:42<07:48, 24.68s/layer]Rotating and slicing:  44%|████▍     | 14/32 [05:07<07:28, 24.90s/layer]Rotating and slicing:  47%|████▋     | 15/32 [05:38<07:36, 26.82s/layer]Rotating and slicing:  50%|█████     | 16/32 [06:00<06:46, 25.39s/layer]Rotating and slicing:  53%|█████▎    | 17/32 [06:27<06:26, 25.79s/layer]Rotating and slicing:  56%|█████▋    | 18/32 [06:49<05:46, 24.76s/layer]Rotating and slicing:  59%|█████▉    | 19/32 [07:15<05:24, 24.98s/layer]Rotating and slicing:  62%|██████▎   | 20/32 [07:38<04:51, 24.26s/layer]Rotating and slicing:  66%|██████▌   | 21/32 [08:00<04:21, 23.81s/layer]Rotating and slicing:  69%|██████▉   | 22/32 [08:26<04:03, 24.39s/layer]Rotating and slicing:  72%|███████▏  | 23/32 [08:52<03:42, 24.73s/layer]Rotating and slicing:  75%|███████▌  | 24/32 [09:18<03:22, 25.27s/layer]Rotating and slicing:  78%|███████▊  | 25/32 [09:45<03:00, 25.85s/layer]Rotating and slicing:  81%|████████▏ | 26/32 [10:09<02:30, 25.08s/layer]Rotating and slicing:  84%|████████▍ | 27/32 [10:31<02:01, 24.29s/layer]Rotating and slicing:  88%|████████▊ | 28/32 [10:54<01:35, 23.86s/layer]Rotating and slicing:  91%|█████████ | 29/32 [11:15<01:09, 23.06s/layer]Rotating and slicing:  94%|█████████▍| 30/32 [11:39<00:46, 23.43s/layer]Rotating and slicing:  97%|█████████▋| 31/32 [12:04<00:23, 23.72s/layer]Rotating and slicing: 100%|██████████| 32/32 [12:27<00:00, 23.64s/layer]Rotating and slicing: 100%|██████████| 32/32 [12:27<00:00, 23.37s/layer]
+Rotate and slice layers done
+Some parameters are on the meta device because they were offloaded to the cpu.
+{"task_id": "Mbpp/17", "completion_chars": 34, "gen_seconds": 946.544}
+{"task_id": "Mbpp/18", "completion_chars": 34, "gen_seconds": 791.849}
+{"task_id": "Mbpp/19", "completion_chars": 38, "gen_seconds": 819.999}
+{"task_id": "Mbpp/20", "completion_chars": 40, "gen_seconds": 831.613}
+{
+  "status": "success",
+  "method": "SliceGPT",
+  "model_path": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "wrapper": "scripts/adapt/slicegpt_codellama_smoke.py",
+  "loaded_weights": true,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "generate_device": "cpu",
+  "generate_device_map": "auto",
+  "max_memory": {
+    "0": "6GiB",
+    "cpu": "24GiB"
+  },
+  "offload_folder": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/mbpp/offload",
+  "cal_dataset": "wikitext2",
+  "cal_nsamples": 1,
+  "cal_batch_size": 1,
+  "cal_max_seqlen": 32,
+  "sparsity_requested": 0.01,
+  "new_embedding_dimension": 4048,
+  "parameters_before": 6738280448,
+  "parameters_after": 7710299136,
+  "parameter_keep_ratio": 1.144253225359373,
+  "parameter_reduction_rate": -0.1442532253593729,
+  "generation": {
+    "split": "data/splits/mbpp_evalplus/eval.jsonl",
+    "task_count": 4,
+    "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/mbpp/samples.jsonl",
+    "generations": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/mbpp/generations.jsonl",
+    "max_new_tokens": 32,
+    "device": "cuda:0",
+    "device_map": {
+      "model.embed_tokens": 0,
+      "model.layers.0": 0,
+      "model.layers.1": 0,
+      "model.layers.2": 0,
+      "model.layers.3": 0,
+      "model.layers.4": 0,
+      "model.layers.5": 0,
+      "model.layers.6": 0,
+      "model.layers.7": 0,
+      "model.layers.8": 0,
+      "model.layers.9": 0,
+      "model.layers.10": 0,
+      "model.layers.11": 0,
+      "model.layers.12": "cpu",
+      "model.layers.13": "cpu",
+      "model.layers.14": "cpu",
+      "model.layers.15": "cpu",
+      "model.layers.16": "cpu",
+      "model.layers.17": "cpu",
+      "model.layers.18": "cpu",
+      "model.layers.19": "cpu",
+      "model.layers.20": "cpu",
+      "model.layers.21": "cpu",
+      "model.layers.22": "cpu",
+      "model.layers.23": "cpu",
+      "model.layers.24": "cpu",
+      "model.layers.25": "cpu",
+      "model.layers.26": "cpu",
+      "model.layers.27": "cpu",
+      "model.layers.28": "cpu",
+      "model.layers.29": "cpu",
+      "model.layers.30": "cpu",
+      "model.layers.31": "cpu",
+      "model.norm": "cpu",
+      "lm_head": "cpu"
+    }
+  },
+  "process_rss_mb_after": 6494.05859375,
+  "elapsed_seconds": 4798.457932949066,
+  "torch": "2.11.0+cu128"
+}
+
+=== Score MBPP 4-task smoke ===
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/mbpp/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 4
+  }
+}
+
+=== MBPP pass rate ===
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/mbpp/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 4
+  }
+}
+=== Final summary ===
+--- HumanEval ---
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval/eval.jsonl",
+  "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 4
+  }
+}
+--- MBPP ---
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus/eval.jsonl",
+  "samples": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/mbpp/samples.jsonl",
+  "base_only": true,
+  "task_count": 4,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 4
+  }
+}
+=== System after ===
+               total        used        free      shared  buff/cache   available
+Mem:            13Gi       528Mi        12Gi       2.6Mi       1.3Gi        13Gi
+Swap:           32Gi        80Mi        31Gi
+NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 353 MiB, 21 %

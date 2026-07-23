@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "method": "SliceGPT",
+  "model": "codellama/CodeLlama-7b-hf",
+  "run_id": "slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439",
+  "sparsity_requested": 0.01,
+  "hidden_size_before": 4096,
+  "hidden_size_after": 4048,
+  "hidden_size_reduction_rate": 0.01171875,
+  "humaneval": {
+    "task_count": 4,
+    "base_pass_count": 0,
+    "base_pass_rate": 0.0,
+    "elapsed_seconds": 3970.0166726112366
+  },
+  "mbpp": {
+    "task_count": 4,
+    "base_pass_count": 0,
+    "base_pass_rate": 0.0,
+    "elapsed_seconds": 4798.457932949066
+  },
+  "note": "Naive parameter count is not used as SliceGPT compression metric because compressed-layer shortcut parameters increase the raw count."
+}
