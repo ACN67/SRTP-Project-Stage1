@@ -167,6 +167,36 @@ def mask_from_index(size: int, index, device):
     return mask
 
 
+def move_zs(zs: dict, device: str) -> dict:
+    return {
+        key: [item.to(device) for item in value] if isinstance(value, list) else value.to(device)
+        for key, value in zs.items()
+    }
+
+
+def validate_zs(zs: dict, plan: dict) -> dict:
+    checks = {
+        "hidden_index": (zs["hidden_index"], plan["hidden_size"]),
+    }
+    for idx, index in enumerate(zs["head_indexes"]):
+        checks[f"head_indexes[{idx}]"] = (index, plan["num_attention_heads"])
+    for idx, index in enumerate(zs["kv_head_indexes"]):
+        checks[f"kv_head_indexes[{idx}]"] = (index, plan["num_key_value_heads"])
+    for idx, index in enumerate(zs["intermediate_indexes"]):
+        checks[f"intermediate_indexes[{idx}]"] = (index, plan["intermediate_size"])
+
+    summary = {}
+    for name, (index, size) in checks.items():
+        index_cpu = index.detach().cpu()
+        min_value = int(index_cpu.min().item()) if index_cpu.numel() else None
+        max_value = int(index_cpu.max().item()) if index_cpu.numel() else None
+        count = int(index_cpu.numel())
+        if count and (min_value < 0 or max_value >= size):
+            raise ValueError(f"{name} out of bounds: min={min_value} max={max_value} size={size}")
+        summary[name] = {"count": count, "min": min_value, "max": max_value, "size": size}
+    return summary
+
+
 def build_benchmark_guided_zs(model, tokenizer, guide_rows: list[dict], plan: dict, max_length: int, save_dir: Path) -> tuple[dict, dict]:
     import torch
 
@@ -260,6 +290,7 @@ def build_benchmark_guided_zs(model, tokenizer, guide_rows: list[dict], plan: di
         "kv_head_index_preview": [index.tolist() for index in kv_head_indexes[:3]],
         "intermediate_index_preview": [index[:32].tolist() for index in intermediate_indexes[:2]],
     }
+    summary["index_validation"] = validate_zs(zs, plan)
     (save_dir / "benchmark_importance_summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
@@ -280,6 +311,7 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--importance-mode", default="structural", choices=["structural", "benchmark"])
     parser.add_argument("--importance-max-length", type=int, default=256)
+    parser.add_argument("--prune-on-cpu", action="store_true", help="Move the loaded model and prune indexes to CPU before structural index_select.")
     parser.add_argument("--hidden-size-remain", type=int)
     parser.add_argument("--ffn-hidden-size-remain", type=int)
     parser.add_argument("--num-attention-heads-remain", type=int)
@@ -332,6 +364,7 @@ def main() -> int:
         "rough_param_estimate": estimate,
         "importance_mode": args.importance_mode,
         "importance_max_length": args.importance_max_length,
+        "prune_on_cpu": args.prune_on_cpu,
         "benchmark_guidance_status": (
             "guide files recorded and validated only; structural stage selection"
             if args.importance_mode == "structural"
@@ -372,6 +405,19 @@ def main() -> int:
     params_before = sum(p.numel() for p in model.parameters())
     if args.importance_mode == "benchmark":
         zs, importance_summary = build_benchmark_guided_zs(model, tokenizer, guide_rows, plan, args.importance_max_length, save_dir)
+        if args.prune_on_cpu:
+            model.cpu()
+            import torch
+
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            zs = move_zs(zs, "cpu")
+            importance_summary["structural_prune_device"] = "cpu"
+        importance_summary["post_move_index_validation"] = validate_zs(zs, plan)
+        (save_dir / "benchmark_importance_summary.json").write_text(
+            json.dumps(importance_summary, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
         def init_prune_zs_from_benchmark(self, config, stage):
             return zs
