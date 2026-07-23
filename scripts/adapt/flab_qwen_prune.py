@@ -298,6 +298,39 @@ def build_benchmark_guided_zs(model, tokenizer, guide_rows: list[dict], plan: di
     return zs, summary
 
 
+def patch_flab_qwen2_prune_linear_bias():
+    """Fix Flab's Qwen2 Linear pruning for biased projections."""
+    import torch
+    from torch import nn
+    import hidden_prune_utils.modeling_qwen2 as modeling_qwen2
+
+    def prune_linear_by_index(module: nn.Linear, row_index=None, column_index=None):
+        if row_index is not None and column_index is not None:
+            new_module = nn.Linear(column_index.shape[0], row_index.shape[0], bias=module.bias is not None)
+        elif row_index is not None and column_index is None:
+            new_module = nn.Linear(module.in_features, row_index.shape[0], bias=module.bias is not None)
+        elif row_index is None and column_index is not None:
+            new_module = nn.Linear(column_index.shape[0], module.out_features, bias=module.bias is not None)
+        else:
+            new_module = nn.Linear(module.in_features, module.out_features, bias=module.bias is not None)
+
+        weight = module.weight.data
+        bias = module.bias.data if module.bias is not None else None
+        if row_index is not None:
+            weight = torch.index_select(weight, 0, row_index)
+            if bias is not None:
+                bias = torch.index_select(bias, 0, row_index)
+        if column_index is not None:
+            weight = torch.index_select(weight, -1, column_index)
+
+        new_module.weight.data = weight
+        if bias is not None:
+            new_module.bias.data = bias
+        return new_module
+
+    modeling_qwen2.prune_linear_by_index = prune_linear_by_index
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Flab-Pruner Qwen2.5-Coder wrapper.")
     parser.add_argument("--model", default="Qwen/Qwen2.5-Coder-3B-Instruct")
@@ -382,6 +415,8 @@ def main() -> int:
     sys.path.insert(0, str(FLAB_ROOT))
     from hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM
     import torch
+
+    patch_flab_qwen2_prune_linear_bias()
 
     # Flab's vendored Qwen2 class follows the Transformers 4 convention where
     # `_tied_weights_keys` was a list. Transformers 5 expects a mapping.
