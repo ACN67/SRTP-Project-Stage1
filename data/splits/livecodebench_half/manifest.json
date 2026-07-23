@@ -1,0 +1,15 @@
+{
+  "benchmark": "livecodebench_half",
+  "split_version": "stage1_r4_half_v1",
+  "source": "LiveCodeBench code_generation release_v1",
+  "selection": "stratified by platform and difficulty, then stable time-ordered alternating assignment",
+  "total_count": 400,
+  "guide_path": "data/splits/livecodebench_half/guide.jsonl",
+  "eval_path": "data/splits/livecodebench_half/eval.jsonl",
+  "guide_sha256": "6ff0ff93e6300c26a144bedbb45b0225781bca300776b7c630f3a26a8d797a0d",
+  "eval_sha256": "888fda5d93d20d993dd5cb54e209c69652ac6df22c539fbeeeb900c46c5f84a6",
+  "guide_count": 200,
+  "eval_count": 200,
+  "contains_solution": false,
+  "notes": "R4 formal split. Guide is for pruning/calibration only; eval is for post-pruning scoring."
+}

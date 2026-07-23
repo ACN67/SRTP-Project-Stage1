@@ -20,6 +20,7 @@ R3,SliceGPT,常珂舒,CodeLlama,codellama/CodeLlama-7b-hf,done,results/raw/slice
 R4,Flab-Pruner,常珂舒,Qwen2.5-Coder,Qwen/Qwen2.5-Coder-3B-Instruct,pending,,Half-set formal run pending.
 R4,LLM-Pruner,常珂舒,CodeLlama,codellama/CodeLlama-7b-hf,pending,,Half-set formal run pending.
 R4,SliceGPT,常珂舒,CodeLlama,codellama/CodeLlama-7b-hf,pending,,Half-set formal run pending.
+R4,benchmark_splits,shared,mixed,mixed,done,data/splits/humaneval_half;data/splits/mbpp_evalplus_half;data/splits/livecodebench_half,HumanEval stratified 82/82; MBPP official guide/eval 154/224; LiveCodeBench stratified 200/200.
 R1-R4,Magnitude,潘阔,CodeLlama,codellama/CodeLlama-7b-hf,pending,,No owner run yet.
 R1-R4,Wanda,潘阔,CodeLlama,codellama/CodeLlama-7b-hf,pending,,No owner run yet.
 R1-R4,DSnoT,潘阔,CodeLlama,codellama/CodeLlama-7b-hf,pending,,No owner run yet.

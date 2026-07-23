@@ -76,3 +76,13 @@ Before a method enters R4:
 2. Its R3 HumanEval/MBPP smoke rows must be complete.
 3. The R4 run must use guide data during pruning, not only during final scoring.
 4. Save resource metrics and artifact manifests.
+
+R4 uses three fixed guide/eval benchmark splits:
+
+```text
+data/splits/humaneval_half/
+data/splits/mbpp_evalplus_half/
+data/splits/livecodebench_half/
+```
+
+HumanEval and LiveCodeBench are split approximately 50/50 with stratification. MBPP uses official split semantics: prompt/train/validation as guide and test as eval.

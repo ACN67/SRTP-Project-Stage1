@@ -21,9 +21,9 @@ This policy replaced the earlier plan that tried to force every method onto Qwen
 
 | Benchmark | Stage 1 role |
 |---|---|
-| HumanEval | Required R3 smoke and R4 half-set evaluation. |
-| MBPP | Required R3 smoke and R4 half-set evaluation. |
-| LiveCodeBench | Smoke interface exists; R4 optional if time/resources allow. |
+| HumanEval | Required R3 smoke and R4 stratified half-set evaluation. |
+| MBPP | Required R3 smoke and R4 official-split evaluation through EvalPlus-compatible MBPP+. |
+| LiveCodeBench | Required R4 stratified half-set evaluation to bridge Stage 1 pruning and Stage 2 agent tasks. |
 | SWE-bench Lite | Interface proof only for Stage 1 unless separately assigned. |
 
 Every benchmark split has two roles:
@@ -39,7 +39,7 @@ Every benchmark split has two roles:
 | R1 | Official or minimum upstream reproduction on a supported small model. | official smoke logs and summaries. |
 | R2 | Prune the selected Stage 1 model family for the method. | pruning logs, parameter/resource summaries, artifact manifests. |
 | R3 | Four-task HumanEval/MBPP benchmark smoke after pruning. | generations, score summaries, resource notes. |
-| R4 | Formal half-set benchmark-guided run. | baseline/pruned scores, resources, retention and reduction metrics. |
+| R4 | Formal benchmark-guided run on fixed guide/eval splits. | baseline/pruned scores, resources, retention and reduction metrics. |
 
 R3 only proves the pipeline runs. R4 is required before writing formal Stage 1 conclusions.
 
@@ -47,7 +47,7 @@ R3 only proves the pipeline runs. R4 is required before writing formal Stage 1 c
 
 Each R4 method run should store:
 
-- generation outputs for HumanEval and MBPP eval halves.
+- generation outputs for HumanEval, MBPP, and LiveCodeBench eval splits.
 - score summaries and score details.
 - pruning summary with before/after model size or parameter counts.
 - resource summary with elapsed time, peak GPU memory, peak process RSS, and artifact size.

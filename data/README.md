@@ -18,4 +18,12 @@
 | `splits/livecodebench/` | LiveCodeBench smoke split. |
 | `splits/swebench_lite/` | SWE-bench Lite smoke split. |
 
-R4 half-set splits should be added beside these smoke splits with a `_half` suffix.
+R4 uses these required guide/eval splits:
+
+```text
+splits/humaneval_half/
+splits/mbpp_evalplus_half/
+splits/livecodebench_half/
+```
+
+HumanEval and LiveCodeBench are stratified half splits. MBPP uses the official sanitized split mapping through EvalPlus-compatible task IDs: prompt/train/validation are guide, and test is eval.
