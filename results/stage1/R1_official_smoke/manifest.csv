@@ -1,8 +1,0 @@
-round,method,owner,status,model_family,model_id,primary_raw_dir,notes
-R1,SliceGPT,常珂舒,done,OPT,facebook/opt-125m,results/raw/slicegpt_opt125m_smoke_20260718_173646,Official OPT-125M smoke succeeded; local .pt artifact removed after hash was recorded.
-R1,LLM-Pruner,常珂舒,done,Tiny LLaMA,trl-internal-testing/tiny-random-LlamaForCausalLM,results/raw/llmpruner_tiny_llama_layerwise_smoke_20260718_175708,Official tiny LLaMA layer-wise smoke succeeded after datasets compatibility fix.
-R1,LaCo,常珂舒,blocked,LLaMA2/Baichuan2,not selected,reports/failures/laco_r1_blocked.md,Official support is too limited and no CodeLlama route is available.
-R1,Flab-Pruner,常珂舒,done,Qwen2.5-Coder,Qwen/Qwen2.5-Coder-3B-Instruct,results/raw/flab_pruner_import_probe_20260718_184023,Qwen utilities and Flab-Pruner scripts inspected/imported.
-R1,SparseGPT,李长骏,pending,CodeLlama,codellama/CodeLlama-7b-hf,,No local owner run yet.
-R1,Wanda,潘阔,pending,CodeLlama,codellama/CodeLlama-7b-hf,,No local owner run yet.
-

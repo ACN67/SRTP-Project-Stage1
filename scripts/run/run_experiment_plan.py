@@ -20,7 +20,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_SUMMARY = ROOT / "reports" / "stage1" / "manual_run_results.jsonl"
+DEFAULT_SUMMARY = ROOT / "results" / "stage1" / "runs.jsonl"
 
 
 def now_iso() -> str:

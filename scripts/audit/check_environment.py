@@ -87,9 +87,9 @@ def main() -> int:
         "torch": torch_status(),
     }
 
-    out_dir = ROOT / "reports" / "stage1"
+    out_dir = ROOT / "results" / "stage1"
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / "environment_check.json"
+    out_path = out_dir / "environment.json"
     out_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(report, indent=2, ensure_ascii=False))
 
