@@ -1,0 +1,13 @@
+round,method,owner,status,model_family,model_id,benchmark,primary_raw_dir,pass_rate,resource_notes
+R3,Qwen-1.5B baseline,常珂舒,done,Qwen2.5-Coder,Qwen/Qwen2.5-Coder-1.5B-Instruct,HumanEval,results/raw/qwen15b_humaneval_smoke_eval_20260721_180903,0/4,Smoke baseline only.
+R3,Qwen-1.5B baseline,常珂舒,done,Qwen2.5-Coder,Qwen/Qwen2.5-Coder-1.5B-Instruct,MBPP,results/raw/qwen15b_mbpp_smoke_eval_20260721_184715,1/4,Smoke baseline only.
+R3,Qwen-3B baseline,常珂舒,done,Qwen2.5-Coder,Qwen/Qwen2.5-Coder-3B-Instruct,HumanEval,results/raw/qwen3b_humaneval_smoke_eval_20260721_181657,0/4,Smoke baseline only.
+R3,Qwen-3B baseline,常珂舒,done,Qwen2.5-Coder,Qwen/Qwen2.5-Coder-3B-Instruct,MBPP,results/raw/qwen3b_mbpp_smoke_eval_20260721_184936,2/4,Smoke baseline only.
+R3,Flab-Pruner,常珂舒,done,Qwen2.5-Coder,Qwen/Qwen2.5-Coder-3B-Instruct,HumanEval,results/raw/flab_qwen3b_pruned_humaneval_smoke_eval_20260721_182050,0/4,Uses local pruned model artifact.
+R3,Flab-Pruner,常珂舒,done,Qwen2.5-Coder,Qwen/Qwen2.5-Coder-3B-Instruct,MBPP,results/raw/flab_qwen3b_pruned_mbpp_smoke_eval_20260721_185132,0/4,Uses local pruned model artifact.
+R3,LLM-Pruner,常珂舒,done,CodeLlama,codellama/CodeLlama-7b-hf,HumanEval,results/raw/llmpruner_codellama7b_humaneval_4task_offload_smoke_20260722_232800,0/4,GPU/CPU offload smoke.
+R3,LLM-Pruner,常珂舒,done,CodeLlama,codellama/CodeLlama-7b-hf,MBPP,results/raw/llmpruner_codellama7b_mbpp_4task_offload_smoke_20260722_233633,1/4,GPU/CPU offload smoke.
+R3,SliceGPT,常珂舒,done,CodeLlama,codellama/CodeLlama-7b-hf,HumanEval,results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/humaneval,0/4,GPU slicing plus CPU/offload generation; very slow locally.
+R3,SliceGPT,常珂舒,done,CodeLlama,codellama/CodeLlama-7b-hf,MBPP,results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/mbpp,0/4,GPU slicing plus CPU/offload generation; very slow locally.
+R3,LaCo,常珂舒,skipped,Skipped,,HumanEval/MBPP,,not_run,Skipped because official support is too limited and CodeLlama is unsupported.
+

@@ -61,11 +61,14 @@ scripts/audit/                 Environment and result checks
 env/                           pip freeze snapshots per environment
 third_party/                   Official upstream repositories as Git submodules
 data/manifests/                Upstream commit and model/data manifests
-results/raw/                   Per-run logs, metadata, stdout, stderr, resource traces
+results/stage1/                Curated R0-R4 result index by method
+results/raw/                   Timestamped raw logs, metadata, stdout, stderr, resource traces
 results/tables/                Method status tables
 reports/stage1/                Machine info, environment checks, run summaries
-artifacts/                     Pruned models, patches, trajectories, manifests
+artifacts/                     Local artifact policy and manifests; model weights stay local
 ```
+
+For progress review, start from `results/stage1/README.md`. Use `results/raw/` only when a command log or generated sample needs to be inspected.
 
 ## Quick Start
 

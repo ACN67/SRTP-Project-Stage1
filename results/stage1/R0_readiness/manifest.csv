@@ -1,0 +1,9 @@
+round,method,owner,status,model_family,model_id,primary_raw_dir,notes
+R0,shared,shared,done,mixed,mixed,results/raw/env_check_20260718_173242,Common environment and CUDA visibility checked.
+R0,shared,shared,done,mixed,mixed,results/raw/import_core_method_envs_20260718_173245,Core method environments imported.
+R0,benchmark_splits,潘阔,done,mixed,mixed,results/raw/create_humaneval_mbpp_smoke_splits_20260718_184456,HumanEval and MBPP smoke splits created.
+R0,benchmark_splits,潘阔,done,mixed,mixed,results/raw/create_lcb_swebench_smoke_splits_20260718_190255,LiveCodeBench and SWE-bench Lite smoke splits created.
+R0,model_policy,shared,done,CodeLlama,codellama/CodeLlama-7b-hf,results/raw/codellama7b_config_probe_20260722_184306,CodeLlama 7B selected for LLaMA-compatible methods.
+R0,model_policy,shared,done,CodeLlama,codellama/CodeLlama-7b-hf,results/raw/codellama7b_snapshot_download_20260722_202939,CodeLlama 7B snapshot downloaded to local HF cache.
+R0,model_policy,shared,done,Qwen2.5-Coder,Qwen/Qwen2.5-Coder-3B-Instruct,results/raw/qwen25_coder_3b_config_probe_20260718_182954,Qwen retained for Flab-Pruner.
+
