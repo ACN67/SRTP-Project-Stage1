@@ -438,6 +438,11 @@ def main() -> int:
     model = Qwen2ForCausalLM.from_pretrained(args.model, config=load_config, torch_dtype=dtype, device_map=args.device_map)
     model.eval()
     params_before = sum(p.numel() for p in model.parameters())
+    if args.prune_on_cpu and args.importance_mode == "structural":
+        model.cpu()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        result["structural_prune_device"] = "cpu"
     if args.importance_mode == "benchmark":
         zs, importance_summary = build_benchmark_guided_zs(model, tokenizer, guide_rows, plan, args.importance_max_length, save_dir)
         if args.prune_on_cpu:
