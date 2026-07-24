@@ -1,0 +1,34 @@
+{
+  "status": "success",
+  "teacher_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "guide_files": [
+    {
+      "path": "data/splits/humaneval_half/guide.jsonl",
+      "sha256": "786d8c8f197c8c558073f1575731c8dfc8b657cc68dfcc82c9066ab208655b2c",
+      "samples_used": 82,
+      "benchmarks": [
+        "humaneval"
+      ]
+    },
+    {
+      "path": "data/splits/mbpp_evalplus_half/guide.jsonl",
+      "sha256": "15b2981cbd9b2eda27643d8a77433880dbc9a9a41a8081f754960d2a0f115b56",
+      "samples_used": 154,
+      "benchmarks": [
+        "mbpp_evalplus"
+      ]
+    },
+    {
+      "path": "data/splits/livecodebench_half/guide.jsonl",
+      "sha256": "6ff0ff93e6300c26a144bedbb45b0225781bca300776b7c630f3a26a8d797a0d",
+      "samples_used": 200,
+      "benchmarks": [
+        "livecodebench"
+      ]
+    }
+  ],
+  "samples": 436,
+  "output": "results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/qwen25c3b_distill/distill_train.jsonl",
+  "teacher_generations": "results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/qwen25c3b_distill/teacher_generations.jsonl",
+  "elapsed_seconds": 2925.8305339813232
+}

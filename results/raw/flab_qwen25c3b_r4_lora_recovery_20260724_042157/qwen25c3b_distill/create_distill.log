@@ -1,0 +1,476 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<04:12,  1.71it/s]Loading weights:  17%|█▋        | 75/434 [00:00<00:02, 142.73it/s]Loading weights:  26%|██▌       | 113/434 [00:00<00:02, 159.29it/s]Loading weights:  33%|███▎      | 143/434 [00:01<00:01, 167.00it/s]Loading weights:  39%|███▉      | 169/434 [00:01<00:01, 179.35it/s]Loading weights:  44%|████▍     | 193/434 [00:01<00:01, 167.83it/s]Loading weights:  49%|████▉     | 214/434 [00:01<00:01, 137.00it/s]Loading weights:  53%|█████▎    | 231/434 [00:01<00:01, 140.87it/s]Loading weights:  59%|█████▉    | 255/434 [00:01<00:01, 148.67it/s]Loading weights:  63%|██████▎   | 272/434 [00:01<00:01, 148.28it/s]Loading weights:  67%|██████▋   | 289/434 [00:02<00:00, 149.19it/s]Loading weights:  70%|███████   | 305/434 [00:02<00:00, 129.36it/s]Loading weights:  74%|███████▎  | 319/434 [00:02<00:00, 131.10it/s]Loading weights:  77%|███████▋  | 333/434 [00:02<00:00, 131.05it/s]Loading weights:  80%|███████▉  | 347/434 [00:02<00:00, 128.35it/s]Loading weights:  83%|████████▎ | 362/434 [00:02<00:00, 133.40it/s]Loading weights:  87%|████████▋ | 376/434 [00:02<00:00, 110.00it/s]Loading weights:  89%|████████▉ | 388/434 [00:04<00:01, 23.74it/s] Loading weights:  92%|█████████▏| 400/434 [00:04<00:01, 29.37it/s]Loading weights:  95%|█████████▌| 413/434 [00:04<00:00, 37.60it/s]Loading weights:  97%|█████████▋| 423/434 [00:04<00:00, 44.15it/s]Loading weights: 100%|██████████| 434/434 [00:04<00:00, 88.76it/s]
+{"generated": 1, "task_id": "HumanEval/0", "seconds": 4.61}
+{"generated": 2, "task_id": "HumanEval/2", "seconds": 7.393}
+{"generated": 3, "task_id": "HumanEval/3", "seconds": 1.769}
+{"generated": 4, "task_id": "HumanEval/4", "seconds": 2.381}
+{"generated": 5, "task_id": "HumanEval/8", "seconds": 8.986}
+{"generated": 6, "task_id": "HumanEval/9", "seconds": 8.741}
+{"generated": 7, "task_id": "HumanEval/10", "seconds": 2.084}
+{"generated": 8, "task_id": "HumanEval/13", "seconds": 2.146}
+{"generated": 9, "task_id": "HumanEval/14", "seconds": 8.537}
+{"generated": 10, "task_id": "HumanEval/16", "seconds": 7.239}
+{"generated": 11, "task_id": "HumanEval/17", "seconds": 8.316}
+{"generated": 12, "task_id": "HumanEval/18", "seconds": 3.374}
+{"generated": 13, "task_id": "HumanEval/21", "seconds": 1.852}
+{"generated": 14, "task_id": "HumanEval/23", "seconds": 1.152}
+{"generated": 15, "task_id": "HumanEval/25", "seconds": 2.277}
+{"generated": 16, "task_id": "HumanEval/26", "seconds": 1.883}
+{"generated": 17, "task_id": "HumanEval/30", "seconds": 8.528}
+{"generated": 18, "task_id": "HumanEval/31", "seconds": 8.646}
+{"generated": 19, "task_id": "HumanEval/34", "seconds": 8.683}
+{"generated": 20, "task_id": "HumanEval/36", "seconds": 3.309}
+{"generated": 21, "task_id": "HumanEval/38", "seconds": 8.619}
+{"generated": 22, "task_id": "HumanEval/40", "seconds": 6.665}
+{"generated": 23, "task_id": "HumanEval/41", "seconds": 5.43}
+{"generated": 24, "task_id": "HumanEval/42", "seconds": 8.555}
+{"generated": 25, "task_id": "HumanEval/44", "seconds": 4.138}
+{"generated": 26, "task_id": "HumanEval/46", "seconds": 4.85}
+{"generated": 27, "task_id": "HumanEval/48", "seconds": 5.909}
+{"generated": 28, "task_id": "HumanEval/52", "seconds": 7.848}
+{"generated": 29, "task_id": "HumanEval/55", "seconds": 5.901}
+{"generated": 30, "task_id": "HumanEval/56", "seconds": 4.828}
+{"generated": 31, "task_id": "HumanEval/58", "seconds": 8.682}
+{"generated": 32, "task_id": "HumanEval/60", "seconds": 8.951}
+{"generated": 33, "task_id": "HumanEval/63", "seconds": 8.419}
+{"generated": 34, "task_id": "HumanEval/65", "seconds": 9.353}
+{"generated": 35, "task_id": "HumanEval/66", "seconds": 8.967}
+{"generated": 36, "task_id": "HumanEval/68", "seconds": 5.861}
+{"generated": 37, "task_id": "HumanEval/71", "seconds": 5.427}
+{"generated": 38, "task_id": "HumanEval/74", "seconds": 6.047}
+{"generated": 39, "task_id": "HumanEval/75", "seconds": 8.88}
+{"generated": 40, "task_id": "HumanEval/76", "seconds": 5.662}
+{"generated": 41, "task_id": "HumanEval/77", "seconds": 7.279}
+{"generated": 42, "task_id": "HumanEval/81", "seconds": 9.495}
+{"generated": 43, "task_id": "HumanEval/82", "seconds": 2.52}
+{"generated": 44, "task_id": "HumanEval/84", "seconds": 8.702}
+{"generated": 45, "task_id": "HumanEval/85", "seconds": 8.58}
+{"generated": 46, "task_id": "HumanEval/88", "seconds": 6.766}
+{"generated": 47, "task_id": "HumanEval/89", "seconds": 7.867}
+{"generated": 48, "task_id": "HumanEval/92", "seconds": 7.192}
+{"generated": 49, "task_id": "HumanEval/93", "seconds": 8.668}
+{"generated": 50, "task_id": "HumanEval/95", "seconds": 8.662}
+{"generated": 51, "task_id": "HumanEval/97", "seconds": 7.088}
+{"generated": 52, "task_id": "HumanEval/99", "seconds": 8.648}
+{"generated": 53, "task_id": "HumanEval/102", "seconds": 5.553}
+{"generated": 54, "task_id": "HumanEval/104", "seconds": 8.594}
+{"generated": 55, "task_id": "HumanEval/106", "seconds": 8.525}
+{"generated": 56, "task_id": "HumanEval/107", "seconds": 4.447}
+{"generated": 57, "task_id": "HumanEval/110", "seconds": 8.507}
+{"generated": 58, "task_id": "HumanEval/114", "seconds": 5.501}
+{"generated": 59, "task_id": "HumanEval/115", "seconds": 7.373}
+{"generated": 60, "task_id": "HumanEval/118", "seconds": 4.196}
+{"generated": 61, "task_id": "HumanEval/119", "seconds": 4.66}
+{"generated": 62, "task_id": "HumanEval/123", "seconds": 8.601}
+{"generated": 63, "task_id": "HumanEval/126", "seconds": 7.604}
+{"generated": 64, "task_id": "HumanEval/128", "seconds": 4.181}
+{"generated": 65, "task_id": "HumanEval/129", "seconds": 0.879}
+{"generated": 66, "task_id": "HumanEval/131", "seconds": 4.345}
+{"generated": 67, "task_id": "HumanEval/132", "seconds": 4.7}
+{"generated": 68, "task_id": "HumanEval/134", "seconds": 3.281}
+{"generated": 69, "task_id": "HumanEval/135", "seconds": 2.692}
+{"generated": 70, "task_id": "HumanEval/137", "seconds": 5.24}
+{"generated": 71, "task_id": "HumanEval/141", "seconds": 6.894}
+{"generated": 72, "task_id": "HumanEval/143", "seconds": 5.806}
+{"generated": 73, "task_id": "HumanEval/145", "seconds": 8.654}
+{"generated": 74, "task_id": "HumanEval/146", "seconds": 4.728}
+{"generated": 75, "task_id": "HumanEval/148", "seconds": 6.456}
+{"generated": 76, "task_id": "HumanEval/150", "seconds": 8.617}
+{"generated": 77, "task_id": "HumanEval/151", "seconds": 5.265}
+{"generated": 78, "task_id": "HumanEval/152", "seconds": 8.609}
+{"generated": 79, "task_id": "HumanEval/158", "seconds": 8.586}
+{"generated": 80, "task_id": "HumanEval/159", "seconds": 8.637}
+{"generated": 81, "task_id": "HumanEval/161", "seconds": 2.944}
+{"generated": 82, "task_id": "HumanEval/162", "seconds": 8.429}
+{"generated": 83, "task_id": "Mbpp/2", "seconds": 3.688}
+{"generated": 84, "task_id": "Mbpp/3", "seconds": 4.673}
+{"generated": 85, "task_id": "Mbpp/4", "seconds": 3.461}
+{"generated": 86, "task_id": "Mbpp/6", "seconds": 2.865}
+{"generated": 87, "task_id": "Mbpp/7", "seconds": 2.694}
+{"generated": 88, "task_id": "Mbpp/8", "seconds": 9.431}
+{"generated": 89, "task_id": "Mbpp/9", "seconds": 4.036}
+{"generated": 90, "task_id": "Mbpp/554", "seconds": 2.448}
+{"generated": 91, "task_id": "Mbpp/555", "seconds": 3.894}
+{"generated": 92, "task_id": "Mbpp/556", "seconds": 5.877}
+{"generated": 93, "task_id": "Mbpp/557", "seconds": 2.122}
+{"generated": 94, "task_id": "Mbpp/558", "seconds": 4.983}
+{"generated": 95, "task_id": "Mbpp/559", "seconds": 6.369}
+{"generated": 96, "task_id": "Mbpp/560", "seconds": 4.019}
+{"generated": 97, "task_id": "Mbpp/562", "seconds": 2.94}
+{"generated": 98, "task_id": "Mbpp/563", "seconds": 2.428}
+{"generated": 99, "task_id": "Mbpp/564", "seconds": 4.552}
+{"generated": 100, "task_id": "Mbpp/565", "seconds": 1.332}
+{"generated": 101, "task_id": "Mbpp/566", "seconds": 4.159}
+{"generated": 102, "task_id": "Mbpp/567", "seconds": 3.247}
+{"generated": 103, "task_id": "Mbpp/568", "seconds": 2.886}
+{"generated": 104, "task_id": "Mbpp/569", "seconds": 3.625}
+{"generated": 105, "task_id": "Mbpp/572", "seconds": 2.983}
+{"generated": 106, "task_id": "Mbpp/573", "seconds": 3.827}
+{"generated": 107, "task_id": "Mbpp/576", "seconds": 2.693}
+{"generated": 108, "task_id": "Mbpp/577", "seconds": 5.43}
+{"generated": 109, "task_id": "Mbpp/578", "seconds": 8.5}
+{"generated": 110, "task_id": "Mbpp/579", "seconds": 4.047}
+{"generated": 111, "task_id": "Mbpp/580", "seconds": 3.678}
+{"generated": 112, "task_id": "Mbpp/581", "seconds": 4.285}
+{"generated": 113, "task_id": "Mbpp/583", "seconds": 2.799}
+{"generated": 114, "task_id": "Mbpp/585", "seconds": 5.015}
+{"generated": 115, "task_id": "Mbpp/586", "seconds": 2.884}
+{"generated": 116, "task_id": "Mbpp/587", "seconds": 2.11}
+{"generated": 117, "task_id": "Mbpp/588", "seconds": 2.928}
+{"generated": 118, "task_id": "Mbpp/589", "seconds": 4.769}
+{"generated": 119, "task_id": "Mbpp/590", "seconds": 3.932}
+{"generated": 120, "task_id": "Mbpp/591", "seconds": 3.029}
+{"generated": 121, "task_id": "Mbpp/592", "seconds": 3.847}
+{"generated": 122, "task_id": "Mbpp/593", "seconds": 2.652}
+{"generated": 123, "task_id": "Mbpp/594", "seconds": 7.317}
+{"generated": 124, "task_id": "Mbpp/596", "seconds": 2.763}
+{"generated": 125, "task_id": "Mbpp/597", "seconds": 8.606}
+{"generated": 126, "task_id": "Mbpp/598", "seconds": 4.281}
+{"generated": 127, "task_id": "Mbpp/599", "seconds": 3.844}
+{"generated": 128, "task_id": "Mbpp/600", "seconds": 2.385}
+{"generated": 129, "task_id": "Mbpp/602", "seconds": 4.207}
+{"generated": 130, "task_id": "Mbpp/603", "seconds": 5.651}
+{"generated": 131, "task_id": "Mbpp/604", "seconds": 2.929}
+{"generated": 132, "task_id": "Mbpp/605", "seconds": 3.614}
+{"generated": 133, "task_id": "Mbpp/606", "seconds": 2.901}
+{"generated": 134, "task_id": "Mbpp/607", "seconds": 3.877}
+{"generated": 135, "task_id": "Mbpp/608", "seconds": 6.86}
+{"generated": 136, "task_id": "Mbpp/610", "seconds": 3.834}
+{"generated": 137, "task_id": "Mbpp/611", "seconds": 5.199}
+{"generated": 138, "task_id": "Mbpp/612", "seconds": 5.416}
+{"generated": 139, "task_id": "Mbpp/614", "seconds": 4.186}
+{"generated": 140, "task_id": "Mbpp/615", "seconds": 4.061}
+{"generated": 141, "task_id": "Mbpp/616", "seconds": 4.071}
+{"generated": 142, "task_id": "Mbpp/618", "seconds": 3.054}
+{"generated": 143, "task_id": "Mbpp/619", "seconds": 4.828}
+{"generated": 144, "task_id": "Mbpp/620", "seconds": 6.657}
+{"generated": 145, "task_id": "Mbpp/622", "seconds": 8.607}
+{"generated": 146, "task_id": "Mbpp/623", "seconds": 2.767}
+{"generated": 147, "task_id": "Mbpp/624", "seconds": 1.776}
+{"generated": 148, "task_id": "Mbpp/626", "seconds": 3.015}
+{"generated": 149, "task_id": "Mbpp/628", "seconds": 2.474}
+{"generated": 150, "task_id": "Mbpp/629", "seconds": 2.448}
+{"generated": 151, "task_id": "Mbpp/630", "seconds": 4.859}
+{"generated": 152, "task_id": "Mbpp/631", "seconds": 2.437}
+{"generated": 153, "task_id": "Mbpp/632", "seconds": 4.649}
+{"generated": 154, "task_id": "Mbpp/633", "seconds": 4.194}
+{"generated": 155, "task_id": "Mbpp/635", "seconds": 4.755}
+{"generated": 156, "task_id": "Mbpp/637", "seconds": 3.917}
+{"generated": 157, "task_id": "Mbpp/638", "seconds": 4.259}
+{"generated": 158, "task_id": "Mbpp/639", "seconds": 2.991}
+{"generated": 159, "task_id": "Mbpp/641", "seconds": 2.37}
+{"generated": 160, "task_id": "Mbpp/643", "seconds": 3.395}
+{"generated": 161, "task_id": "Mbpp/644", "seconds": 2.712}
+{"generated": 162, "task_id": "Mbpp/720", "seconds": 4.946}
+{"generated": 163, "task_id": "Mbpp/721", "seconds": 7.342}
+{"generated": 164, "task_id": "Mbpp/722", "seconds": 5.684}
+{"generated": 165, "task_id": "Mbpp/723", "seconds": 5.654}
+{"generated": 166, "task_id": "Mbpp/724", "seconds": 4.753}
+{"generated": 167, "task_id": "Mbpp/725", "seconds": 2.733}
+{"generated": 168, "task_id": "Mbpp/726", "seconds": 2.894}
+{"generated": 169, "task_id": "Mbpp/728", "seconds": 4.099}
+{"generated": 170, "task_id": "Mbpp/730", "seconds": 4.284}
+{"generated": 171, "task_id": "Mbpp/731", "seconds": 3.518}
+{"generated": 172, "task_id": "Mbpp/732", "seconds": 2.354}
+{"generated": 173, "task_id": "Mbpp/733", "seconds": 7.619}
+{"generated": 174, "task_id": "Mbpp/734", "seconds": 4.348}
+{"generated": 175, "task_id": "Mbpp/735", "seconds": 3.426}
+{"generated": 176, "task_id": "Mbpp/736", "seconds": 5.417}
+{"generated": 177, "task_id": "Mbpp/737", "seconds": 2.232}
+{"generated": 178, "task_id": "Mbpp/739", "seconds": 4.489}
+{"generated": 179, "task_id": "Mbpp/740", "seconds": 4.241}
+{"generated": 180, "task_id": "Mbpp/741", "seconds": 3.627}
+{"generated": 181, "task_id": "Mbpp/742", "seconds": 3.148}
+{"generated": 182, "task_id": "Mbpp/743", "seconds": 4.757}
+{"generated": 183, "task_id": "Mbpp/744", "seconds": 2.919}
+{"generated": 184, "task_id": "Mbpp/745", "seconds": 7.853}
+{"generated": 185, "task_id": "Mbpp/748", "seconds": 2.212}
+{"generated": 186, "task_id": "Mbpp/749", "seconds": 4.243}
+{"generated": 187, "task_id": "Mbpp/750", "seconds": 3.238}
+{"generated": 188, "task_id": "Mbpp/751", "seconds": 4.869}
+{"generated": 189, "task_id": "Mbpp/752", "seconds": 4.118}
+{"generated": 190, "task_id": "Mbpp/753", "seconds": 9.275}
+{"generated": 191, "task_id": "Mbpp/754", "seconds": 5.533}
+{"generated": 192, "task_id": "Mbpp/755", "seconds": 3.228}
+{"generated": 193, "task_id": "Mbpp/757", "seconds": 5.656}
+{"generated": 194, "task_id": "Mbpp/758", "seconds": 5.139}
+{"generated": 195, "task_id": "Mbpp/759", "seconds": 3.106}
+{"generated": 196, "task_id": "Mbpp/760", "seconds": 2.045}
+{"generated": 197, "task_id": "Mbpp/762", "seconds": 3.076}
+{"generated": 198, "task_id": "Mbpp/763", "seconds": 4.83}
+{"generated": 199, "task_id": "Mbpp/764", "seconds": 3.463}
+{"generated": 200, "task_id": "Mbpp/765", "seconds": 8.757}
+{"generated": 201, "task_id": "Mbpp/766", "seconds": 4.858}
+{"generated": 202, "task_id": "Mbpp/767", "seconds": 5.02}
+{"generated": 203, "task_id": "Mbpp/769", "seconds": 3.975}
+{"generated": 204, "task_id": "Mbpp/770", "seconds": 3.234}
+{"generated": 205, "task_id": "Mbpp/771", "seconds": 3.44}
+{"generated": 206, "task_id": "Mbpp/772", "seconds": 2.938}
+{"generated": 207, "task_id": "Mbpp/773", "seconds": 4.493}
+{"generated": 208, "task_id": "Mbpp/775", "seconds": 4.241}
+{"generated": 209, "task_id": "Mbpp/777", "seconds": 4.301}
+{"generated": 210, "task_id": "Mbpp/778", "seconds": 5.309}
+{"generated": 211, "task_id": "Mbpp/780", "seconds": 4.549}
+{"generated": 212, "task_id": "Mbpp/781", "seconds": 4.655}
+{"generated": 213, "task_id": "Mbpp/782", "seconds": 4.086}
+{"generated": 214, "task_id": "Mbpp/784", "seconds": 6.447}
+{"generated": 215, "task_id": "Mbpp/785", "seconds": 2.793}
+{"generated": 216, "task_id": "Mbpp/786", "seconds": 4.429}
+{"generated": 217, "task_id": "Mbpp/787", "seconds": 4.603}
+{"generated": 218, "task_id": "Mbpp/788", "seconds": 2.593}
+{"generated": 219, "task_id": "Mbpp/790", "seconds": 3.151}
+{"generated": 220, "task_id": "Mbpp/791", "seconds": 3.094}
+{"generated": 221, "task_id": "Mbpp/792", "seconds": 4.113}
+{"generated": 222, "task_id": "Mbpp/793", "seconds": 8.439}
+{"generated": 223, "task_id": "Mbpp/794", "seconds": 2.597}
+{"generated": 224, "task_id": "Mbpp/796", "seconds": 4.13}
+{"generated": 225, "task_id": "Mbpp/797", "seconds": 4.075}
+{"generated": 226, "task_id": "Mbpp/798", "seconds": 3.036}
+{"generated": 227, "task_id": "Mbpp/799", "seconds": 2.801}
+{"generated": 228, "task_id": "Mbpp/800", "seconds": 8.545}
+{"generated": 229, "task_id": "Mbpp/801", "seconds": 3.842}
+{"generated": 230, "task_id": "Mbpp/803", "seconds": 2.199}
+{"generated": 231, "task_id": "Mbpp/804", "seconds": 1.991}
+{"generated": 232, "task_id": "Mbpp/805", "seconds": 6.653}
+{"generated": 233, "task_id": "Mbpp/806", "seconds": 2.821}
+{"generated": 234, "task_id": "Mbpp/807", "seconds": 3.47}
+{"generated": 235, "task_id": "Mbpp/808", "seconds": 2.546}
+{"generated": 236, "task_id": "Mbpp/809", "seconds": 3.694}
+{"generated": 237, "task_id": "2779", "seconds": 8.671}
+{"generated": 238, "task_id": "2727", "seconds": 8.531}
+{"generated": 239, "task_id": "2730", "seconds": 8.542}
+{"generated": 240, "task_id": "abc301_a", "seconds": 8.561}
+{"generated": 241, "task_id": "abc301_c", "seconds": 8.537}
+{"generated": 242, "task_id": "abc301_e", "seconds": 8.737}
+{"generated": 243, "task_id": "abc302_a", "seconds": 8.646}
+{"generated": 244, "task_id": "abc302_b", "seconds": 8.858}
+{"generated": 245, "task_id": "abc302_d", "seconds": 8.709}
+{"generated": 246, "task_id": "abc302_e", "seconds": 8.697}
+{"generated": 247, "task_id": "2800", "seconds": 8.599}
+{"generated": 248, "task_id": "2802", "seconds": 9.533}
+{"generated": 249, "task_id": "2755", "seconds": 9.73}
+{"generated": 250, "task_id": "2756", "seconds": 9.586}
+{"generated": 251, "task_id": "2827", "seconds": 8.816}
+{"generated": 252, "task_id": "abc303_b", "seconds": 9.001}
+{"generated": 253, "task_id": "abc303_d", "seconds": 8.972}
+{"generated": 254, "task_id": "abc303_e", "seconds": 8.896}
+{"generated": 255, "task_id": "abc304_b", "seconds": 8.651}
+{"generated": 256, "task_id": "abc304_d", "seconds": 9.242}
+{"generated": 257, "task_id": "2785", "seconds": 8.978}
+{"generated": 258, "task_id": "2786", "seconds": 8.868}
+{"generated": 259, "task_id": "2824", "seconds": 8.75}
+{"generated": 260, "task_id": "abc305_b", "seconds": 8.924}
+{"generated": 261, "task_id": "abc305_d", "seconds": 9.012}
+{"generated": 262, "task_id": "2828", "seconds": 8.799}
+{"generated": 263, "task_id": "2839", "seconds": 8.858}
+{"generated": 264, "task_id": "abc306_b", "seconds": 8.826}
+{"generated": 265, "task_id": "abc306_c", "seconds": 8.701}
+{"generated": 266, "task_id": "abc306_e", "seconds": 8.758}
+{"generated": 267, "task_id": "2848", "seconds": 8.664}
+{"generated": 268, "task_id": "2847", "seconds": 8.785}
+{"generated": 269, "task_id": "2850", "seconds": 8.77}
+{"generated": 270, "task_id": "abc307_b", "seconds": 8.772}
+{"generated": 271, "task_id": "abc307_c", "seconds": 8.922}
+{"generated": 272, "task_id": "2837", "seconds": 8.734}
+{"generated": 273, "task_id": "abc308_b", "seconds": 8.731}
+{"generated": 274, "task_id": "abc308_c", "seconds": 8.742}
+{"generated": 275, "task_id": "abc308_e", "seconds": 8.751}
+{"generated": 276, "task_id": "2849", "seconds": 8.827}
+{"generated": 277, "task_id": "2866", "seconds": 8.783}
+{"generated": 278, "task_id": "2868", "seconds": 8.63}
+{"generated": 279, "task_id": "2834", "seconds": 8.723}
+{"generated": 280, "task_id": "abc309_b", "seconds": 8.644}
+{"generated": 281, "task_id": "abc309_c", "seconds": 8.684}
+{"generated": 282, "task_id": "abc309_e", "seconds": 8.594}
+{"generated": 283, "task_id": "2812", "seconds": 8.514}
+{"generated": 284, "task_id": "2855", "seconds": 8.586}
+{"generated": 285, "task_id": "2878", "seconds": 8.614}
+{"generated": 286, "task_id": "abc310_b", "seconds": 8.887}
+{"generated": 287, "task_id": "abc310_c", "seconds": 8.735}
+{"generated": 288, "task_id": "abc310_f", "seconds": 8.967}
+{"generated": 289, "task_id": "2891", "seconds": 9.619}
+{"generated": 290, "task_id": "2887", "seconds": 9.486}
+{"generated": 291, "task_id": "2892", "seconds": 9.705}
+{"generated": 292, "task_id": "abc311_b", "seconds": 8.853}
+{"generated": 293, "task_id": "abc311_c", "seconds": 8.838}
+{"generated": 294, "task_id": "2872", "seconds": 8.675}
+{"generated": 295, "task_id": "2919", "seconds": 9.393}
+{"generated": 296, "task_id": "abc312_b", "seconds": 9.46}
+{"generated": 297, "task_id": "abc312_c", "seconds": 9.337}
+{"generated": 298, "task_id": "abc312_e", "seconds": 9.117}
+{"generated": 299, "task_id": "2876", "seconds": 8.681}
+{"generated": 300, "task_id": "2877", "seconds": 8.665}
+{"generated": 301, "task_id": "2952", "seconds": 8.736}
+{"generated": 302, "task_id": "abc313_b", "seconds": 8.743}
+{"generated": 303, "task_id": "2886", "seconds": 8.798}
+{"generated": 304, "task_id": "2916", "seconds": 8.802}
+{"generated": 305, "task_id": "abc314_a", "seconds": 8.652}
+{"generated": 306, "task_id": "abc314_c", "seconds": 8.685}
+{"generated": 307, "task_id": "abc314_e", "seconds": 9.065}
+{"generated": 308, "task_id": "2917", "seconds": 8.696}
+{"generated": 309, "task_id": "3018", "seconds": 8.507}
+{"generated": 310, "task_id": "abc315_a", "seconds": 8.433}
+{"generated": 311, "task_id": "abc315_c", "seconds": 8.613}
+{"generated": 312, "task_id": "abc315_e", "seconds": 8.641}
+{"generated": 313, "task_id": "2832", "seconds": 8.591}
+{"generated": 314, "task_id": "1873_A", "seconds": 8.596}
+{"generated": 315, "task_id": "1873_D", "seconds": 8.647}
+{"generated": 316, "task_id": "3019", "seconds": 8.495}
+{"generated": 317, "task_id": "3025", "seconds": 8.578}
+{"generated": 318, "task_id": "2954", "seconds": 8.663}
+{"generated": 319, "task_id": "abc318_a", "seconds": 8.541}
+{"generated": 320, "task_id": "abc318_c", "seconds": 8.626}
+{"generated": 321, "task_id": "abc318_e", "seconds": 8.513}
+{"generated": 322, "task_id": "2998", "seconds": 8.517}
+{"generated": 323, "task_id": "3046", "seconds": 8.562}
+{"generated": 324, "task_id": "abc319_b", "seconds": 8.571}
+{"generated": 325, "task_id": "abc319_c", "seconds": 8.787}
+{"generated": 326, "task_id": "3024", "seconds": 8.665}
+{"generated": 327, "task_id": "3045", "seconds": 8.673}
+{"generated": 328, "task_id": "3081", "seconds": 8.801}
+{"generated": 329, "task_id": "abc320_b", "seconds": 8.873}
+{"generated": 330, "task_id": "abc320_c", "seconds": 9.851}
+{"generated": 331, "task_id": "abc320_e", "seconds": 9.633}
+{"generated": 332, "task_id": "1883_C", "seconds": 9.67}
+{"generated": 333, "task_id": "abc321_b", "seconds": 8.994}
+{"generated": 334, "task_id": "abc321_c", "seconds": 8.82}
+{"generated": 335, "task_id": "3055", "seconds": 8.817}
+{"generated": 336, "task_id": "3114", "seconds": 9.326}
+{"generated": 337, "task_id": "3094", "seconds": 9.435}
+{"generated": 338, "task_id": "abc322_b", "seconds": 9.356}
+{"generated": 339, "task_id": "abc322_c", "seconds": 9.084}
+{"generated": 340, "task_id": "abc322_e", "seconds": 8.967}
+{"generated": 341, "task_id": "3154", "seconds": 8.852}
+{"generated": 342, "task_id": "abc323_b", "seconds": 8.963}
+{"generated": 343, "task_id": "abc323_c", "seconds": 9.001}
+{"generated": 344, "task_id": "abc323_e", "seconds": 8.826}
+{"generated": 345, "task_id": "3033", "seconds": 8.956}
+{"generated": 346, "task_id": "3153", "seconds": 8.942}
+{"generated": 347, "task_id": "3164", "seconds": 8.906}
+{"generated": 348, "task_id": "abc324_b", "seconds": 8.909}
+{"generated": 349, "task_id": "abc324_e", "seconds": 8.869}
+{"generated": 350, "task_id": "3031", "seconds": 8.905}
+{"generated": 351, "task_id": "1899_B", "seconds": 8.909}
+{"generated": 352, "task_id": "1899_D", "seconds": 8.903}
+{"generated": 353, "task_id": "abc325_b", "seconds": 8.769}
+{"generated": 354, "task_id": "abc325_d", "seconds": 8.809}
+{"generated": 355, "task_id": "abc325_f", "seconds": 8.822}
+{"generated": 356, "task_id": "2879", "seconds": 8.688}
+{"generated": 357, "task_id": "3166", "seconds": 8.535}
+{"generated": 358, "task_id": "3163", "seconds": 8.478}
+{"generated": 359, "task_id": "3174", "seconds": 8.756}
+{"generated": 360, "task_id": "abc326_a", "seconds": 8.73}
+{"generated": 361, "task_id": "abc326_c", "seconds": 8.904}
+{"generated": 362, "task_id": "abc326_e", "seconds": 8.907}
+{"generated": 363, "task_id": "abc327_a", "seconds": 8.69}
+{"generated": 364, "task_id": "abc327_d", "seconds": 8.889}
+{"generated": 365, "task_id": "3188", "seconds": 8.84}
+{"generated": 366, "task_id": "3200", "seconds": 8.692}
+{"generated": 367, "task_id": "abc328_a", "seconds": 2.407}
+{"generated": 368, "task_id": "abc328_d", "seconds": 8.637}
+{"generated": 369, "task_id": "3193", "seconds": 8.72}
+{"generated": 370, "task_id": "3192", "seconds": 8.917}
+{"generated": 371, "task_id": "abc329_a", "seconds": 9.623}
+{"generated": 372, "task_id": "abc329_c", "seconds": 9.582}
+{"generated": 373, "task_id": "abc329_e", "seconds": 9.357}
+{"generated": 374, "task_id": "3194", "seconds": 8.732}
+{"generated": 375, "task_id": "3209", "seconds": 8.941}
+{"generated": 376, "task_id": "3211", "seconds": 8.784}
+{"generated": 377, "task_id": "3219", "seconds": 9.405}
+{"generated": 378, "task_id": "abc330_a", "seconds": 1.924}
+{"generated": 379, "task_id": "abc330_c", "seconds": 9.377}
+{"generated": 380, "task_id": "abc330_e", "seconds": 9.607}
+{"generated": 381, "task_id": "3224", "seconds": 9.262}
+{"generated": 382, "task_id": "abc331_a", "seconds": 8.938}
+{"generated": 383, "task_id": "abc331_c", "seconds": 9.077}
+{"generated": 384, "task_id": "abc331_e", "seconds": 8.914}
+{"generated": 385, "task_id": "3206", "seconds": 8.715}
+{"generated": 386, "task_id": "3213", "seconds": 8.723}
+{"generated": 387, "task_id": "3230", "seconds": 8.638}
+{"generated": 388, "task_id": "abc332_a", "seconds": 8.995}
+{"generated": 389, "task_id": "3196", "seconds": 8.954}
+{"generated": 390, "task_id": "3227", "seconds": 8.882}
+{"generated": 391, "task_id": "3229", "seconds": 8.958}
+{"generated": 392, "task_id": "abc333_a", "seconds": 8.69}
+{"generated": 393, "task_id": "abc333_c", "seconds": 8.75}
+{"generated": 394, "task_id": "abc333_e", "seconds": 8.992}
+{"generated": 395, "task_id": "3252", "seconds": 8.683}
+{"generated": 396, "task_id": "3262", "seconds": 8.736}
+{"generated": 397, "task_id": "abc334_a", "seconds": 4.614}
+{"generated": 398, "task_id": "abc334_b", "seconds": 8.778}
+{"generated": 399, "task_id": "abc334_d", "seconds": 8.807}
+{"generated": 400, "task_id": "3228", "seconds": 8.834}
+{"generated": 401, "task_id": "3233", "seconds": 8.936}
+{"generated": 402, "task_id": "3236", "seconds": 8.703}
+{"generated": 403, "task_id": "3249", "seconds": 8.71}
+{"generated": 404, "task_id": "abc335_b", "seconds": 8.738}
+{"generated": 405, "task_id": "abc335_d", "seconds": 8.792}
+{"generated": 406, "task_id": "3242", "seconds": 8.556}
+{"generated": 407, "task_id": "3245", "seconds": 8.672}
+{"generated": 408, "task_id": "abc336_b", "seconds": 8.592}
+{"generated": 409, "task_id": "abc336_d", "seconds": 8.675}
+{"generated": 410, "task_id": "3291", "seconds": 8.704}
+{"generated": 411, "task_id": "abc337_b", "seconds": 8.714}
+{"generated": 412, "task_id": "abc337_d", "seconds": 9.173}
+{"generated": 413, "task_id": "abc337_e", "seconds": 9.783}
+{"generated": 414, "task_id": "3261", "seconds": 9.487}
+{"generated": 415, "task_id": "3299", "seconds": 8.999}
+{"generated": 416, "task_id": "3312", "seconds": 8.821}
+{"generated": 417, "task_id": "abc338_b", "seconds": 8.755}
+{"generated": 418, "task_id": "abc338_e", "seconds": 8.974}
+{"generated": 419, "task_id": "3297", "seconds": 9.552}
+{"generated": 420, "task_id": "abc339_b", "seconds": 9.536}
+{"generated": 421, "task_id": "abc339_d", "seconds": 9.409}
+{"generated": 422, "task_id": "3317", "seconds": 8.724}
+{"generated": 423, "task_id": "abc340_a", "seconds": 8.691}
+{"generated": 424, "task_id": "abc340_d", "seconds": 8.764}
+{"generated": 425, "task_id": "3309", "seconds": 8.703}
+{"generated": 426, "task_id": "3329", "seconds": 8.646}
+{"generated": 427, "task_id": "abc341_a", "seconds": 8.56}
+{"generated": 428, "task_id": "abc341_c", "seconds": 8.952}
+{"generated": 429, "task_id": "abc341_e", "seconds": 8.762}
+{"generated": 430, "task_id": "3324", "seconds": 8.571}
+{"generated": 431, "task_id": "abc342_a", "seconds": 8.518}
+{"generated": 432, "task_id": "abc342_c", "seconds": 8.539}
+{"generated": 433, "task_id": "abc342_e", "seconds": 9.07}
+{"generated": 434, "task_id": "3347", "seconds": 8.57}
+{"generated": 435, "task_id": "abc343_a", "seconds": 8.528}
+{"generated": 436, "task_id": "abc343_c", "seconds": 8.605}
+{
+  "status": "success",
+  "teacher_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "guide_files": [
+    {
+      "path": "data/splits/humaneval_half/guide.jsonl",
+      "sha256": "786d8c8f197c8c558073f1575731c8dfc8b657cc68dfcc82c9066ab208655b2c",
+      "samples_used": 82,
+      "benchmarks": [
+        "humaneval"
+      ]
+    },
+    {
+      "path": "data/splits/mbpp_evalplus_half/guide.jsonl",
+      "sha256": "15b2981cbd9b2eda27643d8a77433880dbc9a9a41a8081f754960d2a0f115b56",
+      "samples_used": 154,
+      "benchmarks": [
+        "mbpp_evalplus"
+      ]
+    },
+    {
+      "path": "data/splits/livecodebench_half/guide.jsonl",
+      "sha256": "6ff0ff93e6300c26a144bedbb45b0225781bca300776b7c630f3a26a8d797a0d",
+      "samples_used": 200,
+      "benchmarks": [
+        "livecodebench"
+      ]
+    }
+  ],
+  "samples": 436,
+  "output": "results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/qwen25c3b_distill/distill_train.jsonl",
+  "teacher_generations": "results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/qwen25c3b_distill/teacher_generations.jsonl",
+  "elapsed_seconds": 2925.8305339813232
+}
+
+=== Distill dataset lines ===
+436 results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/qwen25c3b_distill/distill_train.jsonl

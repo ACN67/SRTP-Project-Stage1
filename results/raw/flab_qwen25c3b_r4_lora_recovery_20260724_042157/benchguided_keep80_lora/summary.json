@@ -1,0 +1,29 @@
+{
+  "status": "success",
+  "base_model": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_prune_20260723_192329/flab_qwen25c3b_r4_benchguided_keep80/pruned_model",
+  "train_file": "results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/qwen25c3b_distill/distill_train.jsonl",
+  "samples": 436,
+  "output_adapter": "results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/benchguided_keep80_lora/lora_adapter",
+  "rank": 8,
+  "alpha": 16,
+  "dropout": 0.0,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "epochs": 1.0,
+  "batch_size": 1,
+  "grad_accum": 8,
+  "max_length": 256,
+  "lr": 0.0002,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "steps": 55,
+  "elapsed_seconds": 222.1951093673706
+}

@@ -1,0 +1,110 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/435 [00:00<?, ?it/s]Loading weights:   0%|          | 1/435 [00:00<05:10,  1.40it/s]Loading weights:  20%|██        | 88/435 [00:00<00:02, 141.06it/s]Loading weights:  30%|███       | 131/435 [00:01<00:01, 168.14it/s]Loading weights:  38%|███▊      | 165/435 [00:01<00:01, 177.60it/s]Loading weights:  45%|████▌     | 196/435 [00:01<00:01, 192.28it/s]Loading weights:  51%|█████▏    | 223/435 [00:01<00:01, 191.76it/s]Loading weights:  57%|█████▋    | 248/435 [00:01<00:00, 189.80it/s]Loading weights:  62%|██████▏   | 271/435 [00:02<00:01, 99.58it/s] Loading weights:  66%|██████▌   | 288/435 [00:02<00:01, 91.11it/s]Loading weights:  70%|███████   | 305/435 [00:02<00:01, 101.83it/s]Loading weights:  74%|███████▎  | 320/435 [00:02<00:01, 108.19it/s]Loading weights:  77%|███████▋  | 335/435 [00:03<00:01, 58.08it/s] Loading weights:  81%|████████▏ | 354/435 [00:03<00:01, 73.41it/s]Loading weights:  84%|████████▍ | 367/435 [00:03<00:00, 80.76it/s]Loading weights:  92%|█████████▏| 400/435 [00:03<00:00, 117.56it/s]Loading weights:  97%|█████████▋| 424/435 [00:03<00:00, 136.46it/s]Loading weights: 100%|██████████| 435/435 [00:03<00:00, 117.86it/s]
+trainable params: 12,312,576 || all params: 2,233,574,144 || trainable%: 0.5512
+{"step": 1, "total_steps": 55, "avg_loss": NaN}
+{"step": 2, "total_steps": 55, "avg_loss": NaN}
+{"step": 3, "total_steps": 55, "avg_loss": NaN}
+{"step": 4, "total_steps": 55, "avg_loss": NaN}
+{"step": 5, "total_steps": 55, "avg_loss": NaN}
+{"step": 6, "total_steps": 55, "avg_loss": NaN}
+{"step": 7, "total_steps": 55, "avg_loss": NaN}
+{"step": 8, "total_steps": 55, "avg_loss": NaN}
+{"step": 9, "total_steps": 55, "avg_loss": NaN}
+{"step": 10, "total_steps": 55, "avg_loss": NaN}
+{"step": 11, "total_steps": 55, "avg_loss": NaN}
+{"step": 12, "total_steps": 55, "avg_loss": NaN}
+{"step": 13, "total_steps": 55, "avg_loss": NaN}
+{"step": 14, "total_steps": 55, "avg_loss": NaN}
+{"step": 15, "total_steps": 55, "avg_loss": NaN}
+{"step": 16, "total_steps": 55, "avg_loss": NaN}
+{"step": 17, "total_steps": 55, "avg_loss": NaN}
+{"step": 18, "total_steps": 55, "avg_loss": NaN}
+{"step": 19, "total_steps": 55, "avg_loss": NaN}
+{"step": 20, "total_steps": 55, "avg_loss": NaN}
+{"step": 21, "total_steps": 55, "avg_loss": NaN}
+{"step": 22, "total_steps": 55, "avg_loss": NaN}
+{"step": 23, "total_steps": 55, "avg_loss": NaN}
+{"step": 24, "total_steps": 55, "avg_loss": NaN}
+{"step": 25, "total_steps": 55, "avg_loss": NaN}
+{"step": 26, "total_steps": 55, "avg_loss": NaN}
+{"step": 27, "total_steps": 55, "avg_loss": NaN}
+{"step": 28, "total_steps": 55, "avg_loss": NaN}
+{"step": 29, "total_steps": 55, "avg_loss": NaN}
+{"step": 30, "total_steps": 55, "avg_loss": NaN}
+{"step": 31, "total_steps": 55, "avg_loss": NaN}
+{"step": 32, "total_steps": 55, "avg_loss": NaN}
+{"step": 33, "total_steps": 55, "avg_loss": NaN}
+{"step": 34, "total_steps": 55, "avg_loss": NaN}
+{"step": 35, "total_steps": 55, "avg_loss": NaN}
+{"step": 36, "total_steps": 55, "avg_loss": NaN}
+{"step": 37, "total_steps": 55, "avg_loss": NaN}
+{"step": 38, "total_steps": 55, "avg_loss": NaN}
+{"step": 39, "total_steps": 55, "avg_loss": NaN}
+{"step": 40, "total_steps": 55, "avg_loss": NaN}
+{"step": 41, "total_steps": 55, "avg_loss": NaN}
+{"step": 42, "total_steps": 55, "avg_loss": NaN}
+{"step": 43, "total_steps": 55, "avg_loss": NaN}
+{"step": 44, "total_steps": 55, "avg_loss": NaN}
+{"step": 45, "total_steps": 55, "avg_loss": NaN}
+{"step": 46, "total_steps": 55, "avg_loss": NaN}
+{"step": 47, "total_steps": 55, "avg_loss": NaN}
+{"step": 48, "total_steps": 55, "avg_loss": NaN}
+{"step": 49, "total_steps": 55, "avg_loss": NaN}
+{"step": 50, "total_steps": 55, "avg_loss": NaN}
+{"step": 51, "total_steps": 55, "avg_loss": NaN}
+{"step": 52, "total_steps": 55, "avg_loss": NaN}
+{"step": 53, "total_steps": 55, "avg_loss": NaN}
+{"step": 54, "total_steps": 55, "avg_loss": NaN}
+{"step": 55, "total_steps": 55, "avg_loss": NaN}
+{
+  "status": "success",
+  "base_model": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_prune_20260723_192329/flab_qwen25c3b_r4_benchguided_keep80/pruned_model",
+  "train_file": "results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/qwen25c3b_distill/distill_train.jsonl",
+  "samples": 436,
+  "output_adapter": "results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/benchguided_keep80_lora/lora_adapter",
+  "rank": 8,
+  "alpha": 16,
+  "dropout": 0.0,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "epochs": 1.0,
+  "batch_size": 1,
+  "grad_accum": 8,
+  "max_length": 256,
+  "lr": 0.0002,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "steps": 55,
+  "elapsed_seconds": 222.1951093673706
+}
+	Command being timed: ".venv-common/bin/python scripts/recover/train_lora_recovery.py --base-model results/raw/flab_qwen25c3b_r4_benchguided_keep80_prune_20260723_192329/flab_qwen25c3b_r4_benchguided_keep80/pruned_model --train-file results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/qwen25c3b_distill/distill_train.jsonl --out-dir results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/benchguided_keep80_lora --rank 8 --alpha 16 --dropout 0 --epochs 1 --batch-size 1 --grad-accum 8 --max-length 256 --lr 2e-4 --dtype fp16 --device cuda:0 --load-mode direct"
+	User time (seconds): 220.63
+	System time (seconds): 42.40
+	Percent of CPU this job got: 115%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:48.18
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 8267392
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 21169
+	Minor (reclaiming a frame) page faults: 1746765
+	Voluntary context switches: 24239
+	Involuntary context switches: 4017
+	Swaps: 0
+	File system inputs: 9789736
+	File system outputs: 118688
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -74,7 +74,7 @@ mkdir -p "$RUN_DIR"
   --out-dir "$RUN_DIR" \
   --rank 8 \
   --alpha 16 \
-  --dropout 0.05 \
+  --dropout 0 \
   --epochs 1 \
   --batch-size 1 \
   --grad-accum 8 \
@@ -85,14 +85,35 @@ mkdir -p "$RUN_DIR"
   2>&1 | tee "$RUN_DIR/train.log"
 ```
 
-## Evaluate LoRA Adapter
+## Merge LoRA
 
-Use the regular generation script with `--adapter`.
+R4 formal evaluation uses merged recovered models, not dynamic adapter evaluation. The adapter
+is kept only as an intermediate recovery artifact until the merged model is produced.
+
+```bash
+cd ~/projects/srtp-code-llm-pruning
+source scripts/setup/env.sh
+
+BASE_MODEL="PATH_TO_PRUNED_MODEL"
+ADAPTER="PATH_TO_LORA_RUN/lora_adapter"
+MERGED_MODEL="results/raw/METHOD_MODEL_r4_recovered_merged_$(date +%Y%m%d_%H%M%S)/merged_model"
+mkdir -p "$MERGED_MODEL"
+
+.venv-common/bin/python scripts/recover/merge_lora_model.py \
+  --base-model "$BASE_MODEL" \
+  --adapter "$ADAPTER" \
+  --out-dir "$MERGED_MODEL" \
+  --dtype fp16 \
+  --device cuda:0
+```
+
+## Evaluate Merged Model
+
+Use the regular generation script without `--adapter`.
 
 ```bash
 .venv-common/bin/python scripts/eval/generate_evalplus_samples.py \
-  --model "$BASE_MODEL" \
-  --adapter "$RUN_DIR/lora_adapter" \
+  --model "$MERGED_MODEL" \
   --split data/splits/humaneval_half/eval.jsonl \
   --out-dir "$EVAL_DIR" \
   --max-new-tokens 256 \

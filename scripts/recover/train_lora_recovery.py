@@ -60,7 +60,7 @@ def main() -> int:
     parser.add_argument("--target-modules", default="q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj")
     parser.add_argument("--rank", type=int, default=8)
     parser.add_argument("--alpha", type=int, default=16)
-    parser.add_argument("--dropout", type=float, default=0.05)
+    parser.add_argument("--dropout", type=float, default=0.0)
     parser.add_argument("--epochs", type=float, default=1.0)
     parser.add_argument("--batch-size", type=int, default=1)
     parser.add_argument("--grad-accum", type=int, default=8)
@@ -70,24 +70,28 @@ def main() -> int:
     parser.add_argument("--max-steps", type=int, default=0)
     parser.add_argument("--dtype", choices=["fp16", "bf16", "fp32"], default="fp16")
     parser.add_argument("--device", default="cuda:0")
+    parser.add_argument("--load-mode", choices=["direct", "device_map"], default="direct")
     args = parser.parse_args()
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     started = time.time()
     dtype_map = {"fp16": torch.float16, "bf16": torch.bfloat16, "fp32": torch.float32}
     use_cuda = torch.cuda.is_available() and args.device.startswith("cuda")
-    device_map = args.device if use_cuda else "cpu"
+    device = torch.device(args.device if use_cuda else "cpu")
 
     tokenizer = AutoTokenizer.from_pretrained(args.base_model, trust_remote_code=True)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    model = AutoModelForCausalLM.from_pretrained(
-        args.base_model,
-        trust_remote_code=True,
-        torch_dtype=dtype_map[args.dtype],
-        device_map=device_map,
-    )
+    load_kwargs = {
+        "trust_remote_code": True,
+        "torch_dtype": dtype_map[args.dtype],
+    }
+    if args.load_mode == "device_map":
+        load_kwargs["device_map"] = args.device if use_cuda else "cpu"
+    model = AutoModelForCausalLM.from_pretrained(args.base_model, **load_kwargs)
+    if args.load_mode == "direct":
+        model.to(device)
     model.config.use_cache = False
 
     lora_config = LoraConfig(
@@ -125,7 +129,7 @@ def main() -> int:
     while global_step < total_steps:
         for batch_idx, batch in enumerate(loader, 1):
             if use_cuda:
-                batch = {key: value.to(args.device) for key, value in batch.items()}
+                batch = {key: value.to(device) for key, value in batch.items()}
             output = model(**batch)
             loss = output.loss / args.grad_accum
             loss.backward()
@@ -158,6 +162,9 @@ def main() -> int:
         "grad_accum": args.grad_accum,
         "max_length": args.max_length,
         "lr": args.lr,
+        "dtype": args.dtype,
+        "device": str(device),
+        "load_mode": args.load_mode,
         "steps": global_step,
         "elapsed_seconds": time.time() - started,
     }
