@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora_merged",
+  "adapter": "",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora_merged/evalhalf/mbpp/samples.jsonl",
+  "generations": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora_merged/evalhalf/mbpp/generations.jsonl",
+  "task_count": 224,
+  "elapsed_seconds": 1317.635687828064,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "device_map",
+  "load_in_8bit": false,
+  "load_in_4bit": true,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}

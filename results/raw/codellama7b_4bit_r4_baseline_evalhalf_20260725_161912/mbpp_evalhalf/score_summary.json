@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/codellama7b_4bit_r4_baseline_evalhalf_20260725_161912/mbpp_evalhalf/samples.jsonl",
+  "base_only": true,
+  "task_count": 224,
+  "base_pass_count": 29,
+  "base_pass_rate": 0.12946428571428573,
+  "base_status_counter": {
+    "fail": 195,
+    "pass": 29
+  }
+}

@@ -1,0 +1,624 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<00:37,  7.77it/s]Loading weights:   1%|          | 2/291 [00:00<00:34,  8.27it/s]Loading weights:   2%|▏         | 5/291 [00:00<00:19, 15.03it/s]Loading weights:   4%|▍         | 11/291 [00:00<00:09, 28.67it/s]Loading weights:   5%|▌         | 15/291 [00:00<00:09, 29.60it/s]Loading weights:   8%|▊         | 22/291 [00:00<00:06, 40.00it/s]Loading weights:   9%|▉         | 27/291 [00:00<00:06, 40.63it/s]Loading weights:  11%|█         | 32/291 [00:00<00:06, 41.14it/s]Loading weights:  13%|█▎        | 38/291 [00:01<00:05, 44.77it/s]Loading weights:  15%|█▍        | 43/291 [00:01<00:05, 41.54it/s]Loading weights:  17%|█▋        | 49/291 [00:01<00:05, 44.18it/s]Loading weights:  19%|█▊        | 54/291 [00:01<00:05, 42.99it/s]Loading weights:  20%|██        | 59/291 [00:01<00:05, 40.41it/s]Loading weights:  22%|██▏       | 64/291 [00:01<00:05, 41.70it/s]Loading weights:  24%|██▎       | 69/291 [00:01<00:06, 36.18it/s]Loading weights:  26%|██▌       | 76/291 [00:02<00:05, 41.07it/s]Loading weights:  28%|██▊       | 81/291 [00:02<00:05, 38.55it/s]Loading weights:  29%|██▉       | 85/291 [00:02<00:05, 38.35it/s]Loading weights:  31%|███       | 89/291 [00:02<00:05, 35.81it/s]Loading weights:  32%|███▏      | 94/291 [00:02<00:05, 37.37it/s]Loading weights:  34%|███▎      | 98/291 [00:02<00:05, 35.88it/s]Loading weights:  35%|███▌      | 103/291 [00:02<00:05, 36.11it/s]Loading weights:  37%|███▋      | 107/291 [00:02<00:05, 34.80it/s]Loading weights:  38%|███▊      | 112/291 [00:03<00:04, 37.51it/s]Loading weights:  40%|███▉      | 116/291 [00:03<00:06, 25.07it/s]Loading weights:  42%|████▏     | 121/291 [00:03<00:05, 29.02it/s]Loading weights:  43%|████▎     | 125/291 [00:03<00:05, 29.97it/s]Loading weights:  45%|████▍     | 130/291 [00:03<00:04, 32.81it/s]Loading weights:  46%|████▌     | 134/291 [00:03<00:05, 31.27it/s]Loading weights:  48%|████▊     | 139/291 [00:04<00:05, 30.31it/s]Loading weights:  49%|████▉     | 143/291 [00:04<00:05, 26.74it/s]Loading weights:  50%|█████     | 146/291 [00:04<00:05, 26.92it/s]Loading weights:  51%|█████     | 149/291 [00:04<00:06, 22.56it/s]Loading weights:  52%|█████▏    | 152/291 [00:04<00:05, 23.45it/s]Loading weights:  54%|█████▍    | 157/291 [00:04<00:05, 24.37it/s]Loading weights:  55%|█████▍    | 160/291 [00:04<00:05, 23.22it/s]Loading weights:  56%|█████▋    | 164/291 [00:05<00:04, 26.67it/s]Loading weights:  57%|█████▋    | 167/291 [00:05<00:04, 25.11it/s]Loading weights:  58%|█████▊    | 170/291 [00:05<00:04, 25.63it/s]Loading weights:  60%|██████    | 175/291 [00:05<00:04, 26.76it/s]Loading weights:  61%|██████    | 178/291 [00:05<00:04, 23.54it/s]Loading weights:  63%|██████▎   | 182/291 [00:05<00:04, 25.52it/s]Loading weights:  64%|██████▎   | 185/291 [00:05<00:04, 23.97it/s]Loading weights:  65%|██████▌   | 190/291 [00:06<00:03, 29.10it/s]Loading weights:  67%|██████▋   | 194/291 [00:06<00:03, 29.28it/s]Loading weights:  68%|██████▊   | 199/291 [00:06<00:02, 33.84it/s]Loading weights:  70%|██████▉   | 203/291 [00:06<00:02, 31.81it/s]Loading weights:  71%|███████   | 207/291 [00:06<00:02, 33.47it/s]Loading weights:  73%|███████▎  | 211/291 [00:06<00:02, 29.62it/s]Loading weights:  74%|███████▍  | 215/291 [00:06<00:03, 24.34it/s]Loading weights:  75%|███████▍  | 218/291 [00:07<00:02, 25.34it/s]Loading weights:  76%|███████▌  | 221/291 [00:07<00:03, 21.56it/s]Loading weights:  77%|███████▋  | 224/291 [00:07<00:02, 22.50it/s]Loading weights:  78%|███████▊  | 227/291 [00:07<00:02, 24.16it/s]Loading weights:  79%|███████▉  | 230/291 [00:07<00:02, 20.78it/s]Loading weights:  80%|████████  | 233/291 [00:07<00:02, 22.21it/s]Loading weights:  81%|████████  | 236/291 [00:07<00:02, 23.86it/s]Loading weights:  82%|████████▏ | 239/291 [00:08<00:02, 21.12it/s]Loading weights:  84%|████████▎ | 243/291 [00:08<00:01, 25.38it/s]Loading weights:  85%|████████▍ | 247/291 [00:08<00:01, 28.52it/s]Loading weights:  86%|████████▋ | 251/291 [00:08<00:01, 28.30it/s]Loading weights:  88%|████████▊ | 256/291 [00:08<00:01, 29.60it/s]Loading weights:  89%|████████▉ | 260/291 [00:08<00:01, 29.45it/s]Loading weights:  91%|█████████ | 265/291 [00:08<00:00, 32.02it/s]Loading weights:  92%|█████████▏| 269/291 [00:09<00:01, 14.02it/s]Loading weights:  93%|█████████▎| 272/291 [00:09<00:01, 13.30it/s]Loading weights:  95%|█████████▍| 275/291 [00:10<00:02,  7.54it/s]Loading weights:  95%|█████████▌| 277/291 [00:10<00:01,  7.93it/s]Loading weights:  96%|█████████▌| 280/291 [00:11<00:01,  9.66it/s]Loading weights:  97%|█████████▋| 282/291 [00:11<00:00, 10.84it/s]Loading weights:  98%|█████████▊| 284/291 [00:11<00:00,  7.74it/s]Loading weights:  98%|█████████▊| 286/291 [00:11<00:00,  7.64it/s]Loading weights:  99%|█████████▉| 289/291 [00:12<00:00,  9.56it/s]Loading weights: 100%|██████████| 291/291 [00:12<00:00, 23.88it/s]
+{"event": "importance_sample_done", "index": 1, "total": 436, "task_id": "HumanEval/0", "seconds": 8.427}
+{"event": "importance_sample_done", "index": 2, "total": 436, "task_id": "HumanEval/2", "seconds": 0.185}
+{"event": "importance_sample_done", "index": 3, "total": 436, "task_id": "HumanEval/3", "seconds": 0.147}
+{"event": "importance_sample_done", "index": 4, "total": 436, "task_id": "HumanEval/4", "seconds": 0.136}
+{"event": "importance_sample_done", "index": 5, "total": 436, "task_id": "HumanEval/8", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 6, "total": 436, "task_id": "HumanEval/9", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 7, "total": 436, "task_id": "HumanEval/10", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 8, "total": 436, "task_id": "HumanEval/13", "seconds": 0.126}
+{"event": "importance_sample_done", "index": 9, "total": 436, "task_id": "HumanEval/14", "seconds": 0.122}
+{"event": "importance_sample_done", "index": 10, "total": 436, "task_id": "HumanEval/16", "seconds": 0.126}
+{"event": "importance_sample_done", "index": 11, "total": 436, "task_id": "HumanEval/17", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 12, "total": 436, "task_id": "HumanEval/18", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 13, "total": 436, "task_id": "HumanEval/21", "seconds": 0.138}
+{"event": "importance_sample_done", "index": 14, "total": 436, "task_id": "HumanEval/23", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 15, "total": 436, "task_id": "HumanEval/25", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 16, "total": 436, "task_id": "HumanEval/26", "seconds": 0.128}
+{"event": "importance_sample_done", "index": 17, "total": 436, "task_id": "HumanEval/30", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 18, "total": 436, "task_id": "HumanEval/31", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 19, "total": 436, "task_id": "HumanEval/34", "seconds": 0.125}
+{"event": "importance_sample_done", "index": 20, "total": 436, "task_id": "HumanEval/36", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 21, "total": 436, "task_id": "HumanEval/38", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 22, "total": 436, "task_id": "HumanEval/40", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 23, "total": 436, "task_id": "HumanEval/41", "seconds": 0.138}
+{"event": "importance_sample_done", "index": 24, "total": 436, "task_id": "HumanEval/42", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 25, "total": 436, "task_id": "HumanEval/44", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 26, "total": 436, "task_id": "HumanEval/46", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 27, "total": 436, "task_id": "HumanEval/48", "seconds": 0.126}
+{"event": "importance_sample_done", "index": 28, "total": 436, "task_id": "HumanEval/52", "seconds": 0.127}
+{"event": "importance_sample_done", "index": 29, "total": 436, "task_id": "HumanEval/55", "seconds": 0.096}
+{"event": "importance_sample_done", "index": 30, "total": 436, "task_id": "HumanEval/56", "seconds": 0.141}
+{"event": "importance_sample_done", "index": 31, "total": 436, "task_id": "HumanEval/58", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 32, "total": 436, "task_id": "HumanEval/60", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 33, "total": 436, "task_id": "HumanEval/63", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 34, "total": 436, "task_id": "HumanEval/65", "seconds": 0.128}
+{"event": "importance_sample_done", "index": 35, "total": 436, "task_id": "HumanEval/66", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 36, "total": 436, "task_id": "HumanEval/68", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 37, "total": 436, "task_id": "HumanEval/71", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 38, "total": 436, "task_id": "HumanEval/74", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 39, "total": 436, "task_id": "HumanEval/75", "seconds": 0.127}
+{"event": "importance_sample_done", "index": 40, "total": 436, "task_id": "HumanEval/76", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 41, "total": 436, "task_id": "HumanEval/77", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 42, "total": 436, "task_id": "HumanEval/81", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 43, "total": 436, "task_id": "HumanEval/82", "seconds": 0.127}
+{"event": "importance_sample_done", "index": 44, "total": 436, "task_id": "HumanEval/84", "seconds": 0.141}
+{"event": "importance_sample_done", "index": 45, "total": 436, "task_id": "HumanEval/85", "seconds": 0.09}
+{"event": "importance_sample_done", "index": 46, "total": 436, "task_id": "HumanEval/88", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 47, "total": 436, "task_id": "HumanEval/89", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 48, "total": 436, "task_id": "HumanEval/92", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 49, "total": 436, "task_id": "HumanEval/93", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 50, "total": 436, "task_id": "HumanEval/95", "seconds": 0.129}
+{"event": "importance_sample_done", "index": 51, "total": 436, "task_id": "HumanEval/97", "seconds": 0.162}
+{"event": "importance_sample_done", "index": 52, "total": 436, "task_id": "HumanEval/99", "seconds": 0.129}
+{"event": "importance_sample_done", "index": 53, "total": 436, "task_id": "HumanEval/102", "seconds": 0.128}
+{"event": "importance_sample_done", "index": 54, "total": 436, "task_id": "HumanEval/104", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 55, "total": 436, "task_id": "HumanEval/106", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 56, "total": 436, "task_id": "HumanEval/107", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 57, "total": 436, "task_id": "HumanEval/110", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 58, "total": 436, "task_id": "HumanEval/114", "seconds": 0.124}
+{"event": "importance_sample_done", "index": 59, "total": 436, "task_id": "HumanEval/115", "seconds": 0.138}
+{"event": "importance_sample_done", "index": 60, "total": 436, "task_id": "HumanEval/118", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 61, "total": 436, "task_id": "HumanEval/119", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 62, "total": 436, "task_id": "HumanEval/123", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 63, "total": 436, "task_id": "HumanEval/126", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 64, "total": 436, "task_id": "HumanEval/128", "seconds": 0.129}
+{"event": "importance_sample_done", "index": 65, "total": 436, "task_id": "HumanEval/129", "seconds": 0.137}
+{"event": "importance_sample_done", "index": 66, "total": 436, "task_id": "HumanEval/131", "seconds": 0.12}
+{"event": "importance_sample_done", "index": 67, "total": 436, "task_id": "HumanEval/132", "seconds": 0.129}
+{"event": "importance_sample_done", "index": 68, "total": 436, "task_id": "HumanEval/134", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 69, "total": 436, "task_id": "HumanEval/135", "seconds": 0.138}
+{"event": "importance_sample_done", "index": 70, "total": 436, "task_id": "HumanEval/137", "seconds": 0.129}
+{"event": "importance_sample_done", "index": 71, "total": 436, "task_id": "HumanEval/141", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 72, "total": 436, "task_id": "HumanEval/143", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 73, "total": 436, "task_id": "HumanEval/145", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 74, "total": 436, "task_id": "HumanEval/146", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 75, "total": 436, "task_id": "HumanEval/148", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 76, "total": 436, "task_id": "HumanEval/150", "seconds": 0.128}
+{"event": "importance_sample_done", "index": 77, "total": 436, "task_id": "HumanEval/151", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 78, "total": 436, "task_id": "HumanEval/152", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 79, "total": 436, "task_id": "HumanEval/158", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 80, "total": 436, "task_id": "HumanEval/159", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 81, "total": 436, "task_id": "HumanEval/161", "seconds": 0.137}
+{"event": "importance_sample_done", "index": 82, "total": 436, "task_id": "HumanEval/162", "seconds": 0.125}
+{"event": "importance_sample_done", "index": 83, "total": 436, "task_id": "Mbpp/2", "seconds": 0.096}
+{"event": "importance_sample_done", "index": 84, "total": 436, "task_id": "Mbpp/3", "seconds": 0.077}
+{"event": "importance_sample_done", "index": 85, "total": 436, "task_id": "Mbpp/4", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 86, "total": 436, "task_id": "Mbpp/6", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 87, "total": 436, "task_id": "Mbpp/7", "seconds": 0.091}
+{"event": "importance_sample_done", "index": 88, "total": 436, "task_id": "Mbpp/8", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 89, "total": 436, "task_id": "Mbpp/9", "seconds": 0.093}
+{"event": "importance_sample_done", "index": 90, "total": 436, "task_id": "Mbpp/554", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 91, "total": 436, "task_id": "Mbpp/555", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 92, "total": 436, "task_id": "Mbpp/556", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 93, "total": 436, "task_id": "Mbpp/557", "seconds": 0.09}
+{"event": "importance_sample_done", "index": 94, "total": 436, "task_id": "Mbpp/558", "seconds": 0.096}
+{"event": "importance_sample_done", "index": 95, "total": 436, "task_id": "Mbpp/559", "seconds": 0.122}
+{"event": "importance_sample_done", "index": 96, "total": 436, "task_id": "Mbpp/560", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 97, "total": 436, "task_id": "Mbpp/562", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 98, "total": 436, "task_id": "Mbpp/563", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 99, "total": 436, "task_id": "Mbpp/564", "seconds": 0.092}
+{"event": "importance_sample_done", "index": 100, "total": 436, "task_id": "Mbpp/565", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 101, "total": 436, "task_id": "Mbpp/566", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 102, "total": 436, "task_id": "Mbpp/567", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 103, "total": 436, "task_id": "Mbpp/568", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 104, "total": 436, "task_id": "Mbpp/569", "seconds": 0.124}
+{"event": "importance_sample_done", "index": 105, "total": 436, "task_id": "Mbpp/572", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 106, "total": 436, "task_id": "Mbpp/573", "seconds": 0.124}
+{"event": "importance_sample_done", "index": 107, "total": 436, "task_id": "Mbpp/576", "seconds": 0.091}
+{"event": "importance_sample_done", "index": 108, "total": 436, "task_id": "Mbpp/577", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 109, "total": 436, "task_id": "Mbpp/578", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 110, "total": 436, "task_id": "Mbpp/579", "seconds": 0.125}
+{"event": "importance_sample_done", "index": 111, "total": 436, "task_id": "Mbpp/580", "seconds": 0.124}
+{"event": "importance_sample_done", "index": 112, "total": 436, "task_id": "Mbpp/581", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 113, "total": 436, "task_id": "Mbpp/583", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 114, "total": 436, "task_id": "Mbpp/585", "seconds": 0.125}
+{"event": "importance_sample_done", "index": 115, "total": 436, "task_id": "Mbpp/586", "seconds": 0.128}
+{"event": "importance_sample_done", "index": 116, "total": 436, "task_id": "Mbpp/587", "seconds": 0.091}
+{"event": "importance_sample_done", "index": 117, "total": 436, "task_id": "Mbpp/588", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 118, "total": 436, "task_id": "Mbpp/589", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 119, "total": 436, "task_id": "Mbpp/590", "seconds": 0.124}
+{"event": "importance_sample_done", "index": 120, "total": 436, "task_id": "Mbpp/591", "seconds": 0.121}
+{"event": "importance_sample_done", "index": 121, "total": 436, "task_id": "Mbpp/592", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 122, "total": 436, "task_id": "Mbpp/593", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 123, "total": 436, "task_id": "Mbpp/594", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 124, "total": 436, "task_id": "Mbpp/596", "seconds": 0.123}
+{"event": "importance_sample_done", "index": 125, "total": 436, "task_id": "Mbpp/597", "seconds": 0.091}
+{"event": "importance_sample_done", "index": 126, "total": 436, "task_id": "Mbpp/598", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 127, "total": 436, "task_id": "Mbpp/599", "seconds": 0.09}
+{"event": "importance_sample_done", "index": 128, "total": 436, "task_id": "Mbpp/600", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 129, "total": 436, "task_id": "Mbpp/602", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 130, "total": 436, "task_id": "Mbpp/603", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 131, "total": 436, "task_id": "Mbpp/604", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 132, "total": 436, "task_id": "Mbpp/605", "seconds": 0.076}
+{"event": "importance_sample_done", "index": 133, "total": 436, "task_id": "Mbpp/606", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 134, "total": 436, "task_id": "Mbpp/607", "seconds": 0.124}
+{"event": "importance_sample_done", "index": 135, "total": 436, "task_id": "Mbpp/608", "seconds": 0.075}
+{"event": "importance_sample_done", "index": 136, "total": 436, "task_id": "Mbpp/610", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 137, "total": 436, "task_id": "Mbpp/611", "seconds": 0.123}
+{"event": "importance_sample_done", "index": 138, "total": 436, "task_id": "Mbpp/612", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 139, "total": 436, "task_id": "Mbpp/614", "seconds": 0.095}
+{"event": "importance_sample_done", "index": 140, "total": 436, "task_id": "Mbpp/615", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 141, "total": 436, "task_id": "Mbpp/616", "seconds": 0.122}
+{"event": "importance_sample_done", "index": 142, "total": 436, "task_id": "Mbpp/618", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 143, "total": 436, "task_id": "Mbpp/619", "seconds": 0.127}
+{"event": "importance_sample_done", "index": 144, "total": 436, "task_id": "Mbpp/620", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 145, "total": 436, "task_id": "Mbpp/622", "seconds": 0.123}
+{"event": "importance_sample_done", "index": 146, "total": 436, "task_id": "Mbpp/623", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 147, "total": 436, "task_id": "Mbpp/624", "seconds": 0.092}
+{"event": "importance_sample_done", "index": 148, "total": 436, "task_id": "Mbpp/626", "seconds": 0.095}
+{"event": "importance_sample_done", "index": 149, "total": 436, "task_id": "Mbpp/628", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 150, "total": 436, "task_id": "Mbpp/629", "seconds": 0.098}
+{"event": "importance_sample_done", "index": 151, "total": 436, "task_id": "Mbpp/630", "seconds": 0.125}
+{"event": "importance_sample_done", "index": 152, "total": 436, "task_id": "Mbpp/631", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 153, "total": 436, "task_id": "Mbpp/632", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 154, "total": 436, "task_id": "Mbpp/633", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 155, "total": 436, "task_id": "Mbpp/635", "seconds": 0.128}
+{"event": "importance_sample_done", "index": 156, "total": 436, "task_id": "Mbpp/637", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 157, "total": 436, "task_id": "Mbpp/638", "seconds": 0.094}
+{"event": "importance_sample_done", "index": 158, "total": 436, "task_id": "Mbpp/639", "seconds": 0.129}
+{"event": "importance_sample_done", "index": 159, "total": 436, "task_id": "Mbpp/641", "seconds": 0.085}
+{"event": "importance_sample_done", "index": 160, "total": 436, "task_id": "Mbpp/643", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 161, "total": 436, "task_id": "Mbpp/644", "seconds": 0.121}
+{"event": "importance_sample_done", "index": 162, "total": 436, "task_id": "Mbpp/720", "seconds": 0.127}
+{"event": "importance_sample_done", "index": 163, "total": 436, "task_id": "Mbpp/721", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 164, "total": 436, "task_id": "Mbpp/722", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 165, "total": 436, "task_id": "Mbpp/723", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 166, "total": 436, "task_id": "Mbpp/724", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 167, "total": 436, "task_id": "Mbpp/725", "seconds": 0.093}
+{"event": "importance_sample_done", "index": 168, "total": 436, "task_id": "Mbpp/726", "seconds": 0.125}
+{"event": "importance_sample_done", "index": 169, "total": 436, "task_id": "Mbpp/728", "seconds": 0.124}
+{"event": "importance_sample_done", "index": 170, "total": 436, "task_id": "Mbpp/730", "seconds": 0.129}
+{"event": "importance_sample_done", "index": 171, "total": 436, "task_id": "Mbpp/731", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 172, "total": 436, "task_id": "Mbpp/732", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 173, "total": 436, "task_id": "Mbpp/733", "seconds": 0.122}
+{"event": "importance_sample_done", "index": 174, "total": 436, "task_id": "Mbpp/734", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 175, "total": 436, "task_id": "Mbpp/735", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 176, "total": 436, "task_id": "Mbpp/736", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 177, "total": 436, "task_id": "Mbpp/737", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 178, "total": 436, "task_id": "Mbpp/739", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 179, "total": 436, "task_id": "Mbpp/740", "seconds": 0.123}
+{"event": "importance_sample_done", "index": 180, "total": 436, "task_id": "Mbpp/741", "seconds": 0.085}
+{"event": "importance_sample_done", "index": 181, "total": 436, "task_id": "Mbpp/742", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 182, "total": 436, "task_id": "Mbpp/743", "seconds": 0.124}
+{"event": "importance_sample_done", "index": 183, "total": 436, "task_id": "Mbpp/744", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 184, "total": 436, "task_id": "Mbpp/745", "seconds": 0.128}
+{"event": "importance_sample_done", "index": 185, "total": 436, "task_id": "Mbpp/748", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 186, "total": 436, "task_id": "Mbpp/749", "seconds": 0.127}
+{"event": "importance_sample_done", "index": 187, "total": 436, "task_id": "Mbpp/750", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 188, "total": 436, "task_id": "Mbpp/751", "seconds": 0.09}
+{"event": "importance_sample_done", "index": 189, "total": 436, "task_id": "Mbpp/752", "seconds": 0.128}
+{"event": "importance_sample_done", "index": 190, "total": 436, "task_id": "Mbpp/753", "seconds": 0.127}
+{"event": "importance_sample_done", "index": 191, "total": 436, "task_id": "Mbpp/754", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 192, "total": 436, "task_id": "Mbpp/755", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 193, "total": 436, "task_id": "Mbpp/757", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 194, "total": 436, "task_id": "Mbpp/758", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 195, "total": 436, "task_id": "Mbpp/759", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 196, "total": 436, "task_id": "Mbpp/760", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 197, "total": 436, "task_id": "Mbpp/762", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 198, "total": 436, "task_id": "Mbpp/763", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 199, "total": 436, "task_id": "Mbpp/764", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 200, "total": 436, "task_id": "Mbpp/765", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 201, "total": 436, "task_id": "Mbpp/766", "seconds": 0.126}
+{"event": "importance_sample_done", "index": 202, "total": 436, "task_id": "Mbpp/767", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 203, "total": 436, "task_id": "Mbpp/769", "seconds": 0.122}
+{"event": "importance_sample_done", "index": 204, "total": 436, "task_id": "Mbpp/770", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 205, "total": 436, "task_id": "Mbpp/771", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 206, "total": 436, "task_id": "Mbpp/772", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 207, "total": 436, "task_id": "Mbpp/773", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 208, "total": 436, "task_id": "Mbpp/775", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 209, "total": 436, "task_id": "Mbpp/777", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 210, "total": 436, "task_id": "Mbpp/778", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 211, "total": 436, "task_id": "Mbpp/780", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 212, "total": 436, "task_id": "Mbpp/781", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 213, "total": 436, "task_id": "Mbpp/782", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 214, "total": 436, "task_id": "Mbpp/784", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 215, "total": 436, "task_id": "Mbpp/785", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 216, "total": 436, "task_id": "Mbpp/786", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 217, "total": 436, "task_id": "Mbpp/787", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 218, "total": 436, "task_id": "Mbpp/788", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 219, "total": 436, "task_id": "Mbpp/790", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 220, "total": 436, "task_id": "Mbpp/791", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 221, "total": 436, "task_id": "Mbpp/792", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 222, "total": 436, "task_id": "Mbpp/793", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 223, "total": 436, "task_id": "Mbpp/794", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 224, "total": 436, "task_id": "Mbpp/796", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 225, "total": 436, "task_id": "Mbpp/797", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 226, "total": 436, "task_id": "Mbpp/798", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 227, "total": 436, "task_id": "Mbpp/799", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 228, "total": 436, "task_id": "Mbpp/800", "seconds": 0.085}
+{"event": "importance_sample_done", "index": 229, "total": 436, "task_id": "Mbpp/801", "seconds": 0.088}
+{"event": "importance_sample_done", "index": 230, "total": 436, "task_id": "Mbpp/803", "seconds": 0.087}
+{"event": "importance_sample_done", "index": 231, "total": 436, "task_id": "Mbpp/804", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 232, "total": 436, "task_id": "Mbpp/805", "seconds": 0.123}
+{"event": "importance_sample_done", "index": 233, "total": 436, "task_id": "Mbpp/806", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 234, "total": 436, "task_id": "Mbpp/807", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 235, "total": 436, "task_id": "Mbpp/808", "seconds": 0.089}
+{"event": "importance_sample_done", "index": 236, "total": 436, "task_id": "Mbpp/809", "seconds": 0.086}
+{"event": "importance_sample_done", "index": 237, "total": 436, "task_id": "2779", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 238, "total": 436, "task_id": "2727", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 239, "total": 436, "task_id": "2730", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 240, "total": 436, "task_id": "abc301_a", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 241, "total": 436, "task_id": "abc301_c", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 242, "total": 436, "task_id": "abc301_e", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 243, "total": 436, "task_id": "abc302_a", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 244, "total": 436, "task_id": "abc302_b", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 245, "total": 436, "task_id": "abc302_d", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 246, "total": 436, "task_id": "abc302_e", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 247, "total": 436, "task_id": "2800", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 248, "total": 436, "task_id": "2802", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 249, "total": 436, "task_id": "2755", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 250, "total": 436, "task_id": "2756", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 251, "total": 436, "task_id": "2827", "seconds": 0.136}
+{"event": "importance_sample_done", "index": 252, "total": 436, "task_id": "abc303_b", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 253, "total": 436, "task_id": "abc303_d", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 254, "total": 436, "task_id": "abc303_e", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 255, "total": 436, "task_id": "abc304_b", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 256, "total": 436, "task_id": "abc304_d", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 257, "total": 436, "task_id": "2785", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 258, "total": 436, "task_id": "2786", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 259, "total": 436, "task_id": "2824", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 260, "total": 436, "task_id": "abc305_b", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 261, "total": 436, "task_id": "abc305_d", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 262, "total": 436, "task_id": "2828", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 263, "total": 436, "task_id": "2839", "seconds": 0.13}
+{"event": "importance_sample_done", "index": 264, "total": 436, "task_id": "abc306_b", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 265, "total": 436, "task_id": "abc306_c", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 266, "total": 436, "task_id": "abc306_e", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 267, "total": 436, "task_id": "2848", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 268, "total": 436, "task_id": "2847", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 269, "total": 436, "task_id": "2850", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 270, "total": 436, "task_id": "abc307_b", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 271, "total": 436, "task_id": "abc307_c", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 272, "total": 436, "task_id": "2837", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 273, "total": 436, "task_id": "abc308_b", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 274, "total": 436, "task_id": "abc308_c", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 275, "total": 436, "task_id": "abc308_e", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 276, "total": 436, "task_id": "2849", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 277, "total": 436, "task_id": "2866", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 278, "total": 436, "task_id": "2868", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 279, "total": 436, "task_id": "2834", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 280, "total": 436, "task_id": "abc309_b", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 281, "total": 436, "task_id": "abc309_c", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 282, "total": 436, "task_id": "abc309_e", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 283, "total": 436, "task_id": "2812", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 284, "total": 436, "task_id": "2855", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 285, "total": 436, "task_id": "2878", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 286, "total": 436, "task_id": "abc310_b", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 287, "total": 436, "task_id": "abc310_c", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 288, "total": 436, "task_id": "abc310_f", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 289, "total": 436, "task_id": "2891", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 290, "total": 436, "task_id": "2887", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 291, "total": 436, "task_id": "2892", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 292, "total": 436, "task_id": "abc311_b", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 293, "total": 436, "task_id": "abc311_c", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 294, "total": 436, "task_id": "2872", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 295, "total": 436, "task_id": "2919", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 296, "total": 436, "task_id": "abc312_b", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 297, "total": 436, "task_id": "abc312_c", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 298, "total": 436, "task_id": "abc312_e", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 299, "total": 436, "task_id": "2876", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 300, "total": 436, "task_id": "2877", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 301, "total": 436, "task_id": "2952", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 302, "total": 436, "task_id": "abc313_b", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 303, "total": 436, "task_id": "2886", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 304, "total": 436, "task_id": "2916", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 305, "total": 436, "task_id": "abc314_a", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 306, "total": 436, "task_id": "abc314_c", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 307, "total": 436, "task_id": "abc314_e", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 308, "total": 436, "task_id": "2917", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 309, "total": 436, "task_id": "3018", "seconds": 0.129}
+{"event": "importance_sample_done", "index": 310, "total": 436, "task_id": "abc315_a", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 311, "total": 436, "task_id": "abc315_c", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 312, "total": 436, "task_id": "abc315_e", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 313, "total": 436, "task_id": "2832", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 314, "total": 436, "task_id": "1873_A", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 315, "total": 436, "task_id": "1873_D", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 316, "total": 436, "task_id": "3019", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 317, "total": 436, "task_id": "3025", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 318, "total": 436, "task_id": "2954", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 319, "total": 436, "task_id": "abc318_a", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 320, "total": 436, "task_id": "abc318_c", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 321, "total": 436, "task_id": "abc318_e", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 322, "total": 436, "task_id": "2998", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 323, "total": 436, "task_id": "3046", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 324, "total": 436, "task_id": "abc319_b", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 325, "total": 436, "task_id": "abc319_c", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 326, "total": 436, "task_id": "3024", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 327, "total": 436, "task_id": "3045", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 328, "total": 436, "task_id": "3081", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 329, "total": 436, "task_id": "abc320_b", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 330, "total": 436, "task_id": "abc320_c", "seconds": 0.137}
+{"event": "importance_sample_done", "index": 331, "total": 436, "task_id": "abc320_e", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 332, "total": 436, "task_id": "1883_C", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 333, "total": 436, "task_id": "abc321_b", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 334, "total": 436, "task_id": "abc321_c", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 335, "total": 436, "task_id": "3055", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 336, "total": 436, "task_id": "3114", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 337, "total": 436, "task_id": "3094", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 338, "total": 436, "task_id": "abc322_b", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 339, "total": 436, "task_id": "abc322_c", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 340, "total": 436, "task_id": "abc322_e", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 341, "total": 436, "task_id": "3154", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 342, "total": 436, "task_id": "abc323_b", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 343, "total": 436, "task_id": "abc323_c", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 344, "total": 436, "task_id": "abc323_e", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 345, "total": 436, "task_id": "3033", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 346, "total": 436, "task_id": "3153", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 347, "total": 436, "task_id": "3164", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 348, "total": 436, "task_id": "abc324_b", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 349, "total": 436, "task_id": "abc324_e", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 350, "total": 436, "task_id": "3031", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 351, "total": 436, "task_id": "1899_B", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 352, "total": 436, "task_id": "1899_D", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 353, "total": 436, "task_id": "abc325_b", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 354, "total": 436, "task_id": "abc325_d", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 355, "total": 436, "task_id": "abc325_f", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 356, "total": 436, "task_id": "2879", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 357, "total": 436, "task_id": "3166", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 358, "total": 436, "task_id": "3163", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 359, "total": 436, "task_id": "3174", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 360, "total": 436, "task_id": "abc326_a", "seconds": 0.136}
+{"event": "importance_sample_done", "index": 361, "total": 436, "task_id": "abc326_c", "seconds": 0.139}
+{"event": "importance_sample_done", "index": 362, "total": 436, "task_id": "abc326_e", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 363, "total": 436, "task_id": "abc327_a", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 364, "total": 436, "task_id": "abc327_d", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 365, "total": 436, "task_id": "3188", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 366, "total": 436, "task_id": "3200", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 367, "total": 436, "task_id": "abc328_a", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 368, "total": 436, "task_id": "abc328_d", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 369, "total": 436, "task_id": "3193", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 370, "total": 436, "task_id": "3192", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 371, "total": 436, "task_id": "abc329_a", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 372, "total": 436, "task_id": "abc329_c", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 373, "total": 436, "task_id": "abc329_e", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 374, "total": 436, "task_id": "3194", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 375, "total": 436, "task_id": "3209", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 376, "total": 436, "task_id": "3211", "seconds": 0.136}
+{"event": "importance_sample_done", "index": 377, "total": 436, "task_id": "3219", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 378, "total": 436, "task_id": "abc330_a", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 379, "total": 436, "task_id": "abc330_c", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 380, "total": 436, "task_id": "abc330_e", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 381, "total": 436, "task_id": "3224", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 382, "total": 436, "task_id": "abc331_a", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 383, "total": 436, "task_id": "abc331_c", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 384, "total": 436, "task_id": "abc331_e", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 385, "total": 436, "task_id": "3206", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 386, "total": 436, "task_id": "3213", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 387, "total": 436, "task_id": "3230", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 388, "total": 436, "task_id": "abc332_a", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 389, "total": 436, "task_id": "3196", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 390, "total": 436, "task_id": "3227", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 391, "total": 436, "task_id": "3229", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 392, "total": 436, "task_id": "abc333_a", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 393, "total": 436, "task_id": "abc333_c", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 394, "total": 436, "task_id": "abc333_e", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 395, "total": 436, "task_id": "3252", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 396, "total": 436, "task_id": "3262", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 397, "total": 436, "task_id": "abc334_a", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 398, "total": 436, "task_id": "abc334_b", "seconds": 0.135}
+{"event": "importance_sample_done", "index": 399, "total": 436, "task_id": "abc334_d", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 400, "total": 436, "task_id": "3228", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 401, "total": 436, "task_id": "3233", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 402, "total": 436, "task_id": "3236", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 403, "total": 436, "task_id": "3249", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 404, "total": 436, "task_id": "abc335_b", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 405, "total": 436, "task_id": "abc335_d", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 406, "total": 436, "task_id": "3242", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 407, "total": 436, "task_id": "3245", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 408, "total": 436, "task_id": "abc336_b", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 409, "total": 436, "task_id": "abc336_d", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 410, "total": 436, "task_id": "3291", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 411, "total": 436, "task_id": "abc337_b", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 412, "total": 436, "task_id": "abc337_d", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 413, "total": 436, "task_id": "abc337_e", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 414, "total": 436, "task_id": "3261", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 415, "total": 436, "task_id": "3299", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 416, "total": 436, "task_id": "3312", "seconds": 0.136}
+{"event": "importance_sample_done", "index": 417, "total": 436, "task_id": "abc338_b", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 418, "total": 436, "task_id": "abc338_e", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 419, "total": 436, "task_id": "3297", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 420, "total": 436, "task_id": "abc339_b", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 421, "total": 436, "task_id": "abc339_d", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 422, "total": 436, "task_id": "3317", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 423, "total": 436, "task_id": "abc340_a", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 424, "total": 436, "task_id": "abc340_d", "seconds": 0.136}
+{"event": "importance_sample_done", "index": 425, "total": 436, "task_id": "3309", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 426, "total": 436, "task_id": "3329", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 427, "total": 436, "task_id": "abc341_a", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 428, "total": 436, "task_id": "abc341_c", "seconds": 0.134}
+{"event": "importance_sample_done", "index": 429, "total": 436, "task_id": "abc341_e", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 430, "total": 436, "task_id": "3324", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 431, "total": 436, "task_id": "abc342_a", "seconds": 0.131}
+{"event": "importance_sample_done", "index": 432, "total": 436, "task_id": "abc342_c", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 433, "total": 436, "task_id": "abc342_e", "seconds": 0.132}
+{"event": "importance_sample_done", "index": 434, "total": 436, "task_id": "3347", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 435, "total": 436, "task_id": "abc343_a", "seconds": 0.133}
+{"event": "importance_sample_done", "index": 436, "total": 436, "task_id": "abc343_c", "seconds": 0.131}
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:02<11:32,  2.39s/it]Loading weights:   4%|▍         | 13/291 [00:02<00:45,  6.13it/s]Loading weights:   7%|▋         | 19/291 [00:03<00:31,  8.77it/s]Loading weights:   8%|▊         | 22/291 [00:03<00:37,  7.26it/s]Loading weights:   8%|▊         | 24/291 [00:03<00:37,  7.20it/s]Loading weights:  10%|▉         | 29/291 [00:04<00:24, 10.49it/s]Loading weights:  11%|█         | 32/291 [00:04<00:30,  8.60it/s]Loading weights:  12%|█▏        | 34/291 [00:04<00:27,  9.23it/s]Loading weights:  13%|█▎        | 38/291 [00:04<00:20, 12.41it/s]Loading weights:  14%|█▍        | 41/291 [00:05<00:28,  8.66it/s]Loading weights:  15%|█▍        | 43/291 [00:05<00:26,  9.23it/s]Loading weights:  16%|█▌        | 47/291 [00:07<00:59,  4.10it/s]Loading weights:  17%|█▋        | 49/291 [00:08<00:57,  4.24it/s]Loading weights:  18%|█▊        | 51/291 [00:08<00:47,  5.07it/s]Loading weights:  19%|█▉        | 55/291 [00:08<00:31,  7.54it/s]Loading weights:  20%|█▉        | 58/291 [00:08<00:27,  8.55it/s]Loading weights:  21%|██        | 60/291 [00:08<00:24,  9.44it/s]Loading weights:  22%|██▏       | 64/291 [00:08<00:19, 11.46it/s]Loading weights:  23%|██▎       | 67/291 [00:11<01:14,  3.03it/s]Loading weights:  26%|██▌       | 76/291 [00:11<00:33,  6.38it/s]Loading weights:  27%|██▋       | 79/291 [00:12<00:43,  4.84it/s]Loading weights:  30%|██▉       | 86/291 [00:13<00:29,  6.99it/s]Loading weights:  30%|███       | 88/291 [00:13<00:33,  6.03it/s]Loading weights:  32%|███▏      | 94/291 [00:14<00:25,  7.72it/s]Loading weights:  33%|███▎      | 96/291 [00:16<00:45,  4.24it/s]Loading weights:  35%|███▍      | 101/291 [00:16<00:32,  5.82it/s]Loading weights:  35%|███▌      | 103/291 [00:16<00:36,  5.14it/s]Loading weights:  36%|███▌      | 104/291 [00:17<00:40,  4.67it/s]Loading weights:  36%|███▌      | 105/291 [00:17<00:39,  4.75it/s]Loading weights:  38%|███▊      | 110/291 [00:17<00:25,  7.03it/s]Loading weights:  38%|███▊      | 112/291 [00:18<00:27,  6.58it/s]Loading weights:  39%|███▉      | 113/291 [00:18<00:25,  6.87it/s]Loading weights:  39%|███▉      | 114/291 [00:19<00:42,  4.18it/s]Loading weights:  40%|███▉      | 116/291 [00:19<00:34,  5.12it/s]Loading weights:  41%|████      | 118/291 [00:21<01:23,  2.08it/s]Loading weights:  41%|████      | 120/291 [00:21<01:00,  2.82it/s]Loading weights:  42%|████▏     | 121/291 [00:22<01:17,  2.19it/s]Loading weights:  42%|████▏     | 123/291 [00:22<00:55,  3.00it/s]Loading weights:  44%|████▎     | 127/291 [00:23<00:34,  4.80it/s]Loading weights:  44%|████▍     | 128/291 [00:23<00:31,  5.16it/s]Loading weights:  45%|████▍     | 130/291 [00:28<02:38,  1.01it/s]Loading weights:  46%|████▋     | 135/291 [00:28<01:16,  2.04it/s]Loading weights:  47%|████▋     | 137/291 [00:29<01:10,  2.18it/s]Loading weights:  48%|████▊     | 139/291 [00:30<01:06,  2.28it/s]Loading weights:  48%|████▊     | 141/291 [00:32<01:23,  1.80it/s]Loading weights:  50%|████▉     | 145/291 [00:32<00:48,  3.04it/s]Loading weights:  51%|█████     | 147/291 [00:33<01:00,  2.39it/s]Loading weights:  51%|█████     | 149/291 [00:34<00:51,  2.74it/s]Loading weights:  53%|█████▎    | 154/291 [00:34<00:37,  3.69it/s]Loading weights:  53%|█████▎    | 155/291 [00:35<00:34,  3.90it/s]Loading weights:  54%|█████▍    | 157/291 [00:35<00:38,  3.46it/s]Loading weights:  54%|█████▍    | 158/291 [00:36<00:37,  3.57it/s]Loading weights:  56%|█████▌    | 163/291 [00:37<00:33,  3.81it/s]Loading weights:  57%|█████▋    | 166/291 [00:37<00:30,  4.15it/s]Loading weights:  59%|█████▉    | 173/291 [00:38<00:20,  5.73it/s]Loading weights:  60%|██████    | 176/291 [00:38<00:16,  7.07it/s]Loading weights:  62%|██████▏   | 180/291 [00:39<00:13,  8.37it/s]Loading weights:  63%|██████▎   | 182/291 [00:39<00:17,  6.36it/s]Loading weights:  63%|██████▎   | 184/291 [00:39<00:16,  6.59it/s]Loading weights:  67%|██████▋   | 194/291 [00:40<00:06, 14.81it/s]Loading weights:  68%|██████▊   | 198/291 [00:40<00:06, 15.11it/s]Loading weights:  69%|██████▉   | 202/291 [00:40<00:07, 12.38it/s]Loading weights:  70%|███████   | 205/291 [00:40<00:06, 13.86it/s]Loading weights:  72%|███████▏  | 209/291 [00:41<00:08,  9.45it/s]Loading weights:  73%|███████▎  | 211/291 [00:41<00:07, 10.37it/s]Loading weights:  76%|███████▌  | 220/291 [00:41<00:04, 17.35it/s]Loading weights:  78%|███████▊  | 228/291 [00:42<00:03, 19.02it/s]Loading weights:  80%|████████  | 234/291 [00:42<00:02, 23.89it/s]Loading weights:  82%|████████▏ | 238/291 [00:43<00:05,  9.24it/s]Loading weights:  83%|████████▎ | 241/291 [00:43<00:04, 10.10it/s]Loading weights:  85%|████████▍ | 247/291 [00:44<00:03, 14.04it/s]Loading weights:  88%|████████▊ | 256/291 [00:44<00:01, 18.92it/s]Loading weights:  90%|█████████ | 263/291 [00:44<00:01, 17.20it/s]Loading weights:  91%|█████████▏| 266/291 [00:49<00:08,  3.05it/s]Loading weights:  93%|█████████▎| 270/291 [00:50<00:05,  3.92it/s]Loading weights:  94%|█████████▍| 274/291 [00:50<00:03,  4.68it/s]Loading weights:  96%|█████████▌| 279/291 [00:50<00:02,  5.74it/s]Loading weights:  97%|█████████▋| 281/291 [00:52<00:02,  4.18it/s]Loading weights:  97%|█████████▋| 283/291 [00:53<00:02,  3.08it/s]Loading weights: 100%|██████████| 291/291 [00:53<00:00,  5.44it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [01:43<00:00, 103.52s/it]Writing model shards: 100%|██████████| 1/1 [01:43<00:00, 103.54s/it]
+{
+  "status": "success",
+  "method": "LLM-Pruner",
+  "model_path": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "mode": "benchmark",
+  "drop_layers": 6,
+  "drop_indices": [
+    0,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "layers_before": 32,
+  "layers_after": 26,
+  "parameter_count_after": 5524246528,
+  "guide_files": [
+    "data/splits/humaneval_half/guide.jsonl",
+    "data/splits/mbpp_evalplus_half/guide.jsonl",
+    "data/splits/livecodebench_half/guide.jsonl"
+  ],
+  "guide_samples_used": 436,
+  "importance_scores": [
+    {
+      "layer": 2,
+      "hidden_delta": 0.05139502454890844
+    },
+    {
+      "layer": 3,
+      "hidden_delta": 0.06471483220576967
+    },
+    {
+      "layer": 0,
+      "hidden_delta": 0.08883594668581399
+    },
+    {
+      "layer": 4,
+      "hidden_delta": 0.09962817178953678
+    },
+    {
+      "layer": 5,
+      "hidden_delta": 0.1220948448866059
+    },
+    {
+      "layer": 6,
+      "hidden_delta": 0.13751608360592926
+    },
+    {
+      "layer": 7,
+      "hidden_delta": 0.1589026307567544
+    },
+    {
+      "layer": 8,
+      "hidden_delta": 0.18384582272500072
+    },
+    {
+      "layer": 9,
+      "hidden_delta": 0.20499180540989298
+    },
+    {
+      "layer": 10,
+      "hidden_delta": 0.22881366449211715
+    },
+    {
+      "layer": 11,
+      "hidden_delta": 0.24050375463765697
+    },
+    {
+      "layer": 12,
+      "hidden_delta": 0.26756113630916
+    },
+    {
+      "layer": 13,
+      "hidden_delta": 0.30334063407477985
+    },
+    {
+      "layer": 14,
+      "hidden_delta": 0.32862331205551776
+    },
+    {
+      "layer": 15,
+      "hidden_delta": 0.37459057473808255
+    },
+    {
+      "layer": 17,
+      "hidden_delta": 0.4272202997716195
+    },
+    {
+      "layer": 16,
+      "hidden_delta": 0.45028944757826833
+    },
+    {
+      "layer": 18,
+      "hidden_delta": 0.48525207646943014
+    },
+    {
+      "layer": 19,
+      "hidden_delta": 0.49101022261818617
+    },
+    {
+      "layer": 20,
+      "hidden_delta": 0.5093018488462911
+    },
+    {
+      "layer": 21,
+      "hidden_delta": 0.5106669183854663
+    },
+    {
+      "layer": 23,
+      "hidden_delta": 0.5331741301428288
+    },
+    {
+      "layer": 22,
+      "hidden_delta": 0.5541710755830511
+    },
+    {
+      "layer": 24,
+      "hidden_delta": 0.5741589768627368
+    },
+    {
+      "layer": 25,
+      "hidden_delta": 0.5915138874578914
+    },
+    {
+      "layer": 26,
+      "hidden_delta": 0.6437791507998738
+    },
+    {
+      "layer": 27,
+      "hidden_delta": 0.701142051077764
+    },
+    {
+      "layer": 28,
+      "hidden_delta": 0.7640348473273286
+    },
+    {
+      "layer": 29,
+      "hidden_delta": 0.9830743200188383
+    },
+    {
+      "layer": 31,
+      "hidden_delta": 3.194465703920487
+    },
+    {
+      "layer": 30,
+      "hidden_delta": 4.6183882678320645
+    },
+    {
+      "layer": 1,
+      "hidden_delta": 8.145920173837505
+    }
+  ],
+  "score_load_in_4bit": true,
+  "score_device_map": null,
+  "save_device": "cpu",
+  "pruned_model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80/pruned_model",
+  "process_rss_mb_after": 10668.16015625,
+  "elapsed_seconds": 234.9725546836853,
+  "torch": "2.11.0+cu128"
+}
+	Command being timed: ".venv-common/bin/python scripts/adapt/llmpruner_codellama_layerdrop.py --model-path /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6 --out-dir results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80 --mode benchmark --drop-layers 6 --guide-file data/splits/humaneval_half/guide.jsonl --guide-file data/splits/mbpp_evalplus_half/guide.jsonl --guide-file data/splits/livecodebench_half/guide.jsonl --guide-limit-per-file 0 --importance-max-length 128 --dtype fp16 --device cpu --score-load-in-4bit --score-device-map auto --score-max-memory-json {"0":"6GiB","cpu":"24GiB"} --score-offload-folder results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/offload_benchguided_score --save-device cpu"
+	User time (seconds): 106.89
+	System time (seconds): 468.04
+	Percent of CPU this job got: 220%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:21.24
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 13686448
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 123798
+	Minor (reclaiming a frame) page faults: 7596578
+	Voluntary context switches: 143355
+	Involuntary context switches: 15100
+	Swaps: 0
+	File system inputs: 56000504
+	File system outputs: 21586256
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

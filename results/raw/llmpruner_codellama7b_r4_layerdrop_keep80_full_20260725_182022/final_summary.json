@@ -1,0 +1,73 @@
+{
+  "status": "success",
+  "run_root": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022",
+  "method": "LLM-Pruner-inspired layer-drop fallback",
+  "official_metapruner_status": "blocked_locally_by_cuda_offload_failure",
+  "model": "codellama/CodeLlama-7b-hf",
+  "keep_target": "about 80%",
+  "drop_layers": 6,
+  "max_new_tokens": 256,
+  "recovery": "QLoRA train, LoRA merge to standalone fp16 model",
+  "lora": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0,
+    "epochs": 1,
+    "max_length": 256
+  },
+  "guide": [
+    "data/splits/humaneval_half/guide.jsonl",
+    "data/splits/mbpp_evalplus_half/guide.jsonl",
+    "data/splits/livecodebench_half/guide.jsonl"
+  ],
+  "eval": [
+    {
+      "model": "default_keep80_lora_merged",
+      "benchmark": "humaneval",
+      "task_count": 82,
+      "pass_count": 0,
+      "pass_rate": 0.0,
+      "summary": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora_merged/evalhalf/humaneval/score_summary.json"
+    },
+    {
+      "model": "default_keep80_lora_merged",
+      "benchmark": "mbpp",
+      "task_count": 224,
+      "pass_count": 4,
+      "pass_rate": 0.017857142857142856,
+      "summary": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora_merged/evalhalf/mbpp/score_summary.json"
+    },
+    {
+      "model": "default_keep80_lora_merged",
+      "benchmark": "livecodebench",
+      "task_count": 200,
+      "pass_count": 0,
+      "pass_rate": 0.0,
+      "summary": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora_merged/evalhalf/livecodebench/score_summary.json"
+    },
+    {
+      "model": "benchguided_keep80_lora_merged",
+      "benchmark": "humaneval",
+      "task_count": 82,
+      "pass_count": 0,
+      "pass_rate": 0.0,
+      "summary": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/humaneval/score_summary.json"
+    },
+    {
+      "model": "benchguided_keep80_lora_merged",
+      "benchmark": "mbpp",
+      "task_count": 224,
+      "pass_count": 0,
+      "pass_rate": 0.0,
+      "summary": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/mbpp/score_summary.json"
+    },
+    {
+      "model": "benchguided_keep80_lora_merged",
+      "benchmark": "livecodebench",
+      "task_count": 200,
+      "pass_count": 0,
+      "pass_rate": 0.0,
+      "summary": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/livecodebench/score_summary.json"
+    }
+  ]
+}

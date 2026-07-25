@@ -1,0 +1,710 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]Loading weights:   0%|          | 1/237 [00:01<04:20,  1.10s/it]Loading weights:   1%|          | 2/237 [00:01<03:40,  1.07it/s]Loading weights:   2%|▏         | 4/237 [00:02<01:48,  2.14it/s]Loading weights:   2%|▏         | 5/237 [00:02<01:38,  2.36it/s]Loading weights:   3%|▎         | 6/237 [00:02<01:28,  2.61it/s]Loading weights:   3%|▎         | 8/237 [00:03<00:52,  4.36it/s]Loading weights:   4%|▍         | 9/237 [00:03<00:45,  5.04it/s]Loading weights:   5%|▍         | 11/237 [00:03<00:34,  6.48it/s]Loading weights:   5%|▌         | 13/237 [00:03<00:30,  7.35it/s]Loading weights:   6%|▌         | 14/237 [00:03<00:32,  6.76it/s]Loading weights:   6%|▋         | 15/237 [00:03<00:35,  6.26it/s]Loading weights:   7%|▋         | 17/237 [00:04<00:25,  8.61it/s]Loading weights:   8%|▊         | 19/237 [00:04<00:24,  9.00it/s]Loading weights:   9%|▉         | 22/237 [00:04<00:22,  9.45it/s]Loading weights:  10%|█         | 24/237 [00:05<00:33,  6.45it/s]Loading weights:  11%|█         | 26/237 [00:05<00:26,  7.91it/s]Loading weights:  12%|█▏        | 28/237 [00:05<00:24,  8.60it/s]Loading weights:  13%|█▎        | 31/237 [00:05<00:24,  8.28it/s]Loading weights:  14%|█▍        | 33/237 [00:06<00:33,  6.06it/s]Loading weights:  15%|█▌        | 36/237 [00:06<00:25,  7.83it/s]Loading weights:  16%|█▌        | 38/237 [00:06<00:24,  7.97it/s]Loading weights:  17%|█▋        | 40/237 [00:07<00:26,  7.48it/s]Loading weights:  17%|█▋        | 41/237 [00:07<00:30,  6.41it/s]Loading weights:  18%|█▊        | 42/237 [00:07<00:37,  5.21it/s]Loading weights:  19%|█▊        | 44/237 [00:07<00:27,  6.93it/s]Loading weights:  19%|█▉        | 46/237 [00:08<00:25,  7.56it/s]Loading weights:  21%|██        | 49/237 [00:08<00:18,  9.98it/s]Loading weights:  22%|██▏       | 51/237 [00:08<00:19,  9.74it/s]Loading weights:  23%|██▎       | 55/237 [00:08<00:12, 14.68it/s]Loading weights:  24%|██▍       | 58/237 [00:08<00:11, 16.18it/s]Loading weights:  25%|██▌       | 60/237 [00:08<00:12, 14.16it/s]Loading weights:  27%|██▋       | 63/237 [00:08<00:10, 16.30it/s]Loading weights:  27%|██▋       | 65/237 [00:09<00:14, 12.13it/s]Loading weights:  28%|██▊       | 67/237 [00:10<00:32,  5.21it/s]Loading weights:  29%|██▉       | 69/237 [00:11<00:50,  3.31it/s]Loading weights:  30%|██▉       | 71/237 [00:11<00:41,  4.02it/s]Loading weights:  30%|███       | 72/237 [00:11<00:39,  4.14it/s]Loading weights:  31%|███       | 73/237 [00:12<00:38,  4.29it/s]Loading weights:  31%|███       | 74/237 [00:12<00:38,  4.24it/s]Loading weights:  32%|███▏      | 76/237 [00:13<00:49,  3.27it/s]Loading weights:  32%|███▏      | 77/237 [00:13<01:05,  2.43it/s]Loading weights:  33%|███▎      | 78/237 [00:14<01:05,  2.43it/s]Loading weights:  34%|███▍      | 80/237 [00:14<00:44,  3.53it/s]Loading weights:  34%|███▍      | 81/237 [00:14<00:40,  3.83it/s]Loading weights:  35%|███▍      | 82/237 [00:15<00:41,  3.78it/s]Loading weights:  35%|███▌      | 83/237 [00:15<00:38,  3.98it/s]Loading weights:  36%|███▌      | 85/237 [00:15<00:41,  3.67it/s]Loading weights:  36%|███▋      | 86/237 [00:16<00:55,  2.73it/s]Loading weights:  37%|███▋      | 87/237 [00:17<01:01,  2.42it/s]Loading weights:  38%|███▊      | 89/237 [00:17<00:42,  3.50it/s]Loading weights:  38%|███▊      | 90/237 [00:17<00:41,  3.58it/s]Loading weights:  38%|███▊      | 91/237 [00:17<00:36,  3.97it/s]Loading weights:  39%|███▉      | 92/237 [00:17<00:33,  4.36it/s]Loading weights:  40%|███▉      | 94/237 [00:18<00:35,  4.08it/s]Loading weights:  40%|████      | 95/237 [00:18<00:40,  3.53it/s]Loading weights:  41%|████      | 96/237 [00:19<00:45,  3.11it/s]Loading weights:  41%|████▏     | 98/237 [00:19<00:31,  4.47it/s]Loading weights:  42%|████▏     | 99/237 [00:19<00:29,  4.64it/s]Loading weights:  42%|████▏     | 100/237 [00:19<00:27,  4.90it/s]Loading weights:  43%|████▎     | 101/237 [00:19<00:25,  5.38it/s]Loading weights:  43%|████▎     | 103/237 [00:20<00:23,  5.64it/s]Loading weights:  44%|████▍     | 104/237 [00:20<00:30,  4.37it/s]Loading weights:  44%|████▍     | 105/237 [00:21<00:35,  3.68it/s]Loading weights:  45%|████▌     | 107/237 [00:21<00:25,  5.14it/s]Loading weights:  46%|████▌     | 108/237 [00:21<00:27,  4.73it/s]Loading weights:  46%|████▌     | 109/237 [00:21<00:28,  4.56it/s]Loading weights:  46%|████▋     | 110/237 [00:21<00:25,  4.97it/s]Loading weights:  47%|████▋     | 112/237 [00:22<00:29,  4.31it/s]Loading weights:  48%|████▊     | 113/237 [00:23<00:38,  3.23it/s]Loading weights:  48%|████▊     | 114/237 [00:24<01:05,  1.87it/s]Loading weights:  49%|████▉     | 116/237 [00:24<00:49,  2.44it/s]Loading weights:  49%|████▉     | 117/237 [00:25<00:49,  2.43it/s]Loading weights:  50%|████▉     | 118/237 [00:25<00:44,  2.66it/s]Loading weights:  50%|█████     | 119/237 [00:25<00:40,  2.89it/s]Loading weights:  51%|█████     | 121/237 [00:26<00:34,  3.36it/s]Loading weights:  51%|█████▏    | 122/237 [00:26<00:35,  3.21it/s]Loading weights:  52%|█████▏    | 123/237 [00:26<00:36,  3.14it/s]Loading weights:  53%|█████▎    | 125/237 [00:26<00:23,  4.67it/s]Loading weights:  53%|█████▎    | 126/237 [00:27<00:21,  5.12it/s]Loading weights:  54%|█████▎    | 127/237 [00:27<00:19,  5.54it/s]Loading weights:  54%|█████▍    | 128/237 [00:27<00:18,  5.99it/s]Loading weights:  55%|█████▍    | 130/237 [00:27<00:22,  4.85it/s]Loading weights:  55%|█████▌    | 131/237 [00:28<00:30,  3.43it/s]Loading weights:  56%|█████▌    | 132/237 [00:28<00:36,  2.89it/s]Loading weights:  57%|█████▋    | 134/237 [00:29<00:24,  4.19it/s]Loading weights:  57%|█████▋    | 135/237 [00:29<00:21,  4.65it/s]Loading weights:  57%|█████▋    | 136/237 [00:29<00:19,  5.10it/s]Loading weights:  58%|█████▊    | 137/237 [00:29<00:18,  5.41it/s]Loading weights:  59%|█████▊    | 139/237 [00:29<00:19,  5.05it/s]Loading weights:  59%|█████▉    | 140/237 [00:30<00:26,  3.71it/s]Loading weights:  59%|█████▉    | 141/237 [00:30<00:29,  3.26it/s]Loading weights:  60%|██████    | 143/237 [00:31<00:19,  4.86it/s]Loading weights:  61%|██████    | 144/237 [00:31<00:17,  5.21it/s]Loading weights:  61%|██████    | 145/237 [00:31<00:16,  5.62it/s]Loading weights:  62%|██████▏   | 146/237 [00:31<00:15,  6.02it/s]Loading weights:  62%|██████▏   | 148/237 [00:31<00:15,  5.88it/s]Loading weights:  63%|██████▎   | 149/237 [00:32<00:17,  4.90it/s]Loading weights:  63%|██████▎   | 150/237 [00:32<00:20,  4.22it/s]Loading weights:  64%|██████▍   | 152/237 [00:32<00:13,  6.08it/s]Loading weights:  65%|██████▍   | 153/237 [00:32<00:13,  6.42it/s]Loading weights:  65%|██████▍   | 154/237 [00:32<00:12,  6.64it/s]Loading weights:  65%|██████▌   | 155/237 [00:32<00:12,  6.82it/s]Loading weights:  66%|██████▌   | 157/237 [00:33<00:11,  6.76it/s]Loading weights:  67%|██████▋   | 158/237 [00:33<00:14,  5.37it/s]Loading weights:  67%|██████▋   | 159/237 [00:33<00:16,  4.66it/s]Loading weights:  68%|██████▊   | 161/237 [00:33<00:11,  6.64it/s]Loading weights:  68%|██████▊   | 162/237 [00:34<00:10,  6.94it/s]Loading weights:  69%|██████▉   | 163/237 [00:34<00:10,  7.27it/s]Loading weights:  69%|██████▉   | 164/237 [00:34<00:10,  7.00it/s]Loading weights:  70%|███████   | 166/237 [00:35<00:20,  3.38it/s]Loading weights:  70%|███████   | 167/237 [00:36<00:32,  2.13it/s]Loading weights:  71%|███████   | 168/237 [00:37<00:38,  1.77it/s]Loading weights:  72%|███████▏  | 170/237 [00:37<00:26,  2.52it/s]Loading weights:  72%|███████▏  | 171/237 [00:37<00:25,  2.57it/s]Loading weights:  73%|███████▎  | 172/237 [00:38<00:23,  2.78it/s]Loading weights:  73%|███████▎  | 173/237 [00:38<00:22,  2.83it/s]Loading weights:  74%|███████▍  | 175/237 [00:39<00:23,  2.63it/s]Loading weights:  74%|███████▍  | 176/237 [00:40<00:30,  2.02it/s]Loading weights:  75%|███████▍  | 177/237 [00:40<00:33,  1.82it/s]Loading weights:  76%|███████▌  | 179/237 [00:41<00:22,  2.62it/s]Loading weights:  76%|███████▌  | 180/237 [00:41<00:19,  2.89it/s]Loading weights:  76%|███████▋  | 181/237 [00:41<00:18,  3.10it/s]Loading weights:  77%|███████▋  | 182/237 [00:42<00:17,  3.06it/s]Loading weights:  78%|███████▊  | 184/237 [00:42<00:18,  2.83it/s]Loading weights:  78%|███████▊  | 185/237 [00:43<00:24,  2.17it/s]Loading weights:  78%|███████▊  | 186/237 [00:44<00:23,  2.21it/s]Loading weights:  79%|███████▉  | 188/237 [00:44<00:14,  3.37it/s]Loading weights:  80%|███████▉  | 189/237 [00:44<00:12,  3.84it/s]Loading weights:  80%|████████  | 190/237 [00:44<00:10,  4.32it/s]Loading weights:  81%|████████  | 191/237 [00:44<00:09,  4.85it/s]Loading weights:  81%|████████▏ | 193/237 [00:45<00:08,  5.20it/s]Loading weights:  82%|████████▏ | 194/237 [00:45<00:09,  4.31it/s]Loading weights:  82%|████████▏ | 195/237 [00:45<00:11,  3.69it/s]Loading weights:  83%|████████▎ | 197/237 [00:45<00:07,  5.01it/s]Loading weights:  84%|████████▎ | 198/237 [00:46<00:07,  5.44it/s]Loading weights:  84%|████████▍ | 199/237 [00:46<00:06,  5.90it/s]Loading weights:  84%|████████▍ | 200/237 [00:46<00:05,  6.31it/s]Loading weights:  85%|████████▌ | 202/237 [00:46<00:05,  6.19it/s]Loading weights:  86%|████████▌ | 203/237 [00:47<00:06,  4.91it/s]Loading weights:  86%|████████▌ | 204/237 [00:47<00:07,  4.24it/s]Loading weights:  87%|████████▋ | 206/237 [00:47<00:05,  6.03it/s]Loading weights:  87%|████████▋ | 207/237 [00:47<00:04,  6.30it/s]Loading weights:  88%|████████▊ | 208/237 [00:47<00:04,  6.53it/s]Loading weights:  88%|████████▊ | 209/237 [00:47<00:04,  6.70it/s]Loading weights:  89%|████████▉ | 211/237 [00:48<00:04,  5.57it/s]Loading weights:  89%|████████▉ | 212/237 [00:48<00:05,  4.69it/s]Loading weights:  90%|████████▉ | 213/237 [00:49<00:05,  4.10it/s]Loading weights:  91%|█████████ | 215/237 [00:49<00:03,  5.93it/s]Loading weights:  91%|█████████ | 216/237 [00:49<00:03,  6.32it/s]Loading weights:  92%|█████████▏| 217/237 [00:49<00:02,  6.73it/s]Loading weights:  92%|█████████▏| 218/237 [00:49<00:02,  7.09it/s]Loading weights:  93%|█████████▎| 220/237 [00:49<00:02,  6.09it/s]Loading weights:  93%|█████████▎| 221/237 [00:50<00:03,  4.89it/s]Loading weights:  94%|█████████▎| 222/237 [00:50<00:03,  4.25it/s]Loading weights:  95%|█████████▍| 224/237 [00:50<00:02,  6.18it/s]Loading weights:  95%|█████████▍| 225/237 [00:50<00:01,  6.60it/s]Loading weights:  95%|█████████▌| 226/237 [00:50<00:01,  6.97it/s]Loading weights:  96%|█████████▌| 227/237 [00:51<00:01,  7.30it/s]Loading weights:  97%|█████████▋| 229/237 [00:51<00:01,  6.22it/s]Loading weights:  97%|█████████▋| 230/237 [00:51<00:01,  4.59it/s]Loading weights:  97%|█████████▋| 231/237 [00:52<00:02,  2.27it/s]Loading weights:  98%|█████████▊| 233/237 [00:53<00:01,  3.54it/s]Loading weights:  99%|█████████▊| 234/237 [00:53<00:00,  4.09it/s]Loading weights:  99%|█████████▉| 235/237 [00:53<00:00,  4.70it/s]Loading weights: 100%|█████████▉| 236/237 [00:53<00:00,  5.19it/s]Loading weights: 100%|██████████| 237/237 [00:53<00:00,  4.44it/s]
+{"event": "generated", "index": 1, "total": 200, "task_id": "2777", "completion_chars": 257, "gen_seconds": 11.633}
+{"event": "generated", "index": 2, "total": 200, "task_id": "2728", "completion_chars": 546, "gen_seconds": 5.723}
+{"event": "generated", "index": 3, "total": 200, "task_id": "2784", "completion_chars": 748, "gen_seconds": 5.642}
+{"event": "generated", "index": 4, "total": 200, "task_id": "abc301_b", "completion_chars": 1, "gen_seconds": 5.787}
+{"event": "generated", "index": 5, "total": 200, "task_id": "abc301_d", "completion_chars": 257, "gen_seconds": 5.62}
+{"event": "generated", "index": 6, "total": 200, "task_id": "abc301_f", "completion_chars": 257, "gen_seconds": 5.612}
+{"event": "generated", "index": 7, "total": 200, "task_id": "2791", "completion_chars": 783, "gen_seconds": 5.706}
+{"event": "generated", "index": 8, "total": 200, "task_id": "2792", "completion_chars": 7, "gen_seconds": 5.568}
+{"event": "generated", "index": 9, "total": 200, "task_id": "abc302_c", "completion_chars": 379, "gen_seconds": 5.562}
+{"event": "generated", "index": 10, "total": 200, "task_id": "abc302_f", "completion_chars": 256, "gen_seconds": 6.816}
+{"event": "generated", "index": 11, "total": 200, "task_id": "2816", "completion_chars": 556, "gen_seconds": 6.418}
+{"event": "generated", "index": 12, "total": 200, "task_id": "2754", "completion_chars": 257, "gen_seconds": 6.465}
+{"event": "generated", "index": 13, "total": 200, "task_id": "abc303_a", "completion_chars": 266, "gen_seconds": 6.222}
+{"event": "generated", "index": 14, "total": 200, "task_id": "abc303_c", "completion_chars": 256, "gen_seconds": 6.574}
+{"event": "generated", "index": 15, "total": 200, "task_id": "2817", "completion_chars": 288, "gen_seconds": 6.113}
+{"event": "generated", "index": 16, "total": 200, "task_id": "2819", "completion_chars": 257, "gen_seconds": 6.214}
+{"event": "generated", "index": 17, "total": 200, "task_id": "abc304_a", "completion_chars": 256, "gen_seconds": 6.598}
+{"event": "generated", "index": 18, "total": 200, "task_id": "abc304_c", "completion_chars": 256, "gen_seconds": 5.947}
+{"event": "generated", "index": 19, "total": 200, "task_id": "abc304_e", "completion_chars": 254, "gen_seconds": 5.859}
+{"event": "generated", "index": 20, "total": 200, "task_id": "2757", "completion_chars": 257, "gen_seconds": 5.732}
+{"event": "generated", "index": 21, "total": 200, "task_id": "2825", "completion_chars": 3, "gen_seconds": 6.09}
+{"event": "generated", "index": 22, "total": 200, "task_id": "abc305_a", "completion_chars": 1, "gen_seconds": 5.913}
+{"event": "generated", "index": 23, "total": 200, "task_id": "abc305_c", "completion_chars": 257, "gen_seconds": 6.087}
+{"event": "generated", "index": 24, "total": 200, "task_id": "abc305_e", "completion_chars": 256, "gen_seconds": 6.297}
+{"event": "generated", "index": 25, "total": 200, "task_id": "2810", "completion_chars": 257, "gen_seconds": 5.701}
+{"event": "generated", "index": 26, "total": 200, "task_id": "abc306_a", "completion_chars": 257, "gen_seconds": 5.558}
+{"event": "generated", "index": 27, "total": 200, "task_id": "abc306_d", "completion_chars": 256, "gen_seconds": 5.974}
+{"event": "generated", "index": 28, "total": 200, "task_id": "2808", "completion_chars": 423, "gen_seconds": 5.668}
+{"event": "generated", "index": 29, "total": 200, "task_id": "2845", "completion_chars": 3, "gen_seconds": 5.629}
+{"event": "generated", "index": 30, "total": 200, "task_id": "2857", "completion_chars": 256, "gen_seconds": 5.855}
+{"event": "generated", "index": 31, "total": 200, "task_id": "2833", "completion_chars": 272, "gen_seconds": 5.968}
+{"event": "generated", "index": 32, "total": 200, "task_id": "2854", "completion_chars": 533, "gen_seconds": 5.973}
+{"event": "generated", "index": 33, "total": 200, "task_id": "abc307_a", "completion_chars": 257, "gen_seconds": 5.699}
+{"event": "generated", "index": 34, "total": 200, "task_id": "abc307_d", "completion_chars": 267, "gen_seconds": 5.583}
+{"event": "generated", "index": 35, "total": 200, "task_id": "abc307_e", "completion_chars": 424, "gen_seconds": 5.576}
+{"event": "generated", "index": 36, "total": 200, "task_id": "2831", "completion_chars": 3, "gen_seconds": 5.832}
+{"event": "generated", "index": 37, "total": 200, "task_id": "2867", "completion_chars": 15, "gen_seconds": 5.682}
+{"event": "generated", "index": 38, "total": 200, "task_id": "abc308_a", "completion_chars": 1, "gen_seconds": 5.635}
+{"event": "generated", "index": 39, "total": 200, "task_id": "abc308_d", "completion_chars": 1, "gen_seconds": 5.739}
+{"event": "generated", "index": 40, "total": 200, "task_id": "abc308_f", "completion_chars": 256, "gen_seconds": 5.7}
+{"event": "generated", "index": 41, "total": 200, "task_id": "2873", "completion_chars": 251, "gen_seconds": 5.738}
+{"event": "generated", "index": 42, "total": 200, "task_id": "2870", "completion_chars": 257, "gen_seconds": 5.681}
+{"event": "generated", "index": 43, "total": 200, "task_id": "2883", "completion_chars": 257, "gen_seconds": 5.623}
+{"event": "generated", "index": 44, "total": 200, "task_id": "abc309_a", "completion_chars": 257, "gen_seconds": 5.577}
+{"event": "generated", "index": 45, "total": 200, "task_id": "abc309_d", "completion_chars": 255, "gen_seconds": 5.787}
+{"event": "generated", "index": 46, "total": 200, "task_id": "2869", "completion_chars": 278, "gen_seconds": 5.667}
+{"event": "generated", "index": 47, "total": 200, "task_id": "abc310_a", "completion_chars": 256, "gen_seconds": 5.667}
+{"event": "generated", "index": 48, "total": 200, "task_id": "abc310_d", "completion_chars": 255, "gen_seconds": 5.714}
+{"event": "generated", "index": 49, "total": 200, "task_id": "abc310_e", "completion_chars": 1, "gen_seconds": 5.841}
+{"event": "generated", "index": 50, "total": 200, "task_id": "2844", "completion_chars": 655, "gen_seconds": 5.733}
+{"event": "generated", "index": 51, "total": 200, "task_id": "2884", "completion_chars": 735, "gen_seconds": 5.692}
+{"event": "generated", "index": 52, "total": 200, "task_id": "2888", "completion_chars": 257, "gen_seconds": 5.783}
+{"event": "generated", "index": 53, "total": 200, "task_id": "2882", "completion_chars": 257, "gen_seconds": 5.738}
+{"event": "generated", "index": 54, "total": 200, "task_id": "2893", "completion_chars": 3, "gen_seconds": 5.664}
+{"event": "generated", "index": 55, "total": 200, "task_id": "abc311_a", "completion_chars": 256, "gen_seconds": 5.686}
+{"event": "generated", "index": 56, "total": 200, "task_id": "abc311_d", "completion_chars": 2, "gen_seconds": 5.939}
+{"event": "generated", "index": 57, "total": 200, "task_id": "abc311_e", "completion_chars": 257, "gen_seconds": 5.84}
+{"event": "generated", "index": 58, "total": 200, "task_id": "2881", "completion_chars": 2, "gen_seconds": 5.769}
+{"event": "generated", "index": 59, "total": 200, "task_id": "abc312_a", "completion_chars": 557, "gen_seconds": 5.651}
+{"event": "generated", "index": 60, "total": 200, "task_id": "abc312_d", "completion_chars": 1, "gen_seconds": 5.752}
+{"event": "generated", "index": 61, "total": 200, "task_id": "abc312_f", "completion_chars": 546, "gen_seconds": 5.835}
+{"event": "generated", "index": 62, "total": 200, "task_id": "2856", "completion_chars": 3, "gen_seconds": 5.71}
+{"event": "generated", "index": 63, "total": 200, "task_id": "2921", "completion_chars": 257, "gen_seconds": 5.656}
+{"event": "generated", "index": 64, "total": 200, "task_id": "2920", "completion_chars": 256, "gen_seconds": 5.813}
+{"event": "generated", "index": 65, "total": 200, "task_id": "2955", "completion_chars": 257, "gen_seconds": 5.737}
+{"event": "generated", "index": 66, "total": 200, "task_id": "abc313_a", "completion_chars": 763, "gen_seconds": 5.698}
+{"event": "generated", "index": 67, "total": 200, "task_id": "abc313_c", "completion_chars": 257, "gen_seconds": 5.751}
+{"event": "generated", "index": 68, "total": 200, "task_id": "abc314_b", "completion_chars": 254, "gen_seconds": 5.912}
+{"event": "generated", "index": 69, "total": 200, "task_id": "abc314_d", "completion_chars": 1, "gen_seconds": 5.855}
+{"event": "generated", "index": 70, "total": 200, "task_id": "abc314_f", "completion_chars": 257, "gen_seconds": 6.352}
+{"event": "generated", "index": 71, "total": 200, "task_id": "2902", "completion_chars": 257, "gen_seconds": 5.854}
+{"event": "generated", "index": 72, "total": 200, "task_id": "3000", "completion_chars": 265, "gen_seconds": 6.66}
+{"event": "generated", "index": 73, "total": 200, "task_id": "3017", "completion_chars": 559, "gen_seconds": 7.547}
+{"event": "generated", "index": 74, "total": 200, "task_id": "abc315_b", "completion_chars": 673, "gen_seconds": 6.363}
+{"event": "generated", "index": 75, "total": 200, "task_id": "abc315_d", "completion_chars": 810, "gen_seconds": 7.198}
+{"event": "generated", "index": 76, "total": 200, "task_id": "abc315_f", "completion_chars": 257, "gen_seconds": 6.848}
+{"event": "generated", "index": 77, "total": 200, "task_id": "2811", "completion_chars": 479, "gen_seconds": 6.308}
+{"event": "generated", "index": 78, "total": 200, "task_id": "2977", "completion_chars": 257, "gen_seconds": 7.022}
+{"event": "generated", "index": 79, "total": 200, "task_id": "2979", "completion_chars": 257, "gen_seconds": 6.755}
+{"event": "generated", "index": 80, "total": 200, "task_id": "1873_B", "completion_chars": 256, "gen_seconds": 6.408}
+{"event": "generated", "index": 81, "total": 200, "task_id": "3032", "completion_chars": 257, "gen_seconds": 6.428}
+{"event": "generated", "index": 82, "total": 200, "task_id": "2999", "completion_chars": 633, "gen_seconds": 5.782}
+{"event": "generated", "index": 83, "total": 200, "task_id": "abc318_b", "completion_chars": 255, "gen_seconds": 5.777}
+{"event": "generated", "index": 84, "total": 200, "task_id": "abc318_d", "completion_chars": 255, "gen_seconds": 6.041}
+{"event": "generated", "index": 85, "total": 200, "task_id": "2915", "completion_chars": 543, "gen_seconds": 5.883}
+{"event": "generated", "index": 86, "total": 200, "task_id": "abc319_d", "completion_chars": 256, "gen_seconds": 5.786}
+{"event": "generated", "index": 87, "total": 200, "task_id": "abc319_e", "completion_chars": 1, "gen_seconds": 5.779}
+{"event": "generated", "index": 88, "total": 200, "task_id": "3034", "completion_chars": 3, "gen_seconds": 5.559}
+{"event": "generated", "index": 89, "total": 200, "task_id": "2953", "completion_chars": 256, "gen_seconds": 5.676}
+{"event": "generated", "index": 90, "total": 200, "task_id": "abc320_a", "completion_chars": 756, "gen_seconds": 5.633}
+{"event": "generated", "index": 91, "total": 200, "task_id": "abc320_d", "completion_chars": 261, "gen_seconds": 5.677}
+{"event": "generated", "index": 92, "total": 200, "task_id": "3047", "completion_chars": 470, "gen_seconds": 5.765}
+{"event": "generated", "index": 93, "total": 200, "task_id": "3093", "completion_chars": 582, "gen_seconds": 5.563}
+{"event": "generated", "index": 94, "total": 200, "task_id": "3104", "completion_chars": 1118, "gen_seconds": 5.594}
+{"event": "generated", "index": 95, "total": 200, "task_id": "1883_B", "completion_chars": 718, "gen_seconds": 5.72}
+{"event": "generated", "index": 96, "total": 200, "task_id": "abc321_a", "completion_chars": 300, "gen_seconds": 5.587}
+{"event": "generated", "index": 97, "total": 200, "task_id": "abc321_d", "completion_chars": 255, "gen_seconds": 5.689}
+{"event": "generated", "index": 98, "total": 200, "task_id": "abc321_e", "completion_chars": 257, "gen_seconds": 5.849}
+{"event": "generated", "index": 99, "total": 200, "task_id": "3044", "completion_chars": 30, "gen_seconds": 5.553}
+{"event": "generated", "index": 100, "total": 200, "task_id": "3080", "completion_chars": 669, "gen_seconds": 5.59}
+{"event": "generated", "index": 101, "total": 200, "task_id": "abc322_a", "completion_chars": 256, "gen_seconds": 5.538}
+{"event": "generated", "index": 102, "total": 200, "task_id": "abc322_d", "completion_chars": 505, "gen_seconds": 6.069}
+{"event": "generated", "index": 103, "total": 200, "task_id": "3141", "completion_chars": 257, "gen_seconds": 5.703}
+{"event": "generated", "index": 104, "total": 200, "task_id": "abc323_a", "completion_chars": 1, "gen_seconds": 5.652}
+{"event": "generated", "index": 105, "total": 200, "task_id": "abc323_d", "completion_chars": 256, "gen_seconds": 5.726}
+{"event": "generated", "index": 106, "total": 200, "task_id": "3151", "completion_chars": 258, "gen_seconds": 5.773}
+{"event": "generated", "index": 107, "total": 200, "task_id": "3172", "completion_chars": 852, "gen_seconds": 5.703}
+{"event": "generated", "index": 108, "total": 200, "task_id": "3091", "completion_chars": 341, "gen_seconds": 5.716}
+{"event": "generated", "index": 109, "total": 200, "task_id": "abc324_a", "completion_chars": 276, "gen_seconds": 5.614}
+{"event": "generated", "index": 110, "total": 200, "task_id": "abc324_c", "completion_chars": 256, "gen_seconds": 5.778}
+{"event": "generated", "index": 111, "total": 200, "task_id": "abc324_d", "completion_chars": 255, "gen_seconds": 5.672}
+{"event": "generated", "index": 112, "total": 200, "task_id": "abc324_f", "completion_chars": 256, "gen_seconds": 5.828}
+{"event": "generated", "index": 113, "total": 200, "task_id": "3150", "completion_chars": 257, "gen_seconds": 5.706}
+{"event": "generated", "index": 114, "total": 200, "task_id": "1899_A", "completion_chars": 876, "gen_seconds": 5.605}
+{"event": "generated", "index": 115, "total": 200, "task_id": "1899_C", "completion_chars": 257, "gen_seconds": 5.7}
+{"event": "generated", "index": 116, "total": 200, "task_id": "abc325_a", "completion_chars": 9, "gen_seconds": 5.604}
+{"event": "generated", "index": 117, "total": 200, "task_id": "abc325_c", "completion_chars": 531, "gen_seconds": 5.739}
+{"event": "generated", "index": 118, "total": 200, "task_id": "abc325_e", "completion_chars": 257, "gen_seconds": 5.814}
+{"event": "generated", "index": 119, "total": 200, "task_id": "3176", "completion_chars": 257, "gen_seconds": 5.704}
+{"event": "generated", "index": 120, "total": 200, "task_id": "3106", "completion_chars": 256, "gen_seconds": 5.664}
+{"event": "generated", "index": 121, "total": 200, "task_id": "abc326_b", "completion_chars": 257, "gen_seconds": 5.639}
+{"event": "generated", "index": 122, "total": 200, "task_id": "abc326_d", "completion_chars": 704, "gen_seconds": 5.791}
+{"event": "generated", "index": 123, "total": 200, "task_id": "3171", "completion_chars": 257, "gen_seconds": 5.657}
+{"event": "generated", "index": 124, "total": 200, "task_id": "3183", "completion_chars": 257, "gen_seconds": 5.74}
+{"event": "generated", "index": 125, "total": 200, "task_id": "abc327_b", "completion_chars": 257, "gen_seconds": 5.58}
+{"event": "generated", "index": 126, "total": 200, "task_id": "abc327_c", "completion_chars": 1, "gen_seconds": 5.882}
+{"event": "generated", "index": 127, "total": 200, "task_id": "abc327_e", "completion_chars": 267, "gen_seconds": 5.687}
+{"event": "generated", "index": 128, "total": 200, "task_id": "3184", "completion_chars": 257, "gen_seconds": 5.719}
+{"event": "generated", "index": 129, "total": 200, "task_id": "3199", "completion_chars": 256, "gen_seconds": 5.597}
+{"event": "generated", "index": 130, "total": 200, "task_id": "abc328_b", "completion_chars": 256, "gen_seconds": 5.677}
+{"event": "generated", "index": 131, "total": 200, "task_id": "abc328_c", "completion_chars": 256, "gen_seconds": 5.789}
+{"event": "generated", "index": 132, "total": 200, "task_id": "abc328_e", "completion_chars": 257, "gen_seconds": 6.891}
+{"event": "generated", "index": 133, "total": 200, "task_id": "3190", "completion_chars": 257, "gen_seconds": 6.709}
+{"event": "generated", "index": 134, "total": 200, "task_id": "3195", "completion_chars": 257, "gen_seconds": 6.496}
+{"event": "generated", "index": 135, "total": 200, "task_id": "3207", "completion_chars": 257, "gen_seconds": 7.237}
+{"event": "generated", "index": 136, "total": 200, "task_id": "abc329_b", "completion_chars": 576, "gen_seconds": 7.144}
+{"event": "generated", "index": 137, "total": 200, "task_id": "abc329_d", "completion_chars": 253, "gen_seconds": 6.839}
+{"event": "generated", "index": 138, "total": 200, "task_id": "abc329_f", "completion_chars": 255, "gen_seconds": 6.308}
+{"event": "generated", "index": 139, "total": 200, "task_id": "3210", "completion_chars": 458, "gen_seconds": 7.053}
+{"event": "generated", "index": 140, "total": 200, "task_id": "abc330_b", "completion_chars": 256, "gen_seconds": 7.076}
+{"event": "generated", "index": 141, "total": 200, "task_id": "abc330_d", "completion_chars": 257, "gen_seconds": 6.476}
+{"event": "generated", "index": 142, "total": 200, "task_id": "3221", "completion_chars": 957, "gen_seconds": 5.823}
+{"event": "generated", "index": 143, "total": 200, "task_id": "3223", "completion_chars": 563, "gen_seconds": 5.778}
+{"event": "generated", "index": 144, "total": 200, "task_id": "3231", "completion_chars": 257, "gen_seconds": 5.768}
+{"event": "generated", "index": 145, "total": 200, "task_id": "abc331_b", "completion_chars": 765, "gen_seconds": 5.704}
+{"event": "generated", "index": 146, "total": 200, "task_id": "abc331_d", "completion_chars": 257, "gen_seconds": 5.937}
+{"event": "generated", "index": 147, "total": 200, "task_id": "3212", "completion_chars": 257, "gen_seconds": 5.572}
+{"event": "generated", "index": 148, "total": 200, "task_id": "3220", "completion_chars": 257, "gen_seconds": 5.712}
+{"event": "generated", "index": 149, "total": 200, "task_id": "3225", "completion_chars": 764, "gen_seconds": 5.623}
+{"event": "generated", "index": 150, "total": 200, "task_id": "3234", "completion_chars": 32, "gen_seconds": 5.723}
+{"event": "generated", "index": 151, "total": 200, "task_id": "abc332_b", "completion_chars": 257, "gen_seconds": 5.713}
+{"event": "generated", "index": 152, "total": 200, "task_id": "abc332_c", "completion_chars": 302, "gen_seconds": 5.724}
+{"event": "generated", "index": 153, "total": 200, "task_id": "abc332_d", "completion_chars": 257, "gen_seconds": 6.176}
+{"event": "generated", "index": 154, "total": 200, "task_id": "abc333_b", "completion_chars": 382, "gen_seconds": 5.603}
+{"event": "generated", "index": 155, "total": 200, "task_id": "abc333_d", "completion_chars": 256, "gen_seconds": 5.68}
+{"event": "generated", "index": 156, "total": 200, "task_id": "3226", "completion_chars": 581, "gen_seconds": 5.576}
+{"event": "generated", "index": 157, "total": 200, "task_id": "3235", "completion_chars": 600, "gen_seconds": 5.723}
+{"event": "generated", "index": 158, "total": 200, "task_id": "abc334_c", "completion_chars": 766, "gen_seconds": 5.624}
+{"event": "generated", "index": 159, "total": 200, "task_id": "abc334_e", "completion_chars": 257, "gen_seconds": 5.76}
+{"event": "generated", "index": 160, "total": 200, "task_id": "3203", "completion_chars": 3, "gen_seconds": 5.85}
+{"event": "generated", "index": 161, "total": 200, "task_id": "3246", "completion_chars": 23, "gen_seconds": 5.596}
+{"event": "generated", "index": 162, "total": 200, "task_id": "3267", "completion_chars": 576, "gen_seconds": 5.56}
+{"event": "generated", "index": 163, "total": 200, "task_id": "3239", "completion_chars": 3, "gen_seconds": 5.684}
+{"event": "generated", "index": 164, "total": 200, "task_id": "3243", "completion_chars": 257, "gen_seconds": 5.696}
+{"event": "generated", "index": 165, "total": 200, "task_id": "3251", "completion_chars": 3, "gen_seconds": 5.671}
+{"event": "generated", "index": 166, "total": 200, "task_id": "abc335_a", "completion_chars": 268, "gen_seconds": 5.616}
+{"event": "generated", "index": 167, "total": 200, "task_id": "abc335_c", "completion_chars": 256, "gen_seconds": 5.672}
+{"event": "generated", "index": 168, "total": 200, "task_id": "3240", "completion_chars": 257, "gen_seconds": 5.76}
+{"event": "generated", "index": 169, "total": 200, "task_id": "abc336_a", "completion_chars": 688, "gen_seconds": 5.604}
+{"event": "generated", "index": 170, "total": 200, "task_id": "abc336_c", "completion_chars": 571, "gen_seconds": 5.612}
+{"event": "generated", "index": 171, "total": 200, "task_id": "3244", "completion_chars": 256, "gen_seconds": 5.821}
+{"event": "generated", "index": 172, "total": 200, "task_id": "3263", "completion_chars": 333, "gen_seconds": 5.687}
+{"event": "generated", "index": 173, "total": 200, "task_id": "abc337_a", "completion_chars": 255, "gen_seconds": 5.679}
+{"event": "generated", "index": 174, "total": 200, "task_id": "abc337_c", "completion_chars": 255, "gen_seconds": 5.793}
+{"event": "generated", "index": 175, "total": 200, "task_id": "3279", "completion_chars": 480, "gen_seconds": 5.657}
+{"event": "generated", "index": 176, "total": 200, "task_id": "abc338_a", "completion_chars": 956, "gen_seconds": 5.626}
+{"event": "generated", "index": 177, "total": 200, "task_id": "abc338_c", "completion_chars": 257, "gen_seconds": 5.862}
+{"event": "generated", "index": 178, "total": 200, "task_id": "abc338_d", "completion_chars": 256, "gen_seconds": 5.882}
+{"event": "generated", "index": 179, "total": 200, "task_id": "abc338_f", "completion_chars": 542, "gen_seconds": 5.808}
+{"event": "generated", "index": 180, "total": 200, "task_id": "3265", "completion_chars": 257, "gen_seconds": 5.684}
+{"event": "generated", "index": 181, "total": 200, "task_id": "3311", "completion_chars": 733, "gen_seconds": 5.766}
+{"event": "generated", "index": 182, "total": 200, "task_id": "abc339_a", "completion_chars": 266, "gen_seconds": 5.626}
+{"event": "generated", "index": 183, "total": 200, "task_id": "abc339_c", "completion_chars": 257, "gen_seconds": 5.694}
+{"event": "generated", "index": 184, "total": 200, "task_id": "3269", "completion_chars": 257, "gen_seconds": 5.731}
+{"event": "generated", "index": 185, "total": 200, "task_id": "abc340_b", "completion_chars": 691, "gen_seconds": 5.672}
+{"event": "generated", "index": 186, "total": 200, "task_id": "abc340_c", "completion_chars": 257, "gen_seconds": 5.74}
+{"event": "generated", "index": 187, "total": 200, "task_id": "abc340_e", "completion_chars": 257, "gen_seconds": 5.692}
+{"event": "generated", "index": 188, "total": 200, "task_id": "3298", "completion_chars": 257, "gen_seconds": 5.653}
+{"event": "generated", "index": 189, "total": 200, "task_id": "3308", "completion_chars": 834, "gen_seconds": 5.595}
+{"event": "generated", "index": 190, "total": 200, "task_id": "3320", "completion_chars": 276, "gen_seconds": 5.661}
+{"event": "generated", "index": 191, "total": 200, "task_id": "abc341_b", "completion_chars": 256, "gen_seconds": 5.734}
+{"event": "generated", "index": 192, "total": 200, "task_id": "abc341_d", "completion_chars": 257, "gen_seconds": 5.684}
+{"event": "generated", "index": 193, "total": 200, "task_id": "abc341_f", "completion_chars": 255, "gen_seconds": 5.82}
+{"event": "generated", "index": 194, "total": 200, "task_id": "3292", "completion_chars": 912, "gen_seconds": 7.708}
+{"event": "generated", "index": 195, "total": 200, "task_id": "abc342_b", "completion_chars": 254, "gen_seconds": 7.221}
+{"event": "generated", "index": 196, "total": 200, "task_id": "abc342_d", "completion_chars": 765, "gen_seconds": 6.78}
+{"event": "generated", "index": 197, "total": 200, "task_id": "3331", "completion_chars": 256, "gen_seconds": 6.95}
+{"event": "generated", "index": 198, "total": 200, "task_id": "abc343_b", "completion_chars": 254, "gen_seconds": 6.773}
+{"event": "generated", "index": 199, "total": 200, "task_id": "abc343_d", "completion_chars": 265, "gen_seconds": 7.467}
+{"event": "generated", "index": 200, "total": 200, "task_id": "abc343_e", "completion_chars": 1, "gen_seconds": 7.073}
+{
+  "status": "success",
+  "model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged",
+  "adapter": "",
+  "split": "data/splits/livecodebench_half/eval.jsonl",
+  "samples": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/livecodebench/samples.jsonl",
+  "generations": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/livecodebench/generations.jsonl",
+  "task_count": 200,
+  "elapsed_seconds": 1245.0557889938354,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "device_map",
+  "load_in_8bit": false,
+  "load_in_4bit": true,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+Loaded 400 problems
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 200, "timeout": 6, "num_process_evaluate": 4}
+Evaluating 200...
+  0%|          | 0/200 [00:00<?, ?it/s]  0%|          | 1/200 [00:00<01:20,  2.49it/s]  2%|▎         | 5/200 [00:00<00:17, 10.86it/s]  4%|▍         | 9/200 [00:00<00:11, 16.62it/s]  6%|▌         | 12/200 [00:00<00:10, 18.09it/s]  8%|▊         | 15/200 [00:01<00:10, 17.69it/s] 10%|▉         | 19/200 [00:01<00:10, 17.53it/s] 11%|█         | 22/200 [00:01<00:09, 18.24it/s] 12%|█▎        | 25/200 [00:01<00:09, 18.69it/s] 14%|█▍        | 28/200 [00:01<00:08, 19.91it/s] 16%|█▌        | 31/200 [00:01<00:07, 22.13it/s] 18%|█▊        | 35/200 [00:01<00:06, 23.64it/s] 19%|█▉        | 38/200 [00:02<00:06, 25.00it/s] 20%|██        | 41/200 [00:02<00:07, 21.68it/s] 22%|██▏       | 44/200 [00:02<00:07, 21.58it/s] 24%|██▍       | 48/200 [00:02<00:06, 22.85it/s] 26%|██▌       | 52/200 [00:02<00:06, 23.17it/s] 28%|██▊       | 55/200 [00:02<00:06, 23.95it/s] 29%|██▉       | 58/200 [00:02<00:05, 24.23it/s] 30%|███       | 61/200 [00:03<00:06, 21.95it/s] 32%|███▏      | 64/200 [00:03<00:06, 22.38it/s] 34%|███▎      | 67/200 [00:03<00:06, 21.80it/s] 35%|███▌      | 70/200 [00:03<00:07, 18.00it/s] 36%|███▋      | 73/200 [00:03<00:07, 18.10it/s] 38%|███▊      | 75/200 [00:03<00:06, 18.33it/s] 40%|███▉      | 79/200 [00:04<00:06, 18.39it/s] 42%|████▏     | 83/200 [00:04<00:05, 20.75it/s] 43%|████▎     | 86/200 [00:04<00:05, 22.65it/s] 44%|████▍     | 89/200 [00:04<00:06, 17.16it/s] 46%|████▌     | 91/200 [00:04<00:06, 16.23it/s] 46%|████▋     | 93/200 [00:04<00:06, 15.45it/s] 48%|████▊     | 95/200 [00:05<00:06, 15.33it/s] 48%|████▊     | 97/200 [00:05<00:07, 14.64it/s]<string>:41: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:43: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:45: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:47: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:49: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:51: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:53: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:55: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:57: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:59: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:61: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:63: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:65: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:67: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:69: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:71: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:73: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<string>:75: SyntaxWarning: "is" with a literal. Did you mean "=="?
+ 50%|█████     | 100/200 [00:05<00:05, 17.81it/s] 52%|█████▏    | 103/200 [00:05<00:05, 18.71it/s] 52%|█████▎    | 105/200 [00:05<00:05, 17.97it/s] 55%|█████▍    | 109/200 [00:05<00:04, 19.06it/s] 56%|█████▌    | 112/200 [00:05<00:04, 18.35it/s] 58%|█████▊    | 116/200 [00:06<00:03, 21.05it/s] 60%|█████▉    | 119/200 [00:06<00:04, 18.78it/s] 60%|██████    | 121/200 [00:06<00:04, 17.86it/s] 62%|██████▎   | 125/200 [00:06<00:03, 19.68it/s] 64%|██████▍   | 128/200 [00:06<00:03, 21.23it/s] 66%|██████▌   | 131/200 [00:06<00:03, 19.49it/s] 67%|██████▋   | 134/200 [00:07<00:03, 19.77it/s] 68%|██████▊   | 137/200 [00:07<00:02, 21.00it/s] 70%|███████   | 140/200 [00:07<00:03, 17.29it/s] 72%|███████▏  | 143/200 [00:07<00:03, 18.61it/s] 73%|███████▎  | 146/200 [00:07<00:03, 16.39it/s]<string>:55: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:56: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:57: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:58: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:59: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:60: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:61: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:62: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:63: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:64: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:65: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:66: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:67: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:68: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:69: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:70: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:71: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:72: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:73: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:74: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:75: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:76: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:77: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:78: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:79: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:80: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:81: SyntaxWarning: 'float' object is not callable; perhaps you missed a comma?
+<string>:82: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:83: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:84: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:85: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:86: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:87: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:88: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:89: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:90: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:91: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:92: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:93: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:94: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:95: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:96: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:97: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:98: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:99: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+<string>:100: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+ 74%|███████▍  | 149/200 [00:07<00:02, 18.50it/s] 76%|███████▋  | 153/200 [00:08<00:02, 20.97it/s] 78%|███████▊  | 156/200 [00:08<00:02, 21.33it/s] 80%|███████▉  | 159/200 [00:08<00:01, 20.83it/s] 82%|████████▏ | 163/200 [00:08<00:01, 22.59it/s] 84%|████████▎ | 167/200 [00:08<00:01, 22.55it/s] 86%|████████▌ | 171/200 [00:08<00:01, 22.89it/s] 88%|████████▊ | 175/200 [00:08<00:01, 24.49it/s] 89%|████████▉ | 178/200 [00:09<00:00, 24.28it/s] 91%|█████████ | 182/200 [00:09<00:00, 25.57it/s] 92%|█████████▎| 185/200 [00:09<00:00, 24.36it/s] 94%|█████████▍| 188/200 [00:09<00:00, 21.71it/s] 96%|█████████▌| 191/200 [00:09<00:00, 19.22it/s] 98%|█████████▊| 195/200 [00:09<00:00, 21.33it/s]100%|█████████▉| 199/200 [00:10<00:00, 20.60it/s]100%|██████████| 200/200 [00:10<00:00, 19.54it/s]
+{"event": "scored", "index": 1, "total": 200, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 200, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 200, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 200, "task_id": "abc301_b", "pass": false}
+{"event": "scored", "index": 5, "total": 200, "task_id": "abc301_d", "pass": false}
+{"event": "scored", "index": 6, "total": 200, "task_id": "abc301_f", "pass": false}
+{"event": "scored", "index": 7, "total": 200, "task_id": "2791", "pass": false}
+{"event": "scored", "index": 8, "total": 200, "task_id": "2792", "pass": false}
+{"event": "scored", "index": 9, "total": 200, "task_id": "abc302_c", "pass": false}
+{"event": "scored", "index": 10, "total": 200, "task_id": "abc302_f", "pass": false}
+{"event": "scored", "index": 11, "total": 200, "task_id": "2816", "pass": false}
+{"event": "scored", "index": 12, "total": 200, "task_id": "2754", "pass": false}
+{"event": "scored", "index": 13, "total": 200, "task_id": "abc303_a", "pass": false}
+{"event": "scored", "index": 14, "total": 200, "task_id": "abc303_c", "pass": false}
+{"event": "scored", "index": 15, "total": 200, "task_id": "2817", "pass": false}
+{"event": "scored", "index": 16, "total": 200, "task_id": "2819", "pass": false}
+{"event": "scored", "index": 17, "total": 200, "task_id": "abc304_a", "pass": false}
+{"event": "scored", "index": 18, "total": 200, "task_id": "abc304_c", "pass": false}
+{"event": "scored", "index": 19, "total": 200, "task_id": "abc304_e", "pass": false}
+{"event": "scored", "index": 20, "total": 200, "task_id": "2757", "pass": false}
+{"event": "scored", "index": 21, "total": 200, "task_id": "2825", "pass": false}
+{"event": "scored", "index": 22, "total": 200, "task_id": "abc305_a", "pass": false}
+{"event": "scored", "index": 23, "total": 200, "task_id": "abc305_c", "pass": false}
+{"event": "scored", "index": 24, "total": 200, "task_id": "abc305_e", "pass": false}
+{"event": "scored", "index": 25, "total": 200, "task_id": "2810", "pass": false}
+{"event": "scored", "index": 26, "total": 200, "task_id": "abc306_a", "pass": false}
+{"event": "scored", "index": 27, "total": 200, "task_id": "abc306_d", "pass": false}
+{"event": "scored", "index": 28, "total": 200, "task_id": "2808", "pass": false}
+{"event": "scored", "index": 29, "total": 200, "task_id": "2845", "pass": false}
+{"event": "scored", "index": 30, "total": 200, "task_id": "2857", "pass": false}
+{"event": "scored", "index": 31, "total": 200, "task_id": "2833", "pass": false}
+{"event": "scored", "index": 32, "total": 200, "task_id": "2854", "pass": false}
+{"event": "scored", "index": 33, "total": 200, "task_id": "abc307_a", "pass": false}
+{"event": "scored", "index": 34, "total": 200, "task_id": "abc307_d", "pass": false}
+{"event": "scored", "index": 35, "total": 200, "task_id": "abc307_e", "pass": false}
+{"event": "scored", "index": 36, "total": 200, "task_id": "2831", "pass": false}
+{"event": "scored", "index": 37, "total": 200, "task_id": "2867", "pass": false}
+{"event": "scored", "index": 38, "total": 200, "task_id": "abc308_a", "pass": false}
+{"event": "scored", "index": 39, "total": 200, "task_id": "abc308_d", "pass": false}
+{"event": "scored", "index": 40, "total": 200, "task_id": "abc308_f", "pass": false}
+{"event": "scored", "index": 41, "total": 200, "task_id": "2873", "pass": false}
+{"event": "scored", "index": 42, "total": 200, "task_id": "2870", "pass": false}
+{"event": "scored", "index": 43, "total": 200, "task_id": "2883", "pass": false}
+{"event": "scored", "index": 44, "total": 200, "task_id": "abc309_a", "pass": false}
+{"event": "scored", "index": 45, "total": 200, "task_id": "abc309_d", "pass": false}
+{"event": "scored", "index": 46, "total": 200, "task_id": "2869", "pass": false}
+{"event": "scored", "index": 47, "total": 200, "task_id": "abc310_a", "pass": false}
+{"event": "scored", "index": 48, "total": 200, "task_id": "abc310_d", "pass": false}
+{"event": "scored", "index": 49, "total": 200, "task_id": "abc310_e", "pass": false}
+{"event": "scored", "index": 50, "total": 200, "task_id": "2844", "pass": false}
+{"event": "scored", "index": 51, "total": 200, "task_id": "2884", "pass": false}
+{"event": "scored", "index": 52, "total": 200, "task_id": "2888", "pass": false}
+{"event": "scored", "index": 53, "total": 200, "task_id": "2882", "pass": false}
+{"event": "scored", "index": 54, "total": 200, "task_id": "2893", "pass": false}
+{"event": "scored", "index": 55, "total": 200, "task_id": "abc311_a", "pass": false}
+{"event": "scored", "index": 56, "total": 200, "task_id": "abc311_d", "pass": false}
+{"event": "scored", "index": 57, "total": 200, "task_id": "abc311_e", "pass": false}
+{"event": "scored", "index": 58, "total": 200, "task_id": "2881", "pass": false}
+{"event": "scored", "index": 59, "total": 200, "task_id": "abc312_a", "pass": false}
+{"event": "scored", "index": 60, "total": 200, "task_id": "abc312_d", "pass": false}
+{"event": "scored", "index": 61, "total": 200, "task_id": "abc312_f", "pass": false}
+{"event": "scored", "index": 62, "total": 200, "task_id": "2856", "pass": false}
+{"event": "scored", "index": 63, "total": 200, "task_id": "2921", "pass": false}
+{"event": "scored", "index": 64, "total": 200, "task_id": "2920", "pass": false}
+{"event": "scored", "index": 65, "total": 200, "task_id": "2955", "pass": false}
+{"event": "scored", "index": 66, "total": 200, "task_id": "abc313_a", "pass": false}
+{"event": "scored", "index": 67, "total": 200, "task_id": "abc313_c", "pass": false}
+{"event": "scored", "index": 68, "total": 200, "task_id": "abc314_b", "pass": false}
+{"event": "scored", "index": 69, "total": 200, "task_id": "abc314_d", "pass": false}
+{"event": "scored", "index": 70, "total": 200, "task_id": "abc314_f", "pass": false}
+{"event": "scored", "index": 71, "total": 200, "task_id": "2902", "pass": false}
+{"event": "scored", "index": 72, "total": 200, "task_id": "3000", "pass": false}
+{"event": "scored", "index": 73, "total": 200, "task_id": "3017", "pass": false}
+{"event": "scored", "index": 74, "total": 200, "task_id": "abc315_b", "pass": false}
+{"event": "scored", "index": 75, "total": 200, "task_id": "abc315_d", "pass": false}
+{"event": "scored", "index": 76, "total": 200, "task_id": "abc315_f", "pass": false}
+{"event": "scored", "index": 77, "total": 200, "task_id": "2811", "pass": false}
+{"event": "scored", "index": 78, "total": 200, "task_id": "2977", "pass": false}
+{"event": "scored", "index": 79, "total": 200, "task_id": "2979", "pass": false}
+{"event": "scored", "index": 80, "total": 200, "task_id": "1873_B", "pass": false}
+{"event": "scored", "index": 81, "total": 200, "task_id": "3032", "pass": false}
+{"event": "scored", "index": 82, "total": 200, "task_id": "2999", "pass": false}
+{"event": "scored", "index": 83, "total": 200, "task_id": "abc318_b", "pass": false}
+{"event": "scored", "index": 84, "total": 200, "task_id": "abc318_d", "pass": false}
+{"event": "scored", "index": 85, "total": 200, "task_id": "2915", "pass": false}
+{"event": "scored", "index": 86, "total": 200, "task_id": "abc319_d", "pass": false}
+{"event": "scored", "index": 87, "total": 200, "task_id": "abc319_e", "pass": false}
+{"event": "scored", "index": 88, "total": 200, "task_id": "3034", "pass": false}
+{"event": "scored", "index": 89, "total": 200, "task_id": "2953", "pass": false}
+{"event": "scored", "index": 90, "total": 200, "task_id": "abc320_a", "pass": false}
+{"event": "scored", "index": 91, "total": 200, "task_id": "abc320_d", "pass": false}
+{"event": "scored", "index": 92, "total": 200, "task_id": "3047", "pass": false}
+{"event": "scored", "index": 93, "total": 200, "task_id": "3093", "pass": false}
+{"event": "scored", "index": 94, "total": 200, "task_id": "3104", "pass": false}
+{"event": "scored", "index": 95, "total": 200, "task_id": "1883_B", "pass": false}
+{"event": "scored", "index": 96, "total": 200, "task_id": "abc321_a", "pass": false}
+{"event": "scored", "index": 97, "total": 200, "task_id": "abc321_d", "pass": false}
+{"event": "scored", "index": 98, "total": 200, "task_id": "abc321_e", "pass": false}
+{"event": "scored", "index": 99, "total": 200, "task_id": "3044", "pass": false}
+{"event": "scored", "index": 100, "total": 200, "task_id": "3080", "pass": false}
+{"event": "scored", "index": 101, "total": 200, "task_id": "abc322_a", "pass": false}
+{"event": "scored", "index": 102, "total": 200, "task_id": "abc322_d", "pass": false}
+{"event": "scored", "index": 103, "total": 200, "task_id": "3141", "pass": false}
+{"event": "scored", "index": 104, "total": 200, "task_id": "abc323_a", "pass": false}
+{"event": "scored", "index": 105, "total": 200, "task_id": "abc323_d", "pass": false}
+{"event": "scored", "index": 106, "total": 200, "task_id": "3151", "pass": false}
+{"event": "scored", "index": 107, "total": 200, "task_id": "3172", "pass": false}
+{"event": "scored", "index": 108, "total": 200, "task_id": "3091", "pass": false}
+{"event": "scored", "index": 109, "total": 200, "task_id": "abc324_a", "pass": false}
+{"event": "scored", "index": 110, "total": 200, "task_id": "abc324_c", "pass": false}
+{"event": "scored", "index": 111, "total": 200, "task_id": "abc324_d", "pass": false}
+{"event": "scored", "index": 112, "total": 200, "task_id": "abc324_f", "pass": false}
+{"event": "scored", "index": 113, "total": 200, "task_id": "3150", "pass": false}
+{"event": "scored", "index": 114, "total": 200, "task_id": "1899_A", "pass": false}
+{"event": "scored", "index": 115, "total": 200, "task_id": "1899_C", "pass": false}
+{"event": "scored", "index": 116, "total": 200, "task_id": "abc325_a", "pass": false}
+{"event": "scored", "index": 117, "total": 200, "task_id": "abc325_c", "pass": false}
+{"event": "scored", "index": 118, "total": 200, "task_id": "abc325_e", "pass": false}
+{"event": "scored", "index": 119, "total": 200, "task_id": "3176", "pass": false}
+{"event": "scored", "index": 120, "total": 200, "task_id": "3106", "pass": false}
+{"event": "scored", "index": 121, "total": 200, "task_id": "abc326_b", "pass": false}
+{"event": "scored", "index": 122, "total": 200, "task_id": "abc326_d", "pass": false}
+{"event": "scored", "index": 123, "total": 200, "task_id": "3171", "pass": false}
+{"event": "scored", "index": 124, "total": 200, "task_id": "3183", "pass": false}
+{"event": "scored", "index": 125, "total": 200, "task_id": "abc327_b", "pass": false}
+{"event": "scored", "index": 126, "total": 200, "task_id": "abc327_c", "pass": false}
+{"event": "scored", "index": 127, "total": 200, "task_id": "abc327_e", "pass": false}
+{"event": "scored", "index": 128, "total": 200, "task_id": "3184", "pass": false}
+{"event": "scored", "index": 129, "total": 200, "task_id": "3199", "pass": false}
+{"event": "scored", "index": 130, "total": 200, "task_id": "abc328_b", "pass": false}
+{"event": "scored", "index": 131, "total": 200, "task_id": "abc328_c", "pass": false}
+{"event": "scored", "index": 132, "total": 200, "task_id": "abc328_e", "pass": false}
+{"event": "scored", "index": 133, "total": 200, "task_id": "3190", "pass": false}
+{"event": "scored", "index": 134, "total": 200, "task_id": "3195", "pass": false}
+{"event": "scored", "index": 135, "total": 200, "task_id": "3207", "pass": false}
+{"event": "scored", "index": 136, "total": 200, "task_id": "abc329_b", "pass": false}
+{"event": "scored", "index": 137, "total": 200, "task_id": "abc329_d", "pass": false}
+{"event": "scored", "index": 138, "total": 200, "task_id": "abc329_f", "pass": false}
+{"event": "scored", "index": 139, "total": 200, "task_id": "3210", "pass": false}
+{"event": "scored", "index": 140, "total": 200, "task_id": "abc330_b", "pass": false}
+{"event": "scored", "index": 141, "total": 200, "task_id": "abc330_d", "pass": false}
+{"event": "scored", "index": 142, "total": 200, "task_id": "3221", "pass": false}
+{"event": "scored", "index": 143, "total": 200, "task_id": "3223", "pass": false}
+{"event": "scored", "index": 144, "total": 200, "task_id": "3231", "pass": false}
+{"event": "scored", "index": 145, "total": 200, "task_id": "abc331_b", "pass": false}
+{"event": "scored", "index": 146, "total": 200, "task_id": "abc331_d", "pass": false}
+{"event": "scored", "index": 147, "total": 200, "task_id": "3212", "pass": false}
+{"event": "scored", "index": 148, "total": 200, "task_id": "3220", "pass": false}
+{"event": "scored", "index": 149, "total": 200, "task_id": "3225", "pass": false}
+{"event": "scored", "index": 150, "total": 200, "task_id": "3234", "pass": false}
+{"event": "scored", "index": 151, "total": 200, "task_id": "abc332_b", "pass": false}
+{"event": "scored", "index": 152, "total": 200, "task_id": "abc332_c", "pass": false}
+{"event": "scored", "index": 153, "total": 200, "task_id": "abc332_d", "pass": false}
+{"event": "scored", "index": 154, "total": 200, "task_id": "abc333_b", "pass": false}
+{"event": "scored", "index": 155, "total": 200, "task_id": "abc333_d", "pass": false}
+{"event": "scored", "index": 156, "total": 200, "task_id": "3226", "pass": false}
+{"event": "scored", "index": 157, "total": 200, "task_id": "3235", "pass": false}
+{"event": "scored", "index": 158, "total": 200, "task_id": "abc334_c", "pass": false}
+{"event": "scored", "index": 159, "total": 200, "task_id": "abc334_e", "pass": false}
+{"event": "scored", "index": 160, "total": 200, "task_id": "3203", "pass": false}
+{"event": "scored", "index": 161, "total": 200, "task_id": "3246", "pass": false}
+{"event": "scored", "index": 162, "total": 200, "task_id": "3267", "pass": false}
+{"event": "scored", "index": 163, "total": 200, "task_id": "3239", "pass": false}
+{"event": "scored", "index": 164, "total": 200, "task_id": "3243", "pass": false}
+{"event": "scored", "index": 165, "total": 200, "task_id": "3251", "pass": false}
+{"event": "scored", "index": 166, "total": 200, "task_id": "abc335_a", "pass": false}
+{"event": "scored", "index": 167, "total": 200, "task_id": "abc335_c", "pass": false}
+{"event": "scored", "index": 168, "total": 200, "task_id": "3240", "pass": false}
+{"event": "scored", "index": 169, "total": 200, "task_id": "abc336_a", "pass": false}
+{"event": "scored", "index": 170, "total": 200, "task_id": "abc336_c", "pass": false}
+{"event": "scored", "index": 171, "total": 200, "task_id": "3244", "pass": false}
+{"event": "scored", "index": 172, "total": 200, "task_id": "3263", "pass": false}
+{"event": "scored", "index": 173, "total": 200, "task_id": "abc337_a", "pass": false}
+{"event": "scored", "index": 174, "total": 200, "task_id": "abc337_c", "pass": false}
+{"event": "scored", "index": 175, "total": 200, "task_id": "3279", "pass": false}
+{"event": "scored", "index": 176, "total": 200, "task_id": "abc338_a", "pass": false}
+{"event": "scored", "index": 177, "total": 200, "task_id": "abc338_c", "pass": false}
+{"event": "scored", "index": 178, "total": 200, "task_id": "abc338_d", "pass": false}
+{"event": "scored", "index": 179, "total": 200, "task_id": "abc338_f", "pass": false}
+{"event": "scored", "index": 180, "total": 200, "task_id": "3265", "pass": false}
+{"event": "scored", "index": 181, "total": 200, "task_id": "3311", "pass": false}
+{"event": "scored", "index": 182, "total": 200, "task_id": "abc339_a", "pass": false}
+{"event": "scored", "index": 183, "total": 200, "task_id": "abc339_c", "pass": false}
+{"event": "scored", "index": 184, "total": 200, "task_id": "3269", "pass": false}
+{"event": "scored", "index": 185, "total": 200, "task_id": "abc340_b", "pass": false}
+{"event": "scored", "index": 186, "total": 200, "task_id": "abc340_c", "pass": false}
+{"event": "scored", "index": 187, "total": 200, "task_id": "abc340_e", "pass": false}
+{"event": "scored", "index": 188, "total": 200, "task_id": "3298", "pass": false}
+{"event": "scored", "index": 189, "total": 200, "task_id": "3308", "pass": false}
+{"event": "scored", "index": 190, "total": 200, "task_id": "3320", "pass": false}
+{"event": "scored", "index": 191, "total": 200, "task_id": "abc341_b", "pass": false}
+{"event": "scored", "index": 192, "total": 200, "task_id": "abc341_d", "pass": false}
+{"event": "scored", "index": 193, "total": 200, "task_id": "abc341_f", "pass": false}
+{"event": "scored", "index": 194, "total": 200, "task_id": "3292", "pass": false}
+{"event": "scored", "index": 195, "total": 200, "task_id": "abc342_b", "pass": false}
+{"event": "scored", "index": 196, "total": 200, "task_id": "abc342_d", "pass": false}
+{"event": "scored", "index": 197, "total": 200, "task_id": "3331", "pass": false}
+{"event": "scored", "index": 198, "total": 200, "task_id": "abc343_b", "pass": false}
+{"event": "scored", "index": 199, "total": 200, "task_id": "abc343_d", "pass": false}
+{"event": "scored", "index": 200, "total": 200, "task_id": "abc343_e", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "split": "data/splits/livecodebench_half/eval.jsonl",
+  "generations": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/livecodebench/generations.jsonl",
+  "task_count": 200,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 200
+  },
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0,
+        "10": 0.0,
+        "11": 0.0,
+        "12": 0.0,
+        "13": 0.0,
+        "14": 0.0,
+        "15": 0.0,
+        "16": 0.0,
+        "17": 0.0,
+        "18": 0.0,
+        "19": 0.0,
+        "20": 0.0,
+        "21": 0.0,
+        "22": 0.0,
+        "23": 0.0,
+        "24": 0.0,
+        "25": 0.0,
+        "26": 0.0,
+        "27": 0.0,
+        "28": 0.0,
+        "29": 0.0,
+        "30": 0.0,
+        "31": 0.0,
+        "32": 0.0,
+        "33": 0.0,
+        "34": 0.0,
+        "35": 0.0,
+        "36": 0.0,
+        "37": 0.0,
+        "38": 0.0,
+        "39": 0.0,
+        "40": 0.0,
+        "41": 0.0,
+        "42": 0.0,
+        "43": 0.0,
+        "44": 0.0,
+        "45": 0.0,
+        "46": 0.0,
+        "47": 0.0,
+        "48": 0.0,
+        "49": 0.0,
+        "50": 0.0,
+        "51": 0.0,
+        "52": 0.0,
+        "53": 0.0,
+        "54": 0.0,
+        "55": 0.0,
+        "56": 0.0,
+        "57": 0.0,
+        "58": 0.0,
+        "59": 0.0,
+        "60": 0.0,
+        "61": 0.0,
+        "62": 0.0,
+        "63": 0.0,
+        "64": 0.0,
+        "65": 0.0,
+        "66": 0.0,
+        "67": 0.0,
+        "68": 0.0,
+        "69": 0.0,
+        "70": 0.0,
+        "71": 0.0,
+        "72": 0.0,
+        "73": 0.0,
+        "74": 0.0,
+        "75": 0.0,
+        "76": 0.0,
+        "77": 0.0,
+        "78": 0.0,
+        "79": 0.0,
+        "80": 0.0,
+        "81": 0.0,
+        "82": 0.0,
+        "83": 0.0,
+        "84": 0.0,
+        "85": 0.0,
+        "86": 0.0,
+        "87": 0.0,
+        "88": 0.0,
+        "89": 0.0,
+        "90": 0.0,
+        "91": 0.0,
+        "92": 0.0,
+        "93": 0.0,
+        "94": 0.0,
+        "95": 0.0,
+        "96": 0.0,
+        "97": 0.0,
+        "98": 0.0,
+        "99": 0.0,
+        "100": 0.0,
+        "101": 0.0,
+        "102": 0.0,
+        "103": 0.0,
+        "104": 0.0,
+        "105": 0.0,
+        "106": 0.0,
+        "107": 0.0,
+        "108": 0.0,
+        "109": 0.0,
+        "110": 0.0,
+        "111": 0.0,
+        "112": 0.0,
+        "113": 0.0,
+        "114": 0.0,
+        "115": 0.0,
+        "116": 0.0,
+        "117": 0.0,
+        "118": 0.0,
+        "119": 0.0,
+        "120": 0.0,
+        "121": 0.0,
+        "122": 0.0,
+        "123": 0.0,
+        "124": 0.0,
+        "125": 0.0,
+        "126": 0.0,
+        "127": 0.0,
+        "128": 0.0,
+        "129": 0.0,
+        "130": 0.0,
+        "131": 0.0,
+        "132": 0.0,
+        "133": 0.0,
+        "134": 0.0,
+        "135": 0.0,
+        "136": 0.0,
+        "137": 0.0,
+        "138": 0.0,
+        "139": 0.0,
+        "140": 0.0,
+        "141": 0.0,
+        "142": 0.0,
+        "143": 0.0,
+        "144": 0.0,
+        "145": 0.0,
+        "146": 0.0,
+        "147": 0.0,
+        "148": 0.0,
+        "149": 0.0,
+        "150": 0.0,
+        "151": 0.0,
+        "152": 0.0,
+        "153": 0.0,
+        "154": 0.0,
+        "155": 0.0,
+        "156": 0.0,
+        "157": 0.0,
+        "158": 0.0,
+        "159": 0.0,
+        "160": 0.0,
+        "161": 0.0,
+        "162": 0.0,
+        "163": 0.0,
+        "164": 0.0,
+        "165": 0.0,
+        "166": 0.0,
+        "167": 0.0,
+        "168": 0.0,
+        "169": 0.0,
+        "170": 0.0,
+        "171": 0.0,
+        "172": 0.0,
+        "173": 0.0,
+        "174": 0.0,
+        "175": 0.0,
+        "176": 0.0,
+        "177": 0.0,
+        "178": 0.0,
+        "179": 0.0,
+        "180": 0.0,
+        "181": 0.0,
+        "182": 0.0,
+        "183": 0.0,
+        "184": 0.0,
+        "185": 0.0,
+        "186": 0.0,
+        "187": 0.0,
+        "188": 0.0,
+        "189": 0.0,
+        "190": 0.0,
+        "191": 0.0,
+        "192": 0.0,
+        "193": 0.0,
+        "194": 0.0,
+        "195": 0.0,
+        "196": 0.0,
+        "197": 0.0,
+        "198": 0.0,
+        "199": 0.0
+      }
+    }
+  }
+}

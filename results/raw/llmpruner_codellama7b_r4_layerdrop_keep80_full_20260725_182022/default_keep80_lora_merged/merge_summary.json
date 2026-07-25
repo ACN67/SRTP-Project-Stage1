@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "base_model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80/pruned_model",
+  "adapter": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora/lora_adapter",
+  "merged_model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora_merged",
+  "dtype": "fp16",
+  "device": "cpu",
+  "param_count": 5524246528,
+  "process_rss_mb_after": 11007.13671875,
+  "elapsed_seconds": 88.57160425186157,
+  "torch": "2.11.0+cu128"
+}

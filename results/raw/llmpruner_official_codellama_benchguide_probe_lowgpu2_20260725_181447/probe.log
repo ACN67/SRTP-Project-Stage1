@@ -1,0 +1,150 @@
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'CodeLlamaTokenizer'. 
+The class this function is called from is 'LlamaTokenizer'.
+Using pad_token, but it is not set yet.
+{"event": "loading_model", "load_kwargs": {"low_cpu_mem_usage": "True", "torch_dtype": "torch.float16", "local_files_only": "True", "device_map": "auto", "max_memory": "{0: '2GiB', 'cpu': '30GiB'}", "offload_folder": "results/raw/llmpruner_official_codellama_benchguide_probe_lowgpu2_20260725_181447/offload"}}
+/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/accelerate/utils/modeling.py:1583: UserWarning: Current model requires 243273344 bytes of buffer for offloaded layers, which seems does not fit any GPU's remaining memory. If you are experiencing a OOM later, please consider using offload_buffers=True.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:15<00:15, 15.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:17<00:00,  7.33s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:17<00:00,  8.51s/it]
+Some weights of LlamaForCausalLM were not initialized from the model checkpoint at /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6 and are newly initialized: ['model.layers.13.self_attn.rotary_emb.inv_freq', 'model.layers.23.self_attn.rotary_emb.inv_freq', 'model.layers.5.self_attn.rotary_emb.inv_freq', 'model.layers.1.self_attn.rotary_emb.inv_freq', 'model.layers.18.self_attn.rotary_emb.inv_freq', 'model.layers.16.self_attn.rotary_emb.inv_freq', 'model.layers.31.self_attn.rotary_emb.inv_freq', 'model.layers.19.self_attn.rotary_emb.inv_freq', 'model.layers.17.self_attn.rotary_emb.inv_freq', 'model.layers.7.self_attn.rotary_emb.inv_freq', 'model.layers.9.self_attn.rotary_emb.inv_freq', 'model.layers.29.self_attn.rotary_emb.inv_freq', 'model.layers.15.self_attn.rotary_emb.inv_freq', 'model.layers.26.self_attn.rotary_emb.inv_freq', 'model.layers.3.self_attn.rotary_emb.inv_freq', 'model.layers.12.self_attn.rotary_emb.inv_freq', 'model.layers.25.self_attn.rotary_emb.inv_freq', 'model.layers.21.self_attn.rotary_emb.inv_freq', 'model.layers.27.self_attn.rotary_emb.inv_freq', 'model.layers.0.self_attn.rotary_emb.inv_freq', 'model.layers.30.self_attn.rotary_emb.inv_freq', 'model.layers.11.self_attn.rotary_emb.inv_freq', 'model.layers.4.self_attn.rotary_emb.inv_freq', 'model.layers.14.self_attn.rotary_emb.inv_freq', 'model.layers.8.self_attn.rotary_emb.inv_freq', 'model.layers.10.self_attn.rotary_emb.inv_freq', 'model.layers.2.self_attn.rotary_emb.inv_freq', 'model.layers.20.self_attn.rotary_emb.inv_freq', 'model.layers.22.self_attn.rotary_emb.inv_freq', 'model.layers.24.self_attn.rotary_emb.inv_freq', 'model.layers.6.self_attn.rotary_emb.inv_freq', 'model.layers.28.self_attn.rotary_emb.inv_freq']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some parameters are on the meta device because they were offloaded to the cpu.
+{"event": "building_metapruner", "mode": "block_wise", "input_device": "cuda:0"}
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/torch_pruning/dependency.py", line 680, in _trace
+    out = model(*example_inputs)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/models/hf_llama/modeling_llama.py", line 689, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/models/hf_llama/modeling_llama.py", line 509, in forward
+    batch_size, seq_length = input_ids.shape
+    ^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/llmpruner_official_codellama_probe.py", line 273, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/llmpruner_official_codellama_probe.py", line 200, in main
+    pruner = tp.pruner.MetaPruner(model, forward_prompts, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/torch_pruning/pruner/algorithms/metapruner.py", line 80, in __init__
+    self.DG = dependency.DependencyGraph().build_dependency(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/torch_pruning/dependency.py", line 374, in build_dependency
+    self.module2node = self._trace(
+                       ^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/torch_pruning/dependency.py", line 682, in _trace
+    out = model(example_inputs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/models/hf_llama/modeling_llama.py", line 689, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/models/hf_llama/modeling_llama.py", line 579, in forward
+    layer_outputs = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/models/hf_llama/modeling_llama.py", line 307, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/models/hf_llama/modeling_llama.py", line 158, in forward
+    return self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1833, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/accelerate/hooks.py", line 187, in new_forward
+    args, kwargs = module._hf_hook.pre_forward(module, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/accelerate/hooks.py", line 50, in wrapper
+    return wrapper._compiled_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 1263, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/accelerate/hooks.py", line 388, in pre_forward
+    set_module_tensor_to_device(
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-llm_pruner/lib/python3.11/site-packages/accelerate/utils/modeling.py", line 353, in set_module_tensor_to_device
+    new_value = value.to(device, non_blocking=non_blocking)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA driver error: device not ready
+Command exited with non-zero status 1
+	Command being timed: ".venv-llm_pruner/bin/python scripts/adapt/llmpruner_official_codellama_probe.py --model-path /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6 --out-dir results/raw/llmpruner_official_codellama_benchguide_probe_lowgpu2_20260725_181447 --guide-file data/splits/humaneval_half/guide.jsonl --guide-file data/splits/mbpp_evalplus_half/guide.jsonl --guide-file data/splits/livecodebench_half/guide.jsonl --guide-limit-per-file 1 --importance-max-length 64 --pruning-ratio 0.02 --pruner-type taylor --taylor param_first --grouping-strategy sum --mode block_wise --block-attention-layer-start 3 --block-attention-layer-end 31 --block-mlp-layer-start 3 --block-mlp-layer-end 31 --iterative-steps 1 --dtype fp16 --device-map auto --max-memory-json {"0":"2GiB","cpu":"30GiB"} --offload-folder results/raw/llmpruner_official_codellama_benchguide_probe_lowgpu2_20260725_181447/offload"
+	User time (seconds): 35.60
+	System time (seconds): 69.46
+	Percent of CPU this job got: 232%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:45.17
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 13582528
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 60833
+	Minor (reclaiming a frame) page faults: 3832180
+	Voluntary context switches: 32590
+	Involuntary context switches: 1925
+	Swaps: 0
+	File system inputs: 27879136
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

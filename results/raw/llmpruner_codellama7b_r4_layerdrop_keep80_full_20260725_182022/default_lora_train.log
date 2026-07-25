@@ -1,0 +1,119 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]Loading weights:   0%|          | 1/237 [00:00<00:46,  5.09it/s]Loading weights:   1%|          | 2/237 [00:00<00:42,  5.53it/s]Loading weights:   2%|▏         | 4/237 [00:00<00:24,  9.49it/s]Loading weights:   3%|▎         | 6/237 [00:00<00:19, 11.81it/s]Loading weights:   5%|▌         | 13/237 [00:00<00:09, 24.13it/s]Loading weights:   7%|▋         | 16/237 [00:00<00:08, 24.60it/s]Loading weights:   8%|▊         | 20/237 [00:00<00:07, 28.24it/s]Loading weights:  10%|▉         | 23/237 [00:01<00:07, 27.67it/s]Loading weights:  11%|█▏        | 27/237 [00:01<00:06, 30.19it/s]Loading weights:  13%|█▎        | 31/237 [00:01<00:06, 32.57it/s]Loading weights:  15%|█▍        | 35/237 [00:01<00:06, 31.48it/s]Loading weights:  17%|█▋        | 40/237 [00:01<00:05, 34.14it/s]Loading weights:  19%|█▊        | 44/237 [00:01<00:05, 32.29it/s]Loading weights:  21%|██        | 49/237 [00:01<00:05, 34.67it/s]Loading weights:  22%|██▏       | 53/237 [00:01<00:05, 32.88it/s]Loading weights:  24%|██▍       | 58/237 [00:02<00:05, 33.94it/s]Loading weights:  26%|██▌       | 62/237 [00:02<00:05, 32.35it/s]Loading weights:  28%|██▊       | 67/237 [00:02<00:04, 34.32it/s]Loading weights:  30%|██▉       | 71/237 [00:02<00:05, 31.92it/s]Loading weights:  32%|███▏      | 76/237 [00:02<00:04, 33.50it/s]Loading weights:  34%|███▍      | 80/237 [00:02<00:05, 30.97it/s]Loading weights:  36%|███▌      | 85/237 [00:02<00:04, 32.72it/s]Loading weights:  38%|███▊      | 89/237 [00:03<00:04, 30.86it/s]Loading weights:  40%|███▉      | 94/237 [00:03<00:04, 32.06it/s]Loading weights:  41%|████▏     | 98/237 [00:03<00:04, 30.58it/s]Loading weights:  43%|████▎     | 103/237 [00:03<00:04, 31.33it/s]Loading weights:  45%|████▌     | 107/237 [00:03<00:04, 28.85it/s]Loading weights:  47%|████▋     | 112/237 [00:03<00:04, 29.35it/s]Loading weights:  49%|████▊     | 115/237 [00:04<00:04, 27.07it/s]Loading weights:  50%|█████     | 119/237 [00:04<00:04, 29.47it/s]Loading weights:  52%|█████▏    | 123/237 [00:04<00:04, 24.86it/s]Loading weights:  54%|█████▍    | 128/237 [00:04<00:03, 29.74it/s]Loading weights:  56%|█████▌    | 132/237 [00:04<00:04, 23.51it/s]Loading weights:  57%|█████▋    | 136/237 [00:04<00:03, 26.38it/s]Loading weights:  59%|█████▉    | 140/237 [00:05<00:04, 20.81it/s]Loading weights:  60%|██████    | 143/237 [00:05<00:04, 19.20it/s]Loading weights:  62%|██████▏   | 146/237 [00:05<00:04, 18.97it/s]Loading weights:  63%|██████▎   | 149/237 [00:05<00:04, 19.04it/s]Loading weights:  65%|██████▍   | 153/237 [00:05<00:03, 22.43it/s]Loading weights:  66%|██████▌   | 157/237 [00:05<00:03, 25.26it/s]Loading weights:  68%|██████▊   | 160/237 [00:06<00:03, 20.99it/s]Loading weights:  69%|██████▉   | 164/237 [00:06<00:02, 24.56it/s]Loading weights:  70%|███████   | 167/237 [00:06<00:02, 24.49it/s]Loading weights:  72%|███████▏  | 171/237 [00:06<00:02, 26.05it/s]Loading weights:  74%|███████▍  | 175/237 [00:06<00:02, 27.74it/s]Loading weights:  75%|███████▌  | 178/237 [00:06<00:02, 25.40it/s]Loading weights:  76%|███████▋  | 181/237 [00:06<00:02, 24.07it/s]Loading weights:  78%|███████▊  | 184/237 [00:07<00:02, 20.09it/s]Loading weights:  79%|███████▉  | 187/237 [00:07<00:03, 15.93it/s]Loading weights:  81%|████████  | 191/237 [00:07<00:02, 19.49it/s]Loading weights:  82%|████████▏ | 194/237 [00:07<00:02, 20.22it/s]Loading weights:  84%|████████▎ | 198/237 [00:07<00:01, 23.69it/s]Loading weights:  85%|████████▌ | 202/237 [00:07<00:01, 26.52it/s]Loading weights:  86%|████████▋ | 205/237 [00:08<00:01, 23.38it/s]Loading weights:  88%|████████▊ | 208/237 [00:08<00:01, 24.82it/s]Loading weights:  89%|████████▉ | 211/237 [00:08<00:01, 24.57it/s]Loading weights:  90%|█████████ | 214/237 [00:08<00:01, 19.37it/s]Loading weights:  92%|█████████▏| 217/237 [00:08<00:01, 18.89it/s]Loading weights:  93%|█████████▎| 220/237 [00:08<00:00, 17.56it/s]Loading weights:  94%|█████████▎| 222/237 [00:09<00:00, 16.03it/s]Loading weights:  97%|█████████▋| 229/237 [00:09<00:00, 23.59it/s]Loading weights:  98%|█████████▊| 232/237 [00:09<00:00, 23.57it/s]Loading weights: 100%|██████████| 237/237 [00:09<00:00, 25.23it/s]
+/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py:1263: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+trainable params: 16,240,640 || all params: 5,540,487,168 || trainable%: 0.2931
+{"step": 1, "total_steps": 55, "avg_loss": NaN}
+{"step": 2, "total_steps": 55, "avg_loss": NaN}
+{"step": 3, "total_steps": 55, "avg_loss": NaN}
+{"step": 4, "total_steps": 55, "avg_loss": NaN}
+{"step": 5, "total_steps": 55, "avg_loss": NaN}
+{"step": 6, "total_steps": 55, "avg_loss": NaN}
+{"step": 7, "total_steps": 55, "avg_loss": NaN}
+{"step": 8, "total_steps": 55, "avg_loss": NaN}
+{"step": 9, "total_steps": 55, "avg_loss": NaN}
+{"step": 10, "total_steps": 55, "avg_loss": NaN}
+{"step": 11, "total_steps": 55, "avg_loss": NaN}
+{"step": 12, "total_steps": 55, "avg_loss": NaN}
+{"step": 13, "total_steps": 55, "avg_loss": NaN}
+{"step": 14, "total_steps": 55, "avg_loss": NaN}
+{"step": 15, "total_steps": 55, "avg_loss": NaN}
+{"step": 16, "total_steps": 55, "avg_loss": NaN}
+{"step": 17, "total_steps": 55, "avg_loss": NaN}
+{"step": 18, "total_steps": 55, "avg_loss": NaN}
+{"step": 19, "total_steps": 55, "avg_loss": NaN}
+{"step": 20, "total_steps": 55, "avg_loss": NaN}
+{"step": 21, "total_steps": 55, "avg_loss": NaN}
+{"step": 22, "total_steps": 55, "avg_loss": NaN}
+{"step": 23, "total_steps": 55, "avg_loss": NaN}
+{"step": 24, "total_steps": 55, "avg_loss": NaN}
+{"step": 25, "total_steps": 55, "avg_loss": NaN}
+{"step": 26, "total_steps": 55, "avg_loss": NaN}
+{"step": 27, "total_steps": 55, "avg_loss": NaN}
+{"step": 28, "total_steps": 55, "avg_loss": NaN}
+{"step": 29, "total_steps": 55, "avg_loss": NaN}
+{"step": 30, "total_steps": 55, "avg_loss": NaN}
+{"step": 31, "total_steps": 55, "avg_loss": NaN}
+{"step": 32, "total_steps": 55, "avg_loss": NaN}
+{"step": 33, "total_steps": 55, "avg_loss": NaN}
+{"step": 34, "total_steps": 55, "avg_loss": NaN}
+{"step": 35, "total_steps": 55, "avg_loss": NaN}
+{"step": 36, "total_steps": 55, "avg_loss": NaN}
+{"step": 37, "total_steps": 55, "avg_loss": NaN}
+{"step": 38, "total_steps": 55, "avg_loss": NaN}
+{"step": 39, "total_steps": 55, "avg_loss": NaN}
+{"step": 40, "total_steps": 55, "avg_loss": NaN}
+{"step": 41, "total_steps": 55, "avg_loss": NaN}
+{"step": 42, "total_steps": 55, "avg_loss": NaN}
+{"step": 43, "total_steps": 55, "avg_loss": NaN}
+{"step": 44, "total_steps": 55, "avg_loss": NaN}
+{"step": 45, "total_steps": 55, "avg_loss": NaN}
+{"step": 46, "total_steps": 55, "avg_loss": NaN}
+{"step": 47, "total_steps": 55, "avg_loss": NaN}
+{"step": 48, "total_steps": 55, "avg_loss": NaN}
+{"step": 49, "total_steps": 55, "avg_loss": NaN}
+{"step": 50, "total_steps": 55, "avg_loss": NaN}
+{"step": 51, "total_steps": 55, "avg_loss": NaN}
+{"step": 52, "total_steps": 55, "avg_loss": NaN}
+{"step": 53, "total_steps": 55, "avg_loss": NaN}
+{"step": 54, "total_steps": 55, "avg_loss": NaN}
+{"step": 55, "total_steps": 55, "avg_loss": NaN}
+{
+  "status": "success",
+  "base_model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80/pruned_model",
+  "train_file": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/codellama7b_distill/distill_train.jsonl",
+  "samples": 436,
+  "output_adapter": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora/lora_adapter",
+  "rank": 8,
+  "alpha": 16,
+  "dropout": 0.0,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "epochs": 1.0,
+  "batch_size": 1,
+  "grad_accum": 8,
+  "max_length": 256,
+  "lr": 0.0002,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "load_mode": "device_map",
+  "load_in_4bit": true,
+  "device_map": null,
+  "max_memory": {
+    "0": "6GiB",
+    "cpu": "24GiB"
+  },
+  "offload_folder": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/offload_default_lora",
+  "steps": 55,
+  "elapsed_seconds": 250.48350286483765
+}
+	Command being timed: ".venv-common/bin/python scripts/recover/train_lora_recovery.py --base-model results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80/pruned_model --train-file results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/codellama7b_distill/distill_train.jsonl --out-dir results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora --rank 8 --alpha 16 --dropout 0 --epochs 1 --batch-size 1 --grad-accum 8 --max-length 256 --lr 2e-4 --dtype fp16 --device cuda:0 --load-mode device_map --device-map auto --max-memory-json {"0":"6GiB","cpu":"24GiB"} --offload-folder results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/offload_default_lora --load-in-4bit"
+	User time (seconds): 163.43
+	System time (seconds): 97.24
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:23.10
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 11909916
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 50600
+	Minor (reclaiming a frame) page faults: 586420
+	Voluntary context switches: 53618
+	Involuntary context switches: 673
+	Swaps: 0
+	File system inputs: 23482048
+	File system outputs: 134096
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

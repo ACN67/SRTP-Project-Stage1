@@ -43,7 +43,9 @@ def main() -> int:
     details = []
     status_counter = Counter()
 
+    total_tasks = len(split_task_ids)
     for completion_id, task_id in enumerate(split_task_ids):
+        progress_index = completion_id + 1
         if task_id not in samples:
             result = {
                 "task_id": task_id,
@@ -53,6 +55,7 @@ def main() -> int:
             }
             details.append(result)
             status_counter["missing"] += 1
+            print(json.dumps({"event": "scored", "index": progress_index, "total": total_tasks, "task_id": task_id, "status": "missing", "base_pass": False}, ensure_ascii=False), flush=True)
             continue
 
         solution = samples[task_id]["solution"]
@@ -81,6 +84,7 @@ def main() -> int:
             "plus_pass": plus_pass,
         })
         status_counter[base_status] += 1
+        print(json.dumps({"event": "scored", "index": progress_index, "total": total_tasks, "task_id": task_id, "base_status": base_status, "base_pass": base_pass}, ensure_ascii=False), flush=True)
 
     total = len(split_task_ids)
     passed = sum(1 for item in details if item.get("base_pass"))
@@ -105,7 +109,7 @@ def main() -> int:
         encoding="utf-8",
     )
 
-    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary, indent=2, ensure_ascii=False), flush=True)
     return 0
 
 

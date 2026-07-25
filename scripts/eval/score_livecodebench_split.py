@@ -74,6 +74,8 @@ def main() -> int:
             }
         )
 
+    print(json.dumps({"event": "evaluating", "benchmark": "livecodebench", "task_count": len(samples), "timeout": args.timeout, "num_process_evaluate": args.num_process_evaluate}, ensure_ascii=False), flush=True)
+
     metrics, results, metadata = codegen_metrics(
         samples,
         generations,
@@ -95,15 +97,15 @@ def main() -> int:
         passed = official_pass_by_index.get(idx, False)
         pass_count += int(passed)
         status_counter["pass" if passed else "fail"] += 1
-        detail_rows.append(
-            {
-                **detail,
-                "pass": passed,
-                "official_pass_at_1": metrics.get("detail", {}).get("pass@1", {}).get(str(idx)),
-                "result": results[idx][0],
-                "metadata": metadata[idx][0] if idx < len(metadata) and metadata[idx] else None,
-            }
-        )
+        row = {
+            **detail,
+            "pass": passed,
+            "official_pass_at_1": metrics.get("detail", {}).get("pass@1", {}).get(str(idx)),
+            "result": results[idx][0],
+            "metadata": metadata[idx][0] if idx < len(metadata) and metadata[idx] else None,
+        }
+        detail_rows.append(row)
+        print(json.dumps({"event": "scored", "index": idx + 1, "total": len(details), "task_id": detail["task_id"], "pass": passed}, ensure_ascii=False), flush=True)
 
     official_pass_rate = metrics.get("pass@1")
     summary = {
@@ -126,7 +128,7 @@ def main() -> int:
     with (args.out_dir / "score_details.jsonl").open("w", encoding="utf-8") as handle:
         for row in detail_rows:
             handle.write(json.dumps(row, ensure_ascii=False) + "\n")
-    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    print(json.dumps(summary, indent=2, ensure_ascii=False), flush=True)
     return 0
 
 

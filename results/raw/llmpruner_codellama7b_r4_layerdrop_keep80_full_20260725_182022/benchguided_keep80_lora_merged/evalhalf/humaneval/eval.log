@@ -1,0 +1,200 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]Loading weights:   0%|          | 1/237 [00:00<00:48,  4.91it/s]Loading weights:   1%|          | 2/237 [00:00<00:43,  5.40it/s]Loading weights:   2%|▏         | 4/237 [00:00<00:25,  9.13it/s]Loading weights:   3%|▎         | 6/237 [00:00<00:20, 11.45it/s]Loading weights:   5%|▌         | 13/237 [00:00<00:09, 24.04it/s]Loading weights:   7%|▋         | 16/237 [00:00<00:09, 24.15it/s]Loading weights:   9%|▉         | 22/237 [00:01<00:07, 28.80it/s]Loading weights:  11%|█         | 25/237 [00:01<00:07, 27.23it/s]Loading weights:  13%|█▎        | 30/237 [00:01<00:06, 32.75it/s]Loading weights:  14%|█▍        | 34/237 [00:01<00:07, 27.45it/s]Loading weights:  16%|█▌        | 38/237 [00:01<00:06, 29.98it/s]Loading weights:  18%|█▊        | 42/237 [00:01<00:07, 25.42it/s]Loading weights:  20%|█▉        | 47/237 [00:01<00:06, 30.01it/s]Loading weights:  22%|██▏       | 51/237 [00:02<00:07, 26.16it/s]Loading weights:  24%|██▎       | 56/237 [00:02<00:05, 30.37it/s]Loading weights:  25%|██▌       | 60/237 [00:02<00:06, 26.17it/s]Loading weights:  27%|██▋       | 65/237 [00:02<00:05, 30.59it/s]Loading weights:  29%|██▉       | 69/237 [00:02<00:06, 25.82it/s]Loading weights:  31%|███       | 74/237 [00:02<00:05, 30.14it/s]Loading weights:  33%|███▎      | 78/237 [00:03<00:06, 23.32it/s]Loading weights:  35%|███▌      | 83/237 [00:03<00:05, 27.97it/s]Loading weights:  37%|███▋      | 87/237 [00:04<00:15,  9.87it/s]Loading weights:  38%|███▊      | 90/237 [00:04<00:16,  9.07it/s]Loading weights:  39%|███▉      | 92/237 [00:05<00:16,  8.68it/s]Loading weights:  40%|███▉      | 94/237 [00:05<00:18,  7.54it/s]Loading weights:  41%|████      | 96/237 [00:06<00:28,  4.90it/s]Loading weights:  41%|████▏     | 98/237 [00:06<00:24,  5.67it/s]Loading weights:  42%|████▏     | 100/237 [00:06<00:22,  6.02it/s]Loading weights:  43%|████▎     | 101/237 [00:06<00:22,  6.13it/s]Loading weights:  43%|████▎     | 103/237 [00:07<00:22,  5.83it/s]Loading weights:  44%|████▍     | 104/237 [00:07<00:28,  4.66it/s]Loading weights:  44%|████▍     | 105/237 [00:08<00:33,  3.97it/s]Loading weights:  45%|████▌     | 107/237 [00:08<00:24,  5.32it/s]Loading weights:  46%|████▌     | 108/237 [00:08<00:23,  5.57it/s]Loading weights:  46%|████▌     | 109/237 [00:08<00:21,  5.82it/s]Loading weights:  46%|████▋     | 110/237 [00:08<00:22,  5.66it/s]Loading weights:  47%|████▋     | 112/237 [00:09<00:22,  5.52it/s]Loading weights:  48%|████▊     | 113/237 [00:09<00:27,  4.44it/s]Loading weights:  48%|████▊     | 114/237 [00:09<00:32,  3.78it/s]Loading weights:  50%|████▉     | 118/237 [00:10<00:15,  7.76it/s]Loading weights:  51%|█████     | 121/237 [00:10<00:11, 10.54it/s]Loading weights:  52%|█████▏    | 123/237 [00:10<00:10, 10.84it/s]Loading weights:  54%|█████▍    | 128/237 [00:10<00:06, 16.59it/s]Loading weights:  55%|█████▌    | 131/237 [00:10<00:06, 16.88it/s]Loading weights:  57%|█████▋    | 134/237 [00:10<00:05, 18.86it/s]Loading weights:  59%|█████▊    | 139/237 [00:10<00:04, 21.59it/s]Loading weights:  60%|█████▉    | 142/237 [00:11<00:04, 20.46it/s]Loading weights:  61%|██████    | 145/237 [00:11<00:04, 22.37it/s]Loading weights:  62%|██████▏   | 148/237 [00:11<00:03, 23.25it/s]Loading weights:  64%|██████▎   | 151/237 [00:11<00:04, 21.11it/s]Loading weights:  65%|██████▌   | 155/237 [00:11<00:03, 23.87it/s]Loading weights:  67%|██████▋   | 158/237 [00:11<00:03, 21.81it/s]Loading weights:  68%|██████▊   | 161/237 [00:11<00:03, 22.66it/s]Loading weights:  69%|██████▉   | 164/237 [00:12<00:03, 24.04it/s]Loading weights:  70%|███████   | 167/237 [00:12<00:03, 21.89it/s]Loading weights:  72%|███████▏  | 170/237 [00:12<00:02, 22.84it/s]Loading weights:  74%|███████▍  | 175/237 [00:12<00:02, 24.82it/s]Loading weights:  75%|███████▌  | 178/237 [00:12<00:02, 22.47it/s]Loading weights:  77%|███████▋  | 182/237 [00:12<00:02, 24.58it/s]Loading weights:  78%|███████▊  | 185/237 [00:12<00:02, 22.43it/s]Loading weights:  79%|███████▉  | 188/237 [00:13<00:02, 23.32it/s]Loading weights:  81%|████████  | 191/237 [00:13<00:01, 24.82it/s]Loading weights:  82%|████████▏ | 194/237 [00:13<00:01, 22.27it/s]Loading weights:  83%|████████▎ | 197/237 [00:13<00:01, 22.94it/s]Loading weights:  84%|████████▍ | 200/237 [00:13<00:01, 24.25it/s]Loading weights:  86%|████████▌ | 203/237 [00:13<00:01, 21.59it/s]Loading weights:  87%|████████▋ | 206/237 [00:13<00:01, 22.26it/s]Loading weights:  88%|████████▊ | 209/237 [00:13<00:01, 23.81it/s]Loading weights:  89%|████████▉ | 212/237 [00:14<00:01, 21.64it/s]Loading weights:  91%|█████████ | 215/237 [00:14<00:00, 22.19it/s]Loading weights:  93%|█████████▎| 220/237 [00:14<00:00, 23.90it/s]Loading weights:  94%|█████████▍| 223/237 [00:14<00:00, 21.97it/s]Loading weights:  96%|█████████▌| 227/237 [00:14<00:00, 23.82it/s]Loading weights:  97%|█████████▋| 230/237 [00:15<00:00, 17.01it/s]Loading weights:  98%|█████████▊| 233/237 [00:15<00:00, 18.67it/s]Loading weights: 100%|█████████▉| 236/237 [00:15<00:00, 20.42it/s]Loading weights: 100%|██████████| 237/237 [00:15<00:00, 15.46it/s]
+{"event": "generated", "index": 1, "total": 82, "task_id": "HumanEval/1", "completion_chars": 795, "gen_seconds": 6.021}
+{"event": "generated", "index": 2, "total": 82, "task_id": "HumanEval/5", "completion_chars": 1015, "gen_seconds": 5.457}
+{"event": "generated", "index": 3, "total": 82, "task_id": "HumanEval/6", "completion_chars": 657, "gen_seconds": 5.424}
+{"event": "generated", "index": 4, "total": 82, "task_id": "HumanEval/7", "completion_chars": 705, "gen_seconds": 5.424}
+{"event": "generated", "index": 5, "total": 82, "task_id": "HumanEval/11", "completion_chars": 661, "gen_seconds": 5.432}
+{"event": "generated", "index": 6, "total": 82, "task_id": "HumanEval/12", "completion_chars": 774, "gen_seconds": 5.434}
+{"event": "generated", "index": 7, "total": 82, "task_id": "HumanEval/15", "completion_chars": 884, "gen_seconds": 5.431}
+{"event": "generated", "index": 8, "total": 82, "task_id": "HumanEval/19", "completion_chars": 1021, "gen_seconds": 5.435}
+{"event": "generated", "index": 9, "total": 82, "task_id": "HumanEval/20", "completion_chars": 661, "gen_seconds": 5.452}
+{"event": "generated", "index": 10, "total": 82, "task_id": "HumanEval/22", "completion_chars": 311, "gen_seconds": 5.419}
+{"event": "generated", "index": 11, "total": 82, "task_id": "HumanEval/24", "completion_chars": 660, "gen_seconds": 5.377}
+{"event": "generated", "index": 12, "total": 82, "task_id": "HumanEval/27", "completion_chars": 689, "gen_seconds": 5.406}
+{"event": "generated", "index": 13, "total": 82, "task_id": "HumanEval/28", "completion_chars": 723, "gen_seconds": 5.395}
+{"event": "generated", "index": 14, "total": 82, "task_id": "HumanEval/29", "completion_chars": 514, "gen_seconds": 5.401}
+{"event": "generated", "index": 15, "total": 82, "task_id": "HumanEval/32", "completion_chars": 623, "gen_seconds": 5.525}
+{"event": "generated", "index": 16, "total": 82, "task_id": "HumanEval/33", "completion_chars": 272, "gen_seconds": 5.48}
+{"event": "generated", "index": 17, "total": 82, "task_id": "HumanEval/35", "completion_chars": 270, "gen_seconds": 6.211}
+{"event": "generated", "index": 18, "total": 82, "task_id": "HumanEval/37", "completion_chars": 563, "gen_seconds": 6.813}
+{"event": "generated", "index": 19, "total": 82, "task_id": "HumanEval/39", "completion_chars": 536, "gen_seconds": 6.814}
+{"event": "generated", "index": 20, "total": 82, "task_id": "HumanEval/43", "completion_chars": 488, "gen_seconds": 7.638}
+{"event": "generated", "index": 21, "total": 82, "task_id": "HumanEval/45", "completion_chars": 957, "gen_seconds": 6.038}
+{"event": "generated", "index": 22, "total": 82, "task_id": "HumanEval/47", "completion_chars": 552, "gen_seconds": 6.561}
+{"event": "generated", "index": 23, "total": 82, "task_id": "HumanEval/49", "completion_chars": 325, "gen_seconds": 6.479}
+{"event": "generated", "index": 24, "total": 82, "task_id": "HumanEval/50", "completion_chars": 692, "gen_seconds": 6.632}
+{"event": "generated", "index": 25, "total": 82, "task_id": "HumanEval/51", "completion_chars": 386, "gen_seconds": 6.751}
+{"event": "generated", "index": 26, "total": 82, "task_id": "HumanEval/53", "completion_chars": 485, "gen_seconds": 5.563}
+{"event": "generated", "index": 27, "total": 82, "task_id": "HumanEval/54", "completion_chars": 540, "gen_seconds": 5.707}
+{"event": "generated", "index": 28, "total": 82, "task_id": "HumanEval/57", "completion_chars": 1020, "gen_seconds": 5.856}
+{"event": "generated", "index": 29, "total": 82, "task_id": "HumanEval/59", "completion_chars": 740, "gen_seconds": 5.528}
+{"event": "generated", "index": 30, "total": 82, "task_id": "HumanEval/61", "completion_chars": 1020, "gen_seconds": 5.59}
+{"event": "generated", "index": 31, "total": 82, "task_id": "HumanEval/62", "completion_chars": 265, "gen_seconds": 5.605}
+{"event": "generated", "index": 32, "total": 82, "task_id": "HumanEval/64", "completion_chars": 638, "gen_seconds": 5.392}
+{"event": "generated", "index": 33, "total": 82, "task_id": "HumanEval/67", "completion_chars": 688, "gen_seconds": 5.448}
+{"event": "generated", "index": 34, "total": 82, "task_id": "HumanEval/69", "completion_chars": 262, "gen_seconds": 5.461}
+{"event": "generated", "index": 35, "total": 82, "task_id": "HumanEval/70", "completion_chars": 676, "gen_seconds": 5.399}
+{"event": "generated", "index": 36, "total": 82, "task_id": "HumanEval/72", "completion_chars": 979, "gen_seconds": 5.447}
+{"event": "generated", "index": 37, "total": 82, "task_id": "HumanEval/73", "completion_chars": 275, "gen_seconds": 5.413}
+{"event": "generated", "index": 38, "total": 82, "task_id": "HumanEval/78", "completion_chars": 689, "gen_seconds": 5.462}
+{"event": "generated", "index": 39, "total": 82, "task_id": "HumanEval/79", "completion_chars": 741, "gen_seconds": 5.39}
+{"event": "generated", "index": 40, "total": 82, "task_id": "HumanEval/80", "completion_chars": 341, "gen_seconds": 5.411}
+{"event": "generated", "index": 41, "total": 82, "task_id": "HumanEval/83", "completion_chars": 726, "gen_seconds": 5.326}
+{"event": "generated", "index": 42, "total": 82, "task_id": "HumanEval/86", "completion_chars": 712, "gen_seconds": 5.4}
+{"event": "generated", "index": 43, "total": 82, "task_id": "HumanEval/87", "completion_chars": 318, "gen_seconds": 5.445}
+{"event": "generated", "index": 44, "total": 82, "task_id": "HumanEval/90", "completion_chars": 410, "gen_seconds": 5.42}
+{"event": "generated", "index": 45, "total": 82, "task_id": "HumanEval/91", "completion_chars": 537, "gen_seconds": 5.382}
+{"event": "generated", "index": 46, "total": 82, "task_id": "HumanEval/94", "completion_chars": 259, "gen_seconds": 5.441}
+{"event": "generated", "index": 47, "total": 82, "task_id": "HumanEval/96", "completion_chars": 278, "gen_seconds": 5.389}
+{"event": "generated", "index": 48, "total": 82, "task_id": "HumanEval/98", "completion_chars": 692, "gen_seconds": 5.412}
+{"event": "generated", "index": 49, "total": 82, "task_id": "HumanEval/100", "completion_chars": 570, "gen_seconds": 5.476}
+{"event": "generated", "index": 50, "total": 82, "task_id": "HumanEval/101", "completion_chars": 1, "gen_seconds": 5.564}
+{"event": "generated", "index": 51, "total": 82, "task_id": "HumanEval/103", "completion_chars": 787, "gen_seconds": 5.465}
+{"event": "generated", "index": 52, "total": 82, "task_id": "HumanEval/105", "completion_chars": 1019, "gen_seconds": 5.522}
+{"event": "generated", "index": 53, "total": 82, "task_id": "HumanEval/108", "completion_chars": 459, "gen_seconds": 5.661}
+{"event": "generated", "index": 54, "total": 82, "task_id": "HumanEval/109", "completion_chars": 441, "gen_seconds": 5.524}
+{"event": "generated", "index": 55, "total": 82, "task_id": "HumanEval/111", "completion_chars": 475, "gen_seconds": 5.431}
+{"event": "generated", "index": 56, "total": 82, "task_id": "HumanEval/112", "completion_chars": 206, "gen_seconds": 5.44}
+{"event": "generated", "index": 57, "total": 82, "task_id": "HumanEval/113", "completion_chars": 266, "gen_seconds": 5.466}
+{"event": "generated", "index": 58, "total": 82, "task_id": "HumanEval/116", "completion_chars": 726, "gen_seconds": 5.428}
+{"event": "generated", "index": 59, "total": 82, "task_id": "HumanEval/117", "completion_chars": 166, "gen_seconds": 5.459}
+{"event": "generated", "index": 60, "total": 82, "task_id": "HumanEval/120", "completion_chars": 265, "gen_seconds": 5.501}
+{"event": "generated", "index": 61, "total": 82, "task_id": "HumanEval/121", "completion_chars": 597, "gen_seconds": 5.432}
+{"event": "generated", "index": 62, "total": 82, "task_id": "HumanEval/122", "completion_chars": 493, "gen_seconds": 5.423}
+{"event": "generated", "index": 63, "total": 82, "task_id": "HumanEval/124", "completion_chars": 556, "gen_seconds": 5.484}
+{"event": "generated", "index": 64, "total": 82, "task_id": "HumanEval/125", "completion_chars": 726, "gen_seconds": 5.443}
+{"event": "generated", "index": 65, "total": 82, "task_id": "HumanEval/127", "completion_chars": 996, "gen_seconds": 5.5}
+{"event": "generated", "index": 66, "total": 82, "task_id": "HumanEval/130", "completion_chars": 630, "gen_seconds": 5.466}
+{"event": "generated", "index": 67, "total": 82, "task_id": "HumanEval/133", "completion_chars": 875, "gen_seconds": 5.43}
+{"event": "generated", "index": 68, "total": 82, "task_id": "HumanEval/136", "completion_chars": 1068, "gen_seconds": 5.383}
+{"event": "generated", "index": 69, "total": 82, "task_id": "HumanEval/138", "completion_chars": 1033, "gen_seconds": 5.389}
+{"event": "generated", "index": 70, "total": 82, "task_id": "HumanEval/139", "completion_chars": 745, "gen_seconds": 5.407}
+{"event": "generated", "index": 71, "total": 82, "task_id": "HumanEval/140", "completion_chars": 666, "gen_seconds": 5.405}
+{"event": "generated", "index": 72, "total": 82, "task_id": "HumanEval/142", "completion_chars": 263, "gen_seconds": 5.427}
+{"event": "generated", "index": 73, "total": 82, "task_id": "HumanEval/144", "completion_chars": 687, "gen_seconds": 5.404}
+{"event": "generated", "index": 74, "total": 82, "task_id": "HumanEval/147", "completion_chars": 689, "gen_seconds": 5.417}
+{"event": "generated", "index": 75, "total": 82, "task_id": "HumanEval/149", "completion_chars": 1, "gen_seconds": 5.45}
+{"event": "generated", "index": 76, "total": 82, "task_id": "HumanEval/153", "completion_chars": 754, "gen_seconds": 5.483}
+{"event": "generated", "index": 77, "total": 82, "task_id": "HumanEval/154", "completion_chars": 398, "gen_seconds": 5.434}
+{"event": "generated", "index": 78, "total": 82, "task_id": "HumanEval/155", "completion_chars": 1042, "gen_seconds": 5.421}
+{"event": "generated", "index": 79, "total": 82, "task_id": "HumanEval/156", "completion_chars": 494, "gen_seconds": 5.465}
+{"event": "generated", "index": 80, "total": 82, "task_id": "HumanEval/157", "completion_chars": 676, "gen_seconds": 5.404}
+{"event": "generated", "index": 81, "total": 82, "task_id": "HumanEval/160", "completion_chars": 44, "gen_seconds": 6.442}
+{"event": "generated", "index": 82, "total": 82, "task_id": "HumanEval/163", "completion_chars": 624, "gen_seconds": 6.228}
+{
+  "status": "success",
+  "model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged",
+  "adapter": "",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/humaneval/samples.jsonl",
+  "generations": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/humaneval/generations.jsonl",
+  "task_count": 82,
+  "elapsed_seconds": 477.60369515419006,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "device_map",
+  "load_in_8bit": false,
+  "load_in_4bit": true,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 82, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 82, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 82, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 82, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 82, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 82, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 82, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 82, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 9, "total": 82, "task_id": "HumanEval/20", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 10, "total": 82, "task_id": "HumanEval/22", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 11, "total": 82, "task_id": "HumanEval/24", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 12, "total": 82, "task_id": "HumanEval/27", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 13, "total": 82, "task_id": "HumanEval/28", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 14, "total": 82, "task_id": "HumanEval/29", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 15, "total": 82, "task_id": "HumanEval/32", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 16, "total": 82, "task_id": "HumanEval/33", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 17, "total": 82, "task_id": "HumanEval/35", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 18, "total": 82, "task_id": "HumanEval/37", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 19, "total": 82, "task_id": "HumanEval/39", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 20, "total": 82, "task_id": "HumanEval/43", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 21, "total": 82, "task_id": "HumanEval/45", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 22, "total": 82, "task_id": "HumanEval/47", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 23, "total": 82, "task_id": "HumanEval/49", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 24, "total": 82, "task_id": "HumanEval/50", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 25, "total": 82, "task_id": "HumanEval/51", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 26, "total": 82, "task_id": "HumanEval/53", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 27, "total": 82, "task_id": "HumanEval/54", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 28, "total": 82, "task_id": "HumanEval/57", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 29, "total": 82, "task_id": "HumanEval/59", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 30, "total": 82, "task_id": "HumanEval/61", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 31, "total": 82, "task_id": "HumanEval/62", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 32, "total": 82, "task_id": "HumanEval/64", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 33, "total": 82, "task_id": "HumanEval/67", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 34, "total": 82, "task_id": "HumanEval/69", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 35, "total": 82, "task_id": "HumanEval/70", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 36, "total": 82, "task_id": "HumanEval/72", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 37, "total": 82, "task_id": "HumanEval/73", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 38, "total": 82, "task_id": "HumanEval/78", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 39, "total": 82, "task_id": "HumanEval/79", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 40, "total": 82, "task_id": "HumanEval/80", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 41, "total": 82, "task_id": "HumanEval/83", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 42, "total": 82, "task_id": "HumanEval/86", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 43, "total": 82, "task_id": "HumanEval/87", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 44, "total": 82, "task_id": "HumanEval/90", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 45, "total": 82, "task_id": "HumanEval/91", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 46, "total": 82, "task_id": "HumanEval/94", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 47, "total": 82, "task_id": "HumanEval/96", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 48, "total": 82, "task_id": "HumanEval/98", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 49, "total": 82, "task_id": "HumanEval/100", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 50, "total": 82, "task_id": "HumanEval/101", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 51, "total": 82, "task_id": "HumanEval/103", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 52, "total": 82, "task_id": "HumanEval/105", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 53, "total": 82, "task_id": "HumanEval/108", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 54, "total": 82, "task_id": "HumanEval/109", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 55, "total": 82, "task_id": "HumanEval/111", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 56, "total": 82, "task_id": "HumanEval/112", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 57, "total": 82, "task_id": "HumanEval/113", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 58, "total": 82, "task_id": "HumanEval/116", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 59, "total": 82, "task_id": "HumanEval/117", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 60, "total": 82, "task_id": "HumanEval/120", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 61, "total": 82, "task_id": "HumanEval/121", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 62, "total": 82, "task_id": "HumanEval/122", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 63, "total": 82, "task_id": "HumanEval/124", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 64, "total": 82, "task_id": "HumanEval/125", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 65, "total": 82, "task_id": "HumanEval/127", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 66, "total": 82, "task_id": "HumanEval/130", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 67, "total": 82, "task_id": "HumanEval/133", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 68, "total": 82, "task_id": "HumanEval/136", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 69, "total": 82, "task_id": "HumanEval/138", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 70, "total": 82, "task_id": "HumanEval/139", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 71, "total": 82, "task_id": "HumanEval/140", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 72, "total": 82, "task_id": "HumanEval/142", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 73, "total": 82, "task_id": "HumanEval/144", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 74, "total": 82, "task_id": "HumanEval/147", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 75, "total": 82, "task_id": "HumanEval/149", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 76, "total": 82, "task_id": "HumanEval/153", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 77, "total": 82, "task_id": "HumanEval/154", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 78, "total": 82, "task_id": "HumanEval/155", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 79, "total": 82, "task_id": "HumanEval/156", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 80, "total": 82, "task_id": "HumanEval/157", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 81, "total": 82, "task_id": "HumanEval/160", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 82, "total": 82, "task_id": "HumanEval/163", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 82,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 82
+  }
+}

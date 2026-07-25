@@ -1,0 +1,36 @@
+{
+  "status": "success",
+  "base_model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80/pruned_model",
+  "train_file": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/codellama7b_distill/distill_train.jsonl",
+  "samples": 436,
+  "output_adapter": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80_lora/lora_adapter",
+  "rank": 8,
+  "alpha": 16,
+  "dropout": 0.0,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "epochs": 1.0,
+  "batch_size": 1,
+  "grad_accum": 8,
+  "max_length": 256,
+  "lr": 0.0002,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "load_mode": "device_map",
+  "load_in_4bit": true,
+  "device_map": null,
+  "max_memory": {
+    "0": "6GiB",
+    "cpu": "24GiB"
+  },
+  "offload_folder": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/offload_default_lora",
+  "steps": 55,
+  "elapsed_seconds": 250.48350286483765
+}

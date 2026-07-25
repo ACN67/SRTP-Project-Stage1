@@ -1,0 +1,127 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<00:40,  7.16it/s]Loading weights:   1%|          | 2/291 [00:00<00:36,  7.90it/s]Loading weights:   2%|▏         | 5/291 [00:00<00:19, 14.45it/s]Loading weights:   4%|▍         | 11/291 [00:00<00:10, 27.75it/s]Loading weights:   5%|▍         | 14/291 [00:00<00:09, 28.02it/s]Loading weights:   7%|▋         | 19/291 [00:00<00:07, 34.23it/s]Loading weights:   8%|▊         | 23/291 [00:00<00:07, 34.97it/s]Loading weights:  10%|▉         | 28/291 [00:00<00:06, 39.17it/s]Loading weights:  11%|█         | 32/291 [00:01<00:06, 37.52it/s]Loading weights:  13%|█▎        | 37/291 [00:01<00:06, 40.99it/s]Loading weights:  14%|█▍        | 42/291 [00:01<00:06, 37.47it/s]Loading weights:  17%|█▋        | 49/291 [00:01<00:05, 44.09it/s]Loading weights:  19%|█▊        | 54/291 [00:01<00:05, 42.83it/s]Loading weights:  20%|██        | 59/291 [00:01<00:05, 38.99it/s]Loading weights:  22%|██▏       | 64/291 [00:01<00:05, 39.83it/s]Loading weights:  24%|██▎       | 69/291 [00:02<00:06, 34.93it/s]Loading weights:  26%|██▌       | 76/291 [00:02<00:05, 36.15it/s]Loading weights:  27%|██▋       | 80/291 [00:02<00:06, 32.24it/s]Loading weights:  29%|██▉       | 84/291 [00:02<00:09, 22.72it/s]Loading weights:  30%|██▉       | 87/291 [00:02<00:10, 18.67it/s]Loading weights:  32%|███▏      | 92/291 [00:03<00:08, 22.82it/s]Loading weights:  33%|███▎      | 95/291 [00:03<00:09, 21.03it/s]Loading weights:  34%|███▎      | 98/291 [00:03<00:10, 18.44it/s]Loading weights:  35%|███▍      | 101/291 [00:03<00:11, 16.72it/s]Loading weights:  35%|███▌      | 103/291 [00:03<00:13, 14.46it/s]Loading weights:  36%|███▌      | 105/291 [00:04<00:28,  6.46it/s]Loading weights:  38%|███▊      | 112/291 [00:05<00:15, 11.48it/s]Loading weights:  40%|███▉      | 115/291 [00:05<00:13, 12.73it/s]Loading weights:  41%|████      | 118/291 [00:05<00:12, 13.53it/s]Loading weights:  42%|████▏     | 121/291 [00:05<00:11, 15.43it/s]Loading weights:  43%|████▎     | 124/291 [00:05<00:10, 16.26it/s]Loading weights:  44%|████▍     | 128/291 [00:05<00:08, 19.52it/s]Loading weights:  45%|████▌     | 131/291 [00:05<00:07, 20.32it/s]Loading weights:  46%|████▋     | 135/291 [00:06<00:06, 24.30it/s]Loading weights:  48%|████▊     | 139/291 [00:06<00:05, 27.07it/s]Loading weights:  49%|████▉     | 143/291 [00:06<00:05, 27.24it/s]Loading weights:  51%|█████     | 148/291 [00:06<00:05, 25.29it/s]Loading weights:  52%|█████▏    | 151/291 [00:06<00:06, 21.91it/s]Loading weights:  53%|█████▎    | 155/291 [00:06<00:05, 23.62it/s]Loading weights:  54%|█████▍    | 158/291 [00:07<00:08, 14.82it/s]Loading weights:  55%|█████▍    | 160/291 [00:07<00:08, 14.74it/s]Loading weights:  56%|█████▌    | 162/291 [00:07<00:09, 14.30it/s]Loading weights:  57%|█████▋    | 166/291 [00:07<00:06, 18.00it/s]Loading weights:  58%|█████▊    | 169/291 [00:07<00:06, 17.86it/s]Loading weights:  59%|█████▉    | 172/291 [00:07<00:06, 19.53it/s]Loading weights:  60%|██████    | 175/291 [00:08<00:05, 20.30it/s]Loading weights:  61%|██████    | 178/291 [00:08<00:07, 16.03it/s]Loading weights:  63%|██████▎   | 182/291 [00:08<00:05, 19.53it/s]Loading weights:  64%|██████▎   | 185/291 [00:08<00:05, 19.34it/s]Loading weights:  65%|██████▍   | 188/291 [00:08<00:05, 17.73it/s]Loading weights:  66%|██████▋   | 193/291 [00:09<00:04, 20.35it/s]Loading weights:  67%|██████▋   | 196/291 [00:09<00:05, 17.89it/s]Loading weights:  68%|██████▊   | 198/291 [00:09<00:05, 17.27it/s]Loading weights:  69%|██████▉   | 202/291 [00:09<00:04, 19.33it/s]Loading weights:  70%|███████   | 204/291 [00:09<00:06, 12.77it/s]Loading weights:  71%|███████   | 206/291 [00:10<00:06, 13.65it/s]Loading weights:  71%|███████▏  | 208/291 [00:10<00:06, 13.65it/s]Loading weights:  73%|███████▎  | 211/291 [00:10<00:07, 11.31it/s]Loading weights:  73%|███████▎  | 213/291 [00:11<00:12,  6.45it/s]Loading weights:  74%|███████▍  | 216/291 [00:11<00:08,  8.57it/s]Loading weights:  75%|███████▍  | 218/291 [00:11<00:11,  6.52it/s]Loading weights:  76%|███████▌  | 220/291 [00:12<00:12,  5.51it/s]Loading weights:  76%|███████▌  | 221/291 [00:12<00:14,  4.71it/s]Loading weights:  76%|███████▋  | 222/291 [00:13<00:16,  4.27it/s]Loading weights:  78%|███████▊  | 226/291 [00:13<00:09,  7.08it/s]Loading weights:  78%|███████▊  | 227/291 [00:13<00:09,  7.09it/s]Loading weights:  79%|███████▊  | 229/291 [00:13<00:09,  6.49it/s]Loading weights:  79%|███████▉  | 230/291 [00:14<00:10,  5.71it/s]Loading weights:  79%|███████▉  | 231/291 [00:14<00:11,  5.05it/s]Loading weights:  81%|████████  | 235/291 [00:14<00:06,  8.80it/s]Loading weights:  82%|████████▏ | 238/291 [00:15<00:07,  7.29it/s]Loading weights:  82%|████████▏ | 239/291 [00:15<00:08,  6.08it/s]Loading weights:  82%|████████▏ | 240/291 [00:15<00:09,  5.26it/s]Loading weights:  83%|████████▎ | 242/291 [00:15<00:07,  6.66it/s]Loading weights:  84%|████████▍ | 244/291 [00:16<00:06,  7.48it/s]Loading weights:  84%|████████▍ | 245/291 [00:16<00:06,  7.11it/s]Loading weights:  85%|████████▍ | 247/291 [00:16<00:06,  6.49it/s]Loading weights:  85%|████████▌ | 248/291 [00:16<00:06,  6.29it/s]Loading weights:  86%|████████▌ | 249/291 [00:17<00:09,  4.56it/s]Loading weights:  86%|████████▋ | 251/291 [00:17<00:06,  5.82it/s]Loading weights:  87%|████████▋ | 252/291 [00:17<00:06,  5.91it/s]Loading weights:  87%|████████▋ | 254/291 [00:17<00:05,  6.76it/s]Loading weights:  88%|████████▊ | 256/291 [00:18<00:05,  6.17it/s]Loading weights:  88%|████████▊ | 257/291 [00:18<00:06,  5.27it/s]Loading weights:  89%|████████▊ | 258/291 [00:19<00:12,  2.72it/s]Loading weights:  90%|████████▉ | 261/291 [00:21<00:14,  2.02it/s]Loading weights:  90%|█████████ | 262/291 [00:21<00:12,  2.36it/s]Loading weights:  90%|█████████ | 263/291 [00:21<00:11,  2.39it/s]Loading weights:  91%|█████████ | 265/291 [00:22<00:08,  3.00it/s]Loading weights:  91%|█████████▏| 266/291 [00:23<00:11,  2.25it/s]Loading weights:  92%|█████████▏| 267/291 [00:23<00:12,  1.94it/s]Loading weights:  93%|█████████▎| 271/291 [00:24<00:04,  4.02it/s]Loading weights:  93%|█████████▎| 272/291 [00:24<00:05,  3.74it/s]Loading weights:  94%|█████████▍| 274/291 [00:25<00:06,  2.64it/s]Loading weights:  95%|█████████▍| 275/291 [00:25<00:05,  2.97it/s]Loading weights:  96%|█████████▌| 278/291 [00:25<00:02,  4.91it/s]Loading weights:  97%|█████████▋| 281/291 [00:26<00:01,  7.09it/s]Loading weights:  97%|█████████▋| 283/291 [00:26<00:01,  7.62it/s]Loading weights:  98%|█████████▊| 285/291 [00:26<00:00,  7.13it/s]Loading weights:  99%|█████████▉| 289/291 [00:26<00:00, 10.37it/s]Loading weights: 100%|██████████| 291/291 [00:26<00:00, 10.85it/s]
+{"event": "generated", "index": 1, "total": 82, "task_id": "HumanEval/0", "completion_chars": 723, "gen_seconds": 14.686}
+{"event": "generated", "index": 2, "total": 82, "task_id": "HumanEval/2", "completion_chars": 885, "gen_seconds": 6.789}
+{"event": "generated", "index": 3, "total": 82, "task_id": "HumanEval/3", "completion_chars": 935, "gen_seconds": 6.773}
+{"event": "generated", "index": 4, "total": 82, "task_id": "HumanEval/4", "completion_chars": 719, "gen_seconds": 6.502}
+{"event": "generated", "index": 5, "total": 82, "task_id": "HumanEval/8", "completion_chars": 778, "gen_seconds": 6.416}
+{"event": "generated", "index": 6, "total": 82, "task_id": "HumanEval/9", "completion_chars": 749, "gen_seconds": 6.397}
+{"event": "generated", "index": 7, "total": 82, "task_id": "HumanEval/10", "completion_chars": 828, "gen_seconds": 6.424}
+{"event": "generated", "index": 8, "total": 82, "task_id": "HumanEval/13", "completion_chars": 700, "gen_seconds": 6.366}
+{"event": "generated", "index": 9, "total": 82, "task_id": "HumanEval/14", "completion_chars": 750, "gen_seconds": 6.409}
+{"event": "generated", "index": 10, "total": 82, "task_id": "HumanEval/16", "completion_chars": 805, "gen_seconds": 6.445}
+{"event": "generated", "index": 11, "total": 82, "task_id": "HumanEval/17", "completion_chars": 642, "gen_seconds": 6.537}
+{"event": "generated", "index": 12, "total": 82, "task_id": "HumanEval/18", "completion_chars": 756, "gen_seconds": 6.441}
+{"event": "generated", "index": 13, "total": 82, "task_id": "HumanEval/21", "completion_chars": 656, "gen_seconds": 6.472}
+{"event": "generated", "index": 14, "total": 82, "task_id": "HumanEval/23", "completion_chars": 745, "gen_seconds": 6.363}
+{"event": "generated", "index": 15, "total": 82, "task_id": "HumanEval/25", "completion_chars": 328, "gen_seconds": 3.3}
+{"event": "generated", "index": 16, "total": 82, "task_id": "HumanEval/26", "completion_chars": 881, "gen_seconds": 6.385}
+{"event": "generated", "index": 17, "total": 82, "task_id": "HumanEval/30", "completion_chars": 513, "gen_seconds": 6.4}
+{"event": "generated", "index": 18, "total": 82, "task_id": "HumanEval/31", "completion_chars": 715, "gen_seconds": 6.536}
+{"event": "generated", "index": 19, "total": 82, "task_id": "HumanEval/34", "completion_chars": 580, "gen_seconds": 6.6}
+{"event": "generated", "index": 20, "total": 82, "task_id": "HumanEval/36", "completion_chars": 625, "gen_seconds": 6.556}
+{"event": "generated", "index": 21, "total": 82, "task_id": "HumanEval/38", "completion_chars": 737, "gen_seconds": 6.628}
+{"event": "generated", "index": 22, "total": 82, "task_id": "HumanEval/40", "completion_chars": 258, "gen_seconds": 2.846}
+{"event": "generated", "index": 23, "total": 82, "task_id": "HumanEval/41", "completion_chars": 959, "gen_seconds": 6.624}
+{"event": "generated", "index": 24, "total": 82, "task_id": "HumanEval/42", "completion_chars": 457, "gen_seconds": 6.602}
+{"event": "generated", "index": 25, "total": 82, "task_id": "HumanEval/44", "completion_chars": 732, "gen_seconds": 6.614}
+{"event": "generated", "index": 26, "total": 82, "task_id": "HumanEval/46", "completion_chars": 673, "gen_seconds": 6.457}
+{"event": "generated", "index": 27, "total": 82, "task_id": "HumanEval/48", "completion_chars": 700, "gen_seconds": 6.618}
+{"event": "generated", "index": 28, "total": 82, "task_id": "HumanEval/52", "completion_chars": 674, "gen_seconds": 6.605}
+{"event": "generated", "index": 29, "total": 82, "task_id": "HumanEval/55", "completion_chars": 586, "gen_seconds": 6.611}
+{"event": "generated", "index": 30, "total": 82, "task_id": "HumanEval/56", "completion_chars": 860, "gen_seconds": 6.607}
+{"event": "generated", "index": 31, "total": 82, "task_id": "HumanEval/58", "completion_chars": 522, "gen_seconds": 6.687}
+{"event": "generated", "index": 32, "total": 82, "task_id": "HumanEval/60", "completion_chars": 594, "gen_seconds": 6.658}
+{"event": "generated", "index": 33, "total": 82, "task_id": "HumanEval/63", "completion_chars": 628, "gen_seconds": 6.659}
+{"event": "generated", "index": 34, "total": 82, "task_id": "HumanEval/65", "completion_chars": 589, "gen_seconds": 5.861}
+{"event": "generated", "index": 35, "total": 82, "task_id": "HumanEval/66", "completion_chars": 744, "gen_seconds": 6.66}
+{"event": "generated", "index": 36, "total": 82, "task_id": "HumanEval/68", "completion_chars": 577, "gen_seconds": 6.787}
+{"event": "generated", "index": 37, "total": 82, "task_id": "HumanEval/71", "completion_chars": 723, "gen_seconds": 6.623}
+{"event": "generated", "index": 38, "total": 82, "task_id": "HumanEval/74", "completion_chars": 751, "gen_seconds": 6.643}
+{"event": "generated", "index": 39, "total": 82, "task_id": "HumanEval/75", "completion_chars": 786, "gen_seconds": 6.584}
+{"event": "generated", "index": 40, "total": 82, "task_id": "HumanEval/76", "completion_chars": 718, "gen_seconds": 6.979}
+{"event": "generated", "index": 41, "total": 82, "task_id": "HumanEval/77", "completion_chars": 709, "gen_seconds": 6.71}
+{"event": "generated", "index": 42, "total": 82, "task_id": "HumanEval/81", "completion_chars": 666, "gen_seconds": 6.781}
+{"event": "generated", "index": 43, "total": 82, "task_id": "HumanEval/82", "completion_chars": 901, "gen_seconds": 6.747}
+{"event": "generated", "index": 44, "total": 82, "task_id": "HumanEval/84", "completion_chars": 360, "gen_seconds": 6.613}
+{"event": "generated", "index": 45, "total": 82, "task_id": "HumanEval/85", "completion_chars": 735, "gen_seconds": 6.578}
+{"event": "generated", "index": 46, "total": 82, "task_id": "HumanEval/88", "completion_chars": 734, "gen_seconds": 6.673}
+{"event": "generated", "index": 47, "total": 82, "task_id": "HumanEval/89", "completion_chars": 761, "gen_seconds": 6.608}
+{"event": "generated", "index": 48, "total": 82, "task_id": "HumanEval/92", "completion_chars": 203, "gen_seconds": 6.647}
+{"event": "generated", "index": 49, "total": 82, "task_id": "HumanEval/93", "completion_chars": 820, "gen_seconds": 6.646}
+{"event": "generated", "index": 50, "total": 82, "task_id": "HumanEval/95", "completion_chars": 837, "gen_seconds": 6.736}
+{"event": "generated", "index": 51, "total": 82, "task_id": "HumanEval/97", "completion_chars": 708, "gen_seconds": 6.618}
+{"event": "generated", "index": 52, "total": 82, "task_id": "HumanEval/99", "completion_chars": 675, "gen_seconds": 6.937}
+{"event": "generated", "index": 53, "total": 82, "task_id": "HumanEval/102", "completion_chars": 818, "gen_seconds": 7.133}
+{"event": "generated", "index": 54, "total": 82, "task_id": "HumanEval/104", "completion_chars": 674, "gen_seconds": 6.894}
+{"event": "generated", "index": 55, "total": 82, "task_id": "HumanEval/106", "completion_chars": 611, "gen_seconds": 6.584}
+{"event": "generated", "index": 56, "total": 82, "task_id": "HumanEval/107", "completion_chars": 1001, "gen_seconds": 6.576}
+{"event": "generated", "index": 57, "total": 82, "task_id": "HumanEval/110", "completion_chars": 545, "gen_seconds": 6.58}
+{"event": "generated", "index": 58, "total": 82, "task_id": "HumanEval/114", "completion_chars": 566, "gen_seconds": 6.507}
+{"event": "generated", "index": 59, "total": 82, "task_id": "HumanEval/115", "completion_chars": 680, "gen_seconds": 6.657}
+{"event": "generated", "index": 60, "total": 82, "task_id": "HumanEval/118", "completion_chars": 757, "gen_seconds": 6.581}
+{"event": "generated", "index": 61, "total": 82, "task_id": "HumanEval/119", "completion_chars": 892, "gen_seconds": 6.589}
+{"event": "generated", "index": 62, "total": 82, "task_id": "HumanEval/123", "completion_chars": 878, "gen_seconds": 6.596}
+{"event": "generated", "index": 63, "total": 82, "task_id": "HumanEval/126", "completion_chars": 633, "gen_seconds": 6.601}
+{"event": "generated", "index": 64, "total": 82, "task_id": "HumanEval/128", "completion_chars": 742, "gen_seconds": 6.59}
+{"event": "generated", "index": 65, "total": 82, "task_id": "HumanEval/129", "completion_chars": 624, "gen_seconds": 6.682}
+{"event": "generated", "index": 66, "total": 82, "task_id": "HumanEval/131", "completion_chars": 541, "gen_seconds": 6.628}
+{"event": "generated", "index": 67, "total": 82, "task_id": "HumanEval/132", "completion_chars": 844, "gen_seconds": 6.618}
+{"event": "generated", "index": 68, "total": 82, "task_id": "HumanEval/134", "completion_chars": 719, "gen_seconds": 6.528}
+{"event": "generated", "index": 69, "total": 82, "task_id": "HumanEval/135", "completion_chars": 822, "gen_seconds": 6.438}
+{"event": "generated", "index": 70, "total": 82, "task_id": "HumanEval/137", "completion_chars": 771, "gen_seconds": 6.493}
+{"event": "generated", "index": 71, "total": 82, "task_id": "HumanEval/141", "completion_chars": 582, "gen_seconds": 6.472}
+{"event": "generated", "index": 72, "total": 82, "task_id": "HumanEval/143", "completion_chars": 868, "gen_seconds": 6.464}
+{"event": "generated", "index": 73, "total": 82, "task_id": "HumanEval/145", "completion_chars": 905, "gen_seconds": 6.565}
+{"event": "generated", "index": 74, "total": 82, "task_id": "HumanEval/146", "completion_chars": 631, "gen_seconds": 6.575}
+{"event": "generated", "index": 75, "total": 82, "task_id": "HumanEval/148", "completion_chars": 784, "gen_seconds": 6.638}
+{"event": "generated", "index": 76, "total": 82, "task_id": "HumanEval/150", "completion_chars": 623, "gen_seconds": 6.572}
+{"event": "generated", "index": 77, "total": 82, "task_id": "HumanEval/151", "completion_chars": 661, "gen_seconds": 6.582}
+{"event": "generated", "index": 78, "total": 82, "task_id": "HumanEval/152", "completion_chars": 57, "gen_seconds": 6.626}
+{"event": "generated", "index": 79, "total": 82, "task_id": "HumanEval/158", "completion_chars": 935, "gen_seconds": 6.578}
+{"event": "generated", "index": 80, "total": 82, "task_id": "HumanEval/159", "completion_chars": 743, "gen_seconds": 6.683}
+{"event": "generated", "index": 81, "total": 82, "task_id": "HumanEval/161", "completion_chars": 718, "gen_seconds": 6.579}
+{"event": "generated", "index": 82, "total": 82, "task_id": "HumanEval/162", "completion_chars": 675, "gen_seconds": 6.561}
+{
+  "status": "success",
+  "model": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "adapter": "",
+  "split": "data/splits/humaneval_half/guide.jsonl",
+  "samples": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/codellama7b_distill/humaneval/samples.jsonl",
+  "generations": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/codellama7b_distill/humaneval/generations.jsonl",
+  "task_count": 82,
+  "elapsed_seconds": 571.0622370243073,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "device_map",
+  "load_in_8bit": false,
+  "load_in_4bit": true,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+	Command being timed: ".venv-common/bin/python scripts/eval/generate_evalplus_samples.py --model /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6 --split data/splits/humaneval_half/guide.jsonl --out-dir results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/codellama7b_distill/humaneval --max-new-tokens 256 --dtype fp16 --device cuda:0 --load-mode device_map --device-map auto --load-in-4bit"
+	User time (seconds): 529.66
+	System time (seconds): 137.43
+	Percent of CPU this job got: 114%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 9:42.80
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 13606260
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 59596
+	Minor (reclaiming a frame) page faults: 3909469
+	Voluntary context switches: 53705
+	Involuntary context switches: 2856
+	Swaps: 0
+	File system inputs: 27440480
+	File system outputs: 856
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

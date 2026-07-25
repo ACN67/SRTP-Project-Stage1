@@ -1,0 +1,25 @@
+{
+  "status": "success",
+  "method": "LLM-Pruner",
+  "model_path": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "mode": "default",
+  "drop_layers": 6,
+  "drop_indices": [
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "layers_before": 32,
+  "layers_after": 26,
+  "parameter_count_after": 5524246528,
+  "guide_files": [],
+  "guide_samples_used": 0,
+  "importance_scores": null,
+  "pruned_model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/default_keep80/pruned_model",
+  "process_rss_mb_after": 10607.78125,
+  "elapsed_seconds": 81.5241641998291,
+  "torch": "2.11.0+cu128"
+}

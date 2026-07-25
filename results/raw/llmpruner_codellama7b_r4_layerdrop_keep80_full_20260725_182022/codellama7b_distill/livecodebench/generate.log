@@ -1,0 +1,245 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<01:33,  3.10it/s]Loading weights:   1%|          | 2/291 [00:00<01:03,  4.55it/s]Loading weights:   2%|▏         | 5/291 [00:00<00:26, 10.63it/s]Loading weights:   2%|▏         | 7/291 [00:00<00:30,  9.44it/s]Loading weights:   3%|▎         | 10/291 [00:01<00:23, 11.88it/s]Loading weights:   4%|▍         | 13/291 [00:01<00:25, 11.01it/s]Loading weights:   5%|▌         | 15/291 [00:01<00:40,  6.80it/s]Loading weights:   7%|▋         | 19/291 [00:02<00:27,  9.75it/s]Loading weights:   8%|▊         | 22/291 [00:02<00:28,  9.58it/s]Loading weights:   8%|▊         | 24/291 [00:02<00:35,  7.55it/s]Loading weights:  10%|▉         | 28/291 [00:03<00:28,  9.18it/s]Loading weights:  10%|█         | 30/291 [00:03<00:25, 10.32it/s]Loading weights:  11%|█         | 32/291 [00:03<00:34,  7.52it/s]Loading weights:  12%|█▏        | 34/291 [00:03<00:32,  7.99it/s]Loading weights:  13%|█▎        | 37/291 [00:04<00:25,  9.88it/s]Loading weights:  14%|█▎        | 40/291 [00:04<00:26,  9.46it/s]Loading weights:  14%|█▍        | 42/291 [00:05<00:40,  6.19it/s]Loading weights:  15%|█▌        | 45/291 [00:05<00:29,  8.41it/s]Loading weights:  16%|█▌        | 47/291 [00:05<00:27,  8.82it/s]Loading weights:  17%|█▋        | 49/291 [00:05<00:27,  8.79it/s]Loading weights:  18%|█▊        | 51/291 [00:06<00:40,  5.94it/s]Loading weights:  19%|█▉        | 55/291 [00:06<00:25,  9.13it/s]Loading weights:  20%|█▉        | 58/291 [00:06<00:24,  9.44it/s]Loading weights:  21%|██        | 60/291 [00:07<00:32,  7.09it/s]Loading weights:  22%|██▏       | 64/291 [00:07<00:24,  9.42it/s]Loading weights:  23%|██▎       | 67/291 [00:07<00:23,  9.55it/s]Loading weights:  24%|██▎       | 69/291 [00:08<00:26,  8.45it/s]Loading weights:  25%|██▌       | 73/291 [00:08<00:19, 11.03it/s]Loading weights:  26%|██▌       | 76/291 [00:08<00:22,  9.63it/s]Loading weights:  27%|██▋       | 78/291 [00:09<00:24,  8.65it/s]Loading weights:  28%|██▊       | 82/291 [00:09<00:17, 11.97it/s]Loading weights:  29%|██▉       | 85/291 [00:09<00:17, 12.05it/s]Loading weights:  30%|██▉       | 87/291 [00:09<00:21,  9.56it/s]Loading weights:  31%|███       | 90/291 [00:09<00:17, 11.69it/s]Loading weights:  32%|███▏      | 92/291 [00:10<00:17, 11.09it/s]Loading weights:  32%|███▏      | 94/291 [00:10<00:18, 10.46it/s]Loading weights:  33%|███▎      | 96/291 [00:10<00:24,  8.03it/s]Loading weights:  34%|███▍      | 100/291 [00:10<00:17, 10.81it/s]Loading weights:  35%|███▌      | 103/291 [00:11<00:18, 10.27it/s]Loading weights:  36%|███▌      | 105/291 [00:11<00:22,  8.13it/s]Loading weights:  37%|███▋      | 108/291 [00:12<00:27,  6.62it/s]Loading weights:  37%|███▋      | 109/291 [00:12<00:38,  4.69it/s]Loading weights:  38%|███▊      | 110/291 [00:13<00:37,  4.79it/s]Loading weights:  38%|███▊      | 112/291 [00:13<00:35,  5.03it/s]Loading weights:  39%|███▉      | 113/291 [00:14<00:50,  3.52it/s]Loading weights:  39%|███▉      | 114/291 [00:14<01:01,  2.90it/s]Loading weights:  40%|████      | 117/291 [00:14<00:35,  4.97it/s]Loading weights:  41%|████      | 118/291 [00:14<00:31,  5.43it/s]Loading weights:  41%|████      | 119/291 [00:15<00:28,  5.98it/s]Loading weights:  42%|████▏     | 121/291 [00:15<00:26,  6.38it/s]Loading weights:  42%|████▏     | 122/291 [00:15<00:29,  5.76it/s]Loading weights:  42%|████▏     | 123/291 [00:15<00:31,  5.32it/s]Loading weights:  43%|████▎     | 126/291 [00:15<00:18,  8.85it/s]Loading weights:  44%|████▍     | 128/291 [00:16<00:17,  9.20it/s]Loading weights:  45%|████▍     | 130/291 [00:16<00:18,  8.75it/s]Loading weights:  45%|████▌     | 132/291 [00:17<00:42,  3.71it/s]Loading weights:  46%|████▋     | 135/291 [00:17<00:27,  5.70it/s]Loading weights:  47%|████▋     | 137/291 [00:17<00:22,  6.73it/s]Loading weights:  48%|████▊     | 139/291 [00:19<00:59,  2.55it/s]Loading weights:  48%|████▊     | 141/291 [00:20<00:50,  2.97it/s]Loading weights:  50%|████▉     | 145/291 [00:20<00:29,  4.92it/s]Loading weights:  51%|█████     | 148/291 [00:20<00:25,  5.68it/s]Loading weights:  52%|█████▏    | 150/291 [00:23<01:00,  2.35it/s]Loading weights:  53%|█████▎    | 153/291 [00:23<00:40,  3.39it/s]Loading weights:  53%|█████▎    | 155/291 [00:23<00:33,  4.03it/s]Loading weights:  54%|█████▍    | 157/291 [00:24<00:33,  4.05it/s]Loading weights:  55%|█████▍    | 159/291 [00:24<00:40,  3.27it/s]Loading weights:  55%|█████▌    | 161/291 [00:25<00:30,  4.20it/s]Loading weights:  56%|█████▌    | 163/291 [00:25<00:24,  5.13it/s]Loading weights:  57%|█████▋    | 165/291 [00:25<00:21,  6.00it/s]Loading weights:  57%|█████▋    | 167/291 [00:26<00:35,  3.50it/s]Loading weights:  58%|█████▊    | 168/291 [00:27<00:37,  3.26it/s]Loading weights:  59%|█████▉    | 171/291 [00:27<00:23,  5.10it/s]Loading weights:  59%|█████▉    | 173/291 [00:27<00:22,  5.30it/s]Loading weights:  60%|██████    | 175/291 [00:27<00:22,  5.19it/s]Loading weights:  60%|██████    | 176/291 [00:28<00:28,  3.99it/s]Loading weights:  61%|██████    | 177/291 [00:28<00:31,  3.65it/s]Loading weights:  62%|██████▏   | 180/291 [00:28<00:18,  5.98it/s]Loading weights:  63%|██████▎   | 182/291 [00:29<00:16,  6.45it/s]Loading weights:  63%|██████▎   | 184/291 [00:29<00:18,  5.66it/s]Loading weights:  64%|██████▎   | 185/291 [00:30<00:23,  4.48it/s]Loading weights:  64%|██████▍   | 186/291 [00:30<00:27,  3.82it/s]Loading weights:  65%|██████▍   | 189/291 [00:30<00:16,  6.02it/s]Loading weights:  66%|██████▌   | 191/291 [00:30<00:15,  6.63it/s]Loading weights:  66%|██████▋   | 193/291 [00:31<00:17,  5.64it/s]Loading weights:  67%|██████▋   | 194/291 [00:31<00:21,  4.42it/s]Loading weights:  67%|██████▋   | 195/291 [00:33<00:45,  2.12it/s]Loading weights:  68%|██████▊   | 198/291 [00:33<00:25,  3.70it/s]Loading weights:  69%|██████▊   | 200/291 [00:33<00:22,  4.13it/s]Loading weights:  69%|██████▉   | 202/291 [00:34<00:21,  4.15it/s]Loading weights:  70%|██████▉   | 203/291 [00:34<00:25,  3.47it/s]Loading weights:  70%|███████   | 204/291 [00:35<00:29,  2.96it/s]Loading weights:  71%|███████   | 206/291 [00:35<00:19,  4.28it/s]Loading weights:  71%|███████▏  | 208/291 [00:35<00:16,  5.11it/s]Loading weights:  72%|███████▏  | 209/291 [00:35<00:16,  4.88it/s]Loading weights:  73%|███████▎  | 211/291 [00:36<00:18,  4.34it/s]Loading weights:  73%|███████▎  | 212/291 [00:36<00:22,  3.49it/s]Loading weights:  73%|███████▎  | 213/291 [00:37<00:26,  2.90it/s]Loading weights:  74%|███████▍  | 216/291 [00:37<00:14,  5.14it/s]Loading weights:  75%|███████▍  | 218/291 [00:37<00:13,  5.47it/s]Loading weights:  76%|███████▌  | 220/291 [00:38<00:14,  4.92it/s]Loading weights:  76%|███████▌  | 221/291 [00:38<00:16,  4.34it/s]Loading weights:  76%|███████▋  | 222/291 [00:39<00:16,  4.12it/s]Loading weights:  77%|███████▋  | 225/291 [00:39<00:09,  6.73it/s]Loading weights:  78%|███████▊  | 227/291 [00:39<00:09,  6.45it/s]Loading weights:  79%|███████▊  | 229/291 [00:42<00:33,  1.83it/s]Loading weights:  79%|███████▉  | 230/291 [00:42<00:31,  1.96it/s]Loading weights:  79%|███████▉  | 231/291 [00:43<00:29,  2.03it/s]Loading weights:  80%|████████  | 234/291 [00:43<00:15,  3.56it/s]Loading weights:  81%|████████  | 236/291 [00:43<00:12,  4.40it/s]Loading weights:  82%|████████▏ | 238/291 [00:43<00:11,  4.58it/s]Loading weights:  82%|████████▏ | 239/291 [00:44<00:12,  4.16it/s]Loading weights:  82%|████████▏ | 240/291 [00:44<00:13,  3.65it/s]Loading weights:  83%|████████▎ | 242/291 [00:44<00:09,  5.19it/s]Loading weights:  84%|████████▍ | 244/291 [00:44<00:07,  6.56it/s]Loading weights:  85%|████████▍ | 246/291 [00:44<00:05,  8.08it/s]Loading weights:  85%|████████▌ | 248/291 [00:45<00:09,  4.57it/s]Loading weights:  86%|████████▌ | 249/291 [00:47<00:17,  2.45it/s]Loading weights:  87%|████████▋ | 252/291 [00:47<00:09,  4.02it/s]Loading weights:  87%|████████▋ | 254/291 [00:47<00:07,  4.93it/s]Loading weights:  88%|████████▊ | 256/291 [00:47<00:07,  4.81it/s]Loading weights:  88%|████████▊ | 257/291 [00:48<00:12,  2.69it/s]Loading weights:  89%|████████▊ | 258/291 [00:49<00:11,  2.84it/s]Loading weights:  90%|████████▉ | 261/291 [00:49<00:06,  4.82it/s]Loading weights:  90%|█████████ | 263/291 [00:49<00:05,  5.19it/s]Loading weights:  91%|█████████ | 265/291 [00:52<00:15,  1.66it/s]Loading weights:  91%|█████████▏| 266/291 [00:53<00:13,  1.80it/s]Loading weights:  92%|█████████▏| 267/291 [00:53<00:12,  1.95it/s]Loading weights:  93%|█████████▎| 270/291 [00:53<00:06,  3.41it/s]Loading weights:  93%|█████████▎| 272/291 [00:53<00:04,  4.21it/s]Loading weights:  94%|█████████▍| 274/291 [00:54<00:04,  3.80it/s]Loading weights:  95%|█████████▍| 275/291 [00:54<00:04,  3.31it/s]Loading weights:  95%|█████████▍| 276/291 [00:55<00:04,  3.12it/s]Loading weights:  96%|█████████▌| 279/291 [00:55<00:02,  5.25it/s]Loading weights:  97%|█████████▋| 281/291 [00:55<00:01,  5.82it/s]Loading weights:  97%|█████████▋| 283/291 [00:56<00:01,  5.58it/s]Loading weights:  98%|█████████▊| 284/291 [00:56<00:01,  5.18it/s]Loading weights:  98%|█████████▊| 285/291 [00:58<00:03,  1.63it/s]Loading weights:  99%|█████████▉| 288/291 [00:58<00:01,  2.91it/s]Loading weights: 100%|█████████▉| 290/291 [00:58<00:00,  3.83it/s]Loading weights: 100%|██████████| 291/291 [00:58<00:00,  4.95it/s]
+{"event": "generated", "index": 1, "total": 200, "task_id": "2779", "completion_chars": 41, "gen_seconds": 15.033}
+{"event": "generated", "index": 2, "total": 200, "task_id": "2727", "completion_chars": 1, "gen_seconds": 6.905}
+{"event": "generated", "index": 3, "total": 200, "task_id": "2730", "completion_chars": 639, "gen_seconds": 6.835}
+{"event": "generated", "index": 4, "total": 200, "task_id": "abc301_a", "completion_chars": 113, "gen_seconds": 6.894}
+{"event": "generated", "index": 5, "total": 200, "task_id": "abc301_c", "completion_chars": 144, "gen_seconds": 6.886}
+{"event": "generated", "index": 6, "total": 200, "task_id": "abc301_e", "completion_chars": 116, "gen_seconds": 6.987}
+{"event": "generated", "index": 7, "total": 200, "task_id": "abc302_a", "completion_chars": 1, "gen_seconds": 6.591}
+{"event": "generated", "index": 8, "total": 200, "task_id": "abc302_b", "completion_chars": 452, "gen_seconds": 7.195}
+{"event": "generated", "index": 9, "total": 200, "task_id": "abc302_d", "completion_chars": 61, "gen_seconds": 7.104}
+{"event": "generated", "index": 10, "total": 200, "task_id": "abc302_e", "completion_chars": 797, "gen_seconds": 7.595}
+{"event": "generated", "index": 11, "total": 200, "task_id": "2800", "completion_chars": 40, "gen_seconds": 8.005}
+{"event": "generated", "index": 12, "total": 200, "task_id": "2802", "completion_chars": 716, "gen_seconds": 7.965}
+{"event": "generated", "index": 13, "total": 200, "task_id": "2755", "completion_chars": 1, "gen_seconds": 8.145}
+{"event": "generated", "index": 14, "total": 200, "task_id": "2756", "completion_chars": 771, "gen_seconds": 7.877}
+{"event": "generated", "index": 15, "total": 200, "task_id": "2827", "completion_chars": 1, "gen_seconds": 7.92}
+{"event": "generated", "index": 16, "total": 200, "task_id": "abc303_b", "completion_chars": 286, "gen_seconds": 7.984}
+{"event": "generated", "index": 17, "total": 200, "task_id": "abc303_d", "completion_chars": 493, "gen_seconds": 6.957}
+{"event": "generated", "index": 18, "total": 200, "task_id": "abc303_e", "completion_chars": 56, "gen_seconds": 1.672}
+{"event": "generated", "index": 19, "total": 200, "task_id": "abc304_b", "completion_chars": 391, "gen_seconds": 6.927}
+{"event": "generated", "index": 20, "total": 200, "task_id": "abc304_d", "completion_chars": 805, "gen_seconds": 7.113}
+{"event": "generated", "index": 21, "total": 200, "task_id": "2785", "completion_chars": 9, "gen_seconds": 7.03}
+{"event": "generated", "index": 22, "total": 200, "task_id": "2786", "completion_chars": 40, "gen_seconds": 6.946}
+{"event": "generated", "index": 23, "total": 200, "task_id": "2824", "completion_chars": 1, "gen_seconds": 6.861}
+{"event": "generated", "index": 24, "total": 200, "task_id": "abc305_b", "completion_chars": 233, "gen_seconds": 6.897}
+{"event": "generated", "index": 25, "total": 200, "task_id": "abc305_d", "completion_chars": 768, "gen_seconds": 7.34}
+{"event": "generated", "index": 26, "total": 200, "task_id": "2828", "completion_chars": 1, "gen_seconds": 6.906}
+{"event": "generated", "index": 27, "total": 200, "task_id": "2839", "completion_chars": 41, "gen_seconds": 7.124}
+{"event": "generated", "index": 28, "total": 200, "task_id": "abc306_b", "completion_chars": 257, "gen_seconds": 6.956}
+{"event": "generated", "index": 29, "total": 200, "task_id": "abc306_c", "completion_chars": 453, "gen_seconds": 6.911}
+{"event": "generated", "index": 30, "total": 200, "task_id": "abc306_e", "completion_chars": 416, "gen_seconds": 7.212}
+{"event": "generated", "index": 31, "total": 200, "task_id": "2848", "completion_chars": 633, "gen_seconds": 6.705}
+{"event": "generated", "index": 32, "total": 200, "task_id": "2847", "completion_chars": 728, "gen_seconds": 6.814}
+{"event": "generated", "index": 33, "total": 200, "task_id": "2850", "completion_chars": 663, "gen_seconds": 6.729}
+{"event": "generated", "index": 34, "total": 200, "task_id": "abc307_b", "completion_chars": 963, "gen_seconds": 6.736}
+{"event": "generated", "index": 35, "total": 200, "task_id": "abc307_c", "completion_chars": 722, "gen_seconds": 7.227}
+{"event": "generated", "index": 36, "total": 200, "task_id": "2837", "completion_chars": 755, "gen_seconds": 6.934}
+{"event": "generated", "index": 37, "total": 200, "task_id": "abc308_b", "completion_chars": 179, "gen_seconds": 6.901}
+{"event": "generated", "index": 38, "total": 200, "task_id": "abc308_c", "completion_chars": 751, "gen_seconds": 6.933}
+{"event": "generated", "index": 39, "total": 200, "task_id": "abc308_e", "completion_chars": 375, "gen_seconds": 7.027}
+{"event": "generated", "index": 40, "total": 200, "task_id": "2849", "completion_chars": 375, "gen_seconds": 7.106}
+{"event": "generated", "index": 41, "total": 200, "task_id": "2866", "completion_chars": 620, "gen_seconds": 6.996}
+{"event": "generated", "index": 42, "total": 200, "task_id": "2868", "completion_chars": 40, "gen_seconds": 6.857}
+{"event": "generated", "index": 43, "total": 200, "task_id": "2834", "completion_chars": 1, "gen_seconds": 7.026}
+{"event": "generated", "index": 44, "total": 200, "task_id": "abc309_b", "completion_chars": 559, "gen_seconds": 7.028}
+{"event": "generated", "index": 45, "total": 200, "task_id": "abc309_c", "completion_chars": 91, "gen_seconds": 7.161}
+{"event": "generated", "index": 46, "total": 200, "task_id": "abc309_e", "completion_chars": 472, "gen_seconds": 6.978}
+{"event": "generated", "index": 47, "total": 200, "task_id": "2812", "completion_chars": 1, "gen_seconds": 6.912}
+{"event": "generated", "index": 48, "total": 200, "task_id": "2855", "completion_chars": 1, "gen_seconds": 7.094}
+{"event": "generated", "index": 49, "total": 200, "task_id": "2878", "completion_chars": 1, "gen_seconds": 6.86}
+{"event": "generated", "index": 50, "total": 200, "task_id": "abc310_b", "completion_chars": 214, "gen_seconds": 7.289}
+{"event": "generated", "index": 51, "total": 200, "task_id": "abc310_c", "completion_chars": 723, "gen_seconds": 6.975}
+{"event": "generated", "index": 52, "total": 200, "task_id": "abc310_f", "completion_chars": 618, "gen_seconds": 6.986}
+{"event": "generated", "index": 53, "total": 200, "task_id": "2891", "completion_chars": 614, "gen_seconds": 6.938}
+{"event": "generated", "index": 54, "total": 200, "task_id": "2887", "completion_chars": 357, "gen_seconds": 6.938}
+{"event": "generated", "index": 55, "total": 200, "task_id": "2892", "completion_chars": 1, "gen_seconds": 7.097}
+{"event": "generated", "index": 56, "total": 200, "task_id": "abc311_b", "completion_chars": 453, "gen_seconds": 6.946}
+{"event": "generated", "index": 57, "total": 200, "task_id": "abc311_c", "completion_chars": 746, "gen_seconds": 7.038}
+{"event": "generated", "index": 58, "total": 200, "task_id": "2872", "completion_chars": 623, "gen_seconds": 6.876}
+{"event": "generated", "index": 59, "total": 200, "task_id": "2919", "completion_chars": 1, "gen_seconds": 6.897}
+{"event": "generated", "index": 60, "total": 200, "task_id": "abc312_b", "completion_chars": 1, "gen_seconds": 7.101}
+{"event": "generated", "index": 61, "total": 200, "task_id": "abc312_c", "completion_chars": 129, "gen_seconds": 6.822}
+{"event": "generated", "index": 62, "total": 200, "task_id": "abc312_e", "completion_chars": 411, "gen_seconds": 7.613}
+{"event": "generated", "index": 63, "total": 200, "task_id": "2876", "completion_chars": 533, "gen_seconds": 7.824}
+{"event": "generated", "index": 64, "total": 200, "task_id": "2877", "completion_chars": 10, "gen_seconds": 7.048}
+{"event": "generated", "index": 65, "total": 200, "task_id": "2952", "completion_chars": 1, "gen_seconds": 7.31}
+{"event": "generated", "index": 66, "total": 200, "task_id": "abc313_b", "completion_chars": 845, "gen_seconds": 8.463}
+{"event": "generated", "index": 67, "total": 200, "task_id": "2886", "completion_chars": 738, "gen_seconds": 8.158}
+{"event": "generated", "index": 68, "total": 200, "task_id": "2916", "completion_chars": 593, "gen_seconds": 8.286}
+{"event": "generated", "index": 69, "total": 200, "task_id": "abc314_a", "completion_chars": 424, "gen_seconds": 7.33}
+{"event": "generated", "index": 70, "total": 200, "task_id": "abc314_c", "completion_chars": 677, "gen_seconds": 7.02}
+{"event": "generated", "index": 71, "total": 200, "task_id": "abc314_e", "completion_chars": 278, "gen_seconds": 7.685}
+{"event": "generated", "index": 72, "total": 200, "task_id": "2917", "completion_chars": 40, "gen_seconds": 7.021}
+{"event": "generated", "index": 73, "total": 200, "task_id": "3018", "completion_chars": 743, "gen_seconds": 6.935}
+{"event": "generated", "index": 74, "total": 200, "task_id": "abc315_a", "completion_chars": 46, "gen_seconds": 6.812}
+{"event": "generated", "index": 75, "total": 200, "task_id": "abc315_c", "completion_chars": 666, "gen_seconds": 6.804}
+{"event": "generated", "index": 76, "total": 200, "task_id": "abc315_e", "completion_chars": 272, "gen_seconds": 6.006}
+{"event": "generated", "index": 77, "total": 200, "task_id": "2832", "completion_chars": 724, "gen_seconds": 6.827}
+{"event": "generated", "index": 78, "total": 200, "task_id": "1873_A", "completion_chars": 704, "gen_seconds": 6.759}
+{"event": "generated", "index": 79, "total": 200, "task_id": "1873_D", "completion_chars": 809, "gen_seconds": 6.79}
+{"event": "generated", "index": 80, "total": 200, "task_id": "3019", "completion_chars": 816, "gen_seconds": 6.716}
+{"event": "generated", "index": 81, "total": 200, "task_id": "3025", "completion_chars": 1, "gen_seconds": 6.9}
+{"event": "generated", "index": 82, "total": 200, "task_id": "2954", "completion_chars": 40, "gen_seconds": 6.798}
+{"event": "generated", "index": 83, "total": 200, "task_id": "abc318_a", "completion_chars": 406, "gen_seconds": 6.703}
+{"event": "generated", "index": 84, "total": 200, "task_id": "abc318_c", "completion_chars": 1, "gen_seconds": 6.806}
+{"event": "generated", "index": 85, "total": 200, "task_id": "abc318_e", "completion_chars": 339, "gen_seconds": 6.714}
+{"event": "generated", "index": 86, "total": 200, "task_id": "2998", "completion_chars": 1, "gen_seconds": 6.662}
+{"event": "generated", "index": 87, "total": 200, "task_id": "3046", "completion_chars": 1, "gen_seconds": 6.88}
+{"event": "generated", "index": 88, "total": 200, "task_id": "abc319_b", "completion_chars": 276, "gen_seconds": 7.045}
+{"event": "generated", "index": 89, "total": 200, "task_id": "abc319_c", "completion_chars": 328, "gen_seconds": 7.297}
+{"event": "generated", "index": 90, "total": 200, "task_id": "3024", "completion_chars": 40, "gen_seconds": 6.87}
+{"event": "generated", "index": 91, "total": 200, "task_id": "3045", "completion_chars": 1, "gen_seconds": 6.8}
+{"event": "generated", "index": 92, "total": 200, "task_id": "3081", "completion_chars": 1, "gen_seconds": 6.94}
+{"event": "generated", "index": 93, "total": 200, "task_id": "abc320_b", "completion_chars": 653, "gen_seconds": 6.754}
+{"event": "generated", "index": 94, "total": 200, "task_id": "abc320_c", "completion_chars": 721, "gen_seconds": 7.173}
+{"event": "generated", "index": 95, "total": 200, "task_id": "abc320_e", "completion_chars": 554, "gen_seconds": 7.179}
+{"event": "generated", "index": 96, "total": 200, "task_id": "1883_C", "completion_chars": 755, "gen_seconds": 7.043}
+{"event": "generated", "index": 97, "total": 200, "task_id": "abc321_b", "completion_chars": 500, "gen_seconds": 7.049}
+{"event": "generated", "index": 98, "total": 200, "task_id": "abc321_c", "completion_chars": 56, "gen_seconds": 6.911}
+{"event": "generated", "index": 99, "total": 200, "task_id": "3055", "completion_chars": 626, "gen_seconds": 6.86}
+{"event": "generated", "index": 100, "total": 200, "task_id": "3114", "completion_chars": 1, "gen_seconds": 7.094}
+{"event": "generated", "index": 101, "total": 200, "task_id": "3094", "completion_chars": 1, "gen_seconds": 7.067}
+{"event": "generated", "index": 102, "total": 200, "task_id": "abc322_b", "completion_chars": 585, "gen_seconds": 7.034}
+{"event": "generated", "index": 103, "total": 200, "task_id": "abc322_c", "completion_chars": 795, "gen_seconds": 6.923}
+{"event": "generated", "index": 104, "total": 200, "task_id": "abc322_e", "completion_chars": 189, "gen_seconds": 6.968}
+{"event": "generated", "index": 105, "total": 200, "task_id": "3154", "completion_chars": 707, "gen_seconds": 6.859}
+{"event": "generated", "index": 106, "total": 200, "task_id": "abc323_b", "completion_chars": 257, "gen_seconds": 6.892}
+{"event": "generated", "index": 107, "total": 200, "task_id": "abc323_c", "completion_chars": 476, "gen_seconds": 7.09}
+{"event": "generated", "index": 108, "total": 200, "task_id": "abc323_e", "completion_chars": 624, "gen_seconds": 7.06}
+{"event": "generated", "index": 109, "total": 200, "task_id": "3033", "completion_chars": 635, "gen_seconds": 6.933}
+{"event": "generated", "index": 110, "total": 200, "task_id": "3153", "completion_chars": 40, "gen_seconds": 6.908}
+{"event": "generated", "index": 111, "total": 200, "task_id": "3164", "completion_chars": 800, "gen_seconds": 6.89}
+{"event": "generated", "index": 112, "total": 200, "task_id": "abc324_b", "completion_chars": 292, "gen_seconds": 6.701}
+{"event": "generated", "index": 113, "total": 200, "task_id": "abc324_e", "completion_chars": 77, "gen_seconds": 8.354}
+{"event": "generated", "index": 114, "total": 200, "task_id": "3031", "completion_chars": 793, "gen_seconds": 9.061}
+{"event": "generated", "index": 115, "total": 200, "task_id": "1899_B", "completion_chars": 616, "gen_seconds": 7.737}
+{"event": "generated", "index": 116, "total": 200, "task_id": "1899_D", "completion_chars": 463, "gen_seconds": 8.169}
+{"event": "generated", "index": 117, "total": 200, "task_id": "abc325_b", "completion_chars": 463, "gen_seconds": 7.65}
+{"event": "generated", "index": 118, "total": 200, "task_id": "abc325_d", "completion_chars": 326, "gen_seconds": 8.491}
+{"event": "generated", "index": 119, "total": 200, "task_id": "abc325_f", "completion_chars": 381, "gen_seconds": 8.101}
+{"event": "generated", "index": 120, "total": 200, "task_id": "2879", "completion_chars": 724, "gen_seconds": 7.006}
+{"event": "generated", "index": 121, "total": 200, "task_id": "3166", "completion_chars": 694, "gen_seconds": 7.252}
+{"event": "generated", "index": 122, "total": 200, "task_id": "3163", "completion_chars": 40, "gen_seconds": 6.936}
+{"event": "generated", "index": 123, "total": 200, "task_id": "3174", "completion_chars": 687, "gen_seconds": 6.953}
+{"event": "generated", "index": 124, "total": 200, "task_id": "abc326_a", "completion_chars": 696, "gen_seconds": 6.717}
+{"event": "generated", "index": 125, "total": 200, "task_id": "abc326_c", "completion_chars": 18, "gen_seconds": 0.635}
+{"event": "generated", "index": 126, "total": 200, "task_id": "abc326_e", "completion_chars": 532, "gen_seconds": 6.917}
+{"event": "generated", "index": 127, "total": 200, "task_id": "abc327_a", "completion_chars": 75, "gen_seconds": 6.639}
+{"event": "generated", "index": 128, "total": 200, "task_id": "abc327_d", "completion_chars": 464, "gen_seconds": 6.851}
+{"event": "generated", "index": 129, "total": 200, "task_id": "3188", "completion_chars": 740, "gen_seconds": 6.821}
+{"event": "generated", "index": 130, "total": 200, "task_id": "3200", "completion_chars": 40, "gen_seconds": 6.797}
+{"event": "generated", "index": 131, "total": 200, "task_id": "abc328_a", "completion_chars": 349, "gen_seconds": 6.854}
+{"event": "generated", "index": 132, "total": 200, "task_id": "abc328_d", "completion_chars": 613, "gen_seconds": 6.878}
+{"event": "generated", "index": 133, "total": 200, "task_id": "3193", "completion_chars": 653, "gen_seconds": 6.939}
+{"event": "generated", "index": 134, "total": 200, "task_id": "3192", "completion_chars": 40, "gen_seconds": 6.832}
+{"event": "generated", "index": 135, "total": 200, "task_id": "abc329_a", "completion_chars": 526, "gen_seconds": 6.859}
+{"event": "generated", "index": 136, "total": 200, "task_id": "abc329_c", "completion_chars": 558, "gen_seconds": 6.915}
+{"event": "generated", "index": 137, "total": 200, "task_id": "abc329_e", "completion_chars": 596, "gen_seconds": 6.798}
+{"event": "generated", "index": 138, "total": 200, "task_id": "3194", "completion_chars": 748, "gen_seconds": 6.782}
+{"event": "generated", "index": 139, "total": 200, "task_id": "3209", "completion_chars": 628, "gen_seconds": 6.986}
+{"event": "generated", "index": 140, "total": 200, "task_id": "3211", "completion_chars": 654, "gen_seconds": 6.99}
+{"event": "generated", "index": 141, "total": 200, "task_id": "3219", "completion_chars": 791, "gen_seconds": 7.152}
+{"event": "generated", "index": 142, "total": 200, "task_id": "abc330_a", "completion_chars": 347, "gen_seconds": 6.974}
+{"event": "generated", "index": 143, "total": 200, "task_id": "abc330_c", "completion_chars": 113, "gen_seconds": 6.662}
+{"event": "generated", "index": 144, "total": 200, "task_id": "abc330_e", "completion_chars": 1, "gen_seconds": 6.874}
+{"event": "generated", "index": 145, "total": 200, "task_id": "3224", "completion_chars": 49, "gen_seconds": 7.116}
+{"event": "generated", "index": 146, "total": 200, "task_id": "abc331_a", "completion_chars": 624, "gen_seconds": 6.804}
+{"event": "generated", "index": 147, "total": 200, "task_id": "abc331_c", "completion_chars": 256, "gen_seconds": 6.988}
+{"event": "generated", "index": 148, "total": 200, "task_id": "abc331_e", "completion_chars": 288, "gen_seconds": 7.193}
+{"event": "generated", "index": 149, "total": 200, "task_id": "3206", "completion_chars": 1, "gen_seconds": 6.965}
+{"event": "generated", "index": 150, "total": 200, "task_id": "3213", "completion_chars": 40, "gen_seconds": 6.926}
+{"event": "generated", "index": 151, "total": 200, "task_id": "3230", "completion_chars": 757, "gen_seconds": 6.901}
+{"event": "generated", "index": 152, "total": 200, "task_id": "abc332_a", "completion_chars": 692, "gen_seconds": 6.992}
+{"event": "generated", "index": 153, "total": 200, "task_id": "3196", "completion_chars": 739, "gen_seconds": 6.859}
+{"event": "generated", "index": 154, "total": 200, "task_id": "3227", "completion_chars": 45, "gen_seconds": 6.848}
+{"event": "generated", "index": 155, "total": 200, "task_id": "3229", "completion_chars": 40, "gen_seconds": 7.027}
+{"event": "generated", "index": 156, "total": 200, "task_id": "abc333_a", "completion_chars": 614, "gen_seconds": 6.742}
+{"event": "generated", "index": 157, "total": 200, "task_id": "abc333_c", "completion_chars": 257, "gen_seconds": 6.911}
+{"event": "generated", "index": 158, "total": 200, "task_id": "abc333_e", "completion_chars": 256, "gen_seconds": 7.282}
+{"event": "generated", "index": 159, "total": 200, "task_id": "3252", "completion_chars": 757, "gen_seconds": 6.995}
+{"event": "generated", "index": 160, "total": 200, "task_id": "3262", "completion_chars": 617, "gen_seconds": 6.956}
+{"event": "generated", "index": 161, "total": 200, "task_id": "abc334_a", "completion_chars": 668, "gen_seconds": 6.855}
+{"event": "generated", "index": 162, "total": 200, "task_id": "abc334_b", "completion_chars": 530, "gen_seconds": 6.811}
+{"event": "generated", "index": 163, "total": 200, "task_id": "abc334_d", "completion_chars": 459, "gen_seconds": 6.84}
+{"event": "generated", "index": 164, "total": 200, "task_id": "3228", "completion_chars": 693, "gen_seconds": 7.384}
+{"event": "generated", "index": 165, "total": 200, "task_id": "3233", "completion_chars": 1, "gen_seconds": 7.358}
+{"event": "generated", "index": 166, "total": 200, "task_id": "3236", "completion_chars": 696, "gen_seconds": 7.675}
+{"event": "generated", "index": 167, "total": 200, "task_id": "3249", "completion_chars": 347, "gen_seconds": 7.557}
+{"event": "generated", "index": 168, "total": 200, "task_id": "abc335_b", "completion_chars": 511, "gen_seconds": 7.973}
+{"event": "generated", "index": 169, "total": 200, "task_id": "abc335_d", "completion_chars": 397, "gen_seconds": 8.742}
+{"event": "generated", "index": 170, "total": 200, "task_id": "3242", "completion_chars": 693, "gen_seconds": 7.486}
+{"event": "generated", "index": 171, "total": 200, "task_id": "3245", "completion_chars": 1, "gen_seconds": 7.723}
+{"event": "generated", "index": 172, "total": 200, "task_id": "abc336_b", "completion_chars": 40, "gen_seconds": 6.943}
+{"event": "generated", "index": 173, "total": 200, "task_id": "abc336_d", "completion_chars": 286, "gen_seconds": 6.977}
+{"event": "generated", "index": 174, "total": 200, "task_id": "3291", "completion_chars": 1, "gen_seconds": 7.012}
+{"event": "generated", "index": 175, "total": 200, "task_id": "abc337_b", "completion_chars": 513, "gen_seconds": 7.032}
+{"event": "generated", "index": 176, "total": 200, "task_id": "abc337_d", "completion_chars": 626, "gen_seconds": 7.065}
+{"event": "generated", "index": 177, "total": 200, "task_id": "abc337_e", "completion_chars": 417, "gen_seconds": 7.188}
+{"event": "generated", "index": 178, "total": 200, "task_id": "3261", "completion_chars": 40, "gen_seconds": 6.936}
+{"event": "generated", "index": 179, "total": 200, "task_id": "3299", "completion_chars": 1, "gen_seconds": 6.703}
+{"event": "generated", "index": 180, "total": 200, "task_id": "3312", "completion_chars": 1, "gen_seconds": 6.742}
+{"event": "generated", "index": 181, "total": 200, "task_id": "abc338_b", "completion_chars": 131, "gen_seconds": 6.653}
+{"event": "generated", "index": 182, "total": 200, "task_id": "abc338_e", "completion_chars": 681, "gen_seconds": 6.812}
+{"event": "generated", "index": 183, "total": 200, "task_id": "3297", "completion_chars": 40, "gen_seconds": 6.896}
+{"event": "generated", "index": 184, "total": 200, "task_id": "abc339_b", "completion_chars": 379, "gen_seconds": 6.864}
+{"event": "generated", "index": 185, "total": 200, "task_id": "abc339_d", "completion_chars": 676, "gen_seconds": 6.892}
+{"event": "generated", "index": 186, "total": 200, "task_id": "3317", "completion_chars": 737, "gen_seconds": 6.84}
+{"event": "generated", "index": 187, "total": 200, "task_id": "abc340_a", "completion_chars": 572, "gen_seconds": 6.739}
+{"event": "generated", "index": 188, "total": 200, "task_id": "abc340_d", "completion_chars": 72, "gen_seconds": 6.917}
+{"event": "generated", "index": 189, "total": 200, "task_id": "3309", "completion_chars": 9, "gen_seconds": 6.973}
+{"event": "generated", "index": 190, "total": 200, "task_id": "3329", "completion_chars": 679, "gen_seconds": 6.913}
+{"event": "generated", "index": 191, "total": 200, "task_id": "abc341_a", "completion_chars": 257, "gen_seconds": 6.753}
+{"event": "generated", "index": 192, "total": 200, "task_id": "abc341_c", "completion_chars": 576, "gen_seconds": 7.136}
+{"event": "generated", "index": 193, "total": 200, "task_id": "abc341_e", "completion_chars": 714, "gen_seconds": 7.121}
+{"event": "generated", "index": 194, "total": 200, "task_id": "3324", "completion_chars": 742, "gen_seconds": 6.896}
+{"event": "generated", "index": 195, "total": 200, "task_id": "abc342_a", "completion_chars": 1, "gen_seconds": 6.668}
+{"event": "generated", "index": 196, "total": 200, "task_id": "abc342_c", "completion_chars": 342, "gen_seconds": 6.788}
+{"event": "generated", "index": 197, "total": 200, "task_id": "abc342_e", "completion_chars": 612, "gen_seconds": 7.844}
+{"event": "generated", "index": 198, "total": 200, "task_id": "3347", "completion_chars": 218, "gen_seconds": 6.891}
+{"event": "generated", "index": 199, "total": 200, "task_id": "abc343_a", "completion_chars": 517, "gen_seconds": 6.809}
+{"event": "generated", "index": 200, "total": 200, "task_id": "abc343_c", "completion_chars": 267, "gen_seconds": 6.817}
+{
+  "status": "success",
+  "model": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "adapter": "",
+  "split": "data/splits/livecodebench_half/guide.jsonl",
+  "samples": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/codellama7b_distill/livecodebench/samples.jsonl",
+  "generations": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/codellama7b_distill/livecodebench/generations.jsonl",
+  "task_count": 200,
+  "elapsed_seconds": 1473.946110010147,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "device_map",
+  "load_in_8bit": false,
+  "load_in_4bit": true,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+	Command being timed: ".venv-common/bin/python scripts/eval/generate_evalplus_samples.py --model /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6 --split data/splits/livecodebench_half/guide.jsonl --out-dir results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/codellama7b_distill/livecodebench --max-new-tokens 256 --dtype fp16 --device cuda:0 --load-mode device_map --device-map auto --load-in-4bit"
+	User time (seconds): 1345.22
+	System time (seconds): 347.27
+	Percent of CPU this job got: 113%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 24:52.78
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 13686140
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 55153
+	Minor (reclaiming a frame) page faults: 3979781
+	Voluntary context switches: 82455
+	Involuntary context switches: 6489
+	Swaps: 0
+	File system inputs: 26638896
+	File system outputs: 3304
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

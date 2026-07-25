@@ -10,9 +10,9 @@ import time
 from pathlib import Path
 
 import torch
-from peft import LoraConfig, TaskType, get_peft_model
+from peft import LoraConfig, TaskType, get_peft_model, prepare_model_for_kbit_training
 from torch.utils.data import DataLoader, Dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer, get_linear_schedule_with_warmup
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, get_linear_schedule_with_warmup
 
 
 class TextDataset(Dataset):
@@ -71,6 +71,10 @@ def main() -> int:
     parser.add_argument("--dtype", choices=["fp16", "bf16", "fp32"], default="fp16")
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--load-mode", choices=["direct", "device_map"], default="direct")
+    parser.add_argument("--device-map", default="auto")
+    parser.add_argument("--max-memory-json", default="")
+    parser.add_argument("--offload-folder", type=Path)
+    parser.add_argument("--load-in-4bit", action="store_true")
     args = parser.parse_args()
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
@@ -87,12 +91,29 @@ def main() -> int:
         "trust_remote_code": True,
         "torch_dtype": dtype_map[args.dtype],
     }
+    if args.load_in_4bit:
+        load_kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=dtype_map[args.dtype],
+        )
     if args.load_mode == "device_map":
-        load_kwargs["device_map"] = args.device if use_cuda else "cpu"
+        load_kwargs["device_map"] = args.device_map
+        if args.max_memory_json:
+            max_memory = json.loads(args.max_memory_json)
+            load_kwargs["max_memory"] = {
+                int(key) if isinstance(key, str) and key.isdigit() else key: value
+                for key, value in max_memory.items()
+            }
+        if args.offload_folder:
+            args.offload_folder.mkdir(parents=True, exist_ok=True)
+            load_kwargs["offload_folder"] = str(args.offload_folder)
     model = AutoModelForCausalLM.from_pretrained(args.base_model, **load_kwargs)
     if args.load_mode == "direct":
         model.to(device)
     model.config.use_cache = False
+    if args.load_in_4bit:
+        model = prepare_model_for_kbit_training(model)
 
     lora_config = LoraConfig(
         task_type=TaskType.CAUSAL_LM,
@@ -129,7 +150,11 @@ def main() -> int:
     while global_step < total_steps:
         for batch_idx, batch in enumerate(loader, 1):
             if use_cuda:
-                batch = {key: value.to(device) for key, value in batch.items()}
+                if args.load_mode == "device_map":
+                    first_device = next(model.parameters()).device
+                    batch = {key: value.to(first_device) for key, value in batch.items()}
+                else:
+                    batch = {key: value.to(device) for key, value in batch.items()}
             output = model(**batch)
             loss = output.loss / args.grad_accum
             loss.backward()
@@ -165,6 +190,10 @@ def main() -> int:
         "dtype": args.dtype,
         "device": str(device),
         "load_mode": args.load_mode,
+        "load_in_4bit": args.load_in_4bit,
+        "device_map": getattr(model, "hf_device_map", None),
+        "max_memory": json.loads(args.max_memory_json) if args.max_memory_json else None,
+        "offload_folder": str(args.offload_folder) if args.offload_folder else None,
         "steps": global_step,
         "elapsed_seconds": time.time() - started,
     }

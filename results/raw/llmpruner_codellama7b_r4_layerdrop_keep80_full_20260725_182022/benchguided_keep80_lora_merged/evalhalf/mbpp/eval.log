@@ -1,0 +1,484 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/237 [00:00<?, ?it/s]Loading weights:   0%|          | 1/237 [00:00<00:45,  5.21it/s]Loading weights:   1%|          | 2/237 [00:00<00:48,  4.87it/s]Loading weights:   2%|▏         | 4/237 [00:00<00:25,  9.24it/s]Loading weights:   3%|▎         | 6/237 [00:00<00:20, 11.01it/s]Loading weights:   5%|▌         | 13/237 [00:00<00:09, 23.54it/s]Loading weights:   7%|▋         | 16/237 [00:00<00:09, 23.23it/s]Loading weights:   9%|▉         | 22/237 [00:01<00:07, 28.17it/s]Loading weights:  11%|█         | 25/237 [00:01<00:08, 25.74it/s]Loading weights:  12%|█▏        | 29/237 [00:01<00:07, 28.77it/s]Loading weights:  14%|█▎        | 32/237 [00:01<00:07, 26.80it/s]Loading weights:  15%|█▌        | 36/237 [00:01<00:06, 29.18it/s]Loading weights:  17%|█▋        | 40/237 [00:01<00:06, 30.09it/s]Loading weights:  19%|█▊        | 44/237 [00:01<00:06, 28.48it/s]Loading weights:  21%|██        | 49/237 [00:02<00:06, 29.96it/s]Loading weights:  22%|██▏       | 53/237 [00:02<00:06, 29.58it/s]Loading weights:  24%|██▍       | 58/237 [00:02<00:05, 32.20it/s]Loading weights:  26%|██▌       | 62/237 [00:02<00:05, 31.09it/s]Loading weights:  28%|██▊       | 67/237 [00:02<00:05, 33.70it/s]Loading weights:  30%|██▉       | 71/237 [00:02<00:05, 30.50it/s]Loading weights:  32%|███▏      | 76/237 [00:02<00:04, 32.72it/s]Loading weights:  34%|███▍      | 80/237 [00:03<00:05, 28.41it/s]Loading weights:  35%|███▌      | 83/237 [00:03<00:05, 28.40it/s]Loading weights:  36%|███▋      | 86/237 [00:03<00:05, 25.96it/s]Loading weights:  39%|███▉      | 92/237 [00:03<00:04, 33.40it/s]Loading weights:  41%|████      | 96/237 [00:03<00:04, 28.90it/s]Loading weights:  43%|████▎     | 103/237 [00:03<00:03, 34.93it/s]Loading weights:  45%|████▌     | 107/237 [00:03<00:04, 32.09it/s]Loading weights:  47%|████▋     | 112/237 [00:04<00:04, 26.85it/s]Loading weights:  49%|████▊     | 115/237 [00:04<00:06, 19.72it/s]Loading weights:  51%|█████     | 121/237 [00:04<00:06, 19.04it/s]Loading weights:  52%|█████▏    | 124/237 [00:05<00:09, 11.69it/s]Loading weights:  53%|█████▎    | 126/237 [00:05<00:09, 11.57it/s]Loading weights:  54%|█████▍    | 128/237 [00:05<00:09, 11.69it/s]Loading weights:  55%|█████▍    | 130/237 [00:06<00:14,  7.28it/s]Loading weights:  56%|█████▌    | 132/237 [00:07<00:27,  3.78it/s]Loading weights:  57%|█████▋    | 134/237 [00:07<00:23,  4.39it/s]Loading weights:  57%|█████▋    | 135/237 [00:08<00:22,  4.58it/s]Loading weights:  57%|█████▋    | 136/237 [00:08<00:21,  4.73it/s]Loading weights:  58%|█████▊    | 137/237 [00:08<00:20,  4.98it/s]Loading weights:  59%|█████▊    | 139/237 [00:08<00:18,  5.31it/s]Loading weights:  59%|█████▉    | 140/237 [00:09<00:22,  4.33it/s]Loading weights:  59%|█████▉    | 141/237 [00:09<00:24,  4.00it/s]Loading weights:  60%|██████    | 143/237 [00:09<00:16,  5.76it/s]Loading weights:  61%|██████    | 144/237 [00:09<00:15,  5.94it/s]Loading weights:  61%|██████    | 145/237 [00:09<00:15,  6.12it/s]Loading weights:  62%|██████▏   | 146/237 [00:10<00:13,  6.78it/s]Loading weights:  62%|██████▏   | 148/237 [00:10<00:14,  6.30it/s]Loading weights:  63%|██████▎   | 149/237 [00:10<00:18,  4.74it/s]Loading weights:  63%|██████▎   | 150/237 [00:11<00:21,  4.01it/s]Loading weights:  64%|██████▍   | 152/237 [00:11<00:15,  5.52it/s]Loading weights:  65%|██████▍   | 153/237 [00:11<00:14,  5.64it/s]Loading weights:  65%|██████▍   | 154/237 [00:11<00:14,  5.62it/s]Loading weights:  65%|██████▌   | 155/237 [00:11<00:14,  5.82it/s]Loading weights:  66%|██████▌   | 157/237 [00:12<00:13,  5.85it/s]Loading weights:  67%|██████▋   | 158/237 [00:12<00:17,  4.51it/s]Loading weights:  67%|██████▋   | 159/237 [00:12<00:20,  3.75it/s]Loading weights:  68%|██████▊   | 161/237 [00:13<00:14,  5.30it/s]Loading weights:  68%|██████▊   | 162/237 [00:13<00:13,  5.66it/s]Loading weights:  69%|██████▉   | 163/237 [00:13<00:12,  5.83it/s]Loading weights:  69%|██████▉   | 164/237 [00:13<00:14,  5.19it/s]Loading weights:  70%|███████   | 166/237 [00:15<00:34,  2.05it/s]Loading weights:  70%|███████   | 167/237 [00:17<00:54,  1.29it/s]Loading weights:  71%|███████   | 168/237 [00:18<01:03,  1.08it/s]Loading weights:  72%|███████▏  | 170/237 [00:18<00:41,  1.62it/s]Loading weights:  72%|███████▏  | 171/237 [00:19<00:41,  1.61it/s]Loading weights:  73%|███████▎  | 172/237 [00:19<00:37,  1.73it/s]Loading weights:  73%|███████▎  | 173/237 [00:20<00:35,  1.79it/s]Loading weights:  74%|███████▍  | 175/237 [00:21<00:36,  1.71it/s]Loading weights:  74%|███████▍  | 176/237 [00:22<00:44,  1.36it/s]Loading weights:  75%|███████▍  | 177/237 [00:24<00:50,  1.20it/s]Loading weights:  76%|███████▌  | 179/237 [00:24<00:34,  1.69it/s]Loading weights:  76%|███████▌  | 180/237 [00:24<00:30,  1.85it/s]Loading weights:  76%|███████▋  | 181/237 [00:25<00:28,  1.99it/s]Loading weights:  77%|███████▋  | 182/237 [00:25<00:26,  2.04it/s]Loading weights:  78%|███████▊  | 184/237 [00:26<00:28,  1.86it/s]Loading weights:  78%|███████▊  | 185/237 [00:27<00:33,  1.55it/s]Loading weights:  78%|███████▊  | 186/237 [00:28<00:31,  1.62it/s]Loading weights:  79%|███████▉  | 188/237 [00:28<00:19,  2.53it/s]Loading weights:  80%|███████▉  | 189/237 [00:28<00:16,  2.90it/s]Loading weights:  80%|████████  | 190/237 [00:29<00:14,  3.29it/s]Loading weights:  81%|████████  | 191/237 [00:29<00:12,  3.73it/s]Loading weights:  81%|████████▏ | 193/237 [00:29<00:11,  3.93it/s]Loading weights:  82%|████████▏ | 194/237 [00:30<00:13,  3.22it/s]Loading weights:  82%|████████▏ | 195/237 [00:30<00:15,  2.75it/s]Loading weights:  83%|████████▎ | 197/237 [00:30<00:09,  4.03it/s]Loading weights:  84%|████████▎ | 198/237 [00:31<00:08,  4.34it/s]Loading weights:  84%|████████▍ | 199/237 [00:31<00:08,  4.65it/s]Loading weights:  84%|████████▍ | 200/237 [00:31<00:07,  4.87it/s]Loading weights:  85%|████████▌ | 202/237 [00:31<00:07,  4.45it/s]Loading weights:  86%|████████▌ | 203/237 [00:32<00:10,  3.40it/s]Loading weights:  86%|████████▌ | 204/237 [00:33<00:13,  2.53it/s]Loading weights:  87%|████████▋ | 206/237 [00:33<00:08,  3.78it/s]Loading weights:  87%|████████▋ | 207/237 [00:33<00:07,  4.11it/s]Loading weights:  88%|████████▊ | 208/237 [00:33<00:06,  4.45it/s]Loading weights:  88%|████████▊ | 209/237 [00:33<00:05,  4.80it/s]Loading weights:  89%|████████▉ | 211/237 [00:34<00:05,  4.53it/s]Loading weights:  89%|████████▉ | 212/237 [00:34<00:06,  3.65it/s]Loading weights:  90%|████████▉ | 213/237 [00:35<00:07,  3.11it/s]Loading weights:  91%|█████████ | 215/237 [00:35<00:04,  4.44it/s]Loading weights:  91%|█████████ | 216/237 [00:35<00:04,  4.67it/s]Loading weights:  92%|█████████▏| 217/237 [00:35<00:04,  4.88it/s]Loading weights:  92%|█████████▏| 218/237 [00:35<00:03,  5.12it/s]Loading weights:  93%|█████████▎| 220/237 [00:36<00:03,  4.65it/s]Loading weights:  93%|█████████▎| 221/237 [00:36<00:04,  3.77it/s]Loading weights:  94%|█████████▎| 222/237 [00:37<00:04,  3.24it/s]Loading weights:  95%|█████████▍| 224/237 [00:37<00:02,  4.56it/s]Loading weights:  95%|█████████▍| 225/237 [00:37<00:02,  4.76it/s]Loading weights:  95%|█████████▌| 226/237 [00:37<00:02,  4.99it/s]Loading weights:  96%|█████████▌| 227/237 [00:37<00:01,  5.09it/s]Loading weights:  97%|█████████▋| 229/237 [00:38<00:01,  4.06it/s]Loading weights:  97%|█████████▋| 230/237 [00:38<00:02,  3.45it/s]Loading weights:  97%|█████████▋| 231/237 [00:39<00:01,  3.06it/s]Loading weights:  98%|█████████▊| 233/237 [00:39<00:00,  4.43it/s]Loading weights:  99%|█████████▊| 234/237 [00:39<00:00,  4.81it/s]Loading weights:  99%|█████████▉| 235/237 [00:39<00:00,  5.10it/s]Loading weights: 100%|█████████▉| 236/237 [00:40<00:00,  5.20it/s]Loading weights: 100%|██████████| 237/237 [00:40<00:00,  5.91it/s]
+{"event": "generated", "index": 1, "total": 224, "task_id": "Mbpp/11", "completion_chars": 404, "gen_seconds": 9.486}
+{"event": "generated", "index": 2, "total": 224, "task_id": "Mbpp/12", "completion_chars": 372, "gen_seconds": 6.36}
+{"event": "generated", "index": 3, "total": 224, "task_id": "Mbpp/14", "completion_chars": 260, "gen_seconds": 5.805}
+{"event": "generated", "index": 4, "total": 224, "task_id": "Mbpp/16", "completion_chars": 661, "gen_seconds": 5.749}
+{"event": "generated", "index": 5, "total": 224, "task_id": "Mbpp/17", "completion_chars": 261, "gen_seconds": 5.552}
+{"event": "generated", "index": 6, "total": 224, "task_id": "Mbpp/18", "completion_chars": 726, "gen_seconds": 5.344}
+{"event": "generated", "index": 7, "total": 224, "task_id": "Mbpp/19", "completion_chars": 260, "gen_seconds": 5.31}
+{"event": "generated", "index": 8, "total": 224, "task_id": "Mbpp/20", "completion_chars": 277, "gen_seconds": 5.371}
+{"event": "generated", "index": 9, "total": 224, "task_id": "Mbpp/56", "completion_chars": 394, "gen_seconds": 5.36}
+{"event": "generated", "index": 10, "total": 224, "task_id": "Mbpp/57", "completion_chars": 640, "gen_seconds": 5.403}
+{"event": "generated", "index": 11, "total": 224, "task_id": "Mbpp/58", "completion_chars": 241, "gen_seconds": 5.379}
+{"event": "generated", "index": 12, "total": 224, "task_id": "Mbpp/59", "completion_chars": 245, "gen_seconds": 5.408}
+{"event": "generated", "index": 13, "total": 224, "task_id": "Mbpp/61", "completion_chars": 273, "gen_seconds": 5.394}
+{"event": "generated", "index": 14, "total": 224, "task_id": "Mbpp/62", "completion_chars": 586, "gen_seconds": 5.365}
+{"event": "generated", "index": 15, "total": 224, "task_id": "Mbpp/63", "completion_chars": 452, "gen_seconds": 5.351}
+{"event": "generated", "index": 16, "total": 224, "task_id": "Mbpp/64", "completion_chars": 726, "gen_seconds": 5.354}
+{"event": "generated", "index": 17, "total": 224, "task_id": "Mbpp/65", "completion_chars": 609, "gen_seconds": 5.294}
+{"event": "generated", "index": 18, "total": 224, "task_id": "Mbpp/66", "completion_chars": 268, "gen_seconds": 5.267}
+{"event": "generated", "index": 19, "total": 224, "task_id": "Mbpp/67", "completion_chars": 554, "gen_seconds": 5.278}
+{"event": "generated", "index": 20, "total": 224, "task_id": "Mbpp/68", "completion_chars": 557, "gen_seconds": 5.309}
+{"event": "generated", "index": 21, "total": 224, "task_id": "Mbpp/69", "completion_chars": 624, "gen_seconds": 5.337}
+{"event": "generated", "index": 22, "total": 224, "task_id": "Mbpp/70", "completion_chars": 1, "gen_seconds": 5.288}
+{"event": "generated", "index": 23, "total": 224, "task_id": "Mbpp/71", "completion_chars": 270, "gen_seconds": 5.363}
+{"event": "generated", "index": 24, "total": 224, "task_id": "Mbpp/72", "completion_chars": 245, "gen_seconds": 5.343}
+{"event": "generated", "index": 25, "total": 224, "task_id": "Mbpp/74", "completion_chars": 703, "gen_seconds": 5.369}
+{"event": "generated", "index": 26, "total": 224, "task_id": "Mbpp/75", "completion_chars": 260, "gen_seconds": 5.42}
+{"event": "generated", "index": 27, "total": 224, "task_id": "Mbpp/77", "completion_chars": 428, "gen_seconds": 5.373}
+{"event": "generated", "index": 28, "total": 224, "task_id": "Mbpp/79", "completion_chars": 641, "gen_seconds": 5.347}
+{"event": "generated", "index": 29, "total": 224, "task_id": "Mbpp/80", "completion_chars": 242, "gen_seconds": 5.303}
+{"event": "generated", "index": 30, "total": 224, "task_id": "Mbpp/82", "completion_chars": 267, "gen_seconds": 5.315}
+{"event": "generated", "index": 31, "total": 224, "task_id": "Mbpp/84", "completion_chars": 512, "gen_seconds": 5.367}
+{"event": "generated", "index": 32, "total": 224, "task_id": "Mbpp/85", "completion_chars": 261, "gen_seconds": 5.378}
+{"event": "generated", "index": 33, "total": 224, "task_id": "Mbpp/86", "completion_chars": 632, "gen_seconds": 5.362}
+{"event": "generated", "index": 34, "total": 224, "task_id": "Mbpp/87", "completion_chars": 343, "gen_seconds": 5.405}
+{"event": "generated", "index": 35, "total": 224, "task_id": "Mbpp/88", "completion_chars": 516, "gen_seconds": 5.505}
+{"event": "generated", "index": 36, "total": 224, "task_id": "Mbpp/89", "completion_chars": 554, "gen_seconds": 5.372}
+{"event": "generated", "index": 37, "total": 224, "task_id": "Mbpp/90", "completion_chars": 687, "gen_seconds": 5.357}
+{"event": "generated", "index": 38, "total": 224, "task_id": "Mbpp/91", "completion_chars": 392, "gen_seconds": 5.373}
+{"event": "generated", "index": 39, "total": 224, "task_id": "Mbpp/92", "completion_chars": 246, "gen_seconds": 5.465}
+{"event": "generated", "index": 40, "total": 224, "task_id": "Mbpp/93", "completion_chars": 346, "gen_seconds": 5.397}
+{"event": "generated", "index": 41, "total": 224, "task_id": "Mbpp/94", "completion_chars": 135, "gen_seconds": 5.396}
+{"event": "generated", "index": 42, "total": 224, "task_id": "Mbpp/95", "completion_chars": 1135, "gen_seconds": 5.371}
+{"event": "generated", "index": 43, "total": 224, "task_id": "Mbpp/96", "completion_chars": 512, "gen_seconds": 5.354}
+{"event": "generated", "index": 44, "total": 224, "task_id": "Mbpp/97", "completion_chars": 599, "gen_seconds": 5.41}
+{"event": "generated", "index": 45, "total": 224, "task_id": "Mbpp/98", "completion_chars": 274, "gen_seconds": 5.36}
+{"event": "generated", "index": 46, "total": 224, "task_id": "Mbpp/99", "completion_chars": 556, "gen_seconds": 5.357}
+{"event": "generated", "index": 47, "total": 224, "task_id": "Mbpp/100", "completion_chars": 260, "gen_seconds": 5.358}
+{"event": "generated", "index": 48, "total": 224, "task_id": "Mbpp/101", "completion_chars": 267, "gen_seconds": 5.45}
+{"event": "generated", "index": 49, "total": 224, "task_id": "Mbpp/102", "completion_chars": 371, "gen_seconds": 5.367}
+{"event": "generated", "index": 50, "total": 224, "task_id": "Mbpp/103", "completion_chars": 630, "gen_seconds": 5.357}
+{"event": "generated", "index": 51, "total": 224, "task_id": "Mbpp/104", "completion_chars": 626, "gen_seconds": 5.373}
+{"event": "generated", "index": 52, "total": 224, "task_id": "Mbpp/105", "completion_chars": 715, "gen_seconds": 5.321}
+{"event": "generated", "index": 53, "total": 224, "task_id": "Mbpp/106", "completion_chars": 260, "gen_seconds": 5.353}
+{"event": "generated", "index": 54, "total": 224, "task_id": "Mbpp/108", "completion_chars": 470, "gen_seconds": 5.476}
+{"event": "generated", "index": 55, "total": 224, "task_id": "Mbpp/109", "completion_chars": 732, "gen_seconds": 5.277}
+{"event": "generated", "index": 56, "total": 224, "task_id": "Mbpp/111", "completion_chars": 711, "gen_seconds": 6.127}
+{"event": "generated", "index": 57, "total": 224, "task_id": "Mbpp/113", "completion_chars": 700, "gen_seconds": 6.633}
+{"event": "generated", "index": 58, "total": 224, "task_id": "Mbpp/116", "completion_chars": 267, "gen_seconds": 6.366}
+{"event": "generated", "index": 59, "total": 224, "task_id": "Mbpp/118", "completion_chars": 763, "gen_seconds": 7.312}
+{"event": "generated", "index": 60, "total": 224, "task_id": "Mbpp/119", "completion_chars": 448, "gen_seconds": 6.498}
+{"event": "generated", "index": 61, "total": 224, "task_id": "Mbpp/120", "completion_chars": 1, "gen_seconds": 5.885}
+{"event": "generated", "index": 62, "total": 224, "task_id": "Mbpp/123", "completion_chars": 578, "gen_seconds": 6.641}
+{"event": "generated", "index": 63, "total": 224, "task_id": "Mbpp/124", "completion_chars": 769, "gen_seconds": 6.463}
+{"event": "generated", "index": 64, "total": 224, "task_id": "Mbpp/125", "completion_chars": 881, "gen_seconds": 6.601}
+{"event": "generated", "index": 65, "total": 224, "task_id": "Mbpp/126", "completion_chars": 421, "gen_seconds": 5.66}
+{"event": "generated", "index": 66, "total": 224, "task_id": "Mbpp/127", "completion_chars": 256, "gen_seconds": 5.712}
+{"event": "generated", "index": 67, "total": 224, "task_id": "Mbpp/128", "completion_chars": 785, "gen_seconds": 5.411}
+{"event": "generated", "index": 68, "total": 224, "task_id": "Mbpp/129", "completion_chars": 271, "gen_seconds": 5.81}
+{"event": "generated", "index": 69, "total": 224, "task_id": "Mbpp/130", "completion_chars": 749, "gen_seconds": 5.372}
+{"event": "generated", "index": 70, "total": 224, "task_id": "Mbpp/131", "completion_chars": 820, "gen_seconds": 5.328}
+{"event": "generated", "index": 71, "total": 224, "task_id": "Mbpp/132", "completion_chars": 352, "gen_seconds": 5.318}
+{"event": "generated", "index": 72, "total": 224, "task_id": "Mbpp/133", "completion_chars": 845, "gen_seconds": 5.3}
+{"event": "generated", "index": 73, "total": 224, "task_id": "Mbpp/135", "completion_chars": 482, "gen_seconds": 5.28}
+{"event": "generated", "index": 74, "total": 224, "task_id": "Mbpp/137", "completion_chars": 744, "gen_seconds": 5.331}
+{"event": "generated", "index": 75, "total": 224, "task_id": "Mbpp/138", "completion_chars": 1022, "gen_seconds": 5.297}
+{"event": "generated", "index": 76, "total": 224, "task_id": "Mbpp/139", "completion_chars": 548, "gen_seconds": 5.314}
+{"event": "generated", "index": 77, "total": 224, "task_id": "Mbpp/140", "completion_chars": 546, "gen_seconds": 5.315}
+{"event": "generated", "index": 78, "total": 224, "task_id": "Mbpp/141", "completion_chars": 470, "gen_seconds": 5.381}
+{"event": "generated", "index": 79, "total": 224, "task_id": "Mbpp/142", "completion_chars": 772, "gen_seconds": 5.348}
+{"event": "generated", "index": 80, "total": 224, "task_id": "Mbpp/145", "completion_chars": 229, "gen_seconds": 5.291}
+{"event": "generated", "index": 81, "total": 224, "task_id": "Mbpp/160", "completion_chars": 643, "gen_seconds": 5.314}
+{"event": "generated", "index": 82, "total": 224, "task_id": "Mbpp/161", "completion_chars": 380, "gen_seconds": 5.387}
+{"event": "generated", "index": 83, "total": 224, "task_id": "Mbpp/162", "completion_chars": 1, "gen_seconds": 5.365}
+{"event": "generated", "index": 84, "total": 224, "task_id": "Mbpp/165", "completion_chars": 655, "gen_seconds": 5.274}
+{"event": "generated", "index": 85, "total": 224, "task_id": "Mbpp/166", "completion_chars": 471, "gen_seconds": 5.283}
+{"event": "generated", "index": 86, "total": 224, "task_id": "Mbpp/167", "completion_chars": 616, "gen_seconds": 5.276}
+{"event": "generated", "index": 87, "total": 224, "task_id": "Mbpp/168", "completion_chars": 360, "gen_seconds": 5.334}
+{"event": "generated", "index": 88, "total": 224, "task_id": "Mbpp/170", "completion_chars": 479, "gen_seconds": 5.436}
+{"event": "generated", "index": 89, "total": 224, "task_id": "Mbpp/171", "completion_chars": 599, "gen_seconds": 5.393}
+{"event": "generated", "index": 90, "total": 224, "task_id": "Mbpp/172", "completion_chars": 720, "gen_seconds": 5.392}
+{"event": "generated", "index": 91, "total": 224, "task_id": "Mbpp/222", "completion_chars": 1, "gen_seconds": 5.378}
+{"event": "generated", "index": 92, "total": 224, "task_id": "Mbpp/223", "completion_chars": 1, "gen_seconds": 5.43}
+{"event": "generated", "index": 93, "total": 224, "task_id": "Mbpp/224", "completion_chars": 574, "gen_seconds": 5.428}
+{"event": "generated", "index": 94, "total": 224, "task_id": "Mbpp/226", "completion_chars": 797, "gen_seconds": 5.375}
+{"event": "generated", "index": 95, "total": 224, "task_id": "Mbpp/227", "completion_chars": 267, "gen_seconds": 5.396}
+{"event": "generated", "index": 96, "total": 224, "task_id": "Mbpp/230", "completion_chars": 1652, "gen_seconds": 5.319}
+{"event": "generated", "index": 97, "total": 224, "task_id": "Mbpp/232", "completion_chars": 265, "gen_seconds": 5.414}
+{"event": "generated", "index": 98, "total": 224, "task_id": "Mbpp/233", "completion_chars": 262, "gen_seconds": 5.441}
+{"event": "generated", "index": 99, "total": 224, "task_id": "Mbpp/234", "completion_chars": 28, "gen_seconds": 5.39}
+{"event": "generated", "index": 100, "total": 224, "task_id": "Mbpp/235", "completion_chars": 1005, "gen_seconds": 5.438}
+{"event": "generated", "index": 101, "total": 224, "task_id": "Mbpp/237", "completion_chars": 676, "gen_seconds": 5.61}
+{"event": "generated", "index": 102, "total": 224, "task_id": "Mbpp/238", "completion_chars": 913, "gen_seconds": 5.465}
+{"event": "generated", "index": 103, "total": 224, "task_id": "Mbpp/239", "completion_chars": 224, "gen_seconds": 5.481}
+{"event": "generated", "index": 104, "total": 224, "task_id": "Mbpp/240", "completion_chars": 712, "gen_seconds": 5.469}
+{"event": "generated", "index": 105, "total": 224, "task_id": "Mbpp/242", "completion_chars": 781, "gen_seconds": 5.434}
+{"event": "generated", "index": 106, "total": 224, "task_id": "Mbpp/244", "completion_chars": 748, "gen_seconds": 5.373}
+{"event": "generated", "index": 107, "total": 224, "task_id": "Mbpp/245", "completion_chars": 266, "gen_seconds": 5.391}
+{"event": "generated", "index": 108, "total": 224, "task_id": "Mbpp/247", "completion_chars": 565, "gen_seconds": 5.399}
+{"event": "generated", "index": 109, "total": 224, "task_id": "Mbpp/250", "completion_chars": 639, "gen_seconds": 5.445}
+{"event": "generated", "index": 110, "total": 224, "task_id": "Mbpp/251", "completion_chars": 697, "gen_seconds": 5.438}
+{"event": "generated", "index": 111, "total": 224, "task_id": "Mbpp/252", "completion_chars": 558, "gen_seconds": 5.474}
+{"event": "generated", "index": 112, "total": 224, "task_id": "Mbpp/253", "completion_chars": 895, "gen_seconds": 5.536}
+{"event": "generated", "index": 113, "total": 224, "task_id": "Mbpp/255", "completion_chars": 662, "gen_seconds": 5.515}
+{"event": "generated", "index": 114, "total": 224, "task_id": "Mbpp/256", "completion_chars": 864, "gen_seconds": 5.517}
+{"event": "generated", "index": 115, "total": 224, "task_id": "Mbpp/257", "completion_chars": 588, "gen_seconds": 5.423}
+{"event": "generated", "index": 116, "total": 224, "task_id": "Mbpp/259", "completion_chars": 367, "gen_seconds": 5.454}
+{"event": "generated", "index": 117, "total": 224, "task_id": "Mbpp/260", "completion_chars": 599, "gen_seconds": 5.28}
+{"event": "generated", "index": 118, "total": 224, "task_id": "Mbpp/261", "completion_chars": 657, "gen_seconds": 5.37}
+{"event": "generated", "index": 119, "total": 224, "task_id": "Mbpp/262", "completion_chars": 262, "gen_seconds": 5.422}
+{"event": "generated", "index": 120, "total": 224, "task_id": "Mbpp/264", "completion_chars": 664, "gen_seconds": 5.649}
+{"event": "generated", "index": 121, "total": 224, "task_id": "Mbpp/265", "completion_chars": 913, "gen_seconds": 5.671}
+{"event": "generated", "index": 122, "total": 224, "task_id": "Mbpp/266", "completion_chars": 719, "gen_seconds": 5.433}
+{"event": "generated", "index": 123, "total": 224, "task_id": "Mbpp/267", "completion_chars": 793, "gen_seconds": 5.571}
+{"event": "generated", "index": 124, "total": 224, "task_id": "Mbpp/268", "completion_chars": 586, "gen_seconds": 5.596}
+{"event": "generated", "index": 125, "total": 224, "task_id": "Mbpp/269", "completion_chars": 574, "gen_seconds": 5.761}
+{"event": "generated", "index": 126, "total": 224, "task_id": "Mbpp/270", "completion_chars": 50, "gen_seconds": 5.698}
+{"event": "generated", "index": 127, "total": 224, "task_id": "Mbpp/271", "completion_chars": 676, "gen_seconds": 5.502}
+{"event": "generated", "index": 128, "total": 224, "task_id": "Mbpp/272", "completion_chars": 262, "gen_seconds": 5.572}
+{"event": "generated", "index": 129, "total": 224, "task_id": "Mbpp/273", "completion_chars": 263, "gen_seconds": 5.565}
+{"event": "generated", "index": 130, "total": 224, "task_id": "Mbpp/274", "completion_chars": 589, "gen_seconds": 5.494}
+{"event": "generated", "index": 131, "total": 224, "task_id": "Mbpp/276", "completion_chars": 294, "gen_seconds": 5.496}
+{"event": "generated", "index": 132, "total": 224, "task_id": "Mbpp/277", "completion_chars": 1, "gen_seconds": 5.601}
+{"event": "generated", "index": 133, "total": 224, "task_id": "Mbpp/278", "completion_chars": 636, "gen_seconds": 5.428}
+{"event": "generated", "index": 134, "total": 224, "task_id": "Mbpp/279", "completion_chars": 585, "gen_seconds": 5.444}
+{"event": "generated", "index": 135, "total": 224, "task_id": "Mbpp/280", "completion_chars": 1039, "gen_seconds": 5.51}
+{"event": "generated", "index": 136, "total": 224, "task_id": "Mbpp/281", "completion_chars": 954, "gen_seconds": 5.482}
+{"event": "generated", "index": 137, "total": 224, "task_id": "Mbpp/282", "completion_chars": 265, "gen_seconds": 5.459}
+{"event": "generated", "index": 138, "total": 224, "task_id": "Mbpp/283", "completion_chars": 259, "gen_seconds": 5.456}
+{"event": "generated", "index": 139, "total": 224, "task_id": "Mbpp/284", "completion_chars": 1102, "gen_seconds": 5.494}
+{"event": "generated", "index": 140, "total": 224, "task_id": "Mbpp/285", "completion_chars": 676, "gen_seconds": 5.494}
+{"event": "generated", "index": 141, "total": 224, "task_id": "Mbpp/286", "completion_chars": 272, "gen_seconds": 5.522}
+{"event": "generated", "index": 142, "total": 224, "task_id": "Mbpp/287", "completion_chars": 625, "gen_seconds": 5.44}
+{"event": "generated", "index": 143, "total": 224, "task_id": "Mbpp/290", "completion_chars": 268, "gen_seconds": 5.522}
+{"event": "generated", "index": 144, "total": 224, "task_id": "Mbpp/292", "completion_chars": 260, "gen_seconds": 5.486}
+{"event": "generated", "index": 145, "total": 224, "task_id": "Mbpp/293", "completion_chars": 542, "gen_seconds": 5.467}
+{"event": "generated", "index": 146, "total": 224, "task_id": "Mbpp/294", "completion_chars": 536, "gen_seconds": 5.499}
+{"event": "generated", "index": 147, "total": 224, "task_id": "Mbpp/296", "completion_chars": 508, "gen_seconds": 5.483}
+{"event": "generated", "index": 148, "total": 224, "task_id": "Mbpp/297", "completion_chars": 273, "gen_seconds": 5.487}
+{"event": "generated", "index": 149, "total": 224, "task_id": "Mbpp/299", "completion_chars": 765, "gen_seconds": 5.416}
+{"event": "generated", "index": 150, "total": 224, "task_id": "Mbpp/300", "completion_chars": 274, "gen_seconds": 5.426}
+{"event": "generated", "index": 151, "total": 224, "task_id": "Mbpp/301", "completion_chars": 25, "gen_seconds": 5.419}
+{"event": "generated", "index": 152, "total": 224, "task_id": "Mbpp/305", "completion_chars": 245, "gen_seconds": 5.397}
+{"event": "generated", "index": 153, "total": 224, "task_id": "Mbpp/306", "completion_chars": 565, "gen_seconds": 5.484}
+{"event": "generated", "index": 154, "total": 224, "task_id": "Mbpp/308", "completion_chars": 694, "gen_seconds": 5.528}
+{"event": "generated", "index": 155, "total": 224, "task_id": "Mbpp/309", "completion_chars": 531, "gen_seconds": 5.51}
+{"event": "generated", "index": 156, "total": 224, "task_id": "Mbpp/310", "completion_chars": 631, "gen_seconds": 5.539}
+{"event": "generated", "index": 157, "total": 224, "task_id": "Mbpp/311", "completion_chars": 540, "gen_seconds": 5.484}
+{"event": "generated", "index": 158, "total": 224, "task_id": "Mbpp/312", "completion_chars": 267, "gen_seconds": 5.552}
+{"event": "generated", "index": 159, "total": 224, "task_id": "Mbpp/388", "completion_chars": 739, "gen_seconds": 5.505}
+{"event": "generated", "index": 160, "total": 224, "task_id": "Mbpp/389", "completion_chars": 554, "gen_seconds": 5.56}
+{"event": "generated", "index": 161, "total": 224, "task_id": "Mbpp/390", "completion_chars": 542, "gen_seconds": 5.52}
+{"event": "generated", "index": 162, "total": 224, "task_id": "Mbpp/391", "completion_chars": 1, "gen_seconds": 5.602}
+{"event": "generated", "index": 163, "total": 224, "task_id": "Mbpp/392", "completion_chars": 1, "gen_seconds": 5.564}
+{"event": "generated", "index": 164, "total": 224, "task_id": "Mbpp/394", "completion_chars": 260, "gen_seconds": 5.486}
+{"event": "generated", "index": 165, "total": 224, "task_id": "Mbpp/395", "completion_chars": 812, "gen_seconds": 5.509}
+{"event": "generated", "index": 166, "total": 224, "task_id": "Mbpp/397", "completion_chars": 273, "gen_seconds": 5.523}
+{"event": "generated", "index": 167, "total": 224, "task_id": "Mbpp/398", "completion_chars": 683, "gen_seconds": 5.506}
+{"event": "generated", "index": 168, "total": 224, "task_id": "Mbpp/404", "completion_chars": 512, "gen_seconds": 5.517}
+{"event": "generated", "index": 169, "total": 224, "task_id": "Mbpp/405", "completion_chars": 661, "gen_seconds": 5.503}
+{"event": "generated", "index": 170, "total": 224, "task_id": "Mbpp/406", "completion_chars": 1264, "gen_seconds": 5.484}
+{"event": "generated", "index": 171, "total": 224, "task_id": "Mbpp/409", "completion_chars": 651, "gen_seconds": 5.527}
+{"event": "generated", "index": 172, "total": 224, "task_id": "Mbpp/410", "completion_chars": 264, "gen_seconds": 5.567}
+{"event": "generated", "index": 173, "total": 224, "task_id": "Mbpp/412", "completion_chars": 511, "gen_seconds": 5.487}
+{"event": "generated", "index": 174, "total": 224, "task_id": "Mbpp/413", "completion_chars": 208, "gen_seconds": 5.528}
+{"event": "generated", "index": 175, "total": 224, "task_id": "Mbpp/414", "completion_chars": 845, "gen_seconds": 5.466}
+{"event": "generated", "index": 176, "total": 224, "task_id": "Mbpp/415", "completion_chars": 696, "gen_seconds": 5.488}
+{"event": "generated", "index": 177, "total": 224, "task_id": "Mbpp/418", "completion_chars": 263, "gen_seconds": 5.455}
+{"event": "generated", "index": 178, "total": 224, "task_id": "Mbpp/419", "completion_chars": 290, "gen_seconds": 5.501}
+{"event": "generated", "index": 179, "total": 224, "task_id": "Mbpp/420", "completion_chars": 241, "gen_seconds": 5.49}
+{"event": "generated", "index": 180, "total": 224, "task_id": "Mbpp/421", "completion_chars": 1, "gen_seconds": 5.469}
+{"event": "generated", "index": 181, "total": 224, "task_id": "Mbpp/422", "completion_chars": 235, "gen_seconds": 5.545}
+{"event": "generated", "index": 182, "total": 224, "task_id": "Mbpp/424", "completion_chars": 599, "gen_seconds": 5.438}
+{"event": "generated", "index": 183, "total": 224, "task_id": "Mbpp/425", "completion_chars": 168, "gen_seconds": 5.466}
+{"event": "generated", "index": 184, "total": 224, "task_id": "Mbpp/426", "completion_chars": 268, "gen_seconds": 5.463}
+{"event": "generated", "index": 185, "total": 224, "task_id": "Mbpp/427", "completion_chars": 271, "gen_seconds": 5.483}
+{"event": "generated", "index": 186, "total": 224, "task_id": "Mbpp/428", "completion_chars": 582, "gen_seconds": 5.541}
+{"event": "generated", "index": 187, "total": 224, "task_id": "Mbpp/429", "completion_chars": 661, "gen_seconds": 5.475}
+{"event": "generated", "index": 188, "total": 224, "task_id": "Mbpp/430", "completion_chars": 679, "gen_seconds": 5.562}
+{"event": "generated", "index": 189, "total": 224, "task_id": "Mbpp/432", "completion_chars": 259, "gen_seconds": 5.552}
+{"event": "generated", "index": 190, "total": 224, "task_id": "Mbpp/433", "completion_chars": 276, "gen_seconds": 5.626}
+{"event": "generated", "index": 191, "total": 224, "task_id": "Mbpp/435", "completion_chars": 700, "gen_seconds": 5.506}
+{"event": "generated", "index": 192, "total": 224, "task_id": "Mbpp/436", "completion_chars": 908, "gen_seconds": 5.437}
+{"event": "generated", "index": 193, "total": 224, "task_id": "Mbpp/437", "completion_chars": 639, "gen_seconds": 5.468}
+{"event": "generated", "index": 194, "total": 224, "task_id": "Mbpp/439", "completion_chars": 604, "gen_seconds": 5.839}
+{"event": "generated", "index": 195, "total": 224, "task_id": "Mbpp/440", "completion_chars": 736, "gen_seconds": 5.452}
+{"event": "generated", "index": 196, "total": 224, "task_id": "Mbpp/441", "completion_chars": 261, "gen_seconds": 5.425}
+{"event": "generated", "index": 197, "total": 224, "task_id": "Mbpp/445", "completion_chars": 1020, "gen_seconds": 5.515}
+{"event": "generated", "index": 198, "total": 224, "task_id": "Mbpp/446", "completion_chars": 734, "gen_seconds": 5.468}
+{"event": "generated", "index": 199, "total": 224, "task_id": "Mbpp/447", "completion_chars": 1, "gen_seconds": 5.493}
+{"event": "generated", "index": 200, "total": 224, "task_id": "Mbpp/448", "completion_chars": 240, "gen_seconds": 5.442}
+{"event": "generated", "index": 201, "total": 224, "task_id": "Mbpp/450", "completion_chars": 851, "gen_seconds": 5.774}
+{"event": "generated", "index": 202, "total": 224, "task_id": "Mbpp/451", "completion_chars": 674, "gen_seconds": 5.459}
+{"event": "generated", "index": 203, "total": 224, "task_id": "Mbpp/453", "completion_chars": 242, "gen_seconds": 5.46}
+{"event": "generated", "index": 204, "total": 224, "task_id": "Mbpp/454", "completion_chars": 758, "gen_seconds": 5.465}
+{"event": "generated", "index": 205, "total": 224, "task_id": "Mbpp/455", "completion_chars": 627, "gen_seconds": 5.449}
+{"event": "generated", "index": 206, "total": 224, "task_id": "Mbpp/456", "completion_chars": 826, "gen_seconds": 5.403}
+{"event": "generated", "index": 207, "total": 224, "task_id": "Mbpp/457", "completion_chars": 577, "gen_seconds": 5.352}
+{"event": "generated", "index": 208, "total": 224, "task_id": "Mbpp/458", "completion_chars": 688, "gen_seconds": 5.388}
+{"event": "generated", "index": 209, "total": 224, "task_id": "Mbpp/459", "completion_chars": 895, "gen_seconds": 5.38}
+{"event": "generated", "index": 210, "total": 224, "task_id": "Mbpp/460", "completion_chars": 261, "gen_seconds": 5.401}
+{"event": "generated", "index": 211, "total": 224, "task_id": "Mbpp/462", "completion_chars": 356, "gen_seconds": 5.432}
+{"event": "generated", "index": 212, "total": 224, "task_id": "Mbpp/463", "completion_chars": 270, "gen_seconds": 5.371}
+{"event": "generated", "index": 213, "total": 224, "task_id": "Mbpp/465", "completion_chars": 683, "gen_seconds": 5.379}
+{"event": "generated", "index": 214, "total": 224, "task_id": "Mbpp/468", "completion_chars": 269, "gen_seconds": 5.421}
+{"event": "generated", "index": 215, "total": 224, "task_id": "Mbpp/470", "completion_chars": 726, "gen_seconds": 5.383}
+{"event": "generated", "index": 216, "total": 224, "task_id": "Mbpp/471", "completion_chars": 718, "gen_seconds": 5.376}
+{"event": "generated", "index": 217, "total": 224, "task_id": "Mbpp/472", "completion_chars": 260, "gen_seconds": 5.431}
+{"event": "generated", "index": 218, "total": 224, "task_id": "Mbpp/473", "completion_chars": 554, "gen_seconds": 5.495}
+{"event": "generated", "index": 219, "total": 224, "task_id": "Mbpp/474", "completion_chars": 956, "gen_seconds": 5.453}
+{"event": "generated", "index": 220, "total": 224, "task_id": "Mbpp/475", "completion_chars": 692, "gen_seconds": 5.461}
+{"event": "generated", "index": 221, "total": 224, "task_id": "Mbpp/476", "completion_chars": 266, "gen_seconds": 5.459}
+{"event": "generated", "index": 222, "total": 224, "task_id": "Mbpp/477", "completion_chars": 801, "gen_seconds": 5.462}
+{"event": "generated", "index": 223, "total": 224, "task_id": "Mbpp/478", "completion_chars": 690, "gen_seconds": 5.552}
+{"event": "generated", "index": 224, "total": 224, "task_id": "Mbpp/479", "completion_chars": 732, "gen_seconds": 5.531}
+{
+  "status": "success",
+  "model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged",
+  "adapter": "",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/mbpp/samples.jsonl",
+  "generations": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/mbpp/generations.jsonl",
+  "task_count": 224,
+  "elapsed_seconds": 1276.1310918331146,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "device_map",
+  "load_in_8bit": false,
+  "load_in_4bit": true,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 224, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 224, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 224, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 224, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 224, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 224, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 224, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 224, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 9, "total": 224, "task_id": "Mbpp/56", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 10, "total": 224, "task_id": "Mbpp/57", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 11, "total": 224, "task_id": "Mbpp/58", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 12, "total": 224, "task_id": "Mbpp/59", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 13, "total": 224, "task_id": "Mbpp/61", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 14, "total": 224, "task_id": "Mbpp/62", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 15, "total": 224, "task_id": "Mbpp/63", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 16, "total": 224, "task_id": "Mbpp/64", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 17, "total": 224, "task_id": "Mbpp/65", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 18, "total": 224, "task_id": "Mbpp/66", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 19, "total": 224, "task_id": "Mbpp/67", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 20, "total": 224, "task_id": "Mbpp/68", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 21, "total": 224, "task_id": "Mbpp/69", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 22, "total": 224, "task_id": "Mbpp/70", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 23, "total": 224, "task_id": "Mbpp/71", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 24, "total": 224, "task_id": "Mbpp/72", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 25, "total": 224, "task_id": "Mbpp/74", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 26, "total": 224, "task_id": "Mbpp/75", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 27, "total": 224, "task_id": "Mbpp/77", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 28, "total": 224, "task_id": "Mbpp/79", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 29, "total": 224, "task_id": "Mbpp/80", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 30, "total": 224, "task_id": "Mbpp/82", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 31, "total": 224, "task_id": "Mbpp/84", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 32, "total": 224, "task_id": "Mbpp/85", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 33, "total": 224, "task_id": "Mbpp/86", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 34, "total": 224, "task_id": "Mbpp/87", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 35, "total": 224, "task_id": "Mbpp/88", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 36, "total": 224, "task_id": "Mbpp/89", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 37, "total": 224, "task_id": "Mbpp/90", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 38, "total": 224, "task_id": "Mbpp/91", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 39, "total": 224, "task_id": "Mbpp/92", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 40, "total": 224, "task_id": "Mbpp/93", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 41, "total": 224, "task_id": "Mbpp/94", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 42, "total": 224, "task_id": "Mbpp/95", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 43, "total": 224, "task_id": "Mbpp/96", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 44, "total": 224, "task_id": "Mbpp/97", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 45, "total": 224, "task_id": "Mbpp/98", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 46, "total": 224, "task_id": "Mbpp/99", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 47, "total": 224, "task_id": "Mbpp/100", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 48, "total": 224, "task_id": "Mbpp/101", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 49, "total": 224, "task_id": "Mbpp/102", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 50, "total": 224, "task_id": "Mbpp/103", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 51, "total": 224, "task_id": "Mbpp/104", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 52, "total": 224, "task_id": "Mbpp/105", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 53, "total": 224, "task_id": "Mbpp/106", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 54, "total": 224, "task_id": "Mbpp/108", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 55, "total": 224, "task_id": "Mbpp/109", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 56, "total": 224, "task_id": "Mbpp/111", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 57, "total": 224, "task_id": "Mbpp/113", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 58, "total": 224, "task_id": "Mbpp/116", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 59, "total": 224, "task_id": "Mbpp/118", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 60, "total": 224, "task_id": "Mbpp/119", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 61, "total": 224, "task_id": "Mbpp/120", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 62, "total": 224, "task_id": "Mbpp/123", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 63, "total": 224, "task_id": "Mbpp/124", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 64, "total": 224, "task_id": "Mbpp/125", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 65, "total": 224, "task_id": "Mbpp/126", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 66, "total": 224, "task_id": "Mbpp/127", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 67, "total": 224, "task_id": "Mbpp/128", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 68, "total": 224, "task_id": "Mbpp/129", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 69, "total": 224, "task_id": "Mbpp/130", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 70, "total": 224, "task_id": "Mbpp/131", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 71, "total": 224, "task_id": "Mbpp/132", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 72, "total": 224, "task_id": "Mbpp/133", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 73, "total": 224, "task_id": "Mbpp/135", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 74, "total": 224, "task_id": "Mbpp/137", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 75, "total": 224, "task_id": "Mbpp/138", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 76, "total": 224, "task_id": "Mbpp/139", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 77, "total": 224, "task_id": "Mbpp/140", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 78, "total": 224, "task_id": "Mbpp/141", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 79, "total": 224, "task_id": "Mbpp/142", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 80, "total": 224, "task_id": "Mbpp/145", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 81, "total": 224, "task_id": "Mbpp/160", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 82, "total": 224, "task_id": "Mbpp/161", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 83, "total": 224, "task_id": "Mbpp/162", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 84, "total": 224, "task_id": "Mbpp/165", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 85, "total": 224, "task_id": "Mbpp/166", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 86, "total": 224, "task_id": "Mbpp/167", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 87, "total": 224, "task_id": "Mbpp/168", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 88, "total": 224, "task_id": "Mbpp/170", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 89, "total": 224, "task_id": "Mbpp/171", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 90, "total": 224, "task_id": "Mbpp/172", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 91, "total": 224, "task_id": "Mbpp/222", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 92, "total": 224, "task_id": "Mbpp/223", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 93, "total": 224, "task_id": "Mbpp/224", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 94, "total": 224, "task_id": "Mbpp/226", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 95, "total": 224, "task_id": "Mbpp/227", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 96, "total": 224, "task_id": "Mbpp/230", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 97, "total": 224, "task_id": "Mbpp/232", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 98, "total": 224, "task_id": "Mbpp/233", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 99, "total": 224, "task_id": "Mbpp/234", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 100, "total": 224, "task_id": "Mbpp/235", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 101, "total": 224, "task_id": "Mbpp/237", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 102, "total": 224, "task_id": "Mbpp/238", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 103, "total": 224, "task_id": "Mbpp/239", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 104, "total": 224, "task_id": "Mbpp/240", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 105, "total": 224, "task_id": "Mbpp/242", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 106, "total": 224, "task_id": "Mbpp/244", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 107, "total": 224, "task_id": "Mbpp/245", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 108, "total": 224, "task_id": "Mbpp/247", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 109, "total": 224, "task_id": "Mbpp/250", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 110, "total": 224, "task_id": "Mbpp/251", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 111, "total": 224, "task_id": "Mbpp/252", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 112, "total": 224, "task_id": "Mbpp/253", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 113, "total": 224, "task_id": "Mbpp/255", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 114, "total": 224, "task_id": "Mbpp/256", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 115, "total": 224, "task_id": "Mbpp/257", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 116, "total": 224, "task_id": "Mbpp/259", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 117, "total": 224, "task_id": "Mbpp/260", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 118, "total": 224, "task_id": "Mbpp/261", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 119, "total": 224, "task_id": "Mbpp/262", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 120, "total": 224, "task_id": "Mbpp/264", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 121, "total": 224, "task_id": "Mbpp/265", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 122, "total": 224, "task_id": "Mbpp/266", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 123, "total": 224, "task_id": "Mbpp/267", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 124, "total": 224, "task_id": "Mbpp/268", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 125, "total": 224, "task_id": "Mbpp/269", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 126, "total": 224, "task_id": "Mbpp/270", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 127, "total": 224, "task_id": "Mbpp/271", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 128, "total": 224, "task_id": "Mbpp/272", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 129, "total": 224, "task_id": "Mbpp/273", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 130, "total": 224, "task_id": "Mbpp/274", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 131, "total": 224, "task_id": "Mbpp/276", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 132, "total": 224, "task_id": "Mbpp/277", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 133, "total": 224, "task_id": "Mbpp/278", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 134, "total": 224, "task_id": "Mbpp/279", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 135, "total": 224, "task_id": "Mbpp/280", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 136, "total": 224, "task_id": "Mbpp/281", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 137, "total": 224, "task_id": "Mbpp/282", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 138, "total": 224, "task_id": "Mbpp/283", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 139, "total": 224, "task_id": "Mbpp/284", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 140, "total": 224, "task_id": "Mbpp/285", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 141, "total": 224, "task_id": "Mbpp/286", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 142, "total": 224, "task_id": "Mbpp/287", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 143, "total": 224, "task_id": "Mbpp/290", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 144, "total": 224, "task_id": "Mbpp/292", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 145, "total": 224, "task_id": "Mbpp/293", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 146, "total": 224, "task_id": "Mbpp/294", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 147, "total": 224, "task_id": "Mbpp/296", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 148, "total": 224, "task_id": "Mbpp/297", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 149, "total": 224, "task_id": "Mbpp/299", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 150, "total": 224, "task_id": "Mbpp/300", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 151, "total": 224, "task_id": "Mbpp/301", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 152, "total": 224, "task_id": "Mbpp/305", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 153, "total": 224, "task_id": "Mbpp/306", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 154, "total": 224, "task_id": "Mbpp/308", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 155, "total": 224, "task_id": "Mbpp/309", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 156, "total": 224, "task_id": "Mbpp/310", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 157, "total": 224, "task_id": "Mbpp/311", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 158, "total": 224, "task_id": "Mbpp/312", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 159, "total": 224, "task_id": "Mbpp/388", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 160, "total": 224, "task_id": "Mbpp/389", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 161, "total": 224, "task_id": "Mbpp/390", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 162, "total": 224, "task_id": "Mbpp/391", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 163, "total": 224, "task_id": "Mbpp/392", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 164, "total": 224, "task_id": "Mbpp/394", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 165, "total": 224, "task_id": "Mbpp/395", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 166, "total": 224, "task_id": "Mbpp/397", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 167, "total": 224, "task_id": "Mbpp/398", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 168, "total": 224, "task_id": "Mbpp/404", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 169, "total": 224, "task_id": "Mbpp/405", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 170, "total": 224, "task_id": "Mbpp/406", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 171, "total": 224, "task_id": "Mbpp/409", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 172, "total": 224, "task_id": "Mbpp/410", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 173, "total": 224, "task_id": "Mbpp/412", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 174, "total": 224, "task_id": "Mbpp/413", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 175, "total": 224, "task_id": "Mbpp/414", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 176, "total": 224, "task_id": "Mbpp/415", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 177, "total": 224, "task_id": "Mbpp/418", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 178, "total": 224, "task_id": "Mbpp/419", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 179, "total": 224, "task_id": "Mbpp/420", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 180, "total": 224, "task_id": "Mbpp/421", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 181, "total": 224, "task_id": "Mbpp/422", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 182, "total": 224, "task_id": "Mbpp/424", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 183, "total": 224, "task_id": "Mbpp/425", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 184, "total": 224, "task_id": "Mbpp/426", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 185, "total": 224, "task_id": "Mbpp/427", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 186, "total": 224, "task_id": "Mbpp/428", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 187, "total": 224, "task_id": "Mbpp/429", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 188, "total": 224, "task_id": "Mbpp/430", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 189, "total": 224, "task_id": "Mbpp/432", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 190, "total": 224, "task_id": "Mbpp/433", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 191, "total": 224, "task_id": "Mbpp/435", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 192, "total": 224, "task_id": "Mbpp/436", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 193, "total": 224, "task_id": "Mbpp/437", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 194, "total": 224, "task_id": "Mbpp/439", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 195, "total": 224, "task_id": "Mbpp/440", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 196, "total": 224, "task_id": "Mbpp/441", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 197, "total": 224, "task_id": "Mbpp/445", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 198, "total": 224, "task_id": "Mbpp/446", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 199, "total": 224, "task_id": "Mbpp/447", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 200, "total": 224, "task_id": "Mbpp/448", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 201, "total": 224, "task_id": "Mbpp/450", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 202, "total": 224, "task_id": "Mbpp/451", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 203, "total": 224, "task_id": "Mbpp/453", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 204, "total": 224, "task_id": "Mbpp/454", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 205, "total": 224, "task_id": "Mbpp/455", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 206, "total": 224, "task_id": "Mbpp/456", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 207, "total": 224, "task_id": "Mbpp/457", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 208, "total": 224, "task_id": "Mbpp/458", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 209, "total": 224, "task_id": "Mbpp/459", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 210, "total": 224, "task_id": "Mbpp/460", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 211, "total": 224, "task_id": "Mbpp/462", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 212, "total": 224, "task_id": "Mbpp/463", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 213, "total": 224, "task_id": "Mbpp/465", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 214, "total": 224, "task_id": "Mbpp/468", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 215, "total": 224, "task_id": "Mbpp/470", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 216, "total": 224, "task_id": "Mbpp/471", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 217, "total": 224, "task_id": "Mbpp/472", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 218, "total": 224, "task_id": "Mbpp/473", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 219, "total": 224, "task_id": "Mbpp/474", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 220, "total": 224, "task_id": "Mbpp/475", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 221, "total": 224, "task_id": "Mbpp/476", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 222, "total": 224, "task_id": "Mbpp/477", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 223, "total": 224, "task_id": "Mbpp/478", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 224, "total": 224, "task_id": "Mbpp/479", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80_lora_merged/evalhalf/mbpp/samples.jsonl",
+  "base_only": true,
+  "task_count": 224,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 224
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "model": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "adapter": "",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/codellama7b_4bit_r4_baseline_evalhalf_20260725_161912/mbpp_evalhalf/samples.jsonl",
+  "generations": "results/raw/codellama7b_4bit_r4_baseline_evalhalf_20260725_161912/mbpp_evalhalf/generations.jsonl",
+  "task_count": 224,
+  "elapsed_seconds": 1477.9645035266876,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "device_map",
+  "load_in_8bit": false,
+  "load_in_4bit": true,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}

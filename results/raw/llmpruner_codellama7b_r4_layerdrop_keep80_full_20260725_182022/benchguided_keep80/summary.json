@@ -1,0 +1,161 @@
+{
+  "status": "success",
+  "method": "LLM-Pruner",
+  "model_path": "/home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6",
+  "mode": "benchmark",
+  "drop_layers": 6,
+  "drop_indices": [
+    0,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "layers_before": 32,
+  "layers_after": 26,
+  "parameter_count_after": 5524246528,
+  "guide_files": [
+    "data/splits/humaneval_half/guide.jsonl",
+    "data/splits/mbpp_evalplus_half/guide.jsonl",
+    "data/splits/livecodebench_half/guide.jsonl"
+  ],
+  "guide_samples_used": 436,
+  "importance_scores": [
+    {
+      "layer": 2,
+      "hidden_delta": 0.05139502454890844
+    },
+    {
+      "layer": 3,
+      "hidden_delta": 0.06471483220576967
+    },
+    {
+      "layer": 0,
+      "hidden_delta": 0.08883594668581399
+    },
+    {
+      "layer": 4,
+      "hidden_delta": 0.09962817178953678
+    },
+    {
+      "layer": 5,
+      "hidden_delta": 0.1220948448866059
+    },
+    {
+      "layer": 6,
+      "hidden_delta": 0.13751608360592926
+    },
+    {
+      "layer": 7,
+      "hidden_delta": 0.1589026307567544
+    },
+    {
+      "layer": 8,
+      "hidden_delta": 0.18384582272500072
+    },
+    {
+      "layer": 9,
+      "hidden_delta": 0.20499180540989298
+    },
+    {
+      "layer": 10,
+      "hidden_delta": 0.22881366449211715
+    },
+    {
+      "layer": 11,
+      "hidden_delta": 0.24050375463765697
+    },
+    {
+      "layer": 12,
+      "hidden_delta": 0.26756113630916
+    },
+    {
+      "layer": 13,
+      "hidden_delta": 0.30334063407477985
+    },
+    {
+      "layer": 14,
+      "hidden_delta": 0.32862331205551776
+    },
+    {
+      "layer": 15,
+      "hidden_delta": 0.37459057473808255
+    },
+    {
+      "layer": 17,
+      "hidden_delta": 0.4272202997716195
+    },
+    {
+      "layer": 16,
+      "hidden_delta": 0.45028944757826833
+    },
+    {
+      "layer": 18,
+      "hidden_delta": 0.48525207646943014
+    },
+    {
+      "layer": 19,
+      "hidden_delta": 0.49101022261818617
+    },
+    {
+      "layer": 20,
+      "hidden_delta": 0.5093018488462911
+    },
+    {
+      "layer": 21,
+      "hidden_delta": 0.5106669183854663
+    },
+    {
+      "layer": 23,
+      "hidden_delta": 0.5331741301428288
+    },
+    {
+      "layer": 22,
+      "hidden_delta": 0.5541710755830511
+    },
+    {
+      "layer": 24,
+      "hidden_delta": 0.5741589768627368
+    },
+    {
+      "layer": 25,
+      "hidden_delta": 0.5915138874578914
+    },
+    {
+      "layer": 26,
+      "hidden_delta": 0.6437791507998738
+    },
+    {
+      "layer": 27,
+      "hidden_delta": 0.701142051077764
+    },
+    {
+      "layer": 28,
+      "hidden_delta": 0.7640348473273286
+    },
+    {
+      "layer": 29,
+      "hidden_delta": 0.9830743200188383
+    },
+    {
+      "layer": 31,
+      "hidden_delta": 3.194465703920487
+    },
+    {
+      "layer": 30,
+      "hidden_delta": 4.6183882678320645
+    },
+    {
+      "layer": 1,
+      "hidden_delta": 8.145920173837505
+    }
+  ],
+  "score_load_in_4bit": true,
+  "score_device_map": null,
+  "save_device": "cpu",
+  "pruned_model": "results/raw/llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022/benchguided_keep80/pruned_model",
+  "process_rss_mb_after": 10668.16015625,
+  "elapsed_seconds": 234.9725546836853,
+  "torch": "2.11.0+cu128"
+}

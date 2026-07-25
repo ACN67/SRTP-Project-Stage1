@@ -1,0 +1,27 @@
+{
+  "status": "success",
+  "model": "codellama/CodeLlama-7b-hf",
+  "quantization": "4bit",
+  "max_new_tokens": 256,
+  "run_root": "results/raw/codellama7b_4bit_r4_baseline_evalhalf_20260725_161912",
+  "benchmarks": {
+    "humaneval": {
+      "task_count": 82,
+      "pass_count": 2,
+      "pass_rate": 0.024390243902439025,
+      "score_summary": "results/raw/codellama7b_4bit_r4_baseline_evalhalf_20260725_161912/humaneval_evalhalf/score_summary.json"
+    },
+    "mbpp": {
+      "task_count": 224,
+      "pass_count": 29,
+      "pass_rate": 0.12946428571428573,
+      "score_summary": "results/raw/codellama7b_4bit_r4_baseline_evalhalf_20260725_161912/mbpp_evalhalf/score_summary.json"
+    },
+    "livecodebench": {
+      "task_count": 200,
+      "pass_count": 0,
+      "pass_rate": 0.0,
+      "score_summary": "results/raw/codellama7b_4bit_r4_baseline_evalhalf_20260725_161912/livecodebench_evalhalf/score_summary.json"
+    }
+  }
+}
