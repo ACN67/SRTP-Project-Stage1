@@ -75,6 +75,12 @@ def main() -> int:
     parser.add_argument("--round-interval", type=int, default=8)
     parser.add_argument("--final-orientation", choices=["random", "pca"], default="random")
     parser.add_argument("--generate-split", type=Path)
+    parser.add_argument(
+        "--eval-split",
+        action="append",
+        default=[],
+        help="Named eval split in the form name=path. May be repeated; all splits are generated after one slicing run.",
+    )
     parser.add_argument("--generate-limit", type=int, default=0)
     parser.add_argument("--max-new-tokens", type=int, default=32)
     parser.add_argument(
@@ -171,15 +177,19 @@ def main() -> int:
         if model_adapter.slicing_conf is not None:
             sliced_config_path.write_text(model_adapter.slicing_conf.to_json_string(), encoding="utf-8")
 
-    generation_summary = None
+    generation_summaries = []
+    eval_specs: list[tuple[str | None, Path]] = []
     if args.generate_split:
-        tasks = read_jsonl(args.generate_split)
-        if args.generate_limit:
-            tasks = tasks[: args.generate_limit]
+        eval_specs.append((None, args.generate_split))
+    for raw_eval_split in args.eval_split:
+        if "=" not in raw_eval_split:
+            raise ValueError("--eval-split must use name=path")
+        name, split_path = raw_eval_split.split("=", 1)
+        if not name:
+            raise ValueError("--eval-split name cannot be empty")
+        eval_specs.append((name, Path(split_path)))
 
-        samples_path = args.out_dir / "samples.jsonl"
-        generations_path = args.out_dir / "generations.jsonl"
-
+    if eval_specs:
         generation_device_map = None
         if args.generate_device_map == "auto":
             max_memory = parse_max_memory(args.max_memory_json)
@@ -212,51 +222,81 @@ def main() -> int:
             )
             model.to(generate_device)
 
-        with samples_path.open("w", encoding="utf-8") as sf, generations_path.open("w", encoding="utf-8") as gf:
-            for item in tasks:
-                task_id = item["task_id"]
-                prompt = item["prompt"]
-                inputs = tokenizer(prompt, return_tensors="pt")
-                inputs = {key: value.to(generate_device) for key, value in inputs.items()}
+        for eval_name, split_path in eval_specs:
+            tasks = read_jsonl(split_path)
+            if args.generate_limit:
+                tasks = tasks[: args.generate_limit]
 
-                gen_started = time.time()
-                with torch.no_grad():
-                    output_ids = model.generate(
-                        **inputs,
-                        max_new_tokens=args.max_new_tokens,
-                        do_sample=False,
-                        pad_token_id=tokenizer.eos_token_id,
-                    )
-                gen_seconds = time.time() - gen_started
+            eval_out_dir = args.out_dir if eval_name is None else args.out_dir / eval_name
+            eval_out_dir.mkdir(parents=True, exist_ok=True)
+            samples_path = eval_out_dir / "samples.jsonl"
+            generations_path = eval_out_dir / "generations.jsonl"
 
-                generated = tokenizer.decode(output_ids[0], skip_special_tokens=True)
-                completion = extract_completion(prompt, generated)
-                solution = prompt + completion
+            with samples_path.open("w", encoding="utf-8") as sf, generations_path.open("w", encoding="utf-8") as gf:
+                for index, item in enumerate(tasks, start=1):
+                    task_id = item["task_id"]
+                    prompt = item["prompt"]
+                    inputs = tokenizer(prompt, return_tensors="pt")
+                    inputs = {key: value.to(generate_device) for key, value in inputs.items()}
 
-                sf.write(json.dumps({"task_id": task_id, "solution": solution}, ensure_ascii=False) + "\n")
-                gf.write(
-                    json.dumps(
-                        {
-                            "task_id": task_id,
-                            "prompt": prompt,
-                            "generated": generated,
-                            "completion": completion,
-                            "gen_seconds": gen_seconds,
-                        },
-                        ensure_ascii=False,
+                    gen_started = time.time()
+                    with torch.no_grad():
+                        output_ids = model.generate(
+                            **inputs,
+                            max_new_tokens=args.max_new_tokens,
+                            do_sample=False,
+                            pad_token_id=tokenizer.eos_token_id,
+                        )
+                    gen_seconds = time.time() - gen_started
+
+                    generated = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+                    completion = extract_completion(prompt, generated)
+                    solution = prompt + completion
+
+                    sf.write(json.dumps({"task_id": task_id, "solution": solution}, ensure_ascii=False) + "\n")
+                    gf.write(
+                        json.dumps(
+                            {
+                                "task_id": task_id,
+                                "prompt": prompt,
+                                "generated": generated,
+                                "completion": completion,
+                                "gen_seconds": gen_seconds,
+                            },
+                            ensure_ascii=False,
+                        )
+                        + "\n"
                     )
-                    + "\n"
-                )
-                print(
-                    json.dumps(
-                        {
-                            "task_id": task_id,
-                            "completion_chars": len(completion),
-                            "gen_seconds": round(gen_seconds, 3),
-                        },
-                        ensure_ascii=False,
+                    sf.flush()
+                    gf.flush()
+                    print(
+                        json.dumps(
+                            {
+                                "event": "generated",
+                                "split": eval_name or str(split_path),
+                                "index": index,
+                                "total": len(tasks),
+                                "task_id": task_id,
+                                "completion_chars": len(completion),
+                                "gen_seconds": round(gen_seconds, 3),
+                            },
+                            ensure_ascii=False,
+                        ),
+                        flush=True,
                     )
-                )
+
+            generation_summaries.append(
+                {
+                    "name": eval_name,
+                    "split": str(split_path),
+                    "task_count": len(tasks),
+                    "samples": str(samples_path),
+                    "generations": str(generations_path),
+                    "max_new_tokens": args.max_new_tokens,
+                    "device": str(generate_device),
+                    "device_map": generation_device_map,
+                }
+            )
 
         if args.generate_device_map == "auto":
             del model
@@ -264,15 +304,6 @@ def main() -> int:
         else:
             model.cpu()
         utils.cleanup_memory()
-        generation_summary = {
-            "split": str(args.generate_split),
-            "task_count": len(tasks),
-            "samples": str(samples_path),
-            "generations": str(generations_path),
-            "max_new_tokens": args.max_new_tokens,
-            "device": str(generate_device),
-            "device_map": generation_device_map,
-        }
 
     summary = {
         "status": "success",
@@ -298,7 +329,8 @@ def main() -> int:
         "parameters_after": params_after,
         "parameter_keep_ratio": params_after / params_before,
         "parameter_reduction_rate": 1 - params_after / params_before,
-        "generation": generation_summary,
+        "generation": generation_summaries[0] if args.generate_split and not args.eval_split else None,
+        "generations": generation_summaries,
         "sliced_state_path": str(sliced_state_path) if sliced_state_path else None,
         "slicing_config_path": str(sliced_config_path) if sliced_config_path else None,
         "process_rss_mb_after": proc.memory_info().rss / 1024**2,
