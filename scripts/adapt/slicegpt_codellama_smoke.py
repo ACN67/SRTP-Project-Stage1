@@ -11,6 +11,7 @@ from pathlib import Path
 
 import psutil
 import torch
+from datasets import Dataset
 from accelerate import dispatch_model, infer_auto_device_map
 from transformers import AutoTokenizer
 from transformers.models.llama.modeling_llama import LlamaForCausalLM
@@ -65,6 +66,8 @@ def main() -> int:
     parser.add_argument("--dtype", choices=["fp16", "bf16", "fp32"], default="fp16")
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--cal-dataset", default="wikitext2", choices=["wikitext2", "ptb", "c4", "alpaca"])
+    parser.add_argument("--cal-guide-file", action="append", type=Path, default=[])
+    parser.add_argument("--cal-guide-limit-per-file", type=int, default=0)
     parser.add_argument("--cal-nsamples", type=int, default=1)
     parser.add_argument("--cal-batch-size", type=int, default=1)
     parser.add_argument("--cal-max-seqlen", type=int, default=32)
@@ -87,6 +90,7 @@ def main() -> int:
     )
     parser.add_argument("--max-memory-json", help='Optional JSON max_memory, e.g. {"0":"6GiB","cpu":"24GiB"}.')
     parser.add_argument("--offload-folder", type=Path)
+    parser.add_argument("--save-sliced-state", action="store_true")
     args = parser.parse_args()
 
     started = time.time()
@@ -114,7 +118,22 @@ def main() -> int:
     model_adapter.use_cache = False
     model_adapter.post_init(tokenizer)
 
-    dataset = data_utils.get_dataset(args.cal_dataset)
+    cal_guide_rows = []
+    if args.cal_guide_file:
+        for guide_file in args.cal_guide_file:
+            rows = read_jsonl(guide_file)
+            selected = rows if args.cal_guide_limit_per_file <= 0 else rows[: args.cal_guide_limit_per_file]
+            cal_guide_rows.extend(selected)
+        if not cal_guide_rows:
+            raise ValueError("--cal-guide-file was provided but no guide rows were loaded")
+        logging.info("Loading benchmark guide calibration rows: %s", len(cal_guide_rows))
+        dataset = {
+            "train": Dataset.from_dict(
+                {"text": [row["prompt"] for row in cal_guide_rows]}
+            )
+        }
+    else:
+        dataset = data_utils.get_dataset(args.cal_dataset)
     train_loader = data_utils.prepare_dataloader(
         dataset=dataset["train"],
         tokenizer=tokenizer,
@@ -142,6 +161,15 @@ def main() -> int:
     rotate.rotate_and_slice(model_adapter, train_loader, scheduler, final_orientation=args.final_orientation)
 
     params_after = count_params(model)
+
+    sliced_state_path = None
+    sliced_config_path = None
+    if args.save_sliced_state:
+        sliced_state_path = args.out_dir / "sliced_model_state.pt"
+        sliced_config_path = args.out_dir / "slicing_config.json"
+        torch.save(model.state_dict(), sliced_state_path)
+        if model_adapter.slicing_conf is not None:
+            sliced_config_path.write_text(model_adapter.slicing_conf.to_json_string(), encoding="utf-8")
 
     generation_summary = None
     if args.generate_split:
@@ -259,6 +287,8 @@ def main() -> int:
         "max_memory": json.loads(args.max_memory_json) if args.max_memory_json else None,
         "offload_folder": str(args.offload_folder) if args.offload_folder else None,
         "cal_dataset": args.cal_dataset,
+        "cal_guide_files": [str(path) for path in args.cal_guide_file],
+        "cal_guide_samples": len(cal_guide_rows),
         "cal_nsamples": args.cal_nsamples,
         "cal_batch_size": args.cal_batch_size,
         "cal_max_seqlen": args.cal_max_seqlen,
@@ -269,6 +299,8 @@ def main() -> int:
         "parameter_keep_ratio": params_after / params_before,
         "parameter_reduction_rate": 1 - params_after / params_before,
         "generation": generation_summary,
+        "sliced_state_path": str(sliced_state_path) if sliced_state_path else None,
+        "slicing_config_path": str(sliced_config_path) if sliced_config_path else None,
         "process_rss_mb_after": proc.memory_info().rss / 1024**2,
         "elapsed_seconds": time.time() - started,
         "torch": torch.__version__,
