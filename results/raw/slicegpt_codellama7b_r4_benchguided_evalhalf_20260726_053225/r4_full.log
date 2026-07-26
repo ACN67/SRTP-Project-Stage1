@@ -1,0 +1,275 @@
+=== Run root ===
+results/raw/slicegpt_codellama7b_r4_benchguided_evalhalf_20260726_053225
+
+=== System before ===
+               total        used        free      shared  buff/cache   available
+Mem:            13Gi       613Mi        12Gi       3.3Mi       478Mi        13Gi
+Swap:           32Gi       4.6Mi        31Gi
+NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 466 MiB, 4 %
+
+=== SliceGPT one-slice multi-eval R4 ===
+/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/utils/hub.py:124: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Loading tokenizer from /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6
+Loading CodeLlama weights on CPU
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:33<00:33, 33.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 17.05s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.54s/it]
+Loading benchmark guide calibration rows: 436
+Preparing dataloader
+Filter:   0%|          | 0/436 [00:00<?, ? examples/s]Filter: 100%|██████████| 436/436 [00:00<00:00, 15452.94 examples/s]
+Preparing dataloader done
+Replacing and fusing SliceGPT layers
+Replacing layers
+Replacing layers done
+Fusing layernorm modules
+Fusing layernorm modules done
+Running rotate_and_slice: hidden_size=4096 new_embedding_dimension=3272
+Rotate and slice layers
+Rotating and slicing:   0%|          | 0/32 [00:00<?, ?layer/s]Rotating and slicing:   3%|▎         | 1/32 [00:29<15:28, 29.96s/layer]Rotating and slicing:   6%|▋         | 2/32 [01:03<16:06, 32.20s/layer]Rotating and slicing:   9%|▉         | 3/32 [01:33<14:55, 30.87s/layer]Rotating and slicing:  12%|█▎        | 4/32 [02:05<14:38, 31.37s/layer]Rotating and slicing:  16%|█▌        | 5/32 [02:35<13:57, 31.03s/layer]Rotating and slicing:  19%|█▉        | 6/32 [03:04<13:08, 30.31s/layer]Rotating and slicing:  22%|██▏       | 7/32 [03:34<12:35, 30.23s/layer]Rotating and slicing:  25%|██▌       | 8/32 [04:03<11:59, 29.97s/layer]Rotating and slicing:  28%|██▊       | 9/32 [04:35<11:38, 30.35s/layer]Rotating and slicing:  31%|███▏      | 10/32 [05:06<11:16, 30.74s/layer]Rotating and slicing:  34%|███▍      | 11/32 [05:37<10:42, 30.60s/layer]Rotating and slicing:  38%|███▊      | 12/32 [06:09<10:21, 31.09s/layer]Rotating and slicing:  41%|████      | 13/32 [06:41<09:59, 31.55s/layer]Rotating and slicing:  44%|████▍     | 14/32 [07:14<09:33, 31.87s/layer]Rotating and slicing:  47%|████▋     | 15/32 [07:47<09:07, 32.20s/layer]Rotating and slicing:  50%|█████     | 16/32 [08:20<08:38, 32.43s/layer]Rotating and slicing:  53%|█████▎    | 17/32 [08:53<08:08, 32.57s/layer]Rotating and slicing:  56%|█████▋    | 18/32 [09:24<07:31, 32.24s/layer]Rotating and slicing:  59%|█████▉    | 19/32 [09:58<07:05, 32.76s/layer]Rotating and slicing:  62%|██████▎   | 20/32 [10:30<06:29, 32.42s/layer]Rotating and slicing:  66%|██████▌   | 21/32 [11:04<06:02, 32.92s/layer]Rotating and slicing:  69%|██████▉   | 22/32 [11:37<05:30, 33.03s/layer]Rotating and slicing:  72%|███████▏  | 23/32 [12:09<04:55, 32.79s/layer]Rotating and slicing:  75%|███████▌  | 24/32 [12:44<04:25, 33.18s/layer]Rotating and slicing:  78%|███████▊  | 25/32 [13:16<03:50, 32.98s/layer]Rotating and slicing:  81%|████████▏ | 26/32 [13:49<03:17, 32.86s/layer]Rotating and slicing:  84%|████████▍ | 27/32 [14:20<02:42, 32.44s/layer]Rotating and slicing:  88%|████████▊ | 28/32 [14:52<02:09, 32.41s/layer]Rotating and slicing:  91%|█████████ | 29/32 [15:25<01:37, 32.47s/layer]Rotating and slicing:  94%|█████████▍| 30/32 [15:58<01:05, 32.66s/layer]Rotating and slicing:  97%|█████████▋| 31/32 [16:30<00:32, 32.43s/layer]Rotating and slicing: 100%|██████████| 32/32 [17:01<00:00, 31.83s/layer]Rotating and slicing: 100%|██████████| 32/32 [17:01<00:00, 31.91s/layer]
+Rotate and slice layers done
+Some parameters are on the meta device because they were offloaded to the cpu.
+{"event": "generated", "split": "humaneval", "index": 1, "total": 82, "task_id": "HumanEval/1", "completion_chars": 513, "gen_seconds": 288.6}
+{"event": "generated", "split": "humaneval", "index": 2, "total": 82, "task_id": "HumanEval/5", "completion_chars": 732, "gen_seconds": 229.849}
+{"event": "generated", "split": "humaneval", "index": 3, "total": 82, "task_id": "HumanEval/6", "completion_chars": 513, "gen_seconds": 235.194}
+{"event": "generated", "split": "humaneval", "index": 4, "total": 82, "task_id": "HumanEval/7", "completion_chars": 831, "gen_seconds": 235.449}
+{"event": "generated", "split": "humaneval", "index": 5, "total": 82, "task_id": "HumanEval/11", "completion_chars": 678, "gen_seconds": 228.152}
+{"event": "generated", "split": "humaneval", "index": 6, "total": 82, "task_id": "HumanEval/12", "completion_chars": 842, "gen_seconds": 235.831}
+{"event": "generated", "split": "humaneval", "index": 7, "total": 82, "task_id": "HumanEval/15", "completion_chars": 674, "gen_seconds": 233.562}
+{"event": "generated", "split": "humaneval", "index": 8, "total": 82, "task_id": "HumanEval/19", "completion_chars": 853, "gen_seconds": 230.553}
+{"event": "generated", "split": "humaneval", "index": 9, "total": 82, "task_id": "HumanEval/20", "completion_chars": 705, "gen_seconds": 234.537}
+{"event": "generated", "split": "humaneval", "index": 10, "total": 82, "task_id": "HumanEval/22", "completion_chars": 726, "gen_seconds": 230.941}
+{"event": "generated", "split": "humaneval", "index": 11, "total": 82, "task_id": "HumanEval/24", "completion_chars": 698, "gen_seconds": 232.052}
+{"event": "generated", "split": "humaneval", "index": 12, "total": 82, "task_id": "HumanEval/27", "completion_chars": 740, "gen_seconds": 233.951}
+{"event": "generated", "split": "humaneval", "index": 13, "total": 82, "task_id": "HumanEval/28", "completion_chars": 731, "gen_seconds": 228.164}
+{"event": "generated", "split": "humaneval", "index": 14, "total": 82, "task_id": "HumanEval/29", "completion_chars": 779, "gen_seconds": 233.789}
+{"event": "generated", "split": "humaneval", "index": 15, "total": 82, "task_id": "HumanEval/32", "completion_chars": 429, "gen_seconds": 233.903}
+{"event": "generated", "split": "humaneval", "index": 16, "total": 82, "task_id": "HumanEval/33", "completion_chars": 516, "gen_seconds": 226.357}
+{"event": "generated", "split": "humaneval", "index": 17, "total": 82, "task_id": "HumanEval/35", "completion_chars": 569, "gen_seconds": 234.765}
+{"event": "generated", "split": "humaneval", "index": 18, "total": 82, "task_id": "HumanEval/37", "completion_chars": 633, "gen_seconds": 235.032}
+{"event": "generated", "split": "humaneval", "index": 19, "total": 82, "task_id": "HumanEval/39", "completion_chars": 599, "gen_seconds": 228.262}
+{"event": "generated", "split": "humaneval", "index": 20, "total": 82, "task_id": "HumanEval/43", "completion_chars": 513, "gen_seconds": 233.952}
+{"event": "generated", "split": "humaneval", "index": 21, "total": 82, "task_id": "HumanEval/45", "completion_chars": 634, "gen_seconds": 233.487}
+{"event": "generated", "split": "humaneval", "index": 22, "total": 82, "task_id": "HumanEval/47", "completion_chars": 529, "gen_seconds": 229.703}
+{"event": "generated", "split": "humaneval", "index": 23, "total": 82, "task_id": "HumanEval/49", "completion_chars": 529, "gen_seconds": 235.105}
+{"event": "generated", "split": "humaneval", "index": 24, "total": 82, "task_id": "HumanEval/50", "completion_chars": 671, "gen_seconds": 231.723}
+{"event": "generated", "split": "humaneval", "index": 25, "total": 82, "task_id": "HumanEval/51", "completion_chars": 672, "gen_seconds": 232.258}
+{"event": "generated", "split": "humaneval", "index": 26, "total": 82, "task_id": "HumanEval/53", "completion_chars": 577, "gen_seconds": 235.27}
+{"event": "generated", "split": "humaneval", "index": 27, "total": 82, "task_id": "HumanEval/54", "completion_chars": 616, "gen_seconds": 229.14}
+{"event": "generated", "split": "humaneval", "index": 28, "total": 82, "task_id": "HumanEval/57", "completion_chars": 552, "gen_seconds": 232.956}
+{"event": "generated", "split": "humaneval", "index": 29, "total": 82, "task_id": "HumanEval/59", "completion_chars": 513, "gen_seconds": 234.081}
+{"event": "generated", "split": "humaneval", "index": 30, "total": 82, "task_id": "HumanEval/61", "completion_chars": 816, "gen_seconds": 227.923}
+{"event": "generated", "split": "humaneval", "index": 31, "total": 82, "task_id": "HumanEval/62", "completion_chars": 657, "gen_seconds": 234.286}
+{"event": "generated", "split": "humaneval", "index": 32, "total": 82, "task_id": "HumanEval/64", "completion_chars": 715, "gen_seconds": 234.4}
+{"event": "generated", "split": "humaneval", "index": 33, "total": 82, "task_id": "HumanEval/67", "completion_chars": 513, "gen_seconds": 227.964}
+{"event": "generated", "split": "humaneval", "index": 34, "total": 82, "task_id": "HumanEval/69", "completion_chars": 513, "gen_seconds": 235.042}
+{"event": "generated", "split": "humaneval", "index": 35, "total": 82, "task_id": "HumanEval/70", "completion_chars": 673, "gen_seconds": 234.834}
+{"event": "generated", "split": "humaneval", "index": 36, "total": 82, "task_id": "HumanEval/72", "completion_chars": 659, "gen_seconds": 228.019}
+{"event": "generated", "split": "humaneval", "index": 37, "total": 82, "task_id": "HumanEval/73", "completion_chars": 513, "gen_seconds": 234.223}
+{"event": "generated", "split": "humaneval", "index": 38, "total": 82, "task_id": "HumanEval/78", "completion_chars": 513, "gen_seconds": 234.488}
+{"event": "generated", "split": "humaneval", "index": 39, "total": 82, "task_id": "HumanEval/79", "completion_chars": 740, "gen_seconds": 229.328}
+{"event": "generated", "split": "humaneval", "index": 40, "total": 82, "task_id": "HumanEval/80", "completion_chars": 654, "gen_seconds": 233.844}
+{"event": "generated", "split": "humaneval", "index": 41, "total": 82, "task_id": "HumanEval/83", "completion_chars": 513, "gen_seconds": 232.546}
+{"event": "generated", "split": "humaneval", "index": 42, "total": 82, "task_id": "HumanEval/86", "completion_chars": 930, "gen_seconds": 232.102}
+{"event": "generated", "split": "humaneval", "index": 43, "total": 82, "task_id": "HumanEval/87", "completion_chars": 729, "gen_seconds": 234.845}
+{"event": "generated", "split": "humaneval", "index": 44, "total": 82, "task_id": "HumanEval/90", "completion_chars": 654, "gen_seconds": 228.694}
+{"event": "generated", "split": "humaneval", "index": 45, "total": 82, "task_id": "HumanEval/91", "completion_chars": 753, "gen_seconds": 232.933}
+{"event": "generated", "split": "humaneval", "index": 46, "total": 82, "task_id": "HumanEval/94", "completion_chars": 585, "gen_seconds": 234.193}
+{"event": "generated", "split": "humaneval", "index": 47, "total": 82, "task_id": "HumanEval/96", "completion_chars": 454, "gen_seconds": 227.373}
+{"event": "generated", "split": "humaneval", "index": 48, "total": 82, "task_id": "HumanEval/98", "completion_chars": 696, "gen_seconds": 235.158}
+{"event": "generated", "split": "humaneval", "index": 49, "total": 82, "task_id": "HumanEval/100", "completion_chars": 420, "gen_seconds": 235.132}
+{"event": "generated", "split": "humaneval", "index": 50, "total": 82, "task_id": "HumanEval/101", "completion_chars": 814, "gen_seconds": 227.878}
+{"event": "generated", "split": "humaneval", "index": 51, "total": 82, "task_id": "HumanEval/103", "completion_chars": 667, "gen_seconds": 234.533}
+{"event": "generated", "split": "humaneval", "index": 52, "total": 82, "task_id": "HumanEval/105", "completion_chars": 513, "gen_seconds": 235.1}
+{"event": "generated", "split": "humaneval", "index": 53, "total": 82, "task_id": "HumanEval/108", "completion_chars": 513, "gen_seconds": 228.3}
+{"event": "generated", "split": "humaneval", "index": 54, "total": 82, "task_id": "HumanEval/109", "completion_chars": 974, "gen_seconds": 234.884}
+{"event": "generated", "split": "humaneval", "index": 55, "total": 82, "task_id": "HumanEval/111", "completion_chars": 513, "gen_seconds": 231.255}
+{"event": "generated", "split": "humaneval", "index": 56, "total": 82, "task_id": "HumanEval/112", "completion_chars": 513, "gen_seconds": 231.601}
+{"event": "generated", "split": "humaneval", "index": 57, "total": 82, "task_id": "HumanEval/113", "completion_chars": 702, "gen_seconds": 235.332}
+{"event": "generated", "split": "humaneval", "index": 58, "total": 82, "task_id": "HumanEval/116", "completion_chars": 656, "gen_seconds": 231.441}
+{"event": "generated", "split": "humaneval", "index": 59, "total": 82, "task_id": "HumanEval/117", "completion_chars": 839, "gen_seconds": 233.835}
+{"event": "generated", "split": "humaneval", "index": 60, "total": 82, "task_id": "HumanEval/120", "completion_chars": 288, "gen_seconds": 109.008}
+{"event": "generated", "split": "humaneval", "index": 61, "total": 82, "task_id": "HumanEval/121", "completion_chars": 628, "gen_seconds": 234.994}
+{"event": "generated", "split": "humaneval", "index": 62, "total": 82, "task_id": "HumanEval/122", "completion_chars": 906, "gen_seconds": 235.294}
+{"event": "generated", "split": "humaneval", "index": 63, "total": 82, "task_id": "HumanEval/124", "completion_chars": 664, "gen_seconds": 228.35}
+{"event": "generated", "split": "humaneval", "index": 64, "total": 82, "task_id": "HumanEval/125", "completion_chars": 754, "gen_seconds": 235.29}
+{"event": "generated", "split": "humaneval", "index": 65, "total": 82, "task_id": "HumanEval/127", "completion_chars": 484, "gen_seconds": 234.773}
+{"event": "generated", "split": "humaneval", "index": 66, "total": 82, "task_id": "HumanEval/130", "completion_chars": 404, "gen_seconds": 228.495}
+{"event": "generated", "split": "humaneval", "index": 67, "total": 82, "task_id": "HumanEval/133", "completion_chars": 704, "gen_seconds": 235.326}
+{"event": "generated", "split": "humaneval", "index": 68, "total": 82, "task_id": "HumanEval/136", "completion_chars": 513, "gen_seconds": 235.661}
+{"event": "generated", "split": "humaneval", "index": 69, "total": 82, "task_id": "HumanEval/138", "completion_chars": 485, "gen_seconds": 227.882}
+{"event": "generated", "split": "humaneval", "index": 70, "total": 82, "task_id": "HumanEval/139", "completion_chars": 694, "gen_seconds": 236.121}
+{"event": "generated", "split": "humaneval", "index": 71, "total": 82, "task_id": "HumanEval/140", "completion_chars": 821, "gen_seconds": 233.912}
+{"event": "generated", "split": "humaneval", "index": 72, "total": 82, "task_id": "HumanEval/142", "completion_chars": 513, "gen_seconds": 230.272}
+{"event": "generated", "split": "humaneval", "index": 73, "total": 82, "task_id": "HumanEval/144", "completion_chars": 773, "gen_seconds": 235.141}
+{"event": "generated", "split": "humaneval", "index": 74, "total": 82, "task_id": "HumanEval/147", "completion_chars": 513, "gen_seconds": 230.621}
+{"event": "generated", "split": "humaneval", "index": 75, "total": 82, "task_id": "HumanEval/149", "completion_chars": 911, "gen_seconds": 233.646}
+{"event": "generated", "split": "humaneval", "index": 76, "total": 82, "task_id": "HumanEval/153", "completion_chars": 513, "gen_seconds": 235.109}
+{"event": "generated", "split": "humaneval", "index": 77, "total": 82, "task_id": "HumanEval/154", "completion_chars": 655, "gen_seconds": 229.089}
+{"event": "generated", "split": "humaneval", "index": 78, "total": 82, "task_id": "HumanEval/155", "completion_chars": 664, "gen_seconds": 234.366}
+{"event": "generated", "split": "humaneval", "index": 79, "total": 82, "task_id": "HumanEval/156", "completion_chars": 596, "gen_seconds": 234.409}
+{"event": "generated", "split": "humaneval", "index": 80, "total": 82, "task_id": "HumanEval/157", "completion_chars": 825, "gen_seconds": 228.059}
+{"event": "generated", "split": "humaneval", "index": 81, "total": 82, "task_id": "HumanEval/160", "completion_chars": 513, "gen_seconds": 235.828}
+{"event": "generated", "split": "humaneval", "index": 82, "total": 82, "task_id": "HumanEval/163", "completion_chars": 513, "gen_seconds": 236.259}
+{"event": "generated", "split": "mbpp", "index": 1, "total": 224, "task_id": "Mbpp/11", "completion_chars": 755, "gen_seconds": 229.522}
+{"event": "generated", "split": "mbpp", "index": 2, "total": 224, "task_id": "Mbpp/12", "completion_chars": 835, "gen_seconds": 235.27}
+{"event": "generated", "split": "mbpp", "index": 3, "total": 224, "task_id": "Mbpp/14", "completion_chars": 648, "gen_seconds": 235.996}
+{"event": "generated", "split": "mbpp", "index": 4, "total": 224, "task_id": "Mbpp/16", "completion_chars": 611, "gen_seconds": 229.722}
+{"event": "generated", "split": "mbpp", "index": 5, "total": 224, "task_id": "Mbpp/17", "completion_chars": 665, "gen_seconds": 236.361}
+{"event": "generated", "split": "mbpp", "index": 6, "total": 224, "task_id": "Mbpp/18", "completion_chars": 644, "gen_seconds": 233.363}
+{"event": "generated", "split": "mbpp", "index": 7, "total": 224, "task_id": "Mbpp/19", "completion_chars": 487, "gen_seconds": 231.416}
+{"event": "generated", "split": "mbpp", "index": 8, "total": 224, "task_id": "Mbpp/20", "completion_chars": 507, "gen_seconds": 235.54}
+{"event": "generated", "split": "mbpp", "index": 9, "total": 224, "task_id": "Mbpp/56", "completion_chars": 496, "gen_seconds": 231.279}
+{"event": "generated", "split": "mbpp", "index": 10, "total": 224, "task_id": "Mbpp/57", "completion_chars": 611, "gen_seconds": 233.104}
+{"event": "generated", "split": "mbpp", "index": 11, "total": 224, "task_id": "Mbpp/58", "completion_chars": 663, "gen_seconds": 235.072}
+{"event": "generated", "split": "mbpp", "index": 12, "total": 224, "task_id": "Mbpp/59", "completion_chars": 595, "gen_seconds": 230.72}
+{"event": "generated", "split": "mbpp", "index": 13, "total": 224, "task_id": "Mbpp/61", "completion_chars": 637, "gen_seconds": 234.453}
+{"event": "generated", "split": "mbpp", "index": 14, "total": 224, "task_id": "Mbpp/62", "completion_chars": 396, "gen_seconds": 234.761}
+{"event": "generated", "split": "mbpp", "index": 15, "total": 224, "task_id": "Mbpp/63", "completion_chars": 428, "gen_seconds": 228.461}
+{"event": "generated", "split": "mbpp", "index": 16, "total": 224, "task_id": "Mbpp/64", "completion_chars": 641, "gen_seconds": 235.816}
+{"event": "generated", "split": "mbpp", "index": 17, "total": 224, "task_id": "Mbpp/65", "completion_chars": 677, "gen_seconds": 235.031}
+{"event": "generated", "split": "mbpp", "index": 18, "total": 224, "task_id": "Mbpp/66", "completion_chars": 480, "gen_seconds": 229.363}
+{"event": "generated", "split": "mbpp", "index": 19, "total": 224, "task_id": "Mbpp/67", "completion_chars": 695, "gen_seconds": 235.874}
+{"event": "generated", "split": "mbpp", "index": 20, "total": 224, "task_id": "Mbpp/68", "completion_chars": 636, "gen_seconds": 235.182}
+{"event": "generated", "split": "mbpp", "index": 21, "total": 224, "task_id": "Mbpp/69", "completion_chars": 686, "gen_seconds": 229.04}
+{"event": "generated", "split": "mbpp", "index": 22, "total": 224, "task_id": "Mbpp/70", "completion_chars": 443, "gen_seconds": 235.558}
+{"event": "generated", "split": "mbpp", "index": 23, "total": 224, "task_id": "Mbpp/71", "completion_chars": 694, "gen_seconds": 234.7}
+{"event": "generated", "split": "mbpp", "index": 24, "total": 224, "task_id": "Mbpp/72", "completion_chars": 658, "gen_seconds": 230.109}
+{"event": "generated", "split": "mbpp", "index": 25, "total": 224, "task_id": "Mbpp/74", "completion_chars": 672, "gen_seconds": 235.381}
+{"event": "generated", "split": "mbpp", "index": 26, "total": 224, "task_id": "Mbpp/75", "completion_chars": 429, "gen_seconds": 232.584}
+{"event": "generated", "split": "mbpp", "index": 27, "total": 224, "task_id": "Mbpp/77", "completion_chars": 665, "gen_seconds": 233.305}
+{"event": "generated", "split": "mbpp", "index": 28, "total": 224, "task_id": "Mbpp/79", "completion_chars": 722, "gen_seconds": 235.34}
+{"event": "generated", "split": "mbpp", "index": 29, "total": 224, "task_id": "Mbpp/80", "completion_chars": 545, "gen_seconds": 230.601}
+{"event": "generated", "split": "mbpp", "index": 30, "total": 224, "task_id": "Mbpp/82", "completion_chars": 642, "gen_seconds": 235.112}
+{"event": "generated", "split": "mbpp", "index": 31, "total": 224, "task_id": "Mbpp/84", "completion_chars": 707, "gen_seconds": 236.007}
+{"event": "generated", "split": "mbpp", "index": 32, "total": 224, "task_id": "Mbpp/85", "completion_chars": 844, "gen_seconds": 228.527}
+{"event": "generated", "split": "mbpp", "index": 33, "total": 224, "task_id": "Mbpp/86", "completion_chars": 715, "gen_seconds": 234.199}
+{"event": "generated", "split": "mbpp", "index": 34, "total": 224, "task_id": "Mbpp/87", "completion_chars": 644, "gen_seconds": 235.578}
+{"event": "generated", "split": "mbpp", "index": 35, "total": 224, "task_id": "Mbpp/88", "completion_chars": 408, "gen_seconds": 228.399}
+{"event": "generated", "split": "mbpp", "index": 36, "total": 224, "task_id": "Mbpp/89", "completion_chars": 477, "gen_seconds": 234.539}
+{"event": "generated", "split": "mbpp", "index": 37, "total": 224, "task_id": "Mbpp/90", "completion_chars": 708, "gen_seconds": 235.127}
+{"event": "generated", "split": "mbpp", "index": 38, "total": 224, "task_id": "Mbpp/91", "completion_chars": 752, "gen_seconds": 229.09}
+{"event": "generated", "split": "mbpp", "index": 39, "total": 224, "task_id": "Mbpp/92", "completion_chars": 510, "gen_seconds": 236.004}
+{"event": "generated", "split": "mbpp", "index": 40, "total": 224, "task_id": "Mbpp/93", "completion_chars": 603, "gen_seconds": 235.44}
+{"event": "generated", "split": "mbpp", "index": 41, "total": 224, "task_id": "Mbpp/94", "completion_chars": 118, "gen_seconds": 50.551}
+{"event": "generated", "split": "mbpp", "index": 42, "total": 224, "task_id": "Mbpp/95", "completion_chars": 530, "gen_seconds": 229.136}
+{"event": "generated", "split": "mbpp", "index": 43, "total": 224, "task_id": "Mbpp/96", "completion_chars": 519, "gen_seconds": 236.061}
+{"event": "generated", "split": "mbpp", "index": 44, "total": 224, "task_id": "Mbpp/97", "completion_chars": 439, "gen_seconds": 235.269}
+{"event": "generated", "split": "mbpp", "index": 45, "total": 224, "task_id": "Mbpp/98", "completion_chars": 357, "gen_seconds": 229.328}
+{"event": "generated", "split": "mbpp", "index": 46, "total": 224, "task_id": "Mbpp/99", "completion_chars": 604, "gen_seconds": 235.49}
+{"event": "generated", "split": "mbpp", "index": 47, "total": 224, "task_id": "Mbpp/100", "completion_chars": 643, "gen_seconds": 235.699}
+{"event": "generated", "split": "mbpp", "index": 48, "total": 224, "task_id": "Mbpp/101", "completion_chars": 661, "gen_seconds": 229.057}
+{"event": "generated", "split": "mbpp", "index": 49, "total": 224, "task_id": "Mbpp/102", "completion_chars": 684, "gen_seconds": 236.422}
+{"event": "generated", "split": "mbpp", "index": 50, "total": 224, "task_id": "Mbpp/103", "completion_chars": 534, "gen_seconds": 234.561}
+{"event": "generated", "split": "mbpp", "index": 51, "total": 224, "task_id": "Mbpp/104", "completion_chars": 767, "gen_seconds": 231.357}
+{"event": "generated", "split": "mbpp", "index": 52, "total": 224, "task_id": "Mbpp/105", "completion_chars": 703, "gen_seconds": 237.747}
+{"event": "generated", "split": "mbpp", "index": 53, "total": 224, "task_id": "Mbpp/106", "completion_chars": 512, "gen_seconds": 232.742}
+{"event": "generated", "split": "mbpp", "index": 54, "total": 224, "task_id": "Mbpp/108", "completion_chars": 564, "gen_seconds": 231.901}
+{"event": "generated", "split": "mbpp", "index": 55, "total": 224, "task_id": "Mbpp/109", "completion_chars": 446, "gen_seconds": 235.43}
+{"event": "generated", "split": "mbpp", "index": 56, "total": 224, "task_id": "Mbpp/111", "completion_chars": 504, "gen_seconds": 230.32}
+{"event": "generated", "split": "mbpp", "index": 57, "total": 224, "task_id": "Mbpp/113", "completion_chars": 864, "gen_seconds": 234.115}
+{"event": "generated", "split": "mbpp", "index": 58, "total": 224, "task_id": "Mbpp/116", "completion_chars": 494, "gen_seconds": 234.638}
+{"event": "generated", "split": "mbpp", "index": 59, "total": 224, "task_id": "Mbpp/118", "completion_chars": 830, "gen_seconds": 227.918}
+{"event": "generated", "split": "mbpp", "index": 60, "total": 224, "task_id": "Mbpp/119", "completion_chars": 656, "gen_seconds": 235.484}
+{"event": "generated", "split": "mbpp", "index": 61, "total": 224, "task_id": "Mbpp/120", "completion_chars": 442, "gen_seconds": 235.205}
+{"event": "generated", "split": "mbpp", "index": 62, "total": 224, "task_id": "Mbpp/123", "completion_chars": 564, "gen_seconds": 229.488}
+{"event": "generated", "split": "mbpp", "index": 63, "total": 224, "task_id": "Mbpp/124", "completion_chars": 428, "gen_seconds": 235.969}
+{"event": "generated", "split": "mbpp", "index": 64, "total": 224, "task_id": "Mbpp/125", "completion_chars": 611, "gen_seconds": 235.812}
+{"event": "generated", "split": "mbpp", "index": 65, "total": 224, "task_id": "Mbpp/126", "completion_chars": 462, "gen_seconds": 231.044}
+{"event": "generated", "split": "mbpp", "index": 66, "total": 224, "task_id": "Mbpp/127", "completion_chars": 523, "gen_seconds": 234.607}
+{"event": "generated", "split": "mbpp", "index": 67, "total": 224, "task_id": "Mbpp/128", "completion_chars": 934, "gen_seconds": 233.819}
+{"event": "generated", "split": "mbpp", "index": 68, "total": 224, "task_id": "Mbpp/129", "completion_chars": 438, "gen_seconds": 229.399}
+{"event": "generated", "split": "mbpp", "index": 69, "total": 224, "task_id": "Mbpp/130", "completion_chars": 492, "gen_seconds": 235.624}
+{"event": "generated", "split": "mbpp", "index": 70, "total": 224, "task_id": "Mbpp/131", "completion_chars": 761, "gen_seconds": 233.861}
+{"event": "generated", "split": "mbpp", "index": 71, "total": 224, "task_id": "Mbpp/132", "completion_chars": 521, "gen_seconds": 232.317}
+{"event": "generated", "split": "mbpp", "index": 72, "total": 224, "task_id": "Mbpp/133", "completion_chars": 426, "gen_seconds": 235.706}
+{"event": "generated", "split": "mbpp", "index": 73, "total": 224, "task_id": "Mbpp/135", "completion_chars": 441, "gen_seconds": 189.578}
+{"event": "generated", "split": "mbpp", "index": 74, "total": 224, "task_id": "Mbpp/137", "completion_chars": 524, "gen_seconds": 236.159}
+{"event": "generated", "split": "mbpp", "index": 75, "total": 224, "task_id": "Mbpp/138", "completion_chars": 647, "gen_seconds": 234.07}
+{"event": "generated", "split": "mbpp", "index": 76, "total": 224, "task_id": "Mbpp/139", "completion_chars": 841, "gen_seconds": 228.502}
+{"event": "generated", "split": "mbpp", "index": 77, "total": 224, "task_id": "Mbpp/140", "completion_chars": 512, "gen_seconds": 235.033}
+{"event": "generated", "split": "mbpp", "index": 78, "total": 224, "task_id": "Mbpp/141", "completion_chars": 446, "gen_seconds": 234.925}
+{"event": "generated", "split": "mbpp", "index": 79, "total": 224, "task_id": "Mbpp/142", "completion_chars": 501, "gen_seconds": 229.554}
+{"event": "generated", "split": "mbpp", "index": 80, "total": 224, "task_id": "Mbpp/145", "completion_chars": 422, "gen_seconds": 236.069}
+{"event": "generated", "split": "mbpp", "index": 81, "total": 224, "task_id": "Mbpp/160", "completion_chars": 464, "gen_seconds": 233.882}
+{"event": "generated", "split": "mbpp", "index": 82, "total": 224, "task_id": "Mbpp/161", "completion_chars": 481, "gen_seconds": 231.38}
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/slicegpt_codellama_smoke.py", line 349, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/slicegpt_codellama_smoke.py", line 244, in main
+    output_ids = model.generate(
+                 ^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/generation/utils.py", line 1736, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/generation/utils.py", line 2375, in _sample
+    outputs = self(
+              ^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 1164, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 968, in forward
+    layer_outputs = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/accelerate/hooks.py", line 187, in new_forward
+    args, kwargs = module._hf_hook.pre_forward(module, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/accelerate/hooks.py", line 50, in wrapper
+    return wrapper._compiled_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 1263, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/accelerate/hooks.py", line 388, in pre_forward
+    set_module_tensor_to_device(
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-slicegpt/lib/python3.11/site-packages/accelerate/utils/modeling.py", line 353, in set_module_tensor_to_device
+    new_value = value.to(device, non_blocking=non_blocking)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Command terminated by signal 15
+	Command being timed: ".venv-slicegpt/bin/python scripts/adapt/slicegpt_codellama_smoke.py --model-path /home/keshu/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots/6c284d1468fe6c413cf56183e69b194dcfa27fe6 --out-dir results/raw/slicegpt_codellama7b_r4_benchguided_evalhalf_20260726_053225 --dtype fp16 --device cuda:0 --cal-guide-file data/splits/humaneval_half/guide.jsonl --cal-guide-file data/splits/mbpp_evalplus_half/guide.jsonl --cal-guide-file data/splits/livecodebench_half/guide.jsonl --cal-guide-limit-per-file 0 --cal-nsamples 436 --cal-batch-size 1 --cal-max-seqlen 128 --sparsity 0.20 --round-interval 8 --final-orientation pca --eval-split humaneval=data/splits/humaneval_half/eval.jsonl --eval-split mbpp=data/splits/mbpp_evalplus_half/eval.jsonl --eval-split livecodebench=data/splits/livecodebench_half/eval.jsonl --generate-limit 0 --max-new-tokens 256 --generate-device cuda:0 --generate-device-map auto --max-memory-json {"0":"6GiB","cpu":"24GiB"} --offload-folder results/raw/slicegpt_codellama7b_r4_benchguided_evalhalf_20260726_053225/offload"
+	User time (seconds): 37807.59
+	System time (seconds): 1443.89
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 11:02:50
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 13792064
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 63260
+	Minor (reclaiming a frame) page faults: 83347815
+	Voluntary context switches: 25515442
+	Involuntary context switches: 89053
+	Swaps: 0
+	File system inputs: 86233336
+	File system outputs: 3576
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,22 @@
+{
+  "status": "partial_stopped_by_user",
+  "method": "SliceGPT",
+  "model": "codellama/CodeLlama-7b-hf",
+  "run_root": "results/raw/slicegpt_codellama7b_r4_benchguided_evalhalf_20260726_053225",
+  "note": "Generation was stopped after HumanEval eval half and 82 MBPP eval-half tasks. LiveCodeBench was not run yet.",
+  "humaneval": {
+    "completed_tasks": 82,
+    "pass_count": 0,
+    "pass_rate": 0.0
+  },
+  "mbpp_partial": {
+    "completed_tasks": 82,
+    "pass_count": 0,
+    "pass_rate": 0.0,
+    "partial_split": "results/raw/slicegpt_codellama7b_r4_benchguided_evalhalf_20260726_053225/mbpp/partial_eval82.jsonl"
+  },
+  "livecodebench": {
+    "completed_tasks": 0,
+    "status": "not_started"
+  }
+}
