@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "benchmark": "humaneval",
+      "ok": true,
+      "issues": [],
+      "guide_count": 4,
+      "eval_count": 4,
+      "guide_sha256": "0d3fe117b93c0e52ad11064ced4552a8f449f738efd44228fd6416747e604e29",
+      "eval_sha256": "b15f41d4dd76246f4db3350701cc6bb98ead6abb39e377563195285c4c223154"
+    },
+    {
+      "benchmark": "mbpp",
+      "ok": true,
+      "issues": [],
+      "guide_count": 4,
+      "eval_count": 4,
+      "guide_sha256": "d37125ff3bbee2697e359fde105666df1bcfe19b06192ff937e9b112c038ee0e",
+      "eval_sha256": "e16c98ec1d6bbdf4a92b3d5bd40ce68f746fa4a35fe9b8c6461058109bee4e99"
+    },
+    {
+      "benchmark": "livecodebench",
+      "ok": true,
+      "issues": [],
+      "guide_count": 4,
+      "eval_count": 4,
+      "guide_sha256": "d610fd76a20a0a8dca49a8e1e1855044ccb7db6f27e7f43aa5c36f31770179c7",
+      "eval_sha256": "8cc3b8d6aa98ecd8dd574d0a94c0d41166f9ea9553d9492b45ae1f79565932b1"
+    },
+    {
+      "benchmark": "swebench_lite",
+      "ok": true,
+      "issues": [],
+      "guide_count": 4,
+      "eval_count": 4,
+      "guide_sha256": "6375db5faf6a905d919590a7c2c76d9dfa013a0eb998569726e6022ade27e5f5",
+      "eval_sha256": "a743f1f9e1f4c7784446c0cf9fd86c7a8a9033e5fe2750a69c469cf9119009f4"
+    },
+    {
+      "benchmark": "humaneval_formal",
+      "ok": true,
+      "issues": [],
+      "guide_count": 32,
+      "eval_count": 164,
+      "guide_sha256": "c005d775cffb77fad5a2b6d8b58bfac90b331fad9d9cb535414cf3b287224ce0",
+      "eval_sha256": "801a93eedc8f8dc1256eb86b5b17f3b0abdf724bf2447d5cde313a7662f66a22"
+    },
+    {
+      "benchmark": "mbpp_formal",
+      "ok": true,
+      "issues": [],
+      "guide_count": 32,
+      "eval_count": 257,
+      "guide_sha256": "c6e9a220399432b77be53535d2e8aa614c716adc6843a5bb9d46902e33edd698",
+      "eval_sha256": "fcaa924933cf052734d5a7ae079432011c64268b0332e4645efe28f72796362d"
+    }
+  ]
+}
