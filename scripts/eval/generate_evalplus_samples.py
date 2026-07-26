@@ -53,6 +53,11 @@ def main() -> int:
     parser.add_argument("--load-in-4bit", action="store_true")
     parser.add_argument("--llm-int8-enable-fp32-cpu-offload", action="store_true")
     parser.add_argument(
+        "--local-files-only",
+        action="store_true",
+        help="Load model/tokenizer files only from the local Hugging Face cache.",
+    )
+    parser.add_argument(
         "--prompt-mode",
         choices=["raw", "lcb_completion"],
         default="raw",
@@ -78,10 +83,15 @@ def main() -> int:
 
     started = time.time()
 
-    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(
+        args.model,
+        trust_remote_code=True,
+        local_files_only=args.local_files_only,
+    )
     load_kwargs = {
         "trust_remote_code": True,
         "torch_dtype": dtype_map[args.dtype],
+        "local_files_only": args.local_files_only,
     }
     if args.load_in_8bit:
         load_kwargs["quantization_config"] = BitsAndBytesConfig(
@@ -204,6 +214,7 @@ def main() -> int:
         "load_in_8bit": args.load_in_8bit,
         "load_in_4bit": args.load_in_4bit,
         "llm_int8_enable_fp32_cpu_offload": args.llm_int8_enable_fp32_cpu_offload,
+        "local_files_only": args.local_files_only,
         "device_map": getattr(model, "hf_device_map", None),
         "max_memory": json.loads(args.max_memory_json) if args.max_memory_json else None,
         "offload_folder": str(args.offload_folder) if args.offload_folder else None,

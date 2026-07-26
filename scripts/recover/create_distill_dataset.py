@@ -41,6 +41,11 @@ def main() -> int:
     parser.add_argument("--dtype", choices=["fp16", "bf16", "fp32"], default="fp16")
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--limit-per-file", type=int, default=0)
+    parser.add_argument(
+        "--local-files-only",
+        action="store_true",
+        help="Load teacher model/tokenizer files only from the local Hugging Face cache.",
+    )
     args = parser.parse_args()
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
@@ -65,7 +70,11 @@ def main() -> int:
         )
 
     started = time.time()
-    tokenizer = AutoTokenizer.from_pretrained(args.teacher_model, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(
+        args.teacher_model,
+        trust_remote_code=True,
+        local_files_only=args.local_files_only,
+    )
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     model = AutoModelForCausalLM.from_pretrained(
@@ -73,6 +82,7 @@ def main() -> int:
         trust_remote_code=True,
         torch_dtype=dtype_map[args.dtype],
         device_map=device_map,
+        local_files_only=args.local_files_only,
     )
     model.eval()
 
@@ -149,6 +159,7 @@ def main() -> int:
         "samples": len(rows),
         "output": str(output_path),
         "teacher_generations": str(generation_path),
+        "local_files_only": args.local_files_only,
         "elapsed_seconds": time.time() - started,
     }
     (args.out_dir / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
