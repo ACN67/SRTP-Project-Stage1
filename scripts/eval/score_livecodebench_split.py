@@ -8,7 +8,8 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from lcb_runner.benchmarks.code_generation import load_code_generation_dataset
+from datasets import load_dataset
+from lcb_runner.benchmarks.code_generation import CodeGenerationProblem, load_code_generation_dataset
 from lcb_runner.evaluation.compute_code_generation_metrics import codegen_metrics
 
 
@@ -33,12 +34,27 @@ def candidate_code(row: dict) -> str:
     return completion.strip() + "\n"
 
 
+def load_lcb_problems(release: str, config_name: str) -> list[CodeGenerationProblem]:
+    if not config_name:
+        return load_code_generation_dataset(release_version=release)
+    dataset = load_dataset(
+        "livecodebench/code_generation_lite",
+        config_name,
+        split="test",
+        version_tag=release,
+    )
+    problems = [CodeGenerationProblem(**row) for row in dataset]
+    print(f"Loaded {len(problems)} problems")
+    return problems
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--split", required=True, type=Path)
     parser.add_argument("--generations", required=True, type=Path)
     parser.add_argument("--out-dir", required=True, type=Path)
     parser.add_argument("--lcb-release", default="release_v1")
+    parser.add_argument("--lcb-config", default="", help="Optional HF dataset config name, e.g. release_latest.")
     parser.add_argument("--timeout", type=int, default=6)
     parser.add_argument("--num-process-evaluate", type=int, default=4)
     args = parser.parse_args()
@@ -46,11 +62,17 @@ def main() -> int:
     args.out_dir.mkdir(parents=True, exist_ok=True)
     split_rows = read_jsonl(args.split)
     gen_rows = {row["task_id"]: row for row in read_jsonl(args.generations)}
+    split_ids = {row["task_id"] for row in split_rows}
+    generation_ids = set(gen_rows)
+    missing_ids = sorted(split_ids - generation_ids)
+    extra_ids = sorted(generation_ids - split_ids)
 
     problems = {
         item.question_id: item
-        for item in load_code_generation_dataset(release_version=args.lcb_release)
+        for item in load_lcb_problems(args.lcb_release, args.lcb_config)
     }
+    problem_ids = set(problems)
+    missing_problem_ids = sorted(split_ids - problem_ids)
 
     samples = []
     generations = []
@@ -70,10 +92,24 @@ def main() -> int:
                 "task_id": task_id,
                 "platform": problem.platform.value,
                 "difficulty": problem.difficulty.value,
+                "completion_chars": len(gen_rows[task_id].get("completion") or ""),
+                "raw_completion_chars": len(gen_rows[task_id].get("raw_completion") or ""),
                 "generated_chars": len(code),
             }
         )
 
+    coverage = {
+        "split_task_count": len(split_ids),
+        "generation_task_count": len(generation_ids),
+        "matched_task_count": len(split_ids & generation_ids),
+        "missing_generation_count": len(missing_ids),
+        "extra_generation_count": len(extra_ids),
+        "missing_problem_count": len(missing_problem_ids),
+        "missing_generation_ids": missing_ids[:20],
+        "extra_generation_ids": extra_ids[:20],
+        "missing_problem_ids": missing_problem_ids[:20],
+    }
+    print(json.dumps({"event": "id_coverage", **coverage}, ensure_ascii=False), flush=True)
     print(json.dumps({"event": "evaluating", "benchmark": "livecodebench", "task_count": len(samples), "timeout": args.timeout, "num_process_evaluate": args.num_process_evaluate}, ensure_ascii=False), flush=True)
 
     metrics, results, metadata = codegen_metrics(
@@ -112,12 +148,16 @@ def main() -> int:
         "status": "success",
         "benchmark": "livecodebench",
         "release": args.lcb_release,
+        "config": args.lcb_config,
         "split": str(args.split),
         "generations": str(args.generations),
         "task_count": len(split_rows),
         "pass_count": pass_count,
         "pass_rate": official_pass_rate if official_pass_rate is not None else (pass_count / len(split_rows) if split_rows else None),
         "status_counter": dict(status_counter),
+        "id_coverage": coverage,
+        "completion_chars_le_1_count": sum(1 for row in details if row["completion_chars"] <= 1),
+        "generated_chars_le_1_count": sum(1 for row in details if row["generated_chars"] <= 1),
         "official_metrics": metrics,
     }
 

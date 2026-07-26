@@ -6,11 +6,17 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import sys
 import time
 from pathlib import Path
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "eval"))
+
+from completion_extraction import normalize_completion
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -24,16 +30,6 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
-
-
-def extract_completion(prompt: str, generated: str) -> str:
-    completion = generated[len(prompt):] if generated.startswith(prompt) else generated
-    for fence in ("```python", "```"):
-        if fence in completion:
-            after = completion.split(fence, 1)[1]
-            completion = after.split("```", 1)[0] if "```" in after else after
-            break
-    return completion.strip() + "\n"
 
 
 def main() -> int:
@@ -97,8 +93,11 @@ def main() -> int:
                     pad_token_id=tokenizer.eos_token_id,
                 )
             gen_seconds = time.time() - gen_started
-            generated = tokenizer.decode(output_ids[0], skip_special_tokens=True)
-            completion = extract_completion(prompt, generated)
+            input_token_count = inputs["input_ids"].shape[-1]
+            generated_ids = output_ids[0, input_token_count:]
+            raw_completion = tokenizer.decode(generated_ids, skip_special_tokens=True)
+            generated = prompt + raw_completion
+            completion = normalize_completion(raw_completion)
             item = {
                 "task_id": row.get("task_id"),
                 "benchmark": row.get("benchmark"),
@@ -113,7 +112,12 @@ def main() -> int:
                         "task_id": row.get("task_id"),
                         "benchmark": row.get("benchmark"),
                         "generated": generated,
+                        "raw_completion": raw_completion,
                         "completion": completion,
+                        "input_tokens": input_token_count,
+                        "generated_tokens": int(generated_ids.numel()),
+                        "max_new_tokens": args.max_new_tokens,
+                        "hit_max_new_tokens": int(generated_ids.numel()) >= args.max_new_tokens,
                         "gen_seconds": gen_seconds,
                     },
                     ensure_ascii=False,
@@ -122,7 +126,21 @@ def main() -> int:
             )
             out.flush()
             gen_out.flush()
-            print(json.dumps({"generated": idx, "task_id": row.get("task_id"), "seconds": round(gen_seconds, 3)}, ensure_ascii=False), flush=True)
+            print(
+                json.dumps(
+                    {
+                        "generated": idx,
+                        "task_id": row.get("task_id"),
+                        "raw_completion_chars": len(raw_completion),
+                        "completion_chars": len(completion),
+                        "generated_tokens": int(generated_ids.numel()),
+                        "hit_max_new_tokens": int(generated_ids.numel()) >= args.max_new_tokens,
+                        "seconds": round(gen_seconds, 3),
+                    },
+                    ensure_ascii=False,
+                ),
+                flush=True,
+            )
 
     summary = {
         "status": "success",
