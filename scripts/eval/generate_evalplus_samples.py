@@ -11,6 +11,8 @@ import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
+from completion_extraction import normalize_completion
+
 
 def read_jsonl(path: Path):
     with path.open("r", encoding="utf-8") as f:
@@ -20,20 +22,17 @@ def read_jsonl(path: Path):
                 yield json.loads(line)
 
 
-def extract_completion(prompt: str, generated: str) -> str:
-    if generated.startswith(prompt):
-        completion = generated[len(prompt):]
-    else:
-        completion = generated
-
-    fences = ["```python", "```"]
-    for fence in fences:
-        if fence in completion:
-            after = completion.split(fence, 1)[1]
-            completion = after.split("```", 1)[0] if "```" in after else after
-            break
-
-    return completion.strip() + "\n"
+def build_model_prompt(prompt: str, prompt_mode: str) -> str:
+    if prompt_mode == "raw":
+        return prompt
+    if prompt_mode == "lcb_completion":
+        return (
+            "Complete the following Python coding task.\n"
+            "Return only valid Python code. Do not use Markdown fences. "
+            "Do not include explanations.\n\n"
+            f"{prompt}"
+        )
+    raise ValueError(f"Unknown prompt mode: {prompt_mode}")
 
 
 def main() -> int:
@@ -53,6 +52,12 @@ def main() -> int:
     parser.add_argument("--load-in-8bit", action="store_true")
     parser.add_argument("--load-in-4bit", action="store_true")
     parser.add_argument("--llm-int8-enable-fp32-cpu-offload", action="store_true")
+    parser.add_argument(
+        "--prompt-mode",
+        choices=["raw", "lcb_completion"],
+        default="raw",
+        help="Prompt wrapper used for model generation. Keep raw for EvalPlus/HumanEval.",
+    )
     args = parser.parse_args()
     if args.load_in_8bit and args.load_in_4bit:
         raise ValueError("Choose only one of --load-in-8bit or --load-in-4bit.")
@@ -126,8 +131,9 @@ def main() -> int:
         for idx, item in enumerate(tasks, 1):
             task_id = item["task_id"]
             prompt = item["prompt"]
+            model_prompt = build_model_prompt(prompt, args.prompt_mode)
 
-            inputs = tokenizer(prompt, return_tensors="pt")
+            inputs = tokenizer(model_prompt, return_tensors="pt")
             if use_cuda:
                 target_device = input_device()
                 inputs = {k: v.to(target_device) for k, v in inputs.items()}
@@ -142,16 +148,26 @@ def main() -> int:
                 )
             gen_seconds = time.time() - gen_started
 
-            generated = tokenizer.decode(output_ids[0], skip_special_tokens=True)
-            completion = extract_completion(prompt, generated)
+            input_token_count = inputs["input_ids"].shape[-1]
+            generated_ids = output_ids[0, input_token_count:]
+            raw_completion = tokenizer.decode(generated_ids, skip_special_tokens=True)
+            generated = prompt + raw_completion
+            completion = normalize_completion(raw_completion)
             solution = prompt + completion
 
             sf.write(json.dumps({"task_id": task_id, "solution": solution}, ensure_ascii=False) + "\n")
             gf.write(json.dumps({
                 "task_id": task_id,
                 "prompt": prompt,
+                "model_prompt": model_prompt,
+                "prompt_mode": args.prompt_mode,
                 "generated": generated,
+                "raw_completion": raw_completion,
                 "completion": completion,
+                "input_tokens": input_token_count,
+                "generated_tokens": int(generated_ids.numel()),
+                "max_new_tokens": args.max_new_tokens,
+                "hit_max_new_tokens": int(generated_ids.numel()) >= args.max_new_tokens,
                 "gen_seconds": gen_seconds,
             }, ensure_ascii=False) + "\n")
             sf.flush()
@@ -162,7 +178,12 @@ def main() -> int:
                 "index": idx,
                 "total": total_tasks,
                 "task_id": task_id,
+                "prompt_mode": args.prompt_mode,
+                "raw_completion_chars": len(raw_completion),
                 "completion_chars": len(completion),
+                "generated_tokens": int(generated_ids.numel()),
+                "hit_max_new_tokens": int(generated_ids.numel()) >= args.max_new_tokens,
+                "extract_warning": len(completion) <= 1 and len(raw_completion.strip()) > 1,
                 "gen_seconds": round(gen_seconds, 3),
             }, ensure_ascii=False), flush=True)
 
@@ -174,6 +195,7 @@ def main() -> int:
         "samples": str(samples_path),
         "generations": str(generations_path),
         "task_count": len(tasks),
+        "prompt_mode": args.prompt_mode,
         "elapsed_seconds": time.time() - started,
         "torch": getattr(torch, "__version__"),
         "cuda_available": torch.cuda.is_available(),
