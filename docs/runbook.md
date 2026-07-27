@@ -34,38 +34,45 @@ scripts/run/run_plan.sh \
 
 Each planned job writes a timestamped directory under `results/raw/` and appends to the manual run results.
 
-## Run Evaluation Helpers Directly
+## Run Official Benchmark Evaluation
 
-Generate samples:
+Formal benchmark runs must follow `docs/official_benchmarks.md`. Use the wrapper
+below unless you have a specific reason to call the underlying scripts directly.
+
+HumanEval:
 
 ```bash
-.venv-common/bin/python scripts/eval/generate_evalplus_samples.py \
+scripts/eval/run_official_eval.sh \
+  --benchmark humaneval \
   --model <model_or_local_path> \
-  --split <split.jsonl> \
-  --out-dir <run_dir> \
-  --max-new-tokens 256 \
-  --dtype fp16 \
-  --device cuda:0
+  --split data/splits/humaneval_half/eval.jsonl \
+  --out-dir results/raw/<run_id>/humaneval \
+  --local-files-only
 ```
 
-Score HumanEval:
+MBPP:
 
 ```bash
-.venv-common/bin/python scripts/eval/score_humaneval_smoke.py \
-  --split <split.jsonl> \
-  --samples <run_dir>/samples.jsonl \
-  --out-dir <run_dir> \
-  --base-only
+scripts/eval/run_official_eval.sh \
+  --benchmark mbpp_evalplus \
+  --model <model_or_local_path> \
+  --split data/splits/mbpp_evalplus_half/eval.jsonl \
+  --out-dir results/raw/<run_id>/mbpp_evalplus \
+  --local-files-only
 ```
 
-Score MBPP:
+LiveCodeBench:
 
 ```bash
-.venv-common/bin/python scripts/eval/score_mbpp_smoke.py \
-  --split <split.jsonl> \
-  --samples <run_dir>/samples.jsonl \
-  --out-dir <run_dir> \
-  --base-only
+scripts/eval/run_official_eval.sh \
+  --benchmark livecodebench \
+  --model <model_or_local_path> \
+  --split data/splits/livecodebench_half/eval.jsonl \
+  --out-dir results/raw/<run_id>/livecodebench \
+  --local-files-only \
+  --lcb-release release_v1 \
+  --lcb-config release_latest \
+  --lcb-lm-style CodeQwenInstruct
 ```
 
 ## R4 Rule

@@ -128,13 +128,6 @@ def build_model_prompt(item: dict, prompt_mode: str, lcb_prompts: dict[str, str]
         if lcb_prompts is None:
             raise ValueError("LiveCodeBench official prompts were not initialized.")
         return lcb_prompts[item["task_id"]]
-    if prompt_mode == "lcb_completion":
-        return (
-            "Complete the following Python coding task.\n"
-            "Return only valid Python code. Do not use Markdown fences. "
-            "Do not include explanations.\n\n"
-            f"{prompt}"
-        )
     raise ValueError(f"Unknown prompt mode: {prompt_mode}")
 
 
@@ -167,13 +160,11 @@ def main() -> int:
             "humaneval_official",
             "mbpp_evalplus_official",
             "livecodebench_official",
-            "lcb_completion",
         ],
         default="raw",
         help=(
             "Prompt format used for generation. HumanEval/MBPP official modes are aliases for "
-            "their EvalPlus raw prompts. livecodebench_official uses lcb_runner's official formatter. "
-            "lcb_completion is diagnostic only."
+            "their EvalPlus raw prompts. livecodebench_official uses lcb_runner's official formatter."
         ),
     )
     parser.add_argument("--lcb-release", default="release_v1")

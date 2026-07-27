@@ -10,7 +10,8 @@ jobs:
   heavy: false
   env: common
   cwd: .
-  description: Check common Python environment, CUDA visibility, Git LFS, and Docker access.
+  description: Check common Python environment, CUDA visibility, Git LFS, and Docker
+    access.
   command: python scripts/audit/check_environment.py
   timeout_seconds: 300
   owner: shared
@@ -18,25 +19,40 @@ jobs:
   method: environment
   role: 公共环境检查
   recommended_machine: all
+- id: official_benchmark_policy_check
+  enabled: true
+  heavy: false
+  env: common
+  cwd: .
+  description: Check that formal benchmark docs and scripts do not reference retired
+    smoke or diagnostic evaluation entry points.
+  command: python scripts/audit/check_official_benchmark_policy.py
+  timeout_seconds: 300
+  owner: shared
+  method_group: benchmark_pipeline
+  method: official_benchmark_policy
+  role: Official benchmark policy audit
+  recommended_machine: all
 - id: import_core_method_envs
   enabled: true
   heavy: false
   env: common
   cwd: .
   description: Light import checks for the most important method environments.
-  command: '.venv-wanda/bin/python -c "import torch, transformers, datasets; print(''wanda'', torch.cuda.is_available(), torch.__version__,
-    transformers.__version__)"
+  command: '.venv-wanda/bin/python -c "import torch, transformers, datasets; print(''wanda'',
+    torch.cuda.is_available(), torch.__version__, transformers.__version__)"
 
-    .venv-sparsegpt/bin/python -c "import torch, transformers, datasets; print(''sparsegpt'', torch.cuda.is_available(), torch.__version__,
-    transformers.__version__)"
+    .venv-sparsegpt/bin/python -c "import torch, transformers, datasets; print(''sparsegpt'',
+    torch.cuda.is_available(), torch.__version__, transformers.__version__)"
 
-    .venv-llm_pruner/bin/python -c "import torch, transformers, peft; print(''llm_pruner'', torch.cuda.is_available(), torch.__version__,
-    transformers.__version__)"
+    .venv-llm_pruner/bin/python -c "import torch, transformers, peft; print(''llm_pruner'',
+    torch.cuda.is_available(), torch.__version__, transformers.__version__)"
 
-    .venv-slicegpt/bin/python -c "import torch, transformers, slicegpt; print(''slicegpt'', torch.cuda.is_available(), torch.__version__,
-    transformers.__version__)"
+    .venv-slicegpt/bin/python -c "import torch, transformers, slicegpt; print(''slicegpt'',
+    torch.cuda.is_available(), torch.__version__, transformers.__version__)"
 
-    .venv-livecodebench/bin/python -c "import torch, lcb_runner; print(''livecodebench'', torch.cuda.is_available(), torch.__version__)"
+    .venv-livecodebench/bin/python -c "import torch, lcb_runner; print(''livecodebench'',
+    torch.cuda.is_available(), torch.__version__)"
 
     '
   timeout_seconds: 300
@@ -56,9 +72,10 @@ jobs:
   - SparseGPT
   - OPT-125M
   - baseline
-  description: Official SparseGPT repository GMP baseline on facebook/opt-125m with reduced calibration samples.
-  command: "python opt.py facebook/opt-125m c4 \\\n  --sparsity .5 \\\n  --gmp \\\n  --nsamples 8 \\\n  --save \"$RUN_DIR/opt125m_gmp.pt\"\
-    \n"
+  description: Official SparseGPT repository GMP baseline on facebook/opt-125m with
+    reduced calibration samples.
+  command: "python opt.py facebook/opt-125m c4 \\\n  --sparsity .5 \\\n  --gmp \\\n\
+    \  --nsamples 8 \\\n  --save \"$RUN_DIR/opt125m_gmp.pt\"\n"
   timeout_seconds: 7200
   owner: 李长骏
   method_group: reconstruction
@@ -76,9 +93,10 @@ jobs:
   - official
   - SparseGPT
   - OPT-125M
-  description: Official SparseGPT pruning on facebook/opt-125m with reduced calibration samples.
-  command: "python opt.py facebook/opt-125m c4 \\\n  --sparsity .5 \\\n  --nsamples 8 \\\n  --save \"$RUN_DIR/opt125m_sparsegpt.pt\"\
-    \n"
+  description: Official SparseGPT pruning on facebook/opt-125m with reduced calibration
+    samples.
+  command: "python opt.py facebook/opt-125m c4 \\\n  --sparsity .5 \\\n  --nsamples\
+    \ 8 \\\n  --save \"$RUN_DIR/opt125m_sparsegpt.pt\"\n"
   timeout_seconds: 7200
   owner: 李长骏
   method_group: reconstruction
@@ -98,9 +116,10 @@ jobs:
   - Magnitude
   - OPT-125M
   description: Wanda repository magnitude baseline on facebook/opt-125m.
-  command: "python main_opt.py \\\n  --model facebook/opt-125m \\\n  --prune_method magnitude \\\n  --sparsity_ratio 0.3 \\\
-    \n  --sparsity_type unstructured \\\n  --nsamples 8 \\\n  --save \"$RUN_DIR/magnitude_results\" \\\n  --save_model \"\
-    $RUN_DIR/magnitude_model\"\n"
+  command: "python main_opt.py \\\n  --model facebook/opt-125m \\\n  --prune_method\
+    \ magnitude \\\n  --sparsity_ratio 0.3 \\\n  --sparsity_type unstructured \\\n\
+    \  --nsamples 8 \\\n  --save \"$RUN_DIR/magnitude_results\" \\\n  --save_model\
+    \ \"$RUN_DIR/magnitude_model\"\n"
   timeout_seconds: 7200
   owner: 潘阔
   method_group: activation_mask_allocation
@@ -119,8 +138,9 @@ jobs:
   - Wanda
   - OPT-125M
   description: Wanda pruning on facebook/opt-125m with reduced calibration samples.
-  command: "python main_opt.py \\\n  --model facebook/opt-125m \\\n  --prune_method wanda \\\n  --sparsity_ratio 0.3 \\\n\
-    \  --sparsity_type unstructured \\\n  --nsamples 8 \\\n  --save \"$RUN_DIR/wanda_results\" \\\n  --save_model \"$RUN_DIR/wanda_model\"\
+  command: "python main_opt.py \\\n  --model facebook/opt-125m \\\n  --prune_method\
+    \ wanda \\\n  --sparsity_ratio 0.3 \\\n  --sparsity_type unstructured \\\n  --nsamples\
+    \ 8 \\\n  --save \"$RUN_DIR/wanda_results\" \\\n  --save_model \"$RUN_DIR/wanda_model\"\
     \n"
   timeout_seconds: 7200
   owner: 潘阔
@@ -139,9 +159,11 @@ jobs:
   - official
   - Pruner-Zero
   - OPT-125M
-  description: Pruner-Zero repository OPT entry point on facebook/opt-125m. This may require upstream fixes.
-  command: "python main_opt.py \\\n  --model facebook/opt-125m \\\n  --prune_method pruner-zero \\\n  --sparsity_ratio 0.3\
-    \ \\\n  --sparsity_type unstructured \\\n  --nsamples 8 \\\n  --save \"$RUN_DIR/prunerzero_results\" \\\n  --save_model\
+  description: Pruner-Zero repository OPT entry point on facebook/opt-125m. This may
+    require upstream fixes.
+  command: "python main_opt.py \\\n  --model facebook/opt-125m \\\n  --prune_method\
+    \ pruner-zero \\\n  --sparsity_ratio 0.3 \\\n  --sparsity_type unstructured \\\
+    \n  --nsamples 8 \\\n  --save \"$RUN_DIR/prunerzero_results\" \\\n  --save_model\
     \ \"$RUN_DIR/prunerzero_model\"\n"
   timeout_seconds: 7200
   owner: 李长骏
@@ -160,10 +182,12 @@ jobs:
   - official
   - DSnoT
   - template
-  description: DSnoT official LLaMA-style command template. Requires a valid accessible LLaMA-compatible HF model; CodeLlama is preferred by the active Stage 1 policy.
-  command: "python main.py \\\n  --model \"${DSNOT_MODEL:-codellama/CodeLlama-7b-hf}\" \\\n  --prune_method DSnoT \\\n\
-    \  --initial_method wanda \\\n  --sparsity_ratio 0.5 \\\n  --sparsity_type unstructured \\\n  --max_cycle_time 10 \\\n\
-    \  --update_threshold 0.1 \\\n  --pow_of_var_regrowing 1\n"
+  description: DSnoT official LLaMA-style command template. Requires a valid accessible
+    LLaMA-compatible HF model; CodeLlama is preferred by the active Stage 1 policy.
+  command: "python main.py \\\n  --model \"${DSNOT_MODEL:-codellama/CodeLlama-7b-hf}\"\
+    \ \\\n  --prune_method DSnoT \\\n  --initial_method wanda \\\n  --sparsity_ratio\
+    \ 0.5 \\\n  --sparsity_type unstructured \\\n  --max_cycle_time 10 \\\n  --update_threshold\
+    \ 0.1 \\\n  --pow_of_var_regrowing 1\n"
   timeout_seconds: 14400
   owner: 潘阔
   method_group: activation_mask_allocation
@@ -181,9 +205,12 @@ jobs:
   - official
   - FLAP
   - template
-  description: FLAP official LLaMA-style command template. Set FLAP_MODEL to an accessible LLaMA-compatible model before running; CodeLlama is preferred by the active Stage 1 policy.
-  command: "python main.py \\\n  --model \"${FLAP_MODEL:-codellama/CodeLlama-7b-hf}\" \\\n  --prune_method flap \\\n \
-    \ --pruning_ratio 0.2 \\\n  --remove_heads -1 \\\n  --metrics WIFV \\\n  --structure AL-AM \\\n  --nsamples 16 \\\n  --save_model\
+  description: FLAP official LLaMA-style command template. Set FLAP_MODEL to an accessible
+    LLaMA-compatible model before running; CodeLlama is preferred by the active Stage
+    1 policy.
+  command: "python main.py \\\n  --model \"${FLAP_MODEL:-codellama/CodeLlama-7b-hf}\"\
+    \ \\\n  --prune_method flap \\\n  --pruning_ratio 0.2 \\\n  --remove_heads -1\
+    \ \\\n  --metrics WIFV \\\n  --structure AL-AM \\\n  --nsamples 16 \\\n  --save_model\
     \ \"$RUN_DIR/flap_model\" \\\n  --eval\n"
   timeout_seconds: 14400
   owner: 李长骏
@@ -203,10 +230,12 @@ jobs:
   - LLM-Pruner
   - tiny-llama
   - smoke
-  description: LLM-Pruner official hf_prune.py layer-wise smoke on a tiny random LLaMA-compatible model.
-  command: "python hf_prune.py \\\n  --base_model trl-internal-testing/tiny-random-LlamaForCausalLM \\\n  --save_ckpt_log_name\
-    \ \"$RUN_ID\" \\\n  --pruning_ratio 0.5 \\\n  --pruner_type l2 \\\n  --layer_wise \\\n  --layer 1 \\\n  --max_seq_len\
-    \ 64 \\\n  --device cuda \\\n  --eval_device cuda \\\n  --seed 42"
+  description: LLM-Pruner official hf_prune.py layer-wise smoke on a tiny random LLaMA-compatible
+    model.
+  command: "python hf_prune.py \\\n  --base_model trl-internal-testing/tiny-random-LlamaForCausalLM\
+    \ \\\n  --save_ckpt_log_name \"$RUN_ID\" \\\n  --pruning_ratio 0.5 \\\n  --pruner_type\
+    \ l2 \\\n  --layer_wise \\\n  --layer 1 \\\n  --max_seq_len 64 \\\n  --device\
+    \ cuda \\\n  --eval_device cuda \\\n  --seed 42"
   timeout_seconds: 7200
   owner: 常珂舒
   method_group: structured_depth_width
@@ -225,10 +254,13 @@ jobs:
   - SliceGPT
   - OPT-125M
   - smoke
-  description: SliceGPT official pipeline on facebook/opt-125m with tiny calibration/eval settings for first local smoke reproduction.
-  command: "python run_slicegpt.py \\\n  --model facebook/opt-125m \\\n  --save-dir \"$RUN_DIR/sliced_model\" \\\n  --sparsity\
-    \ 0.1 \\\n  --cal-dataset wikitext2 \\\n  --cal-nsamples 4 \\\n  --cal-batch-size 1 \\\n  --cal-max-seqlen 128 \\\n  --ppl-eval-nsamples\
-    \ 4 \\\n  --ppl-eval-batch-size 1 \\\n  --ppl-eval-seqlen 128 \\\n  --device cuda:0 \\\n  --no-wandb"
+  description: SliceGPT official pipeline on facebook/opt-125m with tiny calibration/eval
+    settings for first local smoke reproduction.
+  command: "python run_slicegpt.py \\\n  --model facebook/opt-125m \\\n  --save-dir\
+    \ \"$RUN_DIR/sliced_model\" \\\n  --sparsity 0.1 \\\n  --cal-dataset wikitext2\
+    \ \\\n  --cal-nsamples 4 \\\n  --cal-batch-size 1 \\\n  --cal-max-seqlen 128 \\\
+    \n  --ppl-eval-nsamples 4 \\\n  --ppl-eval-batch-size 1 \\\n  --ppl-eval-seqlen\
+    \ 128 \\\n  --device cuda:0 \\\n  --no-wandb"
   timeout_seconds: 7200
   owner: 常珂舒
   method_group: structured_depth_width
@@ -246,9 +278,11 @@ jobs:
   - official
   - SliceGPT
   - template
-  description: SliceGPT official Phi-2 command with reduced sample size if supported by upstream options.
-  command: "python run_slicegpt.py \\\n  --model microsoft/phi-2 \\\n  --save-dir \"$RUN_DIR/sliced_model\" \\\n  --sparsity\
-    \ 0.1 \\\n  --device cuda:0 \\\n  --eval-baseline \\\n  --no-wandb\n"
+  description: SliceGPT official Phi-2 command with reduced sample size if supported
+    by upstream options.
+  command: "python run_slicegpt.py \\\n  --model microsoft/phi-2 \\\n  --save-dir\
+    \ \"$RUN_DIR/sliced_model\" \\\n  --sparsity 0.1 \\\n  --device cuda:0 \\\n  --eval-baseline\
+    \ \\\n  --no-wandb\n"
   timeout_seconds: 21600
   owner: 常珂舒
   method_group: structured_depth_width
@@ -265,8 +299,10 @@ jobs:
   - model-probe
   - CodeLlama
   - LLaMA-family
-  description: Lightweight CodeLlama 7B config/tokenizer probe for LLaMA-compatible Stage 1 methods. Does not load model weights.
-  command: python scripts/audit/probe_hf_model.py --model codellama/CodeLlama-7b-hf --model-short-name codellama7b --output "$RUN_DIR/model_probe.json"
+  description: Lightweight CodeLlama 7B config/tokenizer probe for LLaMA-compatible
+    Stage 1 methods. Does not load model weights.
+  command: python scripts/audit/probe_hf_model.py --model codellama/CodeLlama-7b-hf
+    --model-short-name codellama7b --output "$RUN_DIR/model_probe.json"
   timeout_seconds: 900
   owner: shared
   method_group: model_selection
@@ -283,8 +319,10 @@ jobs:
   - Qwen
   - Qwen2.5-Coder
   - adapter-probe
-  description: Lightweight Qwen2.5-Coder-1.5B config/tokenizer probe for R2 adaptation planning. Does not load model weights.
-  command: python scripts/audit/probe_qwen_model.py --model Qwen/Qwen2.5-Coder-1.5B-Instruct --output "$RUN_DIR/qwen_probe.json"
+  description: Lightweight Qwen2.5-Coder-1.5B config/tokenizer probe for R2 adaptation
+    planning. Does not load model weights.
+  command: python scripts/audit/probe_qwen_model.py --model Qwen/Qwen2.5-Coder-1.5B-Instruct
+    --output "$RUN_DIR/qwen_probe.json"
   timeout_seconds: 900
   owner: shared
   method_group: qwen_adaptation
@@ -303,8 +341,10 @@ jobs:
   - Qwen2.5-Coder
   - adapter-probe
   - comparison-target
-  description: Lightweight Qwen2.5-Coder-3B config/tokenizer probe for the Stage 1 Qwen 3B pruning comparison target. Does not load model weights.
-  command: python scripts/audit/probe_qwen_model.py --model Qwen/Qwen2.5-Coder-3B-Instruct --output "$RUN_DIR/qwen_probe.json"
+  description: Lightweight Qwen2.5-Coder-3B config/tokenizer probe for the Stage 1
+    Qwen 3B pruning comparison target. Does not load model weights.
+  command: python scripts/audit/probe_qwen_model.py --model Qwen/Qwen2.5-Coder-3B-Instruct
+    --output "$RUN_DIR/qwen_probe.json"
   timeout_seconds: 900
   owner: shared
   method_group: qwen_adaptation
@@ -330,46 +370,6 @@ jobs:
   role: 阶段缺口检查/轻量审计
   recommended_machine: all
   cross_reproduction_by: shared
-- id: create_humaneval_mbpp_smoke_splits
-  enabled: false
-  heavy: false
-  env: common
-  cwd: .
-  tags:
-  - benchmark
-  - split
-  - HumanEval
-  - MBPP
-  - smoke
-  description: Create deterministic 4-guide/4-eval smoke splits for HumanEval and MBPP.
-  command: python scripts/data/create_smoke_splits.py --guide-count 4 --eval-count 4
-  timeout_seconds: 900
-  owner: 潘阔
-  method_group: benchmark_pipeline
-  method: HumanEval-MBPP
-  role: Benchmark smoke guide/eval split generation
-  recommended_machine: any with network
-  cross_reproduction_by: shared
-- id: create_lcb_swebench_smoke_splits
-  enabled: false
-  heavy: true
-  env: livecodebench
-  cwd: .
-  tags:
-  - benchmark
-  - split
-  - LiveCodeBench
-  - SWE-bench
-  - smoke
-  description: Create deterministic 4-guide/4-eval smoke splits for LiveCodeBench and SWE-bench Lite. May take time while downloading datasets.
-  command: python scripts/data/create_lcb_swebench_smoke_splits.py --guide-count 4 --eval-count 4
-  timeout_seconds: 7200
-  owner: 潘阔
-  method_group: benchmark_pipeline
-  method: LiveCodeBench-SWE-bench-Lite
-  role: Benchmark smoke guide/eval split generation
-  recommended_machine: any with stable network
-  cross_reproduction_by: shared
 - id: write_qwen_model_manifests
   enabled: false
   heavy: false
@@ -379,7 +379,8 @@ jobs:
   - Qwen
   - manifest
   - model
-  description: Write lightweight Qwen 1.5B/3B model manifests from config probes and HF metadata without downloading weights.
+  description: Write lightweight Qwen 1.5B/3B model manifests from config probes and
+    HF metadata without downloading weights.
   command: python scripts/data/write_qwen_model_manifests.py
   timeout_seconds: 300
   owner: shared
@@ -398,8 +399,21 @@ jobs:
   - Flab-Pruner
   - Qwen2
   - import-probe
-  description: Import Flab-Pruner Qwen2 modeling utilities and inspect script availability without loading model weights.
-  command: "python - <<'PY'\nfrom hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM, Qwen2Config\nimport ffn_prune, vocab_prune\nprint('flab_pruner_qwen2_import_ok')\nprint('model_class', Qwen2ForCausalLM.__name__)\nprint('config_class', Qwen2Config.__name__)\nPY"
+  description: Import Flab-Pruner Qwen2 modeling utilities and inspect script availability
+    without loading model weights.
+  command: 'python - <<''PY''
+
+    from hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM, Qwen2Config
+
+    import ffn_prune, vocab_prune
+
+    print(''flab_pruner_qwen2_import_ok'')
+
+    print(''model_class'', Qwen2ForCausalLM.__name__)
+
+    print(''config_class'', Qwen2Config.__name__)
+
+    PY'
   timeout_seconds: 300
   owner: 常珂舒
   method_group: structured_depth_width
@@ -419,8 +433,12 @@ jobs:
   - HumanEval
   - dry-run
   - adapter
-  description: Dry-run Flab-Pruner Qwen 3B wrapper with HumanEval guide split. Validates config/guide/prune dimensions without loading weights.
-  command: "python scripts/adapt/flab_qwen_prune.py \\\n  --dry-run \\\n  --model Qwen/Qwen2.5-Coder-3B-Instruct \\\n  --guide-file data/splits/humaneval/guide.jsonl \\\n  --save-dir \"$RUN_DIR/flab_qwen3b_humaneval_plan\" \\\n  --stage top \\\n  --prune-ratio 0.10 \\\n  --max-guide-samples 4 \\\n  --dtype bf16"
+  description: Dry-run Flab-Pruner Qwen 3B wrapper with HumanEval guide split. Validates
+    config/guide/prune dimensions without loading weights.
+  command: "python scripts/adapt/flab_qwen_prune.py \\\n  --dry-run \\\n  --model\
+    \ Qwen/Qwen2.5-Coder-3B-Instruct \\\n  --guide-file data/splits/humaneval/guide.jsonl\
+    \ \\\n  --save-dir \"$RUN_DIR/flab_qwen3b_humaneval_plan\" \\\n  --stage top \\\
+    \n  --prune-ratio 0.10 \\\n  --max-guide-samples 4 \\\n  --dtype bf16"
   timeout_seconds: 900
   owner: 常珂舒
   method_group: structured_depth_width
@@ -440,8 +458,12 @@ jobs:
   - HumanEval
   - heavy
   - pruning
-  description: Heavy Flab-Pruner Qwen 3B pruning run with HumanEval guide split. Loads Qwen3B weights and saves a pruned model.
-  command: "python scripts/adapt/flab_qwen_prune.py \\\n  --model Qwen/Qwen2.5-Coder-3B-Instruct \\\n  --guide-file data/splits/humaneval/guide.jsonl \\\n  --save-dir \"$RUN_DIR/flab_qwen3b_humaneval\" \\\n  --stage top \\\n  --prune-ratio 0.10 \\\n  --max-guide-samples 4 \\\n  --dtype bf16 \\\n  --device-map cuda:0"
+  description: Heavy Flab-Pruner Qwen 3B pruning run with HumanEval guide split. Loads
+    Qwen3B weights and saves a pruned model.
+  command: "python scripts/adapt/flab_qwen_prune.py \\\n  --model Qwen/Qwen2.5-Coder-3B-Instruct\
+    \ \\\n  --guide-file data/splits/humaneval/guide.jsonl \\\n  --save-dir \"$RUN_DIR/flab_qwen3b_humaneval\"\
+    \ \\\n  --stage top \\\n  --prune-ratio 0.10 \\\n  --max-guide-samples 4 \\\n\
+    \  --dtype bf16 \\\n  --device-map cuda:0"
   timeout_seconds: 21600
   owner: 常珂舒
   method_group: structured_depth_width

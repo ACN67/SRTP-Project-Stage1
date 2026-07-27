@@ -109,16 +109,16 @@ mkdir -p "$MERGED_MODEL"
 
 ## Evaluate Merged Model
 
-Use the regular generation script without `--adapter`.
+Use the official benchmark wrapper without `--adapter`.
 
 ```bash
-.venv-common/bin/python scripts/eval/generate_evalplus_samples.py \
+scripts/eval/run_official_eval.sh \
+  --benchmark humaneval \
   --model "$MERGED_MODEL" \
   --split data/splits/humaneval_half/eval.jsonl \
   --out-dir "$EVAL_DIR" \
   --max-new-tokens 256 \
-  --dtype fp16 \
-  --device cuda:0
+  --dtype fp16
 ```
 
 ## R4 Method Mapping

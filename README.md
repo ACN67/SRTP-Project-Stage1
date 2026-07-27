@@ -11,6 +11,7 @@ Stage 1 is about reproducibility, workflow, and evidence. Smoke results are not 
 | `docs/stage1.md` | Stage goal, R0-R4 definitions, model and benchmark policy. |
 | `docs/methods.md` | Method ownership, current progress, blockers, and model choices. |
 | `docs/runbook.md` | How to run checks, smoke jobs, and future R4 jobs. |
+| `docs/official_benchmarks.md` | Official benchmark prompt/scoring policy for formal results. |
 | `docs/environment.md` | Local machine, environment, cache, and artifact notes. |
 | `results/stage1/status.csv` | Compact machine-readable progress table. |
 | `results/raw/` | Timestamped raw evidence for every recorded run. |
@@ -53,4 +54,4 @@ source scripts/setup/env.sh
 scripts/run/run_plan.sh --plan configs/experiments/stage1_manual_plan.yaml --list
 ```
 
-For R4, follow `docs/runbook.md` after confirming the relevant R3 method row is complete in `results/stage1/status.csv`.
+For R4, follow `docs/runbook.md` and `docs/official_benchmarks.md` after confirming the relevant R3 method row is complete in `results/stage1/status.csv`.
