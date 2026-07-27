@@ -54,7 +54,7 @@ def main() -> int:
     parser.add_argument("--generations", required=True, type=Path)
     parser.add_argument("--out-dir", required=True, type=Path)
     parser.add_argument("--lcb-release", default="release_v1")
-    parser.add_argument("--lcb-config", default="", help="Optional HF dataset config name, e.g. release_latest.")
+    parser.add_argument("--lcb-config", default="release_latest", help="HF dataset config name for LiveCodeBench.")
     parser.add_argument("--timeout", type=int, default=6)
     parser.add_argument("--num-process-evaluate", type=int, default=4)
     args = parser.parse_args()

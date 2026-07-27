@@ -4,14 +4,20 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 import time
+from contextlib import contextmanager
 from pathlib import Path
+from typing import Callable
 
 import torch
+from datasets import load_dataset
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 from completion_extraction import normalize_completion
+
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def read_jsonl(path: Path):
@@ -22,9 +28,106 @@ def read_jsonl(path: Path):
                 yield json.loads(line)
 
 
-def build_model_prompt(prompt: str, prompt_mode: str) -> str:
-    if prompt_mode == "raw":
+@contextmanager
+def pushd(path: Path):
+    old_cwd = Path.cwd()
+    os.chdir(path)
+    try:
+        yield
+    finally:
+        os.chdir(old_cwd)
+
+
+def add_lcb_import_paths() -> Path:
+    candidates = [
+        ROOT / "third_party" / "LiveCodeBench",
+        ROOT / "third_party" / "livecodebench",
+    ]
+    for candidate in candidates:
+        if (candidate / "lcb_runner").is_dir():
+            path = str(candidate)
+            if path not in sys.path:
+                sys.path.insert(0, path)
+            return candidate
+    raise FileNotFoundError("Could not find local LiveCodeBench checkout under third_party/.")
+
+
+def load_lcb_problems(release: str, config_name: str):
+    lcb_root = add_lcb_import_paths()
+    with pushd(lcb_root):
+        from lcb_runner.benchmarks.code_generation import (
+            CodeGenerationProblem,
+            load_code_generation_dataset,
+        )
+
+    if not config_name:
+        with pushd(lcb_root):
+            return load_code_generation_dataset(release_version=release)
+
+    dataset = load_dataset(
+        "livecodebench/code_generation_lite",
+        config_name,
+        split="test",
+        version_tag=release,
+    )
+    return [CodeGenerationProblem(**row) for row in dataset]
+
+
+def build_lcb_prompt_and_extractor(
+    tasks: list[dict],
+    release: str,
+    config_name: str,
+    lm_style_name: str,
+) -> tuple[dict[str, str], Callable[[str], str]]:
+    lcb_root = add_lcb_import_paths()
+    with pushd(lcb_root):
+        from lcb_runner.lm_styles import LMStyle
+        from lcb_runner.prompts.code_generation import format_prompt_generation
+        from lcb_runner.utils.extraction_utils import extract_code
+
+    try:
+        lm_style = LMStyle[lm_style_name]
+    except KeyError as exc:
+        valid = ", ".join(style.name for style in LMStyle)
+        raise ValueError(f"Unknown LiveCodeBench LMStyle {lm_style_name!r}. Valid values: {valid}") from exc
+
+    requested_ids = {item["task_id"] for item in tasks}
+    problems = {
+        problem.question_id: problem
+        for problem in load_lcb_problems(release, config_name)
+        if problem.question_id in requested_ids
+    }
+    missing_ids = sorted(requested_ids - set(problems))
+    if missing_ids:
+        preview = ", ".join(missing_ids[:10])
+        raise KeyError(f"{len(missing_ids)} split task_ids were not found in LiveCodeBench {release}: {preview}")
+
+    prompts: dict[str, str] = {}
+    for task_id, problem in problems.items():
+        with pushd(lcb_root):
+            formatted = format_prompt_generation(problem, lm_style)
+        if not isinstance(formatted, str):
+            raise TypeError(
+                f"LiveCodeBench LMStyle {lm_style_name} produced chat messages, "
+                "but this local generator expects a single text prompt."
+            )
+        prompts[task_id] = formatted
+
+    def extractor(raw_completion: str) -> str:
+        extracted = extract_code(raw_completion, lm_style)
+        return extracted.rstrip() + "\n" if extracted else "\n"
+
+    return prompts, extractor
+
+
+def build_model_prompt(item: dict, prompt_mode: str, lcb_prompts: dict[str, str] | None) -> str:
+    prompt = item["prompt"]
+    if prompt_mode in {"raw", "humaneval_official", "mbpp_evalplus_official"}:
         return prompt
+    if prompt_mode == "livecodebench_official":
+        if lcb_prompts is None:
+            raise ValueError("LiveCodeBench official prompts were not initialized.")
+        return lcb_prompts[item["task_id"]]
     if prompt_mode == "lcb_completion":
         return (
             "Complete the following Python coding task.\n"
@@ -59,9 +162,26 @@ def main() -> int:
     )
     parser.add_argument(
         "--prompt-mode",
-        choices=["raw", "lcb_completion"],
+        choices=[
+            "raw",
+            "humaneval_official",
+            "mbpp_evalplus_official",
+            "livecodebench_official",
+            "lcb_completion",
+        ],
         default="raw",
-        help="Prompt wrapper used for model generation. Keep raw for EvalPlus/HumanEval.",
+        help=(
+            "Prompt format used for generation. HumanEval/MBPP official modes are aliases for "
+            "their EvalPlus raw prompts. livecodebench_official uses lcb_runner's official formatter. "
+            "lcb_completion is diagnostic only."
+        ),
+    )
+    parser.add_argument("--lcb-release", default="release_v1")
+    parser.add_argument("--lcb-config", default="release_latest", help="HF dataset config name for LiveCodeBench.")
+    parser.add_argument(
+        "--lcb-lm-style",
+        default="CodeQwenInstruct",
+        help="LiveCodeBench LMStyle name used with --prompt-mode livecodebench_official.",
     )
     args = parser.parse_args()
     if args.load_in_8bit and args.load_in_4bit:
@@ -82,6 +202,15 @@ def main() -> int:
         tasks = tasks[: args.limit]
 
     started = time.time()
+    lcb_prompts = None
+    completion_extractor: Callable[[str], str] = normalize_completion
+    if args.prompt_mode == "livecodebench_official":
+        lcb_prompts, completion_extractor = build_lcb_prompt_and_extractor(
+            tasks,
+            args.lcb_release,
+            args.lcb_config,
+            args.lcb_lm_style,
+        )
 
     tokenizer = AutoTokenizer.from_pretrained(
         args.model,
@@ -141,7 +270,7 @@ def main() -> int:
         for idx, item in enumerate(tasks, 1):
             task_id = item["task_id"]
             prompt = item["prompt"]
-            model_prompt = build_model_prompt(prompt, args.prompt_mode)
+            model_prompt = build_model_prompt(item, args.prompt_mode, lcb_prompts)
 
             inputs = tokenizer(model_prompt, return_tensors="pt")
             if use_cuda:
@@ -162,7 +291,7 @@ def main() -> int:
             generated_ids = output_ids[0, input_token_count:]
             raw_completion = tokenizer.decode(generated_ids, skip_special_tokens=True)
             generated = prompt + raw_completion
-            completion = normalize_completion(raw_completion)
+            completion = completion_extractor(raw_completion)
             solution = prompt + completion
 
             sf.write(json.dumps({"task_id": task_id, "solution": solution}, ensure_ascii=False) + "\n")
@@ -171,6 +300,14 @@ def main() -> int:
                 "prompt": prompt,
                 "model_prompt": model_prompt,
                 "prompt_mode": args.prompt_mode,
+                "official_prompt": args.prompt_mode in {
+                    "humaneval_official",
+                    "mbpp_evalplus_official",
+                    "livecodebench_official",
+                },
+                "lcb_release": args.lcb_release if args.prompt_mode == "livecodebench_official" else None,
+                "lcb_config": args.lcb_config if args.prompt_mode == "livecodebench_official" else None,
+                "lcb_lm_style": args.lcb_lm_style if args.prompt_mode == "livecodebench_official" else None,
                 "generated": generated,
                 "raw_completion": raw_completion,
                 "completion": completion,
@@ -206,6 +343,14 @@ def main() -> int:
         "generations": str(generations_path),
         "task_count": len(tasks),
         "prompt_mode": args.prompt_mode,
+        "official_prompt": args.prompt_mode in {
+            "humaneval_official",
+            "mbpp_evalplus_official",
+            "livecodebench_official",
+        },
+        "lcb_release": args.lcb_release if args.prompt_mode == "livecodebench_official" else None,
+        "lcb_config": args.lcb_config if args.prompt_mode == "livecodebench_official" else None,
+        "lcb_lm_style": args.lcb_lm_style if args.prompt_mode == "livecodebench_official" else None,
         "elapsed_seconds": time.time() - started,
         "torch": getattr(torch, "__version__"),
         "cuda_available": torch.cuda.is_available(),
