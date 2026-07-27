@@ -79,6 +79,9 @@ def main() -> int:
     parser.add_argument("--max-memory-json", default="")
     parser.add_argument("--offload-folder", type=Path)
     parser.add_argument("--load-in-4bit", action="store_true")
+    parser.add_argument("--local-files-only", action="store_true")
+    parser.add_argument("--gradient-checkpointing", action="store_true")
+    parser.add_argument("--llmpruner-base-model", default="", help="Base model name/path for loading an official LLM-Pruner Qwen non-uniform artifact.")
     parser.add_argument("--slicegpt-base-model", default="", help="Base model name/path for loading an official SliceGPT Qwen sliced artifact.")
     parser.add_argument("--slicegpt-sparsity", type=float, default=0.0)
     parser.add_argument("--slicegpt-round-interval", type=int, default=128)
@@ -90,7 +93,21 @@ def main() -> int:
     use_cuda = torch.cuda.is_available() and args.device.startswith("cuda")
     device = torch.device(args.device if use_cuda else "cpu")
 
-    if args.slicegpt_base_model:
+    if args.llmpruner_base_model:
+        from scripts.adapt.llmpruner_qwen_official import load_llmpruner_qwen_model
+
+        if args.load_in_4bit:
+            raise ValueError("LLM-Pruner custom artifact loading does not support --load-in-4bit.")
+        if args.load_mode != "direct":
+            raise ValueError("LLM-Pruner custom artifact loading currently requires --load-mode direct.")
+        model, tokenizer = load_llmpruner_qwen_model(
+            args.llmpruner_base_model,
+            args.base_model,
+            dtype_map[args.dtype],
+            args.device,
+            args.local_files_only,
+        )
+    elif args.slicegpt_base_model:
         from scripts.adapt.slicegpt_qwen_official import load_sliced_qwen_model
 
         if args.load_in_4bit:
@@ -104,12 +121,14 @@ def main() -> int:
             args.slicegpt_round_interval,
             dtype_map[args.dtype],
             args.device,
+            args.local_files_only,
         )
     else:
-        tokenizer = AutoTokenizer.from_pretrained(args.base_model, trust_remote_code=True)
+        tokenizer = AutoTokenizer.from_pretrained(args.base_model, trust_remote_code=True, local_files_only=args.local_files_only)
         load_kwargs = {
             "trust_remote_code": True,
             "torch_dtype": dtype_map[args.dtype],
+            "local_files_only": args.local_files_only,
         }
         if args.load_in_4bit:
             load_kwargs["quantization_config"] = BitsAndBytesConfig(
@@ -134,6 +153,10 @@ def main() -> int:
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     model.config.use_cache = False
+    if args.gradient_checkpointing:
+        model.gradient_checkpointing_enable()
+        if hasattr(model, "enable_input_require_grads"):
+            model.enable_input_require_grads()
     if args.load_in_4bit:
         model = prepare_model_for_kbit_training(model)
 
@@ -213,6 +236,9 @@ def main() -> int:
         "device": str(device),
         "load_mode": args.load_mode,
         "load_in_4bit": args.load_in_4bit,
+        "local_files_only": args.local_files_only,
+        "gradient_checkpointing": args.gradient_checkpointing,
+        "llmpruner_base_model": args.llmpruner_base_model or None,
         "slicegpt_base_model": args.slicegpt_base_model or None,
         "slicegpt_sparsity": args.slicegpt_sparsity if args.slicegpt_base_model else None,
         "slicegpt_round_interval": args.slicegpt_round_interval if args.slicegpt_base_model else None,

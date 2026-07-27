@@ -24,6 +24,7 @@ Common options:
   --load-in-8bit
   --load-in-4bit
   --llm-int8-enable-fp32-cpu-offload
+  --llmpruner-base-model MODEL
   --slicegpt-base-model MODEL
   --slicegpt-sparsity VALUE
   --slicegpt-round-interval N
@@ -56,6 +57,7 @@ OFFLOAD_FOLDER=""
 LOAD_IN_8BIT=0
 LOAD_IN_4BIT=0
 INT8_FP32_CPU_OFFLOAD=0
+LLMPRUNER_BASE_MODEL=""
 SLICEGPT_BASE_MODEL=""
 SLICEGPT_SPARSITY="0.0"
 SLICEGPT_ROUND_INTERVAL=128
@@ -83,6 +85,7 @@ while [[ $# -gt 0 ]]; do
     --load-in-8bit) LOAD_IN_8BIT=1; shift ;;
     --load-in-4bit) LOAD_IN_4BIT=1; shift ;;
     --llm-int8-enable-fp32-cpu-offload) INT8_FP32_CPU_OFFLOAD=1; shift ;;
+    --llmpruner-base-model) LLMPRUNER_BASE_MODEL="$2"; shift 2 ;;
     --slicegpt-base-model) SLICEGPT_BASE_MODEL="$2"; shift 2 ;;
     --slicegpt-sparsity) SLICEGPT_SPARSITY="$2"; shift 2 ;;
     --slicegpt-round-interval) SLICEGPT_ROUND_INTERVAL="$2"; shift 2 ;;
@@ -147,6 +150,7 @@ GEN_ARGS=(
 [[ "${LOAD_IN_8BIT}" -eq 1 ]] && GEN_ARGS+=(--load-in-8bit)
 [[ "${LOAD_IN_4BIT}" -eq 1 ]] && GEN_ARGS+=(--load-in-4bit)
 [[ "${INT8_FP32_CPU_OFFLOAD}" -eq 1 ]] && GEN_ARGS+=(--llm-int8-enable-fp32-cpu-offload)
+[[ -n "${LLMPRUNER_BASE_MODEL}" ]] && GEN_ARGS+=(--llmpruner-base-model "${LLMPRUNER_BASE_MODEL}")
 [[ -n "${SLICEGPT_BASE_MODEL}" ]] && GEN_ARGS+=(--slicegpt-base-model "${SLICEGPT_BASE_MODEL}" --slicegpt-sparsity "${SLICEGPT_SPARSITY}" --slicegpt-round-interval "${SLICEGPT_ROUND_INTERVAL}")
 
 if [[ "${BENCHMARK}" == "livecodebench" ]]; then

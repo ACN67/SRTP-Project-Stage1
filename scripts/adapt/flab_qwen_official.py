@@ -206,6 +206,8 @@ def main() -> int:
     parser.add_argument("--max-guide-samples", type=int, default=4, help="Maximum guide rows to read from each --guide-file.")
     parser.add_argument("--dtype", default="bf16", choices=["bf16", "fp16", "fp32"])
     parser.add_argument("--device-map", default="auto")
+    parser.add_argument("--device", default="cuda:0", help="Target device for direct non-device-map loading.")
+    parser.add_argument("--local-files-only", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--prune-on-cpu", action="store_true", help="Move the loaded model and prune indexes to CPU before structural index_select.")
     parser.add_argument("--hidden-size-remain", type=int)
@@ -225,9 +227,9 @@ def main() -> int:
     ]
     save_dir = (ROOT / args.save_dir).resolve() if not Path(args.save_dir).is_absolute() else Path(args.save_dir)
     guide_rows, guide_manifests = load_guides(guide_files, args.max_guide_samples)
-    config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
+    config = AutoConfig.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
     compat_patches = ensure_qwen2_compat_config(config)
-    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
     plan = validate_remain(config, args)
     estimate = estimate_params(config, plan)
 
@@ -244,6 +246,8 @@ def main() -> int:
         "prune_ratio_requested": args.prune_ratio,
         "dtype": args.dtype,
         "device_map": args.device_map,
+        "device": args.device,
+        "local_files_only": args.local_files_only,
         "save_dir": str(save_dir),
         "model_config": {
             "model_type": getattr(config, "model_type", None),
@@ -282,9 +286,9 @@ def main() -> int:
     Qwen2ForCausalLM._tied_weights_keys = {"lm_head.weight": "model.embed_tokens.weight"}
 
     dtype = {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[args.dtype]
-    load_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
+    load_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
     ensure_qwen2_compat_config(load_config)
-    prune_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
+    prune_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
     ensure_qwen2_compat_config(prune_config)
     prune_config.update(
         {
@@ -294,18 +298,30 @@ def main() -> int:
             "ffn_hidden_size_remain": plan["ffn_hidden_size_remain"],
         }
     )
-    model = Qwen2ForCausalLM.from_pretrained(args.model, config=load_config, torch_dtype=dtype, device_map=args.device_map)
+    load_kwargs = {
+        "config": load_config,
+        "torch_dtype": dtype,
+        "local_files_only": args.local_files_only,
+    }
+    direct_load = args.prune_on_cpu or args.device_map.lower() in {"none", "null", ""}
+    if not direct_load:
+        load_kwargs["device_map"] = args.device_map
+    result["effective_device_map"] = None if direct_load else args.device_map
+    model = Qwen2ForCausalLM.from_pretrained(args.model, **load_kwargs)
+    if not args.prune_on_cpu and direct_load:
+        target_device = torch.device(args.device if torch.cuda.is_available() and args.device.startswith("cuda") else "cpu")
+        model.to(target_device)
+        result["structural_prune_device"] = str(target_device)
     model.eval()
     params_before = sum(p.numel() for p in model.parameters())
     if args.prune_on_cpu:
-        model.cpu()
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
         result["structural_prune_device"] = "cpu"
     model.prune(config=prune_config, stage=args.stage)
     params_after = sum(p.numel() for p in model.parameters())
 
-    new_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True)
+    new_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
     ensure_qwen2_compat_config(new_config)
     new_config.hidden_size = plan["hidden_size_remain"]
     new_config.intermediate_size = plan["ffn_hidden_size_remain"]

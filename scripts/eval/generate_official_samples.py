@@ -149,6 +149,7 @@ def main() -> int:
     parser.add_argument("--load-in-8bit", action="store_true")
     parser.add_argument("--load-in-4bit", action="store_true")
     parser.add_argument("--llm-int8-enable-fp32-cpu-offload", action="store_true")
+    parser.add_argument("--llmpruner-base-model", default="", help="Base model name/path for loading an official LLM-Pruner Qwen non-uniform artifact.")
     parser.add_argument("--slicegpt-base-model", default="", help="Base model name/path for loading an official SliceGPT Qwen sliced artifact.")
     parser.add_argument("--slicegpt-sparsity", type=float, default=0.0)
     parser.add_argument("--slicegpt-round-interval", type=int, default=128)
@@ -207,7 +208,21 @@ def main() -> int:
             args.lcb_lm_style,
         )
 
-    if args.slicegpt_base_model:
+    if args.llmpruner_base_model:
+        from scripts.adapt.llmpruner_qwen_official import load_llmpruner_qwen_model
+
+        if args.load_in_8bit or args.load_in_4bit:
+            raise ValueError("LLM-Pruner custom artifact loading does not support --load-in-8bit/--load-in-4bit.")
+        if args.load_mode != "direct":
+            raise ValueError("LLM-Pruner custom artifact loading currently requires --load-mode direct.")
+        model, tokenizer = load_llmpruner_qwen_model(
+            args.llmpruner_base_model,
+            args.model,
+            dtype_map[args.dtype],
+            args.device,
+            args.local_files_only,
+        )
+    elif args.slicegpt_base_model:
         from scripts.adapt.slicegpt_qwen_official import load_sliced_qwen_model
 
         if args.load_in_8bit or args.load_in_4bit:

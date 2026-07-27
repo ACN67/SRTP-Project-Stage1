@@ -12,7 +12,7 @@ Benchmark evaluation must use `scripts/eval/run_official_eval.sh`.
 | Method | Official logic retained | Qwen adaptation boundary |
 |---|---|---|
 | Flab-Pruner | Vendored Qwen2 structural `model.prune(config, stage)` path. | Qwen2.5 config compatibility and project manifests only. Guide rows are audited, not used to create custom importance scores. |
-| LLM-Pruner | Upstream `MetaPruner`, official magnitude/Taylor importance, block/channel/layer modes. | Qwen2 modules replace LLaMA modules in the official pruning graph. |
+| LLM-Pruner | Upstream `MetaPruner`, official magnitude/Taylor importance, block/channel/layer modes, including the default protected early-layer range. | Qwen2 modules replace LLaMA modules in the official pruning graph; non-uniform Qwen artifacts use a custom loader before LoRA/eval. |
 | SliceGPT | Upstream replace/fuse/rotate/slice flow and official state/config artifact format. | Local Qwen2 `ModelAdapter`/`LayerAdapter` plus loader for the official sliced artifact. |
 
 ## Shared Setup
@@ -63,7 +63,7 @@ python scripts/adapt/flab_qwen_official.py \
   --prune-ratio 0.20 \
   --max-guide-samples 999999 \
   --dtype fp16 \
-  --device-map auto \
+  --local-files-only \
   --prune-on-cpu
 
 python scripts/recover/train_lora_recovery.py \
@@ -72,6 +72,7 @@ python scripts/recover/train_lora_recovery.py \
   --out-dir "$ROOT_OUT/flabpruner_keep80_lora" \
   --dtype fp16 \
   --device cuda:0 \
+  --local-files-only \
   --epochs 1 \
   --batch-size 1 \
   --grad-accum 8 \
@@ -98,16 +99,19 @@ python scripts/adapt/llmpruner_qwen_official.py \
   "${GUIDE_FILES[@]}" \
   --guide-limit-per-file 999999 \
   --importance-max-length 256 \
-  --dtype fp16 \
-  --device cuda:0 \
+  --dtype fp32 \
+  --device cpu \
+  --local-files-only \
   --save-model
 
 python scripts/recover/train_lora_recovery.py \
   --base-model "$ROOT_OUT/llmpruner_keep80/pruned_model" \
+  --llmpruner-base-model "$MODEL" \
   --train-file "$ROOT_OUT/shared_lora_data/distill_train.jsonl" \
   --out-dir "$ROOT_OUT/llmpruner_keep80_lora" \
   --dtype fp16 \
   --device cuda:0 \
+  --local-files-only \
   --epochs 1 \
   --batch-size 1 \
   --grad-accum 8 \
@@ -129,6 +133,7 @@ python scripts/adapt/slicegpt_qwen_official.py \
   --out-dir "$ROOT_OUT/slicegpt_keep80" \
   --dtype fp16 \
   --device cuda:0 \
+  --local-files-only \
   --cal-guide-file data/splits/humaneval_half/guide.jsonl \
   --cal-guide-file data/splits/mbpp_evalplus_half/guide.jsonl \
   --cal-guide-file data/splits/livecodebench_half/guide.jsonl \
@@ -151,6 +156,7 @@ python scripts/recover/train_lora_recovery.py \
   --out-dir "$ROOT_OUT/slicegpt_keep80_lora" \
   --dtype fp16 \
   --device cuda:0 \
+  --local-files-only \
   --epochs 1 \
   --batch-size 1 \
   --grad-accum 8 \

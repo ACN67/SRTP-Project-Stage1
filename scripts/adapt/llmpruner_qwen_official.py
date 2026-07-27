@@ -21,6 +21,7 @@ from pathlib import Path
 import numpy as np
 import psutil
 import torch
+from safetensors.torch import load_file as load_safetensors
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.models.qwen2.modeling_qwen2 import Qwen2Attention, Qwen2RMSNorm
 
@@ -97,6 +98,10 @@ def make_importance(kind: str, grouping_strategy: str, taylor: str):
     raise ValueError(f"unknown pruner type: {kind}")
 
 
+def logits_output(output):
+    return output.logits if hasattr(output, "logits") else output[0]
+
+
 def run_taylor_backward(model, batches: list[torch.Tensor], taylor: str, second_order_examples: int) -> list[dict]:
     events = []
     if taylor in ["param_mix", "param_second"]:
@@ -133,6 +138,29 @@ def run_taylor_backward(model, batches: list[torch.Tensor], taylor: str, second_
     return events
 
 
+def collect_qwen_layer_shapes(model) -> list[dict]:
+    layer_shapes = []
+    for idx, layer in enumerate(model.model.layers):
+        layer_shapes.append(
+            {
+                "layer": idx,
+                "q_out": int(layer.self_attn.q_proj.out_features),
+                "k_out": int(layer.self_attn.k_proj.out_features),
+                "v_out": int(layer.self_attn.v_proj.out_features),
+                "o_in": int(layer.self_attn.o_proj.in_features),
+                "gate_out": int(layer.mlp.gate_proj.out_features),
+                "up_out": int(layer.mlp.up_proj.out_features),
+                "down_in": int(layer.mlp.down_proj.in_features),
+            }
+        )
+    return layer_shapes
+
+
+def is_uniform_layer_shapes(layer_shapes: list[dict]) -> bool:
+    unique_shapes = {tuple((key, value) for key, value in item.items() if key != "layer") for item in layer_shapes}
+    return len(unique_shapes) <= 1
+
+
 def refresh_qwen_config_after_pruning(model) -> dict:
     first_layer = model.model.layers[0] if len(model.model.layers) else None
     if first_layer is None:
@@ -167,7 +195,101 @@ def refresh_qwen_config_after_pruning(model) -> dict:
         "num_attention_heads": num_heads,
         "num_key_value_heads": num_key_value_heads,
         "intermediate_size": intermediate_size,
+        "uniform_layer_shapes": is_uniform_layer_shapes(collect_qwen_layer_shapes(model)),
     }
+
+
+def load_pruned_state_dict(path: Path) -> dict[str, torch.Tensor]:
+    safetensors_path = path / "model.safetensors"
+    bin_path = path / "pytorch_model.bin"
+    if safetensors_path.exists():
+        return load_safetensors(str(safetensors_path), device="cpu")
+    if bin_path.exists():
+        return torch.load(bin_path, map_location="cpu")
+    raise FileNotFoundError(f"Could not find model.safetensors or pytorch_model.bin under {path}")
+
+
+def resize_linear_from_weight(old: torch.nn.Linear, weight: torch.Tensor) -> torch.nn.Linear:
+    new_layer = torch.nn.Linear(
+        int(weight.shape[1]),
+        int(weight.shape[0]),
+        bias=old.bias is not None,
+        dtype=old.weight.dtype,
+    )
+    return new_layer
+
+
+def reshape_qwen_modules_for_state_dict(model, state_dict: dict[str, torch.Tensor]) -> list[dict]:
+    resized = []
+    linear_names = [
+        "self_attn.q_proj",
+        "self_attn.k_proj",
+        "self_attn.v_proj",
+        "self_attn.o_proj",
+        "mlp.gate_proj",
+        "mlp.up_proj",
+        "mlp.down_proj",
+    ]
+    for layer_idx, layer in enumerate(model.model.layers):
+        for name in linear_names:
+            key = f"model.layers.{layer_idx}.{name}.weight"
+            if key not in state_dict:
+                continue
+            parent = layer
+            parts = name.split(".")
+            for part in parts[:-1]:
+                parent = getattr(parent, part)
+            old = getattr(parent, parts[-1])
+            wanted = tuple(state_dict[key].shape)
+            current = tuple(old.weight.shape)
+            if current != wanted:
+                setattr(parent, parts[-1], resize_linear_from_weight(old, state_dict[key]))
+                resized.append({"layer": layer_idx, "module": name, "from": current, "to": wanted})
+
+        hidden_size = int(layer.self_attn.q_proj.in_features)
+        head_dim = int(layer.self_attn.head_dim)
+        num_heads = max(1, int(layer.self_attn.q_proj.out_features) // head_dim)
+        num_key_value_heads = max(1, int(layer.self_attn.k_proj.out_features) // head_dim)
+        layer.hidden_size = hidden_size
+        layer.self_attn.hidden_size = hidden_size
+        layer.self_attn.num_heads = num_heads
+        layer.self_attn.num_key_value_heads = num_key_value_heads
+        layer.self_attn.num_key_value_groups = max(1, num_heads // num_key_value_heads)
+        layer.mlp.hidden_size = hidden_size
+        layer.mlp.intermediate_size = int(layer.mlp.gate_proj.out_features)
+    return resized
+
+
+def load_llmpruner_qwen_model(
+    base_model: str,
+    pruned_model_path: str | Path,
+    dtype: torch.dtype = torch.float16,
+    device: str = "cpu",
+    local_files_only: bool = False,
+):
+    pruned_model_path = Path(pruned_model_path)
+    tokenizer = AutoTokenizer.from_pretrained(pruned_model_path, trust_remote_code=True, local_files_only=local_files_only)
+    model = AutoModelForCausalLM.from_pretrained(
+        base_model,
+        trust_remote_code=True,
+        torch_dtype=dtype,
+        local_files_only=local_files_only,
+    )
+    state_dict = load_pruned_state_dict(pruned_model_path)
+    reshape_qwen_modules_for_state_dict(model, state_dict)
+    missing, unexpected = model.load_state_dict(state_dict, strict=False)
+    if missing or unexpected:
+        print(
+            json.dumps(
+                {"event": "llmpruner_custom_load_non_strict", "missing": missing, "unexpected": unexpected},
+                ensure_ascii=False,
+            ),
+            flush=True,
+        )
+    target_device = torch.device(device if torch.cuda.is_available() and device.startswith("cuda") else "cpu")
+    model.to(target_device)
+    model.eval()
+    return model, tokenizer
 
 
 def main() -> int:
@@ -192,6 +314,7 @@ def main() -> int:
     parser.add_argument("--layer-keep", type=int, default=0)
     parser.add_argument("--dtype", choices=["fp16", "bf16", "fp32"], default="fp16")
     parser.add_argument("--device", default="cuda:0")
+    parser.add_argument("--local-files-only", action="store_true")
     parser.add_argument("--save-model", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--seed", type=int, default=42)
@@ -206,7 +329,7 @@ def main() -> int:
     use_cuda = torch.cuda.is_available() and args.device.startswith("cuda")
     device = torch.device(args.device if use_cuda else "cpu")
 
-    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
@@ -218,6 +341,7 @@ def main() -> int:
         args.model,
         trust_remote_code=True,
         torch_dtype=dtype_from_name(args.dtype),
+        local_files_only=args.local_files_only,
     )
     model.to(device)
     model.eval()
@@ -246,6 +370,8 @@ def main() -> int:
         "params_before": before_params,
         "dtype": args.dtype,
         "device": str(device),
+        "local_files_only": args.local_files_only,
+        "dependency_trace_output": "logits",
     }
 
     if args.dry_run:
@@ -268,6 +394,7 @@ def main() -> int:
             "customized_pruners": {
                 Qwen2RMSNorm: official_pruner.hf_rmsnorm_pruner,
             },
+            "output_transform": logits_output,
             "root_module_types": None,
             "root_instances": [model.model.layers[i].self_attn.q_proj for i in range(args.block_attention_layer_start, block_attention_end)]
             + [model.model.layers[i].mlp.gate_proj for i in range(args.block_mlp_layer_start, block_mlp_end)],
@@ -283,6 +410,7 @@ def main() -> int:
             "customized_pruners": {
                 Qwen2RMSNorm: official_pruner.hf_rmsnorm_pruner,
             },
+            "output_transform": logits_output,
             "root_module_types": [Qwen2RMSNorm, Qwen2Attention],
         }
     else:
@@ -327,6 +455,19 @@ def main() -> int:
         model.save_pretrained(args.out_dir / "pruned_model", safe_serialization=True)
         tokenizer.save_pretrained(args.out_dir / "pruned_model")
         summary["pruned_model"] = str(args.out_dir / "pruned_model")
+        layer_shapes = collect_qwen_layer_shapes(model)
+        shape_manifest = {
+            "format": "llmpruner_qwen_nonuniform_shapes_v1",
+            "base_model": args.model,
+            "uniform_layer_shapes": is_uniform_layer_shapes(layer_shapes),
+            "layer_shapes": layer_shapes,
+            "loader": "scripts.adapt.llmpruner_qwen_official.load_llmpruner_qwen_model",
+        }
+        (args.out_dir / "pruned_model" / "llmpruner_qwen_shapes.json").write_text(
+            json.dumps(shape_manifest, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        summary["shape_manifest"] = str(args.out_dir / "pruned_model" / "llmpruner_qwen_shapes.json")
 
     (args.out_dir / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(summary, indent=2, ensure_ascii=False))

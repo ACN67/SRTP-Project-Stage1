@@ -23,7 +23,7 @@ import torch
 from datasets import Dataset
 from torch import FloatTensor, LongTensor, Tensor, matmul
 from torch.nn import Linear, Module
-from transformers import AutoTokenizer
+from transformers import AutoConfig, AutoTokenizer
 from transformers.models.qwen2.configuration_qwen2 import Qwen2Config
 from transformers.models.qwen2.modeling_qwen2 import Qwen2DecoderLayer, Qwen2ForCausalLM, Qwen2RMSNorm
 
@@ -41,25 +41,29 @@ class CompressedQwen2DecoderLayer(Qwen2DecoderLayer):
         attention_mask: Tensor | None = None,
         position_ids: LongTensor | None = None,
         past_key_value: tuple[Tensor] | None = None,
+        past_key_values=None,
         output_attentions: bool | None = False,
         use_cache: bool | None = False,
+        position_embeddings: tuple[Tensor, Tensor] | None = None,
         **kwargs,
-    ) -> tuple:
+    ) -> Tensor:
+        if isinstance(hidden_states, tuple):
+            hidden_states = hidden_states[0]
         residual = hidden_states
         hidden_states = self.input_layernorm(hidden_states)
 
-        attn_outputs = self.self_attn(
+        if past_key_values is None:
+            past_key_values = past_key_value
+        attn_output = self.self_attn(
             hidden_states=hidden_states,
             attention_mask=attention_mask,
             position_ids=position_ids,
-            past_key_value=past_key_value,
-            output_attentions=output_attentions,
+            past_key_values=past_key_values,
             use_cache=use_cache,
+            position_embeddings=position_embeddings,
             **kwargs,
         )
-        hidden_states = attn_outputs[0]
-        self_attn_weights = attn_outputs[1] if len(attn_outputs) > 1 else None
-        present_key_value = attn_outputs[2] if len(attn_outputs) > 2 else None
+        hidden_states = attn_output[0] if isinstance(attn_output, tuple) else attn_output
         if self.attn_shortcut_Q is not None:
             hidden_states = matmul(residual, self.attn_shortcut_Q) + hidden_states
         else:
@@ -73,12 +77,7 @@ class CompressedQwen2DecoderLayer(Qwen2DecoderLayer):
         else:
             hidden_states = residual + hidden_states
 
-        outputs = (hidden_states,)
-        if output_attentions:
-            outputs += (self_attn_weights,)
-        if use_cache:
-            outputs += (present_key_value,)
-        return outputs
+        return hidden_states
 
 
 class Qwen2LayerAdapter(LayerAdapter):
@@ -205,6 +204,55 @@ class Qwen2ModelAdapter(ModelAdapter):
             tokenizer.pad_token = tokenizer.eos_token
         self.config.pad_token_id = tokenizer.pad_token_id
 
+    @classmethod
+    def _from_pretrained(
+        cls,
+        model_name: str,
+        model_path: str,
+        *,
+        dtype: torch.dtype = torch.float16,
+        local_files_only: bool = False,
+        token: str | bool | None = None,
+    ) -> ModelAdapter | None:
+        if "qwen" not in model_name.lower():
+            return None
+        model = Qwen2ForCausalLM.from_pretrained(
+            model_path,
+            torch_dtype=dtype,
+            token=token,
+            local_files_only=local_files_only,
+        )
+        model.config.torch_dtype = dtype
+        return cls(model)
+
+    @classmethod
+    def _from_uninitialized(
+        cls,
+        model_name: str,
+        model_path: str,
+        *,
+        dtype: torch.dtype = torch.float16,
+        local_files_only: bool = False,
+        token: str | bool | None = None,
+    ) -> ModelAdapter | None:
+        if "qwen" not in model_name.lower():
+            return None
+
+        class UninitializedQwen2ForCausalLM(Qwen2ForCausalLM):
+            def _init_weights(self, _) -> None:
+                pass
+
+        qwen_config = AutoConfig.from_pretrained(
+            model_path,
+            torch_dtype=dtype,
+            token=token,
+            local_files_only=local_files_only,
+            trust_remote_code=True,
+        )
+        model = UninitializedQwen2ForCausalLM(qwen_config).to(dtype=dtype)
+        model.config.torch_dtype = dtype
+        return cls(model)
+
 
 def dtype_from_name(name: str) -> torch.dtype:
     return {"fp16": torch.float16, "bf16": torch.bfloat16, "fp32": torch.float32}[name]
@@ -230,13 +278,15 @@ def load_sliced_qwen_model(
     round_interval: int = 128,
     dtype: torch.dtype = torch.float16,
     device: str = "cpu",
+    local_files_only: bool = False,
 ):
     sliced_model_path = Path(sliced_model_path)
-    tokenizer = AutoTokenizer.from_pretrained(sliced_model_path, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(sliced_model_path, trust_remote_code=True, local_files_only=local_files_only)
     model = Qwen2ForCausalLM.from_pretrained(
         base_model,
         torch_dtype=dtype,
         low_cpu_mem_usage=True,
+        local_files_only=local_files_only,
     )
     model.config.torch_dtype = dtype
     adapter = Qwen2ModelAdapter(model)
@@ -276,6 +326,7 @@ def main() -> int:
     parser.add_argument("--out-dir", required=True, type=Path)
     parser.add_argument("--dtype", choices=["fp16", "bf16", "fp32"], default="fp16")
     parser.add_argument("--device", default="cuda:0")
+    parser.add_argument("--local-files-only", action="store_true")
     parser.add_argument("--cal-dataset", default="wikitext2", choices=["wikitext2", "ptb", "c4", "alpaca"])
     parser.add_argument("--cal-guide-file", action="append", type=Path, default=[])
     parser.add_argument("--cal-guide-limit-per-file", type=int, default=0)
@@ -300,13 +351,14 @@ def main() -> int:
     config.device = torch.device(args.device if torch.cuda.is_available() and args.device.startswith("cuda") else "cpu")
 
     logging.info("Loading tokenizer from %s", args.model)
-    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
 
     logging.info("Loading Qwen2 weights")
     model = Qwen2ForCausalLM.from_pretrained(
         args.model,
         torch_dtype=dtype,
         low_cpu_mem_usage=True,
+        local_files_only=args.local_files_only,
     )
     model.eval()
     model.config.torch_dtype = dtype
@@ -348,6 +400,7 @@ def main() -> int:
         "model": args.model,
         "dtype": args.dtype,
         "device": str(config.device),
+        "local_files_only": args.local_files_only,
         "cal_dataset": args.cal_dataset,
         "cal_guide_files": [str(path) for path in args.cal_guide_file],
         "cal_guide_samples": len(cal_guide_rows),
