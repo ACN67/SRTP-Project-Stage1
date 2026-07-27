@@ -433,9 +433,9 @@ jobs:
   - HumanEval
   - dry-run
   - adapter
-  description: Dry-run Flab-Pruner Qwen 3B wrapper with HumanEval guide split. Validates
+  description: Dry-run official Flab-Pruner Qwen 3B adapter with HumanEval guide split. Validates
     config/guide/prune dimensions without loading weights.
-  command: "python scripts/adapt/flab_qwen_prune.py \\\n  --dry-run \\\n  --model\
+  command: "python scripts/adapt/flab_qwen_official.py \\\n  --dry-run \\\n  --model\
     \ Qwen/Qwen2.5-Coder-3B-Instruct \\\n  --guide-file data/splits/humaneval/guide.jsonl\
     \ \\\n  --save-dir \"$RUN_DIR/flab_qwen3b_humaneval_plan\" \\\n  --stage top \\\
     \n  --prune-ratio 0.10 \\\n  --max-guide-samples 4 \\\n  --dtype bf16"
@@ -443,7 +443,7 @@ jobs:
   owner: 常珂舒
   method_group: structured_depth_width
   method: Flab-Pruner
-  role: Qwen3B适配dry-run/benchmark guide校验
+  role: Qwen3B适配dry-run/guide split audit校验
   recommended_machine: any with network
   cross_reproduction_by: 潘阔
 - id: flab_qwen3b_humaneval_prune_heavy
@@ -460,7 +460,7 @@ jobs:
   - pruning
   description: Heavy Flab-Pruner Qwen 3B pruning run with HumanEval guide split. Loads
     Qwen3B weights and saves a pruned model.
-  command: "python scripts/adapt/flab_qwen_prune.py \\\n  --model Qwen/Qwen2.5-Coder-3B-Instruct\
+  command: "python scripts/adapt/flab_qwen_official.py \\\n  --model Qwen/Qwen2.5-Coder-3B-Instruct\
     \ \\\n  --guide-file data/splits/humaneval/guide.jsonl \\\n  --save-dir \"$RUN_DIR/flab_qwen3b_humaneval\"\
     \ \\\n  --stage top \\\n  --prune-ratio 0.10 \\\n  --max-guide-samples 4 \\\n\
     \  --dtype bf16 \\\n  --device-map cuda:0"

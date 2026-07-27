@@ -24,6 +24,9 @@ Common options:
   --load-in-8bit
   --load-in-4bit
   --llm-int8-enable-fp32-cpu-offload
+  --slicegpt-base-model MODEL
+  --slicegpt-sparsity VALUE
+  --slicegpt-round-interval N
 
 LiveCodeBench options:
   --lcb-release release_v1
@@ -53,6 +56,9 @@ OFFLOAD_FOLDER=""
 LOAD_IN_8BIT=0
 LOAD_IN_4BIT=0
 INT8_FP32_CPU_OFFLOAD=0
+SLICEGPT_BASE_MODEL=""
+SLICEGPT_SPARSITY="0.0"
+SLICEGPT_ROUND_INTERVAL=128
 LCB_RELEASE="release_v1"
 LCB_CONFIG="release_latest"
 LCB_LM_STYLE="CodeQwenInstruct"
@@ -77,6 +83,9 @@ while [[ $# -gt 0 ]]; do
     --load-in-8bit) LOAD_IN_8BIT=1; shift ;;
     --load-in-4bit) LOAD_IN_4BIT=1; shift ;;
     --llm-int8-enable-fp32-cpu-offload) INT8_FP32_CPU_OFFLOAD=1; shift ;;
+    --slicegpt-base-model) SLICEGPT_BASE_MODEL="$2"; shift 2 ;;
+    --slicegpt-sparsity) SLICEGPT_SPARSITY="$2"; shift 2 ;;
+    --slicegpt-round-interval) SLICEGPT_ROUND_INTERVAL="$2"; shift 2 ;;
     --lcb-release) LCB_RELEASE="$2"; shift 2 ;;
     --lcb-config) LCB_CONFIG="$2"; shift 2 ;;
     --lcb-lm-style) LCB_LM_STYLE="$2"; shift 2 ;;
@@ -138,6 +147,7 @@ GEN_ARGS=(
 [[ "${LOAD_IN_8BIT}" -eq 1 ]] && GEN_ARGS+=(--load-in-8bit)
 [[ "${LOAD_IN_4BIT}" -eq 1 ]] && GEN_ARGS+=(--load-in-4bit)
 [[ "${INT8_FP32_CPU_OFFLOAD}" -eq 1 ]] && GEN_ARGS+=(--llm-int8-enable-fp32-cpu-offload)
+[[ -n "${SLICEGPT_BASE_MODEL}" ]] && GEN_ARGS+=(--slicegpt-base-model "${SLICEGPT_BASE_MODEL}" --slicegpt-sparsity "${SLICEGPT_SPARSITY}" --slicegpt-round-interval "${SLICEGPT_ROUND_INTERVAL}")
 
 if [[ "${BENCHMARK}" == "livecodebench" ]]; then
   GEN_ARGS+=(

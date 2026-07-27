@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import sys
 import time
 from pathlib import Path
 
@@ -13,6 +14,9 @@ import torch
 from peft import LoraConfig, TaskType, get_peft_model, prepare_model_for_kbit_training
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, get_linear_schedule_with_warmup
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
 
 
 class TextDataset(Dataset):
@@ -75,6 +79,9 @@ def main() -> int:
     parser.add_argument("--max-memory-json", default="")
     parser.add_argument("--offload-folder", type=Path)
     parser.add_argument("--load-in-4bit", action="store_true")
+    parser.add_argument("--slicegpt-base-model", default="", help="Base model name/path for loading an official SliceGPT Qwen sliced artifact.")
+    parser.add_argument("--slicegpt-sparsity", type=float, default=0.0)
+    parser.add_argument("--slicegpt-round-interval", type=int, default=128)
     args = parser.parse_args()
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
@@ -83,34 +90,49 @@ def main() -> int:
     use_cuda = torch.cuda.is_available() and args.device.startswith("cuda")
     device = torch.device(args.device if use_cuda else "cpu")
 
-    tokenizer = AutoTokenizer.from_pretrained(args.base_model, trust_remote_code=True)
+    if args.slicegpt_base_model:
+        from scripts.adapt.slicegpt_qwen_official import load_sliced_qwen_model
+
+        if args.load_in_4bit:
+            raise ValueError("SliceGPT artifact loading does not support --load-in-4bit.")
+        if args.load_mode != "direct":
+            raise ValueError("SliceGPT artifact loading currently requires --load-mode direct.")
+        model, tokenizer = load_sliced_qwen_model(
+            args.slicegpt_base_model,
+            args.base_model,
+            args.slicegpt_sparsity,
+            args.slicegpt_round_interval,
+            dtype_map[args.dtype],
+            args.device,
+        )
+    else:
+        tokenizer = AutoTokenizer.from_pretrained(args.base_model, trust_remote_code=True)
+        load_kwargs = {
+            "trust_remote_code": True,
+            "torch_dtype": dtype_map[args.dtype],
+        }
+        if args.load_in_4bit:
+            load_kwargs["quantization_config"] = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_quant_type="nf4",
+                bnb_4bit_compute_dtype=dtype_map[args.dtype],
+            )
+        if args.load_mode == "device_map":
+            load_kwargs["device_map"] = args.device_map
+            if args.max_memory_json:
+                max_memory = json.loads(args.max_memory_json)
+                load_kwargs["max_memory"] = {
+                    int(key) if isinstance(key, str) and key.isdigit() else key: value
+                    for key, value in max_memory.items()
+                }
+            if args.offload_folder:
+                args.offload_folder.mkdir(parents=True, exist_ok=True)
+                load_kwargs["offload_folder"] = str(args.offload_folder)
+        model = AutoModelForCausalLM.from_pretrained(args.base_model, **load_kwargs)
+        if args.load_mode == "direct":
+            model.to(device)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
-
-    load_kwargs = {
-        "trust_remote_code": True,
-        "torch_dtype": dtype_map[args.dtype],
-    }
-    if args.load_in_4bit:
-        load_kwargs["quantization_config"] = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=dtype_map[args.dtype],
-        )
-    if args.load_mode == "device_map":
-        load_kwargs["device_map"] = args.device_map
-        if args.max_memory_json:
-            max_memory = json.loads(args.max_memory_json)
-            load_kwargs["max_memory"] = {
-                int(key) if isinstance(key, str) and key.isdigit() else key: value
-                for key, value in max_memory.items()
-            }
-        if args.offload_folder:
-            args.offload_folder.mkdir(parents=True, exist_ok=True)
-            load_kwargs["offload_folder"] = str(args.offload_folder)
-    model = AutoModelForCausalLM.from_pretrained(args.base_model, **load_kwargs)
-    if args.load_mode == "direct":
-        model.to(device)
     model.config.use_cache = False
     if args.load_in_4bit:
         model = prepare_model_for_kbit_training(model)
@@ -191,6 +213,9 @@ def main() -> int:
         "device": str(device),
         "load_mode": args.load_mode,
         "load_in_4bit": args.load_in_4bit,
+        "slicegpt_base_model": args.slicegpt_base_model or None,
+        "slicegpt_sparsity": args.slicegpt_sparsity if args.slicegpt_base_model else None,
+        "slicegpt_round_interval": args.slicegpt_round_interval if args.slicegpt_base_model else None,
         "device_map": getattr(model, "hf_device_map", None),
         "max_memory": json.loads(args.max_memory_json) if args.max_memory_json else None,
         "offload_folder": str(args.offload_folder) if args.offload_folder else None,

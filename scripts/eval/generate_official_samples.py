@@ -18,6 +18,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from completion_extraction import normalize_completion
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
 
 
 def read_jsonl(path: Path):
@@ -148,6 +149,9 @@ def main() -> int:
     parser.add_argument("--load-in-8bit", action="store_true")
     parser.add_argument("--load-in-4bit", action="store_true")
     parser.add_argument("--llm-int8-enable-fp32-cpu-offload", action="store_true")
+    parser.add_argument("--slicegpt-base-model", default="", help="Base model name/path for loading an official SliceGPT Qwen sliced artifact.")
+    parser.add_argument("--slicegpt-sparsity", type=float, default=0.0)
+    parser.add_argument("--slicegpt-round-interval", type=int, default=128)
     parser.add_argument(
         "--local-files-only",
         action="store_true",
@@ -203,41 +207,58 @@ def main() -> int:
             args.lcb_lm_style,
         )
 
-    tokenizer = AutoTokenizer.from_pretrained(
-        args.model,
-        trust_remote_code=True,
-        local_files_only=args.local_files_only,
-    )
-    load_kwargs = {
-        "trust_remote_code": True,
-        "torch_dtype": dtype_map[args.dtype],
-        "local_files_only": args.local_files_only,
-    }
-    if args.load_in_8bit:
-        load_kwargs["quantization_config"] = BitsAndBytesConfig(
-            load_in_8bit=True,
-            llm_int8_enable_fp32_cpu_offload=args.llm_int8_enable_fp32_cpu_offload,
+    if args.slicegpt_base_model:
+        from scripts.adapt.slicegpt_qwen_official import load_sliced_qwen_model
+
+        if args.load_in_8bit or args.load_in_4bit:
+            raise ValueError("SliceGPT artifact loading does not support --load-in-8bit/--load-in-4bit.")
+        if args.load_mode != "direct":
+            raise ValueError("SliceGPT artifact loading currently requires --load-mode direct.")
+        tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
+        model, tokenizer = load_sliced_qwen_model(
+            args.slicegpt_base_model,
+            args.model,
+            args.slicegpt_sparsity,
+            args.slicegpt_round_interval,
+            dtype_map[args.dtype],
+            args.device,
         )
-    elif args.load_in_4bit:
-        load_kwargs["quantization_config"] = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=dtype_map[args.dtype],
-        )
-    if args.load_mode == "device_map":
-        load_kwargs["device_map"] = args.device_map
-        if args.max_memory_json:
-            max_memory = json.loads(args.max_memory_json)
-            load_kwargs["max_memory"] = {
-                int(key) if isinstance(key, str) and key.isdigit() else key: value
-                for key, value in max_memory.items()
-            }
-        if args.offload_folder:
-            args.offload_folder.mkdir(parents=True, exist_ok=True)
-            load_kwargs["offload_folder"] = str(args.offload_folder)
     else:
-        load_kwargs["device_map"] = args.device if use_cuda else "cpu"
-    model = AutoModelForCausalLM.from_pretrained(args.model, **load_kwargs)
+        tokenizer = AutoTokenizer.from_pretrained(
+            args.model,
+            trust_remote_code=True,
+            local_files_only=args.local_files_only,
+        )
+        load_kwargs = {
+            "trust_remote_code": True,
+            "torch_dtype": dtype_map[args.dtype],
+            "local_files_only": args.local_files_only,
+        }
+        if args.load_in_8bit:
+            load_kwargs["quantization_config"] = BitsAndBytesConfig(
+                load_in_8bit=True,
+                llm_int8_enable_fp32_cpu_offload=args.llm_int8_enable_fp32_cpu_offload,
+            )
+        elif args.load_in_4bit:
+            load_kwargs["quantization_config"] = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_quant_type="nf4",
+                bnb_4bit_compute_dtype=dtype_map[args.dtype],
+            )
+        if args.load_mode == "device_map":
+            load_kwargs["device_map"] = args.device_map
+            if args.max_memory_json:
+                max_memory = json.loads(args.max_memory_json)
+                load_kwargs["max_memory"] = {
+                    int(key) if isinstance(key, str) and key.isdigit() else key: value
+                    for key, value in max_memory.items()
+                }
+            if args.offload_folder:
+                args.offload_folder.mkdir(parents=True, exist_ok=True)
+                load_kwargs["offload_folder"] = str(args.offload_folder)
+        else:
+            load_kwargs["device_map"] = args.device if use_cuda else "cpu"
+        model = AutoModelForCausalLM.from_pretrained(args.model, **load_kwargs)
     if args.adapter:
         model = PeftModel.from_pretrained(model, args.adapter)
     model.eval()
@@ -351,6 +372,9 @@ def main() -> int:
         "load_in_4bit": args.load_in_4bit,
         "llm_int8_enable_fp32_cpu_offload": args.llm_int8_enable_fp32_cpu_offload,
         "local_files_only": args.local_files_only,
+        "slicegpt_base_model": args.slicegpt_base_model or None,
+        "slicegpt_sparsity": args.slicegpt_sparsity if args.slicegpt_base_model else None,
+        "slicegpt_round_interval": args.slicegpt_round_interval if args.slicegpt_base_model else None,
         "device_map": getattr(model, "hf_device_map", None),
         "max_memory": json.loads(args.max_memory_json) if args.max_memory_json else None,
         "offload_folder": str(args.offload_folder) if args.offload_folder else None,

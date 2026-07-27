@@ -12,6 +12,7 @@ Stage 1 is about reproducibility, workflow, and evidence. Smoke results are not 
 | `docs/methods.md` | Method ownership, current progress, blockers, and model choices. |
 | `docs/runbook.md` | How to run checks, smoke jobs, and future R4 jobs. |
 | `docs/official_benchmarks.md` | Official benchmark prompt/scoring policy for formal results. |
+| `docs/r4_keep80_official_runs.md` | Official keep80 run plan for Flab-Pruner, LLM-Pruner, and SliceGPT on Qwen2.5-Coder-3B. |
 | `docs/environment.md` | Local machine, environment, cache, and artifact notes. |
 | `results/stage1/status.csv` | Compact machine-readable progress table. |
 | `results/raw/` | Timestamped raw evidence for every recorded run. |

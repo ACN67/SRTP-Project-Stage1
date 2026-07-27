@@ -30,6 +30,7 @@ from transformers.models.qwen2.modeling_qwen2 import Qwen2DecoderLayer, Qwen2For
 from slicegpt import data_utils, layernorm_fusion, rotate, utils
 from slicegpt.config import config
 from slicegpt.model_adapter import LayerAdapter, ModelAdapter
+from slicegpt.slicing_scheduler import SlicingConfig
 from slicegpt.slicing_scheduler import ConstSlicingScheduler
 
 
@@ -218,6 +219,57 @@ def read_jsonl(path: Path) -> list[dict]:
         return [json.loads(line) for line in handle if line.strip()]
 
 
+def sliced_artifact_stem(model_name: str, sparsity: float) -> str:
+    return f"{Path(model_name).name}_{sparsity}"
+
+
+def load_sliced_qwen_model(
+    base_model: str,
+    sliced_model_path: str | Path,
+    sparsity: float,
+    round_interval: int = 128,
+    dtype: torch.dtype = torch.float16,
+    device: str = "cpu",
+):
+    sliced_model_path = Path(sliced_model_path)
+    tokenizer = AutoTokenizer.from_pretrained(sliced_model_path, trust_remote_code=True)
+    model = Qwen2ForCausalLM.from_pretrained(
+        base_model,
+        torch_dtype=dtype,
+        low_cpu_mem_usage=True,
+    )
+    model.config.torch_dtype = dtype
+    adapter = Qwen2ModelAdapter(model)
+    adapter.use_cache = False
+    adapter.post_init(tokenizer)
+    layernorm_fusion.replace_layers(adapter)
+    layernorm_fusion.fuse_modules(adapter)
+
+    hidden_size = adapter.hidden_size
+    for layer_adapter in adapter.get_layers():
+        layer_adapter.layer.mlp_shortcut_Q = torch.nn.Parameter(torch.zeros(hidden_size, hidden_size, dtype=dtype))
+        layer_adapter.layer.attn_shortcut_Q = torch.nn.Parameter(torch.zeros(hidden_size, hidden_size, dtype=dtype))
+
+    stem = sliced_artifact_stem(base_model, sparsity)
+    config_path = sliced_model_path / f"{stem}.json"
+    if config_path.exists():
+        adapter.slicing_conf = SlicingConfig.from_json_string(config_path.read_text(encoding="utf-8"))
+    else:
+        new_embedding_dimension = int((1 - sparsity) * hidden_size)
+        new_embedding_dimension -= new_embedding_dimension % round_interval
+        slicing_conf = SlicingConfig()
+        slicing_conf.const_dimension = new_embedding_dimension
+        adapter.slicing_conf = slicing_conf
+
+    rotate.slice_rotated_model(adapter)
+    state_path = sliced_model_path / f"{stem}.pt"
+    model.load_state_dict(torch.load(state_path, map_location="cpu"))
+    target_device = torch.device(device if torch.cuda.is_available() and device.startswith("cuda") else "cpu")
+    model.to(target_device)
+    model.eval()
+    return model, tokenizer
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="Qwen/Qwen2.5-Coder-3B-Instruct")
@@ -234,6 +286,7 @@ def main() -> int:
     parser.add_argument("--round-interval", type=int, default=128)
     parser.add_argument("--final-orientation", choices=["random", "pca"], default="random")
     parser.add_argument("--save-sliced-state", action="store_true")
+    parser.add_argument("--save-hf-files", action="store_true", help="Save tokenizer/config files next to the official SliceGPT state/config artifacts.")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
@@ -317,14 +370,20 @@ def main() -> int:
     rotate.rotate_and_slice(model_adapter, train_loader, scheduler, final_orientation=args.final_orientation)
     params_after = count_params(model)
 
+    sliced_model_dir = args.out_dir / "sliced_model"
     sliced_state_path = None
     sliced_config_path = None
     if args.save_sliced_state:
-        sliced_state_path = args.out_dir / "sliced_model_state.pt"
-        sliced_config_path = args.out_dir / "slicing_config.json"
+        sliced_model_dir.mkdir(parents=True, exist_ok=True)
+        stem = sliced_artifact_stem(args.model, args.sparsity)
+        sliced_state_path = sliced_model_dir / f"{stem}.pt"
+        sliced_config_path = sliced_model_dir / f"{stem}.json"
         torch.save(model.state_dict(), sliced_state_path)
         if model_adapter.slicing_conf is not None:
             sliced_config_path.write_text(model_adapter.slicing_conf.to_json_string(), encoding="utf-8")
+        if args.save_hf_files:
+            tokenizer.save_pretrained(sliced_model_dir)
+            model.config.save_pretrained(sliced_model_dir)
 
     summary.update(
         {
@@ -334,6 +393,8 @@ def main() -> int:
             "parameter_reduction_rate": 1 - params_after / params_before,
             "sliced_state_path": str(sliced_state_path) if sliced_state_path else None,
             "slicing_config_path": str(sliced_config_path) if sliced_config_path else None,
+            "sliced_model": str(sliced_model_dir) if sliced_state_path else None,
+            "sliced_model_loader": "scripts.adapt.slicegpt_qwen_official.load_sliced_qwen_model",
             "process_rss_mb_after": proc.memory_info().rss / 1024**2,
             "elapsed_seconds": time.time() - started,
             "torch": torch.__version__,
