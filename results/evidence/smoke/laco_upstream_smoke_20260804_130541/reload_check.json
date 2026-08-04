@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "forward_before_shape": [
+    2,
+    8,
+    256
+  ],
+  "forward_after_shape": [
+    2,
+    8,
+    256
+  ],
+  "reload_semantics": "state not serialized in repo; smoke verifies forward after layer collapse"
+}

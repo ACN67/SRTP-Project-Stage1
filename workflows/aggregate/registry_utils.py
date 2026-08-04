@@ -69,7 +69,7 @@ def write_or_check(path: Path, text: str, write: bool, check: bool) -> bool:
 
 def infer_method(run_id: str) -> str:
     low=run_id.lower(); found=[]
-    for token,name in [('flab','Flab-Pruner'),('llmpruner','LLM-Pruner'),('llm_pruner','LLM-Pruner'),('slicegpt','SliceGPT'),('magnitude','Magnitude'),('wanda','Wanda'),('dsnot','DSnoT'),('owl','OWL'),('sparsegpt','SparseGPT'),('maskllm','MaskLLM'),('prunerzero','Pruner-Zero'),('pruner_zero','Pruner-Zero'),('flap','FLAP')]:
+    for token,name in [('flab','Flab-Pruner'),('llmpruner','LLM-Pruner'),('llm_pruner','LLM-Pruner'),('slicegpt','SliceGPT'),('laco','LaCo'),('magnitude','Magnitude'),('wanda','Wanda'),('dsnot','DSnoT'),('owl','OWL'),('sparsegpt','SparseGPT'),('maskllm','MaskLLM'),('prunerzero','Pruner-Zero'),('pruner_zero','Pruner-Zero'),('flap','FLAP')]:
         if token in low and name not in found: found.append(name)
     if 'pilot_keep80_official_all' in low: return 'Flab-Pruner;LLM-Pruner;SliceGPT'
     if low.startswith('qwen') or 'baseline' in low or 'codellama7b_4bit' in low: return 'baseline'
@@ -80,6 +80,7 @@ def infer_model(run_id: str) -> str:
     if 'qwen25c15b' in low or 'qwen15b' in low: return 'Qwen/Qwen2.5-Coder-1.5B-Instruct'
     if 'qwen25c3b' in low or 'qwen3b' in low: return 'Qwen/Qwen2.5-Coder-3B-Instruct'
     if 'codellama' in low: return 'codellama/CodeLlama-7b-hf'
+    if 'laco_upstream_smoke' in low: return 'tiny-random-LlamaForCausalLM'
     if 'tiny_llama' in low or 'tinyllama' in low: return 'TinyLlama/TinyLlama-1.1B'
     if 'opt125m' in low: return 'facebook/opt-125m'
     return 'unknown'
@@ -115,7 +116,10 @@ def build_run_rows() -> list[dict[str,str]]:
         comp='pilot' if rid=='pilot_keep80_official_all_20260727_174732' else ('not_applicable' if cat in {'diagnostics','infrastructure','superseded'} and not list(d.rglob('score_summary.json')) else 'complete')
         if 'partial' in low or rid in {'slicegpt_codellama7b_r4_benchguided_evalhalf_20260726_053225','slicegpt_codellama7b_r4_offload_probe_20260726_044311'}: comp='partial'
         val='invalid' if cat=='superseded' else ('diagnostic_only' if cat in {'diagnostics','infrastructure'} else 'valid')
-        if summary.get('status') == 'blocked':
+        if rid.startswith('laco_upstream_smoke_'):
+            comp='complete'
+            val='diagnostic_only'
+        elif summary.get('status') == 'blocked':
             comp='not_applicable'
             val='diagnostic_only'
         elif 'attempt' in low and not list(d.rglob('score_summary.json')):
@@ -126,6 +130,10 @@ def build_run_rows() -> list[dict[str,str]]:
         method=infer_method(rid)
         execution='superseded' if cat=='superseded' else ('blocked' if summary.get('status') == 'blocked' else ('partial' if comp=='partial' else 'completed'))
         notes='5-task pilot excluded from formal table' if comp=='pilot' else summary.get('blocker_reason','')
+        if rid.startswith('laco_upstream_notebook_probe_attempt_'):
+            notes='file_presence_probe; does_not_close_method=true'
+        if rid.startswith('flab_qwen15b_benchmark_activation_he_keep80_attempt_'):
+            notes='benchmark activation entered plain HF model path; vendored prune API requires config/stage and no verified external per-channel mask schema'
         rows.append({'run_id':rid,'category':cat,'method_scope':method,'model':infer_model(rid),'protocol':proto,'variant':infer_variant(d,rid),'round':'R4' if cat=='r4_half' else ('smoke' if cat=='smoke' else 'audit'),'execution_status':execution,'validity_status':val,'quality_gate':'fail' if method in {'Flab-Pruner','LLM-Pruner','SliceGPT'} and cat=='r4_half' else ('not_applicable' if val!='valid' else 'pass'),'officiality':'fallback_non_official' if 'codellama' in low and 'llmpruner' in low else ('experimental_extension' if 'benchguided' in low or 'benchmark_activation' in low else 'local_official_adapter'),'result_completeness':comp,'evidence_path':d.relative_to(ROOT).as_posix(),'metadata_present':str(any(d.glob('metadata.*'))).lower(),'summary_present':str(bool(list(d.rglob('score_summary.json')) or (d/'summary.json').exists())).lower(),'superseded_by':sup,'notes':notes})
     return rows
 
@@ -198,7 +206,16 @@ def build_method_rows(run_rows: list[dict[str,str]]|None=None, score_rows: list[
         valid_complete=[r for r in runs if r['execution_status']=='completed' and r['validity_status']=='valid' and r['result_completeness']=='complete']
         partial=[r for r in runs if r['result_completeness']=='partial' or r['execution_status']=='partial']
         blocked=[r for r in runs if r['validity_status']=='diagnostic_only' or r['execution_status']=='blocked' or 'blocked' in row['adapter_status']]
-        if valid_complete:
+        if row['method']=='LaCo' and any(r['run_id'].startswith('laco_upstream_smoke_') for r in runs):
+            row['adapter_status']='core_smoke'
+            row['smoke_status']='completed'
+            row['r4_status']='blocked'
+            row['execution_status']='partial'
+            row['validity_status']='diagnostic_only'
+            row['officiality']='not_run'
+            row['evidence_status']='partial'
+            row['notes']='Tiny LLaMA-compatible core smoke executed; formal CodeLlama R4 remains not run.'
+        elif valid_complete:
             row['execution_status']='completed'
             row['evidence_status']='complete'
             row['validity_status']='valid' if row['quality_gate']=='pass' else row['validity_status']

@@ -1,0 +1,25 @@
+{
+  "status": "blocked",
+  "run_id": "flab_prune_api_audit_20260804_130541",
+  "method": "Flab-Pruner",
+  "blocker_code": "vendored_config_only_no_external_mask_schema",
+  "blocker_reason": "Vendored Qwen2 prune API accepts config/stage target dimensions; no verified external per-channel zs mask interface was found.",
+  "prune_api": {
+    "status": "blocked",
+    "method": "Flab-Pruner",
+    "run_id": "flab_prune_api_audit_20260804_130541",
+    "prune_signature": "(self, config, stage)",
+    "supports_config": true,
+    "supports_zs": false,
+    "supports_external_zs": false,
+    "mask_keys": [
+      "head_z",
+      "hidden_z",
+      "intermediate_z",
+      "zs"
+    ],
+    "stage_parameter": true,
+    "blocker_code": "vendored_config_only_no_external_mask_schema",
+    "summary": "Vendored Qwen2 prune API accepts config/stage target dimensions; no verified external per-channel zs mask interface was found."
+  }
+}

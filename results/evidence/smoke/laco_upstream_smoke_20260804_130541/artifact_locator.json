@@ -1,0 +1,4 @@
+{
+  "artifact_policy": "no weights committed",
+  "artifact_root": "$SRTP_ARTIFACT_ROOT"
+}

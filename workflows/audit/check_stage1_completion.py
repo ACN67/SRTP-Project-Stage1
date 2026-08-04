@@ -29,7 +29,16 @@ def main(argv=None):
     methods=read('methods.csv'); runs=read('runs.csv'); scores=read('scores.csv')
     repository_integrity=len(methods)==12 and len(runs)>=77 and bool(scores)
     out=assess_completion(methods, repository_integrity)
+    keshu_status = ROOT/'results/status/keshu_completion.json'
+    if keshu_status.exists():
+        scoped = json.loads(keshu_status.read_text(encoding='utf-8'))
+        reason = scoped.get('global_stage', {}).get('reason', 'Owner-scoped completion does not close the global Stage 1 run.')
+        out['stage1_execution_closed'] = False
+        out['stage1_complete'] = False
+        out['owner_scoped_override'] = reason
+        if reason not in out['missing_requirements']:
+            out['missing_requirements'].append(reason)
     if args.write:
-        (ROOT/'results/status/completion_audit.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+chr(10),encoding='utf-8')
-    print(json.dumps(out,ensure_ascii=False,indent=2)); return 0 if repository_integrity else 1
+        (ROOT/'results/status/completion_audit.json').write_text(json.dumps(out,ensure_ascii=True,indent=2)+chr(10),encoding='utf-8')
+    print(json.dumps(out,ensure_ascii=True,indent=2)); return 0 if repository_integrity else 1
 if __name__=='__main__': raise SystemExit(main(sys.argv[1:]))

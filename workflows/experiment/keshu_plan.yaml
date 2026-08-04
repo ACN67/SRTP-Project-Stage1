@@ -1,0 +1,84 @@
+name: keshu_stage1_completion_plan
+active_plan: owner_scoped
+jobs:
+- id: flab_prune_api_audit
+  owner: keshu
+  method: Flab-Pruner
+  round: keshu_completion
+  evidence_category: diagnostics
+  protocol: prune_api_audit
+  variant: vendored_qwen2_api
+  heavy: false
+  enabled: true
+  dependencies: []
+  command: python workflows/audit/check_keshu_completion.py --write
+  expected_outputs:
+  - results/evidence/diagnostics/flab_prune_api_audit_20260804_130541/prune_api.json
+  success_validator: prune_api_json_has_config_only_signature
+  retry_policy: fix_once_then_block
+  timeout_seconds: 300
+- id: flab_benchmark_activation_tiny_smoke
+  owner: keshu
+  method: Flab-Pruner
+  round: keshu_completion
+  evidence_category: smoke
+  protocol: benchmark_activation_api_smoke
+  variant: tiny_vendored_config_only
+  heavy: false
+  enabled: true
+  dependencies:
+  - flab_prune_api_audit
+  command: python workflows/experiment/run_keshu_plan.py --job flab_benchmark_activation_tiny_smoke
+  expected_outputs:
+  - results/evidence/smoke/flab_benchmark_activation_tiny_smoke_20260804_130541/summary.json
+  success_validator: summary_status_success_or_blocked_with_vendored_schema
+  retry_policy: one_standard_plus_one_fallback
+  timeout_seconds: 600
+- id: llmpruner_primary_evidence_audit
+  owner: keshu
+  method: LLM-Pruner
+  round: keshu_completion
+  evidence_category: diagnostics
+  protocol: evidence_audit
+  variant: qwen_primary_and_codellama_fallback
+  heavy: false
+  enabled: true
+  dependencies: []
+  command: python workflows/experiment/run_keshu_plan.py --job llmpruner_primary_evidence_audit
+  expected_outputs:
+  - results/evidence/diagnostics/llmpruner_primary_evidence_audit_20260804_130541/summary.json
+  success_validator: primary_scores_and_fallback_labels_present
+  retry_policy: no_heavy_rerun
+  timeout_seconds: 300
+- id: slicegpt_primary_evidence_audit
+  owner: keshu
+  method: SliceGPT
+  round: keshu_completion
+  evidence_category: diagnostics
+  protocol: evidence_audit
+  variant: qwen_primary_legacy_codellama_partial
+  heavy: false
+  enabled: true
+  dependencies: []
+  command: python workflows/experiment/run_keshu_plan.py --job slicegpt_primary_evidence_audit
+  expected_outputs:
+  - results/evidence/diagnostics/slicegpt_primary_evidence_audit_20260804_130541/summary.json
+  success_validator: qwen_primary_complete_legacy_partial
+  retry_policy: no_heavy_rerun
+  timeout_seconds: 300
+- id: laco_core_smoke
+  owner: keshu
+  method: LaCo
+  round: keshu_completion
+  evidence_category: smoke
+  protocol: tiny_llama_core_smoke
+  variant: adjacent_layer_similarity_collapse
+  heavy: false
+  enabled: true
+  dependencies: []
+  command: python workflows/experiment/run_keshu_plan.py --job laco_core_smoke
+  expected_outputs:
+  - results/evidence/smoke/laco_upstream_smoke_20260804_130541/summary.json
+  success_validator: entered_core_algorithm_and_layers_after_less_than_before
+  retry_policy: one_standard_plus_one_fallback
+  timeout_seconds: 600

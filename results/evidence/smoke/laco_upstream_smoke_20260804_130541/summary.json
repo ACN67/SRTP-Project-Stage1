@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "entered_core_algorithm": true,
+  "algorithm": "adjacent_layer_similarity_then_collapse",
+  "layers_before": 4,
+  "layers_after": 3,
+  "selected_pair": {
+    "left": 0,
+    "right": 1,
+    "similarity": 0.006198082584887743
+  },
+  "forward_after_shape": [
+    2,
+    8,
+    256
+  ],
+  "run_id": "laco_upstream_smoke_20260804_130541",
+  "method": "LaCo",
+  "protocol": "tiny_llama_core_smoke",
+  "variant": "adjacent_layer_similarity_collapse"
+}

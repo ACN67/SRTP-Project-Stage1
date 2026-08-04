@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "run_id": "llmpruner_primary_evidence_audit_20260804_130541",
+  "method": "LLM-Pruner",
+  "primary_run": "llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340",
+  "primary_scores": {
+    "humaneval": "82",
+    "livecodebench": "200",
+    "mbpp": "224"
+  },
+  "fallback_run": "llmpruner_codellama7b_r4_layerdrop_keep80_full_20260725_182022",
+  "fallback_officiality": "fallback_non_official",
+  "quality_gate": "fail",
+  "rerun_policy": "not rerun; existing formal evidence audited"
+}

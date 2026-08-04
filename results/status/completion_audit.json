@@ -1,6 +1,6 @@
 {
   "repository_integrity": true,
-  "stage1_execution_closed": true,
+  "stage1_execution_closed": false,
   "stage1_all_methods_successful": false,
   "stage1_complete": false,
   "methods": {
@@ -20,7 +20,7 @@
       "quality_gate": "fail"
     },
     "LaCo": {
-      "execution_status": "blocked",
+      "execution_status": "partial",
       "validity_status": "diagnostic_only",
       "quality_gate": "not_applicable"
     },
@@ -79,11 +79,11 @@
     "SliceGPT"
   ],
   "partial": [
+    "LaCo",
     "Magnitude",
     "Wanda"
   ],
   "blocked_with_evidence": [
-    "LaCo",
     "DSnoT",
     "OWL",
     "SparseGPT",
@@ -98,12 +98,12 @@
     "SliceGPT"
   ],
   "partial_methods": [
+    "LaCo",
     "Magnitude",
     "Wanda"
   ],
   "pending_methods": [],
   "blocked_methods": [
-    "LaCo",
     "DSnoT",
     "OWL",
     "SparseGPT",
@@ -113,6 +113,8 @@
   ],
   "missing_requirements": [
     "blocked methods remain unresolved but have evidence",
-    "partial methods remain incomplete but have evidence"
-  ]
+    "partial methods remain incomplete but have evidence",
+    "Only the methods owned by Keshu were processed in this run."
+  ],
+  "owner_scoped_override": "Only the methods owned by Keshu were processed in this run."
 }

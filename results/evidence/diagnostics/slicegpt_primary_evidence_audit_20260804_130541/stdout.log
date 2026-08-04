@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "run_id": "slicegpt_primary_evidence_audit_20260804_130541",
+  "method": "SliceGPT",
+  "primary_run": "slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001",
+  "primary_scores": {
+    "humaneval": "82",
+    "livecodebench": "200",
+    "mbpp": "224"
+  },
+  "legacy_partial_run": "slicegpt_codellama7b_r4_benchguided_evalhalf_20260726_053225",
+  "legacy_partial": {
+    "humaneval": 82,
+    "mbpp": 82,
+    "livecodebench": "missing"
+  },
+  "quality_gate": "fail",
+  "rerun_policy": "not rerun; existing Qwen primary evidence audited"
+}

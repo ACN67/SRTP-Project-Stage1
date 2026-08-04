@@ -1,0 +1,110 @@
+{
+  "owner": "\u5e38\u73c2\u8212",
+  "owner_execution_closed": true,
+  "methods": {
+    "Flab-Pruner": {
+      "structural_primary": true,
+      "activation_smoke": false,
+      "activation_blocker": "vendored_config_only_no_external_mask_schema",
+      "registry": {
+        "method": "Flab-Pruner",
+        "owner": "\u5e38\u73c2\u8212",
+        "family": "structured",
+        "primary_model": "Qwen2.5-Coder",
+        "upstream_status": "vendored_submodule",
+        "adapter_status": "qwen_adapter",
+        "smoke_status": "completed",
+        "r4_status": "completed",
+        "recovery_status": "completed",
+        "execution_status": "completed",
+        "validity_status": "under_review",
+        "quality_gate": "fail",
+        "officiality": "experimental_extension",
+        "evidence_status": "complete",
+        "primary_code": "methods/flab_pruner/qwen_prune.py",
+        "readme": "methods/flab_pruner/README.md",
+        "notes": "Official structural mode and benchmark activation experimental mode are separated."
+      }
+    },
+    "LLM-Pruner": {
+      "primary_audit": true,
+      "primary_run": true,
+      "registry": {
+        "method": "LLM-Pruner",
+        "owner": "\u5e38\u73c2\u8212",
+        "family": "structured",
+        "primary_model": "Qwen2.5-Coder / CodeLlama",
+        "upstream_status": "vendored_submodule",
+        "adapter_status": "qwen_adapter",
+        "smoke_status": "completed",
+        "r4_status": "completed",
+        "recovery_status": "completed",
+        "execution_status": "completed",
+        "validity_status": "under_review",
+        "quality_gate": "fail",
+        "officiality": "local_official_adapter",
+        "evidence_status": "complete",
+        "primary_code": "methods/llm_pruner/qwen_prune.py",
+        "readme": "methods/llm_pruner/README.md",
+        "notes": "Local adapter evidence is complete; CodeLlama route is fallback."
+      }
+    },
+    "SliceGPT": {
+      "primary_audit": true,
+      "primary_run": true,
+      "registry": {
+        "method": "SliceGPT",
+        "owner": "\u5e38\u73c2\u8212",
+        "family": "structured",
+        "primary_model": "Qwen2.5-Coder / CodeLlama",
+        "upstream_status": "vendored_submodule",
+        "adapter_status": "qwen_adapter",
+        "smoke_status": "completed",
+        "r4_status": "completed",
+        "recovery_status": "completed",
+        "execution_status": "completed",
+        "validity_status": "under_review",
+        "quality_gate": "fail",
+        "officiality": "local_official_adapter",
+        "evidence_status": "complete",
+        "primary_code": "methods/slicegpt/qwen_prune.py",
+        "readme": "methods/slicegpt/README.md",
+        "notes": "Partial benchmark evidence keeps actual task counts."
+      }
+    },
+    "LaCo": {
+      "laco_core_smoke": true,
+      "laco_core_blocker": false,
+      "laco_file_probe_only": false,
+      "registry": {
+        "method": "LaCo",
+        "owner": "\u5e38\u73c2\u8212",
+        "family": "layer collapse",
+        "primary_model": "CodeLlama candidate",
+        "upstream_status": "vendored_submodule",
+        "adapter_status": "core_smoke",
+        "smoke_status": "completed",
+        "r4_status": "blocked",
+        "recovery_status": "not_applicable",
+        "execution_status": "partial",
+        "validity_status": "diagnostic_only",
+        "quality_gate": "not_applicable",
+        "officiality": "not_run",
+        "evidence_status": "partial",
+        "primary_code": "",
+        "readme": "methods/laco/README.md",
+        "notes": "Tiny LLaMA-compatible core smoke executed; formal CodeLlama R4 remains not run."
+      }
+    }
+  },
+  "closed_checks": {
+    "Flab-Pruner": true,
+    "LLM-Pruner": true,
+    "SliceGPT": true,
+    "LaCo": true
+  },
+  "global_stage": {
+    "stage1_execution_closed": false,
+    "reason": "Only the methods owned by Keshu were processed in this run."
+  }
+}

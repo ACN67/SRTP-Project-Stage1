@@ -19,13 +19,13 @@ Pruning can preserve structural validity while damaging generation quality. R4-h
 LoRA recovery and merged artifacts are retained where evidence exists. Merge success is not treated as benchmark success unless corresponding score rows pass the formal filters.
 
 ## Flab first break
-Flab-Pruner evidence separates the local official structural adapter from the benchmark-activation experimental extension. The failure pattern is output-quality collapse after structured pruning and attempted recovery, not repository execution failure.
+Flab-Pruner evidence separates the local official structural adapter from the benchmark-activation experimental extension. The benchmark-activation branch now reaches a vendored API audit, but stops at a structural blocker: `prune(config, stage)` does not expose a verified external per-channel mask schema for activation masks. The structural route still shows output-quality collapse after pruning and attempted recovery.
 
 ## LLM-Pruner first break
 LLM-Pruner evidence separates fallback CodeLlama routes from the local Qwen adapter. Failures are represented in `results/status/scores.csv` and remain visible in formal R4-half filtering.
 
 ## SliceGPT first break
-SliceGPT formal evidence includes partial benchmark completion and sliced-model constraints. The `benchmark_guided_sliced_model` variant is retained to avoid mixing it with dense or LoRA variants.
+SliceGPT Qwen primary evidence is complete for the owner-scoped registry. The legacy CodeLlama route remains partial and is retained with exact task counts to avoid mixing it with dense, LoRA, or Qwen primary variants.
 
 ## Auxiliary aggregate limitation
 Magnitude, Wanda, DSnoT, and OWL auxiliary results are aggregate-only. They are useful for tracking process outcomes, but they are not raw R4-half evidence and must not be presented as comparable formal scores.
@@ -41,3 +41,6 @@ The repository can support the next execution phase, but `results/status/complet
 
 ## Final-completion pass
 The final-completion pass added bounded evidence attempts for Flab benchmark activation, Magnitude, Wanda, SparseGPT, LaCo, DSnoT, OWL, MaskLLM, Pruner-Zero, FLAP, and SWE-bench-lite. These attempts close the planned-state gap without changing the older evidence. Flab activation now uses real forward hooks in code, but the Qwen1.5B activation run is blocked by local model/environment availability. Magnitude and Wanda have raw command evidence, but no new raw R4 score summaries; their historical aggregate-only rows remain separate from formal R4 results. SparseGPT and the coverage methods have probe/blocker evidence rather than completed formal code-model results.
+
+## LaCo first executable break
+The old LaCo notebook file probe is insufficient as execution evidence. `methods/laco/run_smoke.py` now proves the minimal adjacent-layer similarity and collapse core on a tiny LLaMA-compatible model, but no formal CodeLlama R4 score exists.

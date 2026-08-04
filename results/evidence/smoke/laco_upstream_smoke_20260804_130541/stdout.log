@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "entered_core_algorithm": true,
+  "algorithm": "adjacent_layer_similarity_then_collapse",
+  "layers_before": 4,
+  "layers_after": 3,
+  "selected_pair": {
+    "left": 0,
+    "right": 1,
+    "similarity": 0.006198082584887743
+  },
+  "forward_after_shape": [
+    2,
+    8,
+    256
+  ]
+}

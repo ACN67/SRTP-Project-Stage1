@@ -23,3 +23,12 @@ Aggregate-only evidence is retained for comparison but does not imply raw eviden
 
 ## experimental importance
 Flab benchmark activation experimental importance is not upstream official behavior; structural mode remains the local official adapter route.
+
+## owner-scoped completion
+The Keshu-owned closure file `results/status/keshu_completion.json` closes only Flab-Pruner, LLM-Pruner, SliceGPT, and LaCo checks. It intentionally does not set global Stage-1 execution closed.
+
+## Flab external masks
+The benchmark-activation mask path is experimental and blocked because the vendored Qwen prune API accepts config/stage targets rather than a verified external per-channel mask schema.
+
+## LaCo smoke boundary
+The LaCo tiny core smoke demonstrates layer similarity scoring and collapse mechanics only. It is diagnostic evidence and not formal CodeLlama R4 evidence.

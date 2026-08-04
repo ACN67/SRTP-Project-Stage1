@@ -1,0 +1,12 @@
+{
+  "status": "blocked",
+  "run_id": "flab_benchmark_activation_tiny_smoke_20260804_130541",
+  "method": "Flab-Pruner",
+  "entered_activation_path": true,
+  "activation_source": "real vendored-model path required",
+  "blocker_code": "vendored_config_only_no_external_mask_schema",
+  "blocker_reason": "vendored Flab Qwen2 prune API accepts config/stage target dimensions but does not expose a verified external per-channel mask schema for benchmark_activation",
+  "qwen15b_smoke": "not_run_due_to_config_only_prune_api",
+  "twenty_task_quality_gate": "not_run_due_to_config_only_prune_api",
+  "formal_guided_variants": "not_run_due_to_config_only_prune_api"
+}

@@ -1,0 +1,101 @@
+{
+  "upstream_path": "third_party/laco/laco_llama-13b.ipynb",
+  "upstream_commit": "84835877f918dc972df1a1375e09209551e02f3d",
+  "notebook_exists": true,
+  "cell_order": [
+    {
+      "index": 0,
+      "cell_type": "code",
+      "tags": [
+        "imports",
+        "model"
+      ],
+      "chars": 128
+    },
+    {
+      "index": 1,
+      "cell_type": "code",
+      "tags": [
+        "model",
+        "saving"
+      ],
+      "chars": 117
+    },
+    {
+      "index": 2,
+      "cell_type": "code",
+      "tags": [
+        "model",
+        "saving"
+      ],
+      "chars": 81
+    },
+    {
+      "index": 3,
+      "cell_type": "code",
+      "tags": [
+        "merge_or_collapse"
+      ],
+      "chars": 78
+    },
+    {
+      "index": 4,
+      "cell_type": "code",
+      "tags": [
+        "imports",
+        "model",
+        "merge_or_collapse"
+      ],
+      "chars": 2246
+    },
+    {
+      "index": 5,
+      "cell_type": "code",
+      "tags": [
+        "imports",
+        "model"
+      ],
+      "chars": 65
+    },
+    {
+      "index": 6,
+      "cell_type": "code",
+      "tags": [
+        "imports",
+        "model",
+        "scoring"
+      ],
+      "chars": 781
+    },
+    {
+      "index": 7,
+      "cell_type": "code",
+      "tags": [
+        "model",
+        "merge_or_collapse"
+      ],
+      "chars": 1386
+    },
+    {
+      "index": 8,
+      "cell_type": "code",
+      "tags": [
+        "model",
+        "merge_or_collapse"
+      ],
+      "chars": 125
+    }
+  ],
+  "dependencies": [
+    "torch",
+    "transformers"
+  ],
+  "model_class": "unknown",
+  "hardcoded_model_name": "unknown",
+  "data_needs": "unknown",
+  "scoring": "adjacent layer similarity",
+  "merge_or_collapse": "layer merge/collapse over transformer blocks",
+  "saving": "unknown",
+  "evaluation": "unknown",
+  "minimal_executable_unit": "methods/laco/run_smoke.py"
+}

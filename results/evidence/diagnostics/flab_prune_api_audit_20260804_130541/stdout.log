@@ -1,0 +1,124 @@
+== search def prune ==
+third_party/flab_pruner/ffn_prune.py:6:def prune(model_name, method):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:103:def prune_linear_by_index(module: nn.Linear, row_index=None, column_index=None):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:132:    def prune(self, hidden_index):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:269:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:432:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:513:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:813:    def prune(self, zs):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:1033:    def prune(self, config, stage):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:114:def prune_linear_by_index(module: nn.Linear, row_index=None, column_index=None):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:169:    def prune(self, hidden_index):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:261:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:402:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:714:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:818:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:920:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1260:    def prune(self, zs):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1513:    def prune(self, config, stage):
+third_party/flab_pruner/hidden_prune_utils/prune_qwen2.py:6:def prune(model_name, method):
+third_party/flab_pruner/pruning_layer/short_transformer.py:150:    def prune(model, layer_map, start_layer: int, block_size: int):
+third_party/flab_pruner/pruning_layer/short_transformer.py:193:    def prune_then_merge(model, layer_map, start_layer: int):
+== search prune( ==
+third_party/flab_pruner/ffn_prune.py:6:def prune(model_name, method):
+third_party/flab_pruner/ffn_prune.py:21:    llama_model.prune(config=llama_config, stage=method)
+third_party/flab_pruner/ffn_prune.py:35:    prune('./save_models/AutoCoder_QW_7B_vocab_layer4', 'top')
+third_party/flab_pruner/greedy_prune.py:17:def greedy_prune(model_name = "Nxcode-CQ-7B-orpo", n_layer=1):
+third_party/flab_pruner/greedy_prune.py:41:    short_model = model.prune(layer_map, start_layer, 1)
+third_party/flab_pruner/greedy_prune.py:54:        short_model = model.prune(layer_map, start_layer, 1)
+third_party/flab_pruner/greedy_prune.py:59:    model, tokenizer = greedy_prune(model_name="./save_models/AutoCoder_QW_7B_vocab", n_layer=4)
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:132:    def prune(self, hidden_index):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:269:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:432:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:513:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:516:        self.input_layernorm.prune(hidden_index)
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:517:        self.post_attention_layernorm.prune(hidden_index)
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:518:        self.mlp.prune(zs, layer_num=layer_num)
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:519:        self.self_attn.prune(zs, layer_num=layer_num)
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:813:    def prune(self, zs):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:822:        self.norm.prune(hidden_index)
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:826:            layer.prune(zs, i)
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:1033:    def prune(self, config, stage):
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:1036:        self.model.prune(self.zs)
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:169:    def prune(self, hidden_index):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:261:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:402:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:714:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:818:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:920:    def prune(self, zs, layer_num):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:923:        self.input_layernorm.prune(hidden_index)
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:924:        self.post_attention_layernorm.prune(hidden_index)
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:925:        self.mlp.prune(zs, layer_num=layer_num)
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:926:        self.self_attn.prune(zs, layer_num=layer_num)
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1260:    def prune(self, zs):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1269:        self.norm.prune(hidden_index)
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1273:            layer.prune(zs, i)
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1513:    def prune(self, config, stage):
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1516:        self.model.prune(self.zs)
+third_party/flab_pruner/hidden_prune_utils/prune_llama.py:18:llama_model.prune(config=llama_config, stage='top')
+third_party/flab_pruner/hidden_prune_utils/prune_qwen2.py:6:def prune(model_name, method):
+third_party/flab_pruner/hidden_prune_utils/prune_qwen2.py:21:    llama_model.prune(config=llama_config, stage=method)
+third_party/flab_pruner/hidden_prune_utils/prune_qwen2.py:39:    #         prune(model, method)
+third_party/flab_pruner/hidden_prune_utils/prune_qwen2.py:40:    # prune('CodeQwen1.5-7B-Chat_vocab_pruned', 'top')
+third_party/flab_pruner/hidden_prune_utils/prune_qwen2.py:41:    prune('Nxcode-CQ-7B-orpo_vocab_pruned', 'top')
+third_party/flab_pruner/pruning_layer/greedy_pruning.py:10:def greedy_prune(model_name = "Nxcode-CQ-7B-orpo", n_layer=1, optim=''):
+third_party/flab_pruner/pruning_layer/greedy_pruning.py:34:    # short_model = model.prune(layer_map, start_layer, 1)
+third_party/flab_pruner/pruning_layer/greedy_pruning.py:58:        short_model = model.prune(layer_map, start_layer, 1)
+third_party/flab_pruner/pruning_layer/greedy_pruning.py:73:    model, tokenizer = greedy_prune(model_name='./save_models/CodeQwen1.5-7B-Chat-vocab', n_layer=8, optim=optim)
+third_party/flab_pruner/pruning_layer/short_transformer.py:150:    def prune(model, layer_map, start_layer: int, block_size: int):
+third_party/flab_pruner/pruning_layer/short_transformer.py:237:        return model.prune(start_layer=start_layer, block_size=block_size)
+third_party/flab_pruner/vocab_prune.py:20:def vocab_prune(dataset_files, raw_model_path, save_vocab=False, save_path=None):
+third_party/flab_pruner/vocab_prune.py:122:    vocab_prune(dataset_files=['./dataset/Instruct_Dataset.csv'],
+== search zs[ ==
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:270:        hidden_index = zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:271:        intermediate_index = zs["intermediate_indexes"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:434:        hidden_index = zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:435:        head_index = zs["head_indexes"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:436:        head_mask = zs["head_masks"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:514:        hidden_index = zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:814:        hidden_index = zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:1004:        zs["hidden_mask"] = hidden_mask
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:1008:        zs["hidden_index"] = hidden_index
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:1025:        zs["head_masks"] = head_masks
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:1026:        zs["intermediate_masks"] = intermediate_masks
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:1028:        zs["head_indexes"] = head_indexes
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:1029:        zs["intermediate_indexes"] = intermediate_indexes
+third_party/flab_pruner/hidden_prune_utils/modeling_llama.py:1037:        hidden_index = self.zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:262:        hidden_index = zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:263:        intermediate_index = zs["intermediate_indexes"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:404:        hidden_index = zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:405:        head_index = zs["head_indexes"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:406:        head_mask = zs["head_masks"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:716:        hidden_index = zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:717:        head_index = zs["head_indexes"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:718:        head_mask = zs["head_masks"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:820:        hidden_index = zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:821:        head_index = zs["head_indexes"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:822:        head_mask = zs["head_masks"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:823:        kv_head_mask = zs["kv_head_masks"][layer_num - 1]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:921:        hidden_index = zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1261:        hidden_index = zs["hidden_index"]
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1476:        zs["hidden_mask"] = hidden_mask
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1480:        zs["hidden_index"] = hidden_index
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1503:        zs["head_masks"] = head_masks
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1504:        zs["kv_head_masks"] = kv_head_masks
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1505:        zs["intermediate_masks"] = intermediate_masks
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1507:        zs["head_indexes"] = head_indexes
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1508:        zs["kv_head_indexes"] = kv_head_indexes
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1509:        zs["intermediate_indexes"] = intermediate_indexes
+third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1517:        hidden_index = self.zs["hidden_index"]
+== search zs.get ==
+== search hidden_z ==
+== search head_z ==
+== search intermediate_z ==
+== inspect ==
+(self, config, stage)
+    def prune(self, config, stage):
+        device = self.device
+        self.zs = self.init_prune_zs(config, stage)
+        self.model.prune(self.zs)
+        hidden_index = self.zs["hidden_index"]
+        new_module = nn.Linear(hidden_index.shape[0], self.lm_head.out_features, bias=self.lm_head.bias is not None)
+        new_module.weight.data = torch.index_select(self.lm_head.weight.data, -1, hidden_index)
+        self.set_output_embeddings(new_module)
+

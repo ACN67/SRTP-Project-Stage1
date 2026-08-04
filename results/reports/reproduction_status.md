@@ -1,18 +1,18 @@
 # Stage 1 Reproduction Status
 
-This report summarizes the final-completion pass. Detailed machine-readable state is in `results/status/methods.csv`, `results/status/runs.csv`, and `results/status/completion_audit.json`.
+This report summarizes the repository status after the Keshu-owned owner-scoped completion pass. Detailed machine-readable state is in `results/status/methods.csv`, `results/status/runs.csv`, and `results/status/completion_audit.json`.
 
 ## Completed primary routes
-- Flab-Pruner. Owner metadata is in `results/status/methods.csv`. Upstream: vendored Flab-Pruner. Missing work: successful benchmark-activation R4 rerun after local model availability. Structural route has R4 and recovery evidence; benchmark activation implementation is real, but the final Qwen1.5B activation attempt is resource/model-environment blocked in `results/evidence/r4_half/flab_qwen15b_benchmark_activation_he_keep80_attempt_20260804_123140/`.
-- LLM-Pruner. Owner metadata is in `results/status/methods.csv`. Upstream: vendored LLM-Pruner. Missing work: quality recovery. Existing Qwen/CodeLlama formal and recovery evidence retained; quality gate remains failed.
-- SliceGPT. Owner metadata is in `results/status/methods.csv`. Upstream: vendored SliceGPT. Missing work: CodeLlama legacy completion. Qwen1.5B official keep80 route remains the primary completed route; CodeLlama partial evidence is retained separately.
+- Flab-Pruner. Owner metadata is in `results/status/methods.csv`. Structural route has R4 and recovery evidence. Benchmark activation is closed for this owner pass as a code-level blocker because the vendored `prune(config, stage)` API has no verified external per-channel mask schema; see `results/evidence/diagnostics/flab_prune_api_audit_20260804_130541/` and `results/evidence/smoke/flab_benchmark_activation_tiny_smoke_20260804_130541/`.
+- LLM-Pruner. Owner metadata is in `results/status/methods.csv`. Existing Qwen primary evidence is audited in `results/evidence/diagnostics/llmpruner_primary_evidence_audit_20260804_130541/`; CodeLlama layer-drop remains fallback non-official evidence. Quality gate remains failed.
+- SliceGPT. Owner metadata is in `results/status/methods.csv`. Qwen primary evidence is audited in `results/evidence/diagnostics/slicegpt_primary_evidence_audit_20260804_130541/`; CodeLlama legacy partial evidence is retained separately with exact task counts. Quality gate remains failed.
 
 ## Partial routes
 - Magnitude. Owner metadata is in `results/status/methods.csv`. Upstream: Wanda-style magnitude baseline. Missing work: raw R4 score summaries. Historical auxiliary aggregate retained; this pass added raw formal command evidence at `results/evidence/r4_half/magnitude_qwen15b_keep80_raw_formal_attempt_20260804_123140/`, but no raw R4 score was produced.
 - Wanda. Owner metadata is in `results/status/methods.csv`. Upstream: vendored Wanda. Missing work: raw R4 score summaries. Historical auxiliary aggregate retained; this pass added raw guided formal command evidence at `results/evidence/r4_half/wanda_qwen15b_he_keep80_raw_formal_attempt_20260804_123140/`, but no raw R4 score was produced.
 
 ## Blocked with evidence
-- LaCo. Owner metadata is in `results/status/methods.csv`. Upstream: notebook route. Missing work: executable wrapper/formal route. Evidence is recorded in `results/evidence/diagnostics/laco_upstream_notebook_probe_attempt_20260804_123140/`.
+- LaCo. Owner metadata is in `results/status/methods.csv`. The old notebook probe remains diagnostic only. The new tiny LLaMA-compatible core smoke is recorded in `results/evidence/smoke/laco_upstream_smoke_20260804_130541/`; formal CodeLlama R4 remains not run.
 - DSnoT. Owner metadata is in `results/status/methods.csv`. Upstream: vendored DSnoT. Missing work: Qwen raw code-model support. Evidence is recorded in `results/evidence/diagnostics/dsnot_qwen15b_adapter_probe_attempt_20260804_123140/`.
 - OWL. Owner metadata is in `results/status/methods.csv`. Upstream: vendored OWL. Missing work: Qwen raw code-model support. Blocker is recorded in `results/evidence/diagnostics/owl_qwen15b_adapter_probe_attempt_20260804_123140/`.
 - SparseGPT. Owner metadata is in `results/status/methods.csv`. Upstream: vendored SparseGPT. Missing work: code-model formal run. Evidence is recorded in `results/evidence/diagnostics/sparsegpt_qwen15b_adapter_probe_attempt_20260804_123140/`.
@@ -22,3 +22,8 @@ This report summarizes the final-completion pass. Detailed machine-readable stat
 
 ## SWE-bench-lite
 SWE-bench-lite dataset smoke is recorded in `results/evidence/smoke/swebench_lite_dataset_smoke_20260804_123140/`. Formal agent evaluation is deferred because plain-model generation is not comparable with a SWE-agent protocol.
+
+## Keshu-owned closure pass
+Owner: 常珂舒
+
+`results/status/keshu_completion.json` records owner_execution_closed=true for Flab-Pruner, LLM-Pruner, SliceGPT, and LaCo. `results/status/completion_audit.json` keeps stage1_execution_closed=false because this was intentionally owner-scoped.

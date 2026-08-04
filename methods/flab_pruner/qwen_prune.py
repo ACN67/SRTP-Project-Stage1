@@ -276,6 +276,68 @@ def load_hf_model(model_name: str, dtype: str = "bf16", device_map: str | None =
     )
 
 
+def load_flab_qwen_model(model_name: str, config=None, dtype: str = "bf16", device_map: str | None = "auto", local_files_only: bool = False):
+    sys.path.insert(0, str(FLAB_ROOT))
+    import torch
+    from transformers import AutoConfig
+    from hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM
+
+    if config is None:
+        try:
+            config = AutoConfig.from_pretrained(model_name, trust_remote_code=True, local_files_only=local_files_only)
+        except Exception:
+            return load_hf_model(model_name, dtype=dtype, device_map=device_map, local_files_only=local_files_only)
+    ensure_qwen2_compat_config(config)
+    torch_dtype = {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[dtype]
+    return Qwen2ForCausalLM.from_pretrained(model_name, config=config, torch_dtype=torch_dtype, local_files_only=local_files_only, device_map=device_map)
+
+
+def model_prune_api_info(model) -> dict:
+    import inspect
+
+    if not hasattr(model, "prune"):
+        return {"prune_signature": "missing", "supports_config": False, "supports_external_zs": False, "stage_parameter": False, "mask_schema": "missing"}
+    signature = str(inspect.signature(model.prune))
+    return {
+        "prune_signature": signature,
+        "supports_config": "config" in signature,
+        "supports_external_zs": "zs" in signature,
+        "stage_parameter": "stage" in signature,
+        "mask_schema": "external_zs" if "zs" in signature else "config_target_dimensions",
+    }
+
+
+def flab_prune_api_info() -> dict:
+    sys.path.insert(0, str(FLAB_ROOT))
+    import inspect
+    from hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM
+
+    signature = str(inspect.signature(Qwen2ForCausalLM.prune))
+    return {
+        "prune_signature": signature,
+        "supports_config": "config" in signature,
+        "supports_external_zs": "zs" in signature,
+        "stage_parameter": "stage" in signature,
+        "mask_schema": "config_target_dimensions" if "zs" not in signature else "external_zs",
+    }
+
+
+def validate_benchmark_activation_prune_api(api: dict, zs: dict[str, list[int]]) -> dict:
+    if not api.get("supports_external_zs"):
+        return {
+            "status": "blocked",
+            "reason": (
+                "vendored Flab Qwen2 prune API accepts config/stage target dimensions "
+                "but does not expose the per-channel external mask interface required "
+                "by benchmark_activation masks"
+            ),
+            "blocker_code": "unsupported_external_mask_schema",
+            "mask_keys": sorted(zs),
+            "prune_signature": api.get("prune_signature", "unknown"),
+        }
+    return {"status": "ok", "mask_keys": sorted(zs), "prune_signature": api.get("prune_signature", "unknown")}
+
+
 def target_activation_modules(model) -> list[tuple[str, object]]:
     targets = []
     for name, module in model.named_modules():
@@ -439,12 +501,37 @@ def main(argv=None) -> int:
             result["importance_status"] = "validated_parameters_only"
         else:
             tokenizer = load_hf_tokenizer(args.model, local_files_only=args.local_files_only)
-            model = load_hf_model(args.model, dtype=args.dtype, device_map=args.device_map, local_files_only=args.local_files_only)
+            model = load_flab_qwen_model(args.model, dtype=args.dtype, device_map=args.device_map, local_files_only=args.local_files_only)
             params_before = sum(p.numel() for p in model.parameters()) if hasattr(model, "parameters") else None
             activations = collect_activation_statistics(model, tokenizer, guide_rows, args.importance_max_length, args.importance_batch_size, args.importance_device)
             importance = compute_benchmark_activation_importance(activations)
             zs = build_benchmark_guided_zs(importance, 1.0 - args.prune_ratio)
             validate_zs(zs)
+            api = flab_prune_api_info()
+            loaded_api = model_prune_api_info(model)
+            if loaded_api.get("supports_external_zs"):
+                api = loaded_api
+            api_check = validate_benchmark_activation_prune_api(api, zs)
+            result["prune_api"] = api
+            result["prune_api_check"] = api_check
+            if api_check["status"] != "ok":
+                result.update(
+                    {
+                        "status": "blocked",
+                        "blocker_reason": api_check["reason"],
+                        "blocker_code": api_check["blocker_code"],
+                        "importance_summary": {name: {"count": len(values), "max": max(values)} for name, values in importance.items()},
+                        "mask_metadata": {name: {"length": len(mask), "kept": sum(mask)} for name, mask in zs.items()},
+                        "module_statistics": {name: {"activation_count": len(values), "mean_importance": sum(values) / len(values)} for name, values in importance.items()},
+                        "task_ids": [row.get("task_id") for row in guide_rows],
+                        "guide_hashes": [item["sha256"] for item in guide_manifests],
+                        "params_before": params_before,
+                    }
+                )
+                args.save_dir.mkdir(parents=True, exist_ok=True)
+                (args.save_dir / "flab_qwen_prune_result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                print(json.dumps(result, ensure_ascii=False, indent=2))
+                return 2
             prune_with_masks(model, zs, args.save_dir, tokenizer=tokenizer, stage=args.stage)
             params_after = sum(p.numel() for p in model.parameters()) if hasattr(model, "parameters") else None
             result["importance_summary"] = {name: {"count": len(values), "max": max(values)} for name, values in importance.items()}
