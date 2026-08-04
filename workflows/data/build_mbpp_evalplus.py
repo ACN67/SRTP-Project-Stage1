@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from __future__ import annotations
-import argparse, hashlib, json
+import argparse, hashlib, json, shutil
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 BENCHMARK_ROOT=ROOT/'data'/'benchmarks'
@@ -9,7 +9,7 @@ def read_jsonl(path: Path): return [json.loads(line) for line in path.read_text(
 def sha(path: Path): h=hashlib.sha256(); h.update(path.read_bytes()); return h.hexdigest()
 def rel(path: Path, root: Path):
     try: return path.relative_to(ROOT).as_posix()
-    except ValueError: return path.relative_to(root).as_posix()
+    except ValueError: return path.as_posix()
 def reject_old(output_root: Path):
     s=output_root.resolve().as_posix()
     if s.endswith('/' + 'data' + '/' + 'splits') or '/' + 'data' + '/' + 'splits' + '/' in s: raise ValueError('refusing to write retired split root')
@@ -26,12 +26,37 @@ def write_manifest(split_dir: Path, protocol: str, dataset: str, dry_run: bool=F
     if not dry_run: (split_dir/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+chr(10),encoding='utf-8')
     return manifest
 
+def copy_split(source_dir: Path, target_dir: Path, dry_run: bool) -> None:
+    if dry_run:
+        return
+    if source_dir.resolve() == target_dir.resolve():
+        return
+    target_dir.mkdir(parents=True, exist_ok=True)
+    for item in source_dir.iterdir():
+        if item.name == 'manifest.json':
+            continue
+        dest = target_dir/item.name
+        if item.is_dir():
+            if dest.exists():
+                shutil.rmtree(dest)
+            shutil.copytree(item, dest)
+        else:
+            shutil.copy2(item, dest)
+
 def main():
     parser=argparse.ArgumentParser(description='Refresh MBPP EvalPlus manifest in the selected benchmark protocol.')
     parser.add_argument('--output-root', type=Path, default=BENCHMARK_ROOT/'auxiliary_full_eval'/'mbpp_evalplus')
     parser.add_argument('--dry-run', action='store_true')
     args=parser.parse_args(); out=args.output_root if args.output_root.is_absolute() else ROOT/args.output_root; reject_old(out)
-    split_dir=out if out.exists() else BENCHMARK_ROOT/'auxiliary_full_eval'/'mbpp_evalplus'
-    manifest=write_manifest(split_dir,'auxiliary_full_eval','mbpp_evalplus',args.dry_run)
+    source_dir=BENCHMARK_ROOT/'auxiliary_full_eval'/'mbpp_evalplus'
+    split_dir=out
+    if args.dry_run:
+        manifest=write_manifest(source_dir,'auxiliary_full_eval','mbpp_evalplus',True)
+        for key in ['guide_path','eval_path','heldout_eval_path']:
+            if key in manifest:
+                manifest[key]=(split_dir/Path(manifest[key]).name).as_posix()
+    else:
+        copy_split(source_dir, split_dir, False)
+        manifest=write_manifest(split_dir,'auxiliary_full_eval','mbpp_evalplus',False)
     print(json.dumps({'dry_run':args.dry_run,'output_root':str(out),'manifest':manifest},ensure_ascii=False,indent=2)); return 0
 if __name__=='__main__': raise SystemExit(main())

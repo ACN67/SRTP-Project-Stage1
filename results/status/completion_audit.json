@@ -1,12 +1,32 @@
 {
   "repository_integrity": true,
+  "stage1_execution_closed": false,
+  "stage1_all_methods_successful": false,
   "stage1_complete": false,
+  "completed": [
+    "Magnitude",
+    "Wanda"
+  ],
+  "partial": [
+    "DSnoT",
+    "OWL"
+  ],
+  "blocked_with_evidence": [
+    "LaCo",
+    "DSnoT",
+    "OWL"
+  ],
+  "planned": [
+    "SparseGPT",
+    "MaskLLM",
+    "Pruner-Zero",
+    "FLAP"
+  ],
   "completed_methods": [
     "Magnitude",
     "Wanda"
   ],
   "partial_methods": [
-    "SliceGPT",
     "DSnoT",
     "OWL"
   ],

@@ -49,15 +49,22 @@ def atomic_write(path: Path, text: str) -> None:
     with os.fdopen(fd, 'w', encoding='utf-8', newline='') as handle: handle.write(text)
     Path(tmp).replace(path)
 
+def display_path(path: Path) -> str:
+    path = path.resolve()
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
+
 def write_or_check(path: Path, text: str, write: bool, check: bool) -> bool:
     if write:
         old = path.read_text(encoding='utf-8') if path.exists() else None
         atomic_write(path, text)
-        print(f'wrote {path.relative_to(ROOT)} bytes={len(text)} changed={old != text}')
+        print(f'wrote {display_path(path)} bytes={len(text)} changed={old != text}')
         return True
     current = path.read_text(encoding='utf-8') if path.exists() else ''
     ok = current == text
-    print(f'check {path.relative_to(ROOT)} ok={ok}')
+    print(f'check {display_path(path)} ok={ok}')
     return ok
 
 def infer_method(run_id: str) -> str:
@@ -73,7 +80,8 @@ def infer_model(run_id: str) -> str:
     if 'qwen25c15b' in low or 'qwen15b' in low: return 'Qwen/Qwen2.5-Coder-1.5B-Instruct'
     if 'qwen25c3b' in low or 'qwen3b' in low: return 'Qwen/Qwen2.5-Coder-3B-Instruct'
     if 'codellama' in low: return 'codellama/CodeLlama-7b-hf'
-    if 'opt125m' in low or 'tiny_llama' in low: return 'facebook/opt-125m'
+    if 'tiny_llama' in low or 'tinyllama' in low: return 'TinyLlama/TinyLlama-1.1B'
+    if 'opt125m' in low: return 'facebook/opt-125m'
     return 'unknown'
 
 def infer_variant(path: Path, run_id: str) -> str:
@@ -84,6 +92,10 @@ def infer_variant(path: Path, run_id: str) -> str:
         ('default_keep80_lora_merged','default_keep80_lora_merged'),('benchguided_keep80_lora','benchmark_guided_keep80_lora'),('benchmark_guided_keep80_lora','benchmark_guided_keep80_lora'),
         ('default_keep80_lora','default_keep80_lora'),('benchguided_keep80','benchmark_guided_keep80'),('benchmark_guided_keep80','benchmark_guided_keep80'),
         ('default_keep80','default_keep80'),('sliced_model','sliced_model'),('layerdrop_keep80','layerdrop_keep80'),('official_keep80','official_keep80'),('keep80','official_keep80'),('baseline','baseline')]
+    if 'slicegpt' in r and 'benchguided' in r:
+        return 'benchmark_guided_sliced_model'
+    if 'slicegpt' in r and ('official_keep80' in r or 'keep80' in r):
+        return 'sliced_model'
     for token,value in checks:
         if token in s or token in r: return value
     if 'qwen25c3b_official_evalhalf' in r or 'qwen25c15b_official_evalhalf' in r: return 'baseline'
@@ -100,7 +112,7 @@ def build_run_rows() -> list[dict[str,str]]:
         val='invalid' if cat=='superseded' else ('diagnostic_only' if cat in {'diagnostics','infrastructure'} else 'valid')
         sup='qwen25c3b_official_evalhalf_20260727_135521' if rid in {'qwen25c3b_r4_baseline_evalhalf_20260723_193503','qwen25c3b_r4_baseline_evalhalf_recheck_20260726_181426'} else ('see registry notes' if cat=='superseded' else '')
         method=infer_method(rid)
-        rows.append({'run_id':rid,'category':cat,'method_scope':method,'model':infer_model(rid),'protocol':proto,'variant':'unknown','round':'R4' if cat=='r4_half' else ('smoke' if cat=='smoke' else 'audit'),'execution_status':'superseded' if cat=='superseded' else ('partial' if comp=='partial' else 'completed'),'validity_status':val,'quality_gate':'fail' if method in {'Flab-Pruner','LLM-Pruner','SliceGPT'} and cat=='r4_half' else ('not_applicable' if val!='valid' else 'pass'),'officiality':'fallback_non_official' if 'codellama' in low and 'llmpruner' in low else ('experimental_extension' if 'benchguided' in low else 'local_official_adapter'),'result_completeness':comp,'evidence_path':d.relative_to(ROOT).as_posix(),'metadata_present':str(any(d.glob('metadata.*'))).lower(),'summary_present':str(bool(list(d.rglob('score_summary.json')) or (d/'summary.json').exists())).lower(),'superseded_by':sup,'notes':'5-task pilot excluded from formal table' if comp=='pilot' else ''})
+        rows.append({'run_id':rid,'category':cat,'method_scope':method,'model':infer_model(rid),'protocol':proto,'variant':infer_variant(d,rid),'round':'R4' if cat=='r4_half' else ('smoke' if cat=='smoke' else 'audit'),'execution_status':'superseded' if cat=='superseded' else ('partial' if comp=='partial' else 'completed'),'validity_status':val,'quality_gate':'fail' if method in {'Flab-Pruner','LLM-Pruner','SliceGPT'} and cat=='r4_half' else ('not_applicable' if val!='valid' else 'pass'),'officiality':'fallback_non_official' if 'codellama' in low and 'llmpruner' in low else ('experimental_extension' if 'benchguided' in low else 'local_official_adapter'),'result_completeness':comp,'evidence_path':d.relative_to(ROOT).as_posix(),'metadata_present':str(any(d.glob('metadata.*'))).lower(),'summary_present':str(bool(list(d.rglob('score_summary.json')) or (d/'summary.json').exists())).lower(),'superseded_by':sup,'notes':'5-task pilot excluded from formal table' if comp=='pilot' else ''})
     return rows
 
 def benchmark_from_path(path: Path, data: dict) -> str:
@@ -155,8 +167,41 @@ def build_formal_rows(run_rows: list[dict[str,str]]|None=None, score_rows: list[
         seen.add(key); out.append(r)
     return out
 
-def build_method_rows() -> list[dict[str,str]]:
-    return [dict(zip(METHOD_FIELDS,row)) for row in METHOD_CONFIG]
+def build_method_rows(run_rows: list[dict[str,str]]|None=None, score_rows: list[dict[str,str]]|None=None) -> list[dict[str,str]]:
+    if run_rows is None:
+        run_rows = build_run_rows()
+    evidence_by_method: dict[str, list[dict[str,str]]] = {}
+    for run in run_rows:
+        for method in run['method_scope'].split(';'):
+            evidence_by_method.setdefault(method, []).append(run)
+    rows=[]
+    for config in METHOD_CONFIG:
+        row=dict(zip(METHOD_FIELDS,config))
+        runs=evidence_by_method.get(row['method'], [])
+        if not runs:
+            rows.append(row)
+            continue
+        valid_complete=[r for r in runs if r['execution_status']=='completed' and r['validity_status']=='valid' and r['result_completeness']=='complete']
+        partial=[r for r in runs if r['result_completeness']=='partial' or r['execution_status']=='partial']
+        blocked=[r for r in runs if r['validity_status']=='diagnostic_only' or 'blocked' in row['adapter_status']]
+        if valid_complete:
+            row['execution_status']='completed'
+            row['evidence_status']='complete'
+            row['validity_status']='valid' if row['quality_gate']=='pass' else row['validity_status']
+            if any(r['protocol']=='r4_half' for r in valid_complete):
+                row['r4_status']='completed'
+        elif partial:
+            row['execution_status']='partial'
+            row['evidence_status']='partial'
+            row['r4_status']='partial'
+        elif blocked:
+            row['execution_status']='blocked'
+            row['evidence_status']='diagnostic_only'
+        else:
+            row['execution_status']='planned'
+            row['evidence_status']='not_applicable'
+        rows.append(row)
+    return rows
 
 def build_split_rows() -> list[dict[str,str]]:
     rows=[]
@@ -171,4 +216,3 @@ def build_split_rows() -> list[dict[str,str]]:
             else: policy='guide_eval_disjoint'
             rows.append({'split_id':f'{protocol}_{dataset}_{role}','dataset':dataset,'protocol':protocol,'role':role,'path':path.relative_to(ROOT).as_posix(),'task_count':str(len(read_jsonl(path))),'sha256':sha256_file(path),'seed':'0','overlap_policy':policy,'source':'manifest','notes':data.get('split_policy',data.get('selection',''))})
     return rows
-

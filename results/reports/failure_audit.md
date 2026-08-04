@@ -1,49 +1,40 @@
 # Failure Audit
 
 ## Audit question
-The audit asks where first-stage pruning pipelines first lose executable code-generation behavior.
+This audit identifies where Stage-1 pruning pipelines first lose executable code-generation behavior. It should be read with `results/status/runs.csv`, `results/status/scores.csv`, `results/formal/r4_half/scores.csv`, and `results/status/completion_audit.json`.
 
-## dense baseline
-Corrected dense baselines are preferred over old baseline and recheck runs in formal conclusions.
+## Evidence map
+`results/status/runs.csv` records each evidence directory, execution status, variant, and supersession decision. `results/status/scores.csv` records raw evidence-backed score summaries only. `results/formal/r4_half/scores.csv` filters those rows to comparable R4-half evidence. `results/auxiliary/full_eval/comparison.csv` is aggregate-only and is intentionally outside the raw score registry.
 
-## save/reload
-Save/reload checks show that some failures are not simple serialization failures.
+## Dense baselines
+Corrected dense baselines supersede older baseline and recheck runs. The supersession field in `results/status/runs.csv` documents which runs are excluded from formal conclusions.
 
-## pruning
-Pruning can preserve loadability while damaging generation quality.
+## Save and reload
+Save/reload checks show that some failures are not serialization failures: artifacts can load and still fail downstream code-generation benchmarks.
 
-## LoRA
-LoRA recovery evidence did not fully restore quality-gate behavior for the structured routes.
+## Pruning
+Pruning can preserve structural validity while damaging generation quality. R4-half score rows should therefore be interpreted through both `quality_gate` and `result_completeness`.
 
-## merge
-Merge evidence is retained where present, but merge success alone is not benchmark success.
-
-## evaluation
-Evaluation rows retain actual task counts, including partial and pilot runs.
+## LoRA and merge
+LoRA recovery and merged artifacts are retained where evidence exists. Merge success is not treated as benchmark success unless corresponding score rows pass the formal filters.
 
 ## Flab first break
-Flab first break evidence points to output collapse after structured pruning and recovery attempts.
+Flab-Pruner evidence separates the local official structural adapter from the benchmark-activation experimental extension. The failure pattern is output-quality collapse after structured pruning and attempted recovery, not repository execution failure.
 
 ## LLM-Pruner first break
-LLM-Pruner first break evidence separates fallback CodeLlama routes from local Qwen adapter behavior.
+LLM-Pruner evidence separates fallback CodeLlama routes from the local Qwen adapter. Failures are represented in `results/status/scores.csv` and remain visible in formal R4-half filtering.
 
 ## SliceGPT first break
-SliceGPT first break evidence includes partial benchmark completion and sliced artifact constraints.
+SliceGPT formal evidence includes partial benchmark completion and sliced-model constraints. The `benchmark_guided_sliced_model` variant is retained to avoid mixing it with dense or LoRA variants.
 
-## cross-method commonality
-The common pattern is that structural validity does not guarantee code-generation quality.
+## Auxiliary aggregate limitation
+Magnitude, Wanda, DSnoT, and OWL auxiliary results are aggregate-only. They are useful for tracking process outcomes, but they are not raw R4-half evidence and must not be presented as comparable formal scores.
 
-## raw completion failure taxonomy
-The raw completion failure taxonomy is preserved in `results/reports/raw_completion_failure_taxonomy.csv`.
+## Raw completion failure taxonomy
+The raw completion failure taxonomy is preserved in `results/reports/raw_completion_failure_taxonomy.csv`. It should be used with `results/status/scores.csv` when distinguishing syntax/runtime collapse from benchmark pass-rate degradation.
 
-## evidence limitation
-Auxiliary aggregate-only rows and missing raw auxiliary evidence cannot be treated as formal R4-half proof.
+## Excluded explanations
+Pilot rows, superseded baselines, and auxiliary full-eval rows are excluded from formal R4-half claims. These exclusions are mechanical registry rules, not manual cherry-picking.
 
-## excluded explanations
-Pilot rows, superseded baselines, and auxiliary full-eval rows are excluded from formal conclusions.
-
-## conclusions not supported
-The repository cannot claim a universally best pruning method or full completion of all 12 routes.
-
-## next validation
-Next steps are targeted reruns for blocked/planned methods and focused recovery checks for partial methods.
+## Current conclusion
+The repository can support the next execution phase, but `results/status/completion_audit.json` does not claim all Stage-1 methods are successful. Remaining work is targeted reruns for planned and blocked methods plus focused recovery checks for partial methods.

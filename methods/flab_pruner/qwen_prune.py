@@ -256,12 +256,126 @@ def compute_benchmark_activation_importance(activations: dict[str, list[float]])
     return {name: [abs(float(v)) for v in values] for name, values in activations.items()}
 
 
+def load_hf_tokenizer(model_name: str, local_files_only: bool = False):
+    from transformers import AutoTokenizer
+
+    return AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, local_files_only=local_files_only)
+
+
+def load_hf_model(model_name: str, dtype: str = "bf16", device_map: str | None = "auto", local_files_only: bool = False):
+    import torch
+    from transformers import AutoModelForCausalLM
+
+    torch_dtype = {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[dtype]
+    return AutoModelForCausalLM.from_pretrained(
+        model_name,
+        trust_remote_code=True,
+        local_files_only=local_files_only,
+        torch_dtype=torch_dtype,
+        device_map=device_map,
+    )
+
+
+def target_activation_modules(model) -> list[tuple[str, object]]:
+    targets = []
+    for name, module in model.named_modules():
+        low = name.lower()
+        if any(token in low for token in ["down_proj", "up_proj", "gate_proj", "mlp"]):
+            targets.append((name, module))
+    if not targets:
+        for name, module in model.named_modules():
+            if name:
+                targets.append((name, module))
+                break
+    return targets
+
+
+def tensor_channel_mean(output) -> list[float]:
+    import torch
+
+    tensor = output[0] if isinstance(output, (tuple, list)) else output
+    if isinstance(tensor, dict):
+        tensor = next((v for v in tensor.values() if hasattr(v, "detach")), None)
+    if tensor is None or not hasattr(tensor, "detach"):
+        return []
+    data = tensor.detach().float().abs()
+    if data.ndim == 0:
+        return [float(data.item())]
+    if data.ndim == 1:
+        return [float(v) for v in data.cpu().tolist()]
+    dims = tuple(range(data.ndim - 1))
+    return [float(v) for v in data.mean(dim=dims).cpu().tolist()]
+
+
 def collect_activation_statistics(model, tokenizer, guide_rows: list[dict], max_length: int, batch_size: int, device: str) -> dict[str, list[float]]:
-    # Lightweight hook point: real runs may register module hooks here; tests can
-    # exercise the pure importance pipeline without loading a large model.
-    token_lengths = [min(max_length, max(1, len((row.get("prompt") or "").split()))) for row in guide_rows]
-    width = max(4, min(64, sum(token_lengths) // max(1, len(token_lengths))))
-    return {"layers.0.mlp": [float((i + 1) * width) for i in range(8)]}
+    import torch
+
+    if model is None or tokenizer is None:
+        raise ValueError("benchmark_activation requires a loaded model and tokenizer")
+    stats: dict[str, list[float]] = {}
+    counts: dict[str, int] = {}
+    handles = []
+
+    def make_hook(name: str):
+        def hook(_module, _inputs, output):
+            values = tensor_channel_mean(output)
+            if not values:
+                return
+            current = stats.setdefault(name, [0.0] * len(values))
+            if len(current) != len(values):
+                raise ValueError(f"activation width changed for {name}: {len(current)} -> {len(values)}")
+            for index, value in enumerate(values):
+                current[index] += value
+            counts[name] = counts.get(name, 0) + 1
+
+        return hook
+
+    targets = target_activation_modules(model)
+    if not targets:
+        raise ValueError("no target modules available for activation hooks")
+    for name, module in targets:
+        if hasattr(module, "register_forward_hook"):
+            handles.append(module.register_forward_hook(make_hook(name)))
+    prompts = [row.get("prompt") or row.get("text") or row.get("question") or "" for row in guide_rows]
+    try:
+        if hasattr(model, "eval"):
+            model.eval()
+        if device and device != "auto" and hasattr(model, "to"):
+            try:
+                model.to(device)
+            except Exception:
+                device = "auto"
+        with torch.no_grad():
+            for start in range(0, len(prompts), batch_size):
+                batch = prompts[start : start + batch_size]
+                encoded = tokenizer(batch, return_tensors="pt", padding=True, truncation=True, max_length=max_length)
+                if isinstance(encoded, dict):
+                    encoded = {k: (v.to(device) if hasattr(v, "to") and device and device != "auto" else v) for k, v in encoded.items()}
+                    model(**encoded)
+                else:
+                    model(**encoded.to(device))
+    finally:
+        for handle in handles:
+            handle.remove()
+    if not stats:
+        raise ValueError("activation hooks were registered but no tensor activations were captured")
+    return {name: [value / counts[name] for value in values] for name, values in stats.items()}
+
+
+def prune_with_masks(model, zs: dict[str, list[int]], save_dir: Path, tokenizer=None, stage: str = "top") -> None:
+    moved = move_zs(zs, None)
+    try:
+        model.prune(stage=stage, zs=moved)
+    except TypeError:
+        model.prune(zs=moved)
+    artifact_dir = save_dir / "pruned_model"
+    if hasattr(model, "save_pretrained"):
+        model.save_pretrained(artifact_dir)
+    else:
+        artifact_dir.mkdir(parents=True, exist_ok=True)
+        (artifact_dir / "artifact.json").write_text(json.dumps({"mask_summary": {k: sum(v) for k, v in zs.items()}}, indent=2) + "\n", encoding="utf-8")
+    if tokenizer is not None and hasattr(tokenizer, "save_pretrained"):
+        tokenizer.save_pretrained(artifact_dir)
 
 
 def plan_from_args(args, guide_rows: list[dict], guide_manifests: list[dict]) -> dict:
@@ -288,7 +402,7 @@ def plan_from_args(args, guide_rows: list[dict], guide_manifests: list[dict]) ->
     return plan
 
 
-def main() -> int:
+def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Flab-Pruner Qwen2.5-Coder adapter with structural and benchmark-activation modes.")
     parser.add_argument("--model", default="Qwen/Qwen2.5-Coder-3B-Instruct")
     parser.add_argument("--guide-file", required=True, action="append", help="Guide JSONL file. May be repeated.")
@@ -310,7 +424,7 @@ def main() -> int:
     parser.add_argument("--importance-max-length", type=int, default=512)
     parser.add_argument("--importance-batch-size", type=int, default=1)
     parser.add_argument("--importance-device", default="cuda:0")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     args.importance_mode = normalize_importance_mode(args.importance_mode)
     args.save_dir = (ROOT / args.save_dir).resolve() if not Path(args.save_dir).is_absolute() else Path(args.save_dir)
     if not (0.0 < args.prune_ratio < 1.0):
@@ -324,12 +438,23 @@ def main() -> int:
         if args.dry_run:
             result["importance_status"] = "validated_parameters_only"
         else:
-            activations = collect_activation_statistics(None, None, guide_rows, args.importance_max_length, args.importance_batch_size, args.importance_device)
+            tokenizer = load_hf_tokenizer(args.model, local_files_only=args.local_files_only)
+            model = load_hf_model(args.model, dtype=args.dtype, device_map=args.device_map, local_files_only=args.local_files_only)
+            params_before = sum(p.numel() for p in model.parameters()) if hasattr(model, "parameters") else None
+            activations = collect_activation_statistics(model, tokenizer, guide_rows, args.importance_max_length, args.importance_batch_size, args.importance_device)
             importance = compute_benchmark_activation_importance(activations)
             zs = build_benchmark_guided_zs(importance, 1.0 - args.prune_ratio)
             validate_zs(zs)
+            prune_with_masks(model, zs, args.save_dir, tokenizer=tokenizer, stage=args.stage)
+            params_after = sum(p.numel() for p in model.parameters()) if hasattr(model, "parameters") else None
             result["importance_summary"] = {name: {"count": len(values), "max": max(values)} for name, values in importance.items()}
             result["mask_metadata"] = {name: {"length": len(mask), "kept": sum(mask)} for name, mask in zs.items()}
+            result["module_statistics"] = {name: {"activation_count": len(values), "mean_importance": sum(values) / len(values)} for name, values in importance.items()}
+            result["task_ids"] = [row.get("task_id") for row in guide_rows]
+            result["guide_hashes"] = [item["sha256"] for item in guide_manifests]
+            result["params_before"] = params_before
+            result["params_after"] = params_after
+            result["actual_param_ratio"] = (params_after / params_before) if params_before else None
     args.save_dir.mkdir(parents=True, exist_ok=True)
     (args.save_dir / "flab_qwen_prune_plan.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))
