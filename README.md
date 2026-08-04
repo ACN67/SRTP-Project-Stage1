@@ -37,3 +37,6 @@ Structured routes have evidence showing loadable artifacts can still fail code-g
 
 ## Open items
 Stage 1 repository integrity is maintained, but not every planned method has a successful complete run. Remaining experiments should follow the final execution plan after this technical patch is merged.
+
+## Final completion state
+The final completion pass records `stage1_execution_closed=true` and `stage1_all_methods_successful=false` in `results/status/completion_audit.json`. No method remains planned-only; unresolved methods now have partial or blocked-with-evidence records.

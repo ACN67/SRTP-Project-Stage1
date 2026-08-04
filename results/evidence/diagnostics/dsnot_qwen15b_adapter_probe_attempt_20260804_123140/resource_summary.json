@@ -1,0 +1,4 @@
+{
+  "free": "total        used        free      shared  buff/cache   available;Mem:            13Gi       608Mi       9.0Gi       3.5Mi       4.3Gi        13Gi;Swap:           32Gi          0B        32Gi;",
+  "df": "/dev/sdd       1007G   92G  865G  10% /"
+}

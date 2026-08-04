@@ -1,0 +1,49 @@
+{
+  "stamp": "20260804_123140",
+  "jobs": {
+    "flab_qwen15b_benchmark_activation_he_keep80_attempt": {
+      "run_id": "flab_qwen15b_benchmark_activation_he_keep80_attempt_20260804_123140",
+      "state": "blocked"
+    },
+    "magnitude_qwen15b_keep80_raw_formal_attempt": {
+      "run_id": "magnitude_qwen15b_keep80_raw_formal_attempt_20260804_123140",
+      "state": "success"
+    },
+    "wanda_qwen15b_he_keep80_raw_formal_attempt": {
+      "run_id": "wanda_qwen15b_he_keep80_raw_formal_attempt_20260804_123140",
+      "state": "success"
+    },
+    "sparsegpt_qwen15b_adapter_probe_attempt": {
+      "run_id": "sparsegpt_qwen15b_adapter_probe_attempt_20260804_123140",
+      "state": "success"
+    },
+    "laco_upstream_notebook_probe_attempt": {
+      "run_id": "laco_upstream_notebook_probe_attempt_20260804_123140",
+      "state": "success"
+    },
+    "dsnot_qwen15b_adapter_probe_attempt": {
+      "run_id": "dsnot_qwen15b_adapter_probe_attempt_20260804_123140",
+      "state": "success"
+    },
+    "owl_qwen15b_adapter_probe_attempt": {
+      "run_id": "owl_qwen15b_adapter_probe_attempt_20260804_123140",
+      "state": "blocked"
+    },
+    "maskllm_official_smoke_probe_attempt": {
+      "run_id": "maskllm_official_smoke_probe_attempt_20260804_123140",
+      "state": "success"
+    },
+    "prunerzero_opt125m_smoke_probe_attempt": {
+      "run_id": "prunerzero_opt125m_smoke_probe_attempt_20260804_123140",
+      "state": "blocked"
+    },
+    "flap_llama_template_probe_attempt": {
+      "run_id": "flap_llama_template_probe_attempt_20260804_123140",
+      "state": "success"
+    },
+    "swebench_lite_dataset_smoke": {
+      "run_id": "swebench_lite_dataset_smoke_20260804_123140",
+      "state": "success"
+    }
+  }
+}

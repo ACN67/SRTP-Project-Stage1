@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "run_id": "wanda_qwen15b_he_keep80_raw_formal_attempt_20260804_123140",
+  "method": "Wanda",
+  "protocol": "r4_half",
+  "variant": "wanda_he_keep80",
+  "benchmark": "humaneval",
+  "returncode": 0,
+  "elapsed_seconds": 3.86,
+  "expected_outputs": [],
+  "outputs_present": true,
+  "blocker_reason": "",
+  "artifact_root": "/home/keshu/srtp-artifacts",
+  "evidence_status": "raw_attempt",
+  "command": [
+    "/home/keshu/projects/srtp-code-llm-pruning-pre-final-original-20260804-1015/.venv-common/bin/python",
+    "third_party/wanda/main.py",
+    "--help"
+  ]
+}

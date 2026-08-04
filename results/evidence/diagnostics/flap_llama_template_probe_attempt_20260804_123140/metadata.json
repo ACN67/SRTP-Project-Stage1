@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "run_id": "flap_llama_template_probe_attempt_20260804_123140",
+  "method": "FLAP",
+  "protocol": "upstream_smoke",
+  "variant": "llama_template_probe",
+  "benchmark": "none",
+  "returncode": 0,
+  "elapsed_seconds": 3.914,
+  "expected_outputs": [],
+  "outputs_present": true,
+  "blocker_reason": "",
+  "artifact_root": "/home/keshu/srtp-artifacts",
+  "evidence_status": "raw_attempt",
+  "command": [
+    "/home/keshu/projects/srtp-code-llm-pruning-pre-final-original-20260804-1015/.venv-common/bin/python",
+    "third_party/flap/main.py",
+    "--help"
+  ]
+}

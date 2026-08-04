@@ -1,0 +1,52 @@
+torch 2.11.0+cu128
+transformers 5.13.1
+accelerate 1.14.0
+# of gpus:  1
+usage: main.py [-h] [--model MODEL] [--model_type MODEL_TYPE] [--seed SEED]
+               [--nsamples NSAMPLES] [--eval_dataset {wikitext2,c4,ptb}]
+               [--sparsity_ratio SPARSITY_RATIO]
+               [--sparsity_type {unstructured,4:8,2:4}]
+               [--prune_method {wanda,sparsegpt,magnitude,DSnoT,dense}]
+               [--initial_method {wanda,sparsegpt,magnitude}]
+               [--max_cycle_time MAX_CYCLE_TIME] [--without_DSnoT]
+               [--update_threshold UPDATE_THRESHOLD]
+               [--pow_of_var_regrowing POW_OF_VAR_REGROWING]
+               [--pow_of_var_pruning POW_OF_VAR_PRUNING]
+               [--skip_layer {no_skip,mlp,self_attn}]
+               [--skip_sub_layer {no_skip,q_proj,k_proj,v_proj,o_proj,gate_proj,down_proj,up_proj,fc1,fc2,out_proj}]
+               [--without_same_sign {True,False}] [--get_time_overhead]
+               [--output_results_file OUTPUT_RESULTS_FILE]
+               [--cache_dir CACHE_DIR] [--save_model SAVE_MODEL]
+
+options:
+  -h, --help            show this help message and exit
+  --model MODEL         LLaMA model
+  --model_type MODEL_TYPE
+                        model type, either llama or opt
+  --seed SEED           Seed for sampling the calibration data.
+  --nsamples NSAMPLES   Number of calibration samples.
+  --eval_dataset {wikitext2,c4,ptb}
+                        eval ppl on dataset
+  --sparsity_ratio SPARSITY_RATIO
+                        Sparsity ratio.
+  --sparsity_type {unstructured,4:8,2:4}
+  --prune_method {wanda,sparsegpt,magnitude,DSnoT,dense}
+  --initial_method {wanda,sparsegpt,magnitude}
+  --max_cycle_time MAX_CYCLE_TIME
+                        Max cycle time.
+  --without_DSnoT       without DSnoT
+  --update_threshold UPDATE_THRESHOLD
+                        update threshold.
+  --pow_of_var_regrowing POW_OF_VAR_REGROWING
+                        The power of variance.
+  --pow_of_var_pruning POW_OF_VAR_PRUNING
+                        The power of variance.
+  --skip_layer {no_skip,mlp,self_attn}
+  --skip_sub_layer {no_skip,q_proj,k_proj,v_proj,o_proj,gate_proj,down_proj,up_proj,fc1,fc2,out_proj}
+  --without_same_sign {True,False}
+                        without same sign
+  --get_time_overhead   get time overhead
+  --output_results_file OUTPUT_RESULTS_FILE
+  --cache_dir CACHE_DIR
+  --save_model SAVE_MODEL
+                        Path to save the pruned model.

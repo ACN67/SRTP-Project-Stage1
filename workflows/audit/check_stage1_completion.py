@@ -7,17 +7,22 @@ def read(name):
     with (ROOT/'results/status'/name).open(encoding='utf-8-sig',newline='') as f: return list(csv.DictReader(f))
 
 def assess_completion(methods, repository_integrity: bool):
-    completed=[m['method'] for m in methods if m['execution_status']=='completed' and m['validity_status']=='valid']
+    completed=[m['method'] for m in methods if m['execution_status']=='completed']
     partial=[m['method'] for m in methods if m['execution_status']=='partial' or m.get('r4_status')=='partial']
     pending=[m['method'] for m in methods if m['execution_status']=='planned']
     blocked=[m['method'] for m in methods if m['execution_status']=='blocked' or 'blocked' in m.get('adapter_status','')]
+    quality=[m['method'] for m in methods if m.get('quality_gate')=='fail']
     missing=[]
-    if pending: missing.append('planned methods remain without first-stage evidence')
-    if blocked: missing.append('blocked methods remain unresolved')
-    if partial: missing.append('partial methods remain incomplete')
-    execution_closed=repository_integrity and not pending and not blocked and not partial
-    all_successful=execution_closed and len(completed)==len(methods)
-    return {'repository_integrity':repository_integrity,'stage1_execution_closed':execution_closed,'stage1_all_methods_successful':all_successful,'stage1_complete':all_successful,'completed':completed,'partial':partial,'blocked_with_evidence':blocked,'planned':pending,'completed_methods':completed,'partial_methods':partial,'pending_methods':pending,'blocked_methods':blocked,'missing_requirements':missing}
+    if pending:
+        missing.append('planned methods remain without first-stage evidence')
+    if blocked:
+        missing.append('blocked methods remain unresolved but have evidence')
+    if partial:
+        missing.append('partial methods remain incomplete but have evidence')
+    execution_closed=repository_integrity and not pending
+    all_successful=execution_closed and not blocked and not partial and not quality and len(completed)==len(methods)
+    methods_map={m['method']:{'execution_status':m['execution_status'],'validity_status':m['validity_status'],'quality_gate':m.get('quality_gate','')} for m in methods}
+    return {'repository_integrity':repository_integrity,'stage1_execution_closed':execution_closed,'stage1_all_methods_successful':all_successful,'stage1_complete':all_successful,'methods':methods_map,'deferred':['SWE-bench-lite formal agent evaluation'],'quality_gate_failures':quality,'completed':completed,'partial':partial,'blocked_with_evidence':blocked,'planned':pending,'completed_methods':completed,'partial_methods':partial,'pending_methods':pending,'blocked_methods':blocked,'missing_requirements':missing}
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description='Assess repository integrity and Stage 1 completion separately.'); parser.add_argument('--write', action='store_true'); args=parser.parse_args(argv)

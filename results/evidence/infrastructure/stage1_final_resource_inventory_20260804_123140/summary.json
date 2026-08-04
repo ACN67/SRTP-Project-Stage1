@@ -1,0 +1,9 @@
+{
+  "status": "success",
+  "run_id": "stage1_final_resource_inventory_20260804_123140",
+  "category": "infrastructure",
+  "timestamp": "20260804_123140",
+  "gpu_present": true,
+  "artifact_root": "/home/keshu/srtp-artifacts",
+  "hf_home": "/home/keshu/.cache/huggingface"
+}

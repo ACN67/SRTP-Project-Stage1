@@ -1,0 +1,38 @@
+{
+  "status": "blocked",
+  "run_id": "flab_qwen15b_benchmark_activation_he_keep80_attempt_20260804_123140",
+  "method": "Flab-Pruner",
+  "protocol": "r4_half",
+  "variant": "benchmark_activation_he_keep80",
+  "benchmark": "humaneval",
+  "returncode": 1,
+  "elapsed_seconds": 13.912,
+  "expected_outputs": [
+    "/home/keshu/srtp-artifacts/flab_qwen15b_benchmark_activation_he_keep80/flab_qwen_prune_result.json"
+  ],
+  "outputs_present": false,
+  "blocker_reason": "benchmark_activation formal attempt could not complete under local model/environment constraints",
+  "artifact_root": "/home/keshu/srtp-artifacts",
+  "evidence_status": "raw_attempt",
+  "command": [
+    "/home/keshu/projects/srtp-code-llm-pruning-pre-final-original-20260804-1015/.venv-common/bin/python",
+    "methods/flab_pruner/qwen_prune.py",
+    "--model",
+    "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "--guide-file",
+    "data/benchmarks/r4_half/humaneval/guide.jsonl",
+    "--save-dir",
+    "/home/keshu/srtp-artifacts/flab_qwen15b_benchmark_activation_he_keep80",
+    "--importance-mode",
+    "benchmark_activation",
+    "--importance-device",
+    "cuda:0",
+    "--prune-ratio",
+    "0.20",
+    "--max-guide-samples",
+    "1",
+    "--importance-max-length",
+    "64",
+    "--local-files-only"
+  ]
+}

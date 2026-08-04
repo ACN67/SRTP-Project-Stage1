@@ -88,6 +88,9 @@ def infer_variant(path: Path, run_id: str) -> str:
     s='/'.join(path.relative_to(ROOT).parts).lower()
     r=run_id.lower()
     checks=[
+        ('benchmark_activation_he_keep80','benchmark_activation_he_keep80'),('benchmark_activation_mbpp_keep80','benchmark_activation_mbpp_keep80'),('benchmark_activation_lcb_keep80','benchmark_activation_lcb_keep80'),
+        ('magnitude_keep80','magnitude_keep80'),('wanda_he_keep80','wanda_he_keep80'),('wanda_mbpp_keep80','wanda_mbpp_keep80'),('wanda_lcb_keep80','wanda_lcb_keep80'),
+        ('qwen_adapter_probe','qwen_adapter_probe'),('official_smoke_probe','official_smoke_probe'),('opt125m_smoke_probe','opt125m_smoke_probe'),('llama_template_probe','llama_template_probe'),('dataset_runner_smoke','dataset_runner_smoke'),('upstream_notebook_probe','upstream_notebook_probe'),
         ('benchguided_keep80_lora_merged','benchmark_guided_keep80_lora_merged'),('benchmark_guided_keep80_lora_merged','benchmark_guided_keep80_lora_merged'),
         ('default_keep80_lora_merged','default_keep80_lora_merged'),('benchguided_keep80_lora','benchmark_guided_keep80_lora'),('benchmark_guided_keep80_lora','benchmark_guided_keep80_lora'),
         ('default_keep80_lora','default_keep80_lora'),('benchguided_keep80','benchmark_guided_keep80'),('benchmark_guided_keep80','benchmark_guided_keep80'),
@@ -106,13 +109,24 @@ def build_run_rows() -> list[dict[str,str]]:
     for d in sorted((ROOT/'results/evidence').glob('*/*'), key=lambda p:(p.parent.name,p.name)):
         if not d.is_dir(): continue
         cat=d.parent.name; rid=d.name; low=rid.lower()
+        summary_path=d/'summary.json'
+        summary=read_json(summary_path) if summary_path.exists() else {}
         proto='r4_half' if cat=='r4_half' else ('smoke' if cat=='smoke' else cat.rstrip('s'))
         comp='pilot' if rid=='pilot_keep80_official_all_20260727_174732' else ('not_applicable' if cat in {'diagnostics','infrastructure','superseded'} and not list(d.rglob('score_summary.json')) else 'complete')
         if 'partial' in low or rid in {'slicegpt_codellama7b_r4_benchguided_evalhalf_20260726_053225','slicegpt_codellama7b_r4_offload_probe_20260726_044311'}: comp='partial'
         val='invalid' if cat=='superseded' else ('diagnostic_only' if cat in {'diagnostics','infrastructure'} else 'valid')
+        if summary.get('status') == 'blocked':
+            comp='not_applicable'
+            val='diagnostic_only'
+        elif 'attempt' in low and not list(d.rglob('score_summary.json')):
+            comp='partial' if cat=='r4_half' else comp
+            if cat!='smoke':
+                val='diagnostic_only'
         sup='qwen25c3b_official_evalhalf_20260727_135521' if rid in {'qwen25c3b_r4_baseline_evalhalf_20260723_193503','qwen25c3b_r4_baseline_evalhalf_recheck_20260726_181426'} else ('see registry notes' if cat=='superseded' else '')
         method=infer_method(rid)
-        rows.append({'run_id':rid,'category':cat,'method_scope':method,'model':infer_model(rid),'protocol':proto,'variant':infer_variant(d,rid),'round':'R4' if cat=='r4_half' else ('smoke' if cat=='smoke' else 'audit'),'execution_status':'superseded' if cat=='superseded' else ('partial' if comp=='partial' else 'completed'),'validity_status':val,'quality_gate':'fail' if method in {'Flab-Pruner','LLM-Pruner','SliceGPT'} and cat=='r4_half' else ('not_applicable' if val!='valid' else 'pass'),'officiality':'fallback_non_official' if 'codellama' in low and 'llmpruner' in low else ('experimental_extension' if 'benchguided' in low else 'local_official_adapter'),'result_completeness':comp,'evidence_path':d.relative_to(ROOT).as_posix(),'metadata_present':str(any(d.glob('metadata.*'))).lower(),'summary_present':str(bool(list(d.rglob('score_summary.json')) or (d/'summary.json').exists())).lower(),'superseded_by':sup,'notes':'5-task pilot excluded from formal table' if comp=='pilot' else ''})
+        execution='superseded' if cat=='superseded' else ('blocked' if summary.get('status') == 'blocked' else ('partial' if comp=='partial' else 'completed'))
+        notes='5-task pilot excluded from formal table' if comp=='pilot' else summary.get('blocker_reason','')
+        rows.append({'run_id':rid,'category':cat,'method_scope':method,'model':infer_model(rid),'protocol':proto,'variant':infer_variant(d,rid),'round':'R4' if cat=='r4_half' else ('smoke' if cat=='smoke' else 'audit'),'execution_status':execution,'validity_status':val,'quality_gate':'fail' if method in {'Flab-Pruner','LLM-Pruner','SliceGPT'} and cat=='r4_half' else ('not_applicable' if val!='valid' else 'pass'),'officiality':'fallback_non_official' if 'codellama' in low and 'llmpruner' in low else ('experimental_extension' if 'benchguided' in low or 'benchmark_activation' in low else 'local_official_adapter'),'result_completeness':comp,'evidence_path':d.relative_to(ROOT).as_posix(),'metadata_present':str(any(d.glob('metadata.*'))).lower(),'summary_present':str(bool(list(d.rglob('score_summary.json')) or (d/'summary.json').exists())).lower(),'superseded_by':sup,'notes':notes})
     return rows
 
 def benchmark_from_path(path: Path, data: dict) -> str:
@@ -183,7 +197,7 @@ def build_method_rows(run_rows: list[dict[str,str]]|None=None, score_rows: list[
             continue
         valid_complete=[r for r in runs if r['execution_status']=='completed' and r['validity_status']=='valid' and r['result_completeness']=='complete']
         partial=[r for r in runs if r['result_completeness']=='partial' or r['execution_status']=='partial']
-        blocked=[r for r in runs if r['validity_status']=='diagnostic_only' or 'blocked' in row['adapter_status']]
+        blocked=[r for r in runs if r['validity_status']=='diagnostic_only' or r['execution_status']=='blocked' or 'blocked' in row['adapter_status']]
         if valid_complete:
             row['execution_status']='completed'
             row['evidence_status']='complete'

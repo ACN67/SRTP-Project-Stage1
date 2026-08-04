@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "run_id": "dsnot_qwen15b_adapter_probe_attempt_20260804_123140",
+  "method": "DSnoT",
+  "protocol": "adapter_probe",
+  "variant": "qwen_adapter_probe",
+  "benchmark": "none",
+  "returncode": 0,
+  "elapsed_seconds": 3.771,
+  "expected_outputs": [],
+  "outputs_present": true,
+  "blocker_reason": "",
+  "artifact_root": "/home/keshu/srtp-artifacts",
+  "evidence_status": "raw_attempt"
+}

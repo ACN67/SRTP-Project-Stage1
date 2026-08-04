@@ -1,0 +1,28 @@
+torch 2.11.0+cu128
+transformers 5.13.1
+accelerate 1.14.0
+# of gpus:  1
+usage: main.py [-h] [--model MODEL] [--seed SEED] [--nsamples NSAMPLES]
+               [--pruning_ratio PRUNING_RATIO] [--remove_heads REMOVE_HEADS]
+               [--metrics {IFV,WIFV,WIFN,N/A}]
+               [--structure {UL-UM,UL-MM,AL-MM,AL-AM,N/A}]
+               [--prune_method {flap,wanda_sp,mag_sp}] [--cache_dir CACHE_DIR]
+               [--unstr] [--eval] [--save_model SAVE_MODEL]
+
+options:
+  -h, --help            show this help message and exit
+  --model MODEL         LLaMA model
+  --seed SEED           Seed for sampling the calibration data.
+  --nsamples NSAMPLES   Number of calibration samples.
+  --pruning_ratio PRUNING_RATIO
+                        Pruning ratio.
+  --remove_heads REMOVE_HEADS
+                        Remove num_heads
+  --metrics {IFV,WIFV,WIFN,N/A}
+  --structure {UL-UM,UL-MM,AL-MM,AL-AM,N/A}
+  --prune_method {flap,wanda_sp,mag_sp}
+  --cache_dir CACHE_DIR
+  --unstr
+  --eval
+  --save_model SAVE_MODEL
+                        Path to save the pruned model.

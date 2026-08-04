@@ -1,0 +1,161 @@
+== nvidia-smi ==
+Tue Aug  4 12:32:36 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.71.01              Driver Version: 596.36         CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5060 ...    On  |   00000000:01:00.0 Off |                  N/A |
+| N/A   57C    P5             33W /  113W |     273MiB /   8151MiB |     21%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+== free -h ==
+               total        used        free      shared  buff/cache   available
+Mem:            13Gi       614Mi        12Gi       3.5Mi       436Mi        13Gi
+Swap:           32Gi          0B        32Gi
+== df -h ==
+Filesystem      Size  Used Avail Use% Mounted on
+none            6.9G     0  6.9G   0% /usr/lib/modules/6.6.114.1-microsoft-standard-WSL2
+none            6.9G  4.0K  6.9G   1% /mnt/wsl
+drivers         953G  825G  128G  87% /usr/lib/wsl/drivers
+/dev/sdd       1007G   92G  865G  10% /
+none            6.9G   36K  6.9G   1% /mnt/wslg
+none            6.9G     0  6.9G   0% /usr/lib/wsl/lib
+rootfs          6.9G  2.8M  6.9G   1% /init
+none            6.9G  544K  6.9G   1% /run
+none            6.9G     0  6.9G   0% /run/lock
+none            6.9G     0  6.9G   0% /run/shm
+none            6.9G   68K  6.9G   1% /mnt/wslg/versions.txt
+none            6.9G   68K  6.9G   1% /mnt/wslg/doc
+C:\             953G  825G  128G  87% /mnt/c
+none            1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           6.9G  4.0K  6.9G   1% /tmp
+none            1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+none            1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs           1.4G   12K  1.4G   1% /run/user/1000
+== lscpu ==
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           39 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  12
+On-line CPU(s) list:                     0-11
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Core(TM) i7-14650HX
+CPU family:                              6
+Model:                                   183
+Thread(s) per core:                      2
+Core(s) per socket:                      6
+Socket(s):                               1
+Stepping:                                1
+BogoMIPS:                                4838.39
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize flush_l1d arch_capabilities
+Virtualization:                          VT-x
+Hypervisor vendor:                       Microsoft
+Virtualization type:                     full
+L1d cache:                               288 KiB (6 instances)
+L1i cache:                               192 KiB (6 instances)
+L2 cache:                                12 MiB (6 instances)
+L3 cache:                                30 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-11
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Reg file data sampling:    Mitigation; Clear Register File
+Vulnerability Retbleed:                  Mitigation; Enhanced IBRS
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Not affected
+== python --version ==
+Python 3.11.15
+== git submodule status ==
+ 26162b71aef5c8fee7775d5a32546d7243c6cb88 third_party/dsnot (heads/main)
+ e35e7fc4560369f993d736df1ef5429a74ca6983 third_party/flab_pruner (heads/master)
+ 3bb57db3449dd2fa04a5c2192de80e87e33be2b1 third_party/flap (heads/main)
+ 84835877f918dc972df1a1375e09209551e02f3d third_party/laco (heads/main)
+ 28fef95ea8c9f7a547c8329f2cd3d32b92c1fa24 third_party/livecodebench (heads/main)
+ 128a07d977f9b205d60ab14cfbc6a78f8a8e39d2 third_party/llm_pruner (heads/main)
+ 50e50de8dc833714bb70a951d0ae37a5e79bcc7b third_party/maskllm (heads/main)
+ dddb7a4bffe27c73e4c8cf692b3a5e36401532c8 third_party/owl (heads/main)
+ db70134ed7d4c521a57060fd698f353d04268429 third_party/pruner_zero (heads/main)
+ 6b12cdee6ad51791d7c776b3a046bc408b9e77e9 third_party/slicegpt (heads/main)
+ 147d2159dc4f3e9f73e47b32c04d7b3708f44436 third_party/sparsegpt (heads/master)
+ 8e8fc87b4a2f9955baa7e76e64d5fce7fa8724a6 third_party/wanda (heads/main)
+== environment locks ==
+{
+  "ok": true,
+  "report": [
+    {
+      "method": "flab_pruner",
+      "status": "missing_environment"
+    },
+    {
+      "method": "magnitude",
+      "status": "missing_environment"
+    },
+    {
+      "method": "wanda",
+      "status": "missing_environment"
+    },
+    {
+      "method": "dsnot",
+      "status": "missing_environment"
+    },
+    {
+      "method": "owl",
+      "status": "missing_environment"
+    },
+    {
+      "method": "sparsegpt",
+      "status": "missing_environment"
+    },
+    {
+      "method": "maskllm",
+      "status": "missing_environment"
+    },
+    {
+      "method": "pruner_zero",
+      "status": "missing_environment"
+    },
+    {
+      "method": "flap",
+      "status": "missing_environment"
+    },
+    {
+      "method": "laco",
+      "status": "missing_environment"
+    },
+    {
+      "method": "llm_pruner",
+      "status": "missing_environment"
+    },
+    {
+      "method": "slicegpt",
+      "status": "missing_environment"
+    },
+    {
+      "method": "livecodebench",
+      "status": "missing_environment"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+torch 2.11.0+cu128
+transformers 5.13.1
+accelerate 1.14.0
+# of gpus:  1
+usage: tool_compute_mask_hf.py [-h] [--dense DENSE] [--sparse SPARSE]
+                               [--save SAVE] [--cache_dir CACHE_DIR]
+
+options:
+  -h, --help            show this help message and exit
+  --dense DENSE         Dense model
+  --sparse SPARSE       Sparse model
+  --save SAVE           Save as
+  --cache_dir CACHE_DIR

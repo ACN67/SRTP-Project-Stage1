@@ -38,3 +38,6 @@ Pilot rows, superseded baselines, and auxiliary full-eval rows are excluded from
 
 ## Current conclusion
 The repository can support the next execution phase, but `results/status/completion_audit.json` does not claim all Stage-1 methods are successful. Remaining work is targeted reruns for planned and blocked methods plus focused recovery checks for partial methods.
+
+## Final-completion pass
+The final-completion pass added bounded evidence attempts for Flab benchmark activation, Magnitude, Wanda, SparseGPT, LaCo, DSnoT, OWL, MaskLLM, Pruner-Zero, FLAP, and SWE-bench-lite. These attempts close the planned-state gap without changing the older evidence. Flab activation now uses real forward hooks in code, but the Qwen1.5B activation run is blocked by local model/environment availability. Magnitude and Wanda have raw command evidence, but no new raw R4 score summaries; their historical aggregate-only rows remain separate from formal R4 results. SparseGPT and the coverage methods have probe/blocker evidence rather than completed formal code-model results.

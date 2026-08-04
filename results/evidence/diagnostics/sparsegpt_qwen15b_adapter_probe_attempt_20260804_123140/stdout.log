@@ -1,0 +1,31 @@
+usage: opt.py [-h] [--seed SEED] [--nsamples NSAMPLES] [--percdamp PERCDAMP]
+              [--sparsity SPARSITY] [--prunen PRUNEN] [--prunem PRUNEM]
+              [--blocksize BLOCKSIZE] [--gmp] [--wbits WBITS]
+              [--minlayer MINLAYER] [--maxlayer MAXLAYER]
+              [--prune_only PRUNE_ONLY] [--invert] [--save SAVE] [--log_wandb]
+              model {wikitext2,ptb,c4}
+
+positional arguments:
+  model                 OPT model to load; pass `facebook/opt-X`.
+  {wikitext2,ptb,c4}    Where to extract calibration data from.
+
+options:
+  -h, --help            show this help message and exit
+  --seed SEED           Seed for sampling the calibration data.
+  --nsamples NSAMPLES   Number of calibration data samples.
+  --percdamp PERCDAMP   Percent of the average Hessian diagonal to use for
+                        dampening.
+  --sparsity SPARSITY   Target sparsity
+  --prunen PRUNEN       N for N:M pruning.
+  --prunem PRUNEM       M for N:M pruning.
+  --blocksize BLOCKSIZE
+                        Blocksize to use for adaptive mask selection.
+  --gmp                 Whether to run the GMP baseline.
+  --wbits WBITS         Whether to quantize as well.
+  --minlayer MINLAYER   Prune all layers with id >= this.
+  --maxlayer MAXLAYER   Prune all layers with id < this.
+  --prune_only PRUNE_ONLY
+                        Prune only layers that contain this text.
+  --invert              Invert subset.
+  --save SAVE           Path to saved model.
+  --log_wandb           Whether to log to wandb.

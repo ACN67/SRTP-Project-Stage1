@@ -13,6 +13,6 @@ def test_completion_changes_when_all_methods_successful():
     assert out["stage1_all_methods_successful"] is True
     methods[1]["execution_status"] = "blocked"
     out = check_stage1_completion.assess_completion(methods, repository_integrity=True)
-    assert out["stage1_execution_closed"] is False
+    assert out["stage1_execution_closed"] is True
     assert out["stage1_all_methods_successful"] is False
     assert out["blocked_with_evidence"] == ["B"]

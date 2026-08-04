@@ -1,0 +1,3 @@
+metric,value
+free,total        used        free      shared  buff/cache   available;Mem:            13Gi       598Mi       9.0Gi       3.6Mi       4.2Gi        13Gi;Swap:           32Gi          0B        32Gi;
+df,/dev/sdd       1007G   92G  865G  10% /

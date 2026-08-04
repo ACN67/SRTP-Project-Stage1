@@ -1,0 +1,15 @@
+{
+  "status": "blocked",
+  "run_id": "owl_qwen15b_adapter_probe_attempt_20260804_123140",
+  "method": "OWL",
+  "protocol": "adapter_probe",
+  "variant": "qwen_adapter_probe",
+  "benchmark": "none",
+  "returncode": 1,
+  "elapsed_seconds": 3.715,
+  "expected_outputs": [],
+  "outputs_present": true,
+  "blocker_reason": "OWL Qwen adapter probe is blocked by upstream architecture or environment",
+  "artifact_root": "/home/keshu/srtp-artifacts",
+  "evidence_status": "raw_attempt"
+}

@@ -1,0 +1,36 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/338 [00:00<02:18,  2.43it/s]
+Loading weights:   5%|▍         | 16/338 [00:00<00:07, 40.27it/s]
+Loading weights:   9%|▊         | 29/338 [00:00<00:04, 64.28it/s]
+Loading weights:  15%|█▌        | 51/338 [00:00<00:02, 104.34it/s]
+Loading weights:  20%|█▉        | 66/338 [00:00<00:02, 109.48it/s]
+Loading weights:  24%|██▎       | 80/338 [00:00<00:02, 114.64it/s]
+Loading weights:  29%|██▉       | 99/338 [00:01<00:01, 120.55it/s]
+Loading weights:  33%|███▎      | 113/338 [00:01<00:01, 125.30it/s]
+Loading weights:  40%|███▉      | 134/338 [00:01<00:01, 132.72it/s]
+Loading weights:  44%|████▍     | 148/338 [00:01<00:01, 122.39it/s]
+Loading weights:  50%|█████     | 170/338 [00:01<00:01, 126.23it/s]
+Loading weights:  54%|█████▍    | 184/338 [00:01<00:01, 128.37it/s]
+Loading weights:  61%|██████    | 207/338 [00:01<00:00, 131.16it/s]
+Loading weights:  67%|██████▋   | 227/338 [00:02<00:00, 146.21it/s]
+Loading weights:  72%|███████▏  | 243/338 [00:02<00:00, 133.76it/s]
+Loading weights:  76%|███████▌  | 257/338 [00:02<00:00, 132.36it/s]
+Loading weights:  83%|████████▎ | 279/338 [00:02<00:00, 129.96it/s]
+Loading weights:  87%|████████▋ | 293/338 [00:02<00:00, 129.61it/s]
+Loading weights:  93%|█████████▎| 315/338 [00:02<00:00, 146.99it/s]
+Loading weights:  98%|█████████▊| 331/338 [00:02<00:00, 136.24it/s]
+Loading weights: 100%|██████████| 338/338 [00:02<00:00, 119.44it/s]
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/methods/flab_pruner/qwen_prune.py", line 493, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/methods/flab_pruner/qwen_prune.py", line 448, in main
+    prune_with_masks(model, zs, args.save_dir, tokenizer=tokenizer, stage=args.stage)
+  File "/home/keshu/projects/srtp-code-llm-pruning/methods/flab_pruner/qwen_prune.py", line 368, in prune_with_masks
+    model.prune(stage=stage, zs=moved)
+    ^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning-pre-final-original-20260804-1015/.venv-common/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1968, in __getattr__
+    raise AttributeError(
+AttributeError: 'Qwen2ForCausalLM' object has no attribute 'prune'

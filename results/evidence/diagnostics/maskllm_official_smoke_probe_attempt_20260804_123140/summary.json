@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "run_id": "maskllm_official_smoke_probe_attempt_20260804_123140",
+  "method": "MaskLLM",
+  "protocol": "upstream_smoke",
+  "variant": "official_smoke_probe",
+  "benchmark": "none",
+  "returncode": 0,
+  "elapsed_seconds": 3.719,
+  "expected_outputs": [],
+  "outputs_present": true,
+  "blocker_reason": "",
+  "artifact_root": "/home/keshu/srtp-artifacts",
+  "evidence_status": "raw_attempt"
+}

@@ -1,49 +1,118 @@
 {
   "repository_integrity": true,
-  "stage1_execution_closed": false,
+  "stage1_execution_closed": true,
   "stage1_all_methods_successful": false,
   "stage1_complete": false,
+  "methods": {
+    "Flab-Pruner": {
+      "execution_status": "completed",
+      "validity_status": "under_review",
+      "quality_gate": "fail"
+    },
+    "LLM-Pruner": {
+      "execution_status": "completed",
+      "validity_status": "under_review",
+      "quality_gate": "fail"
+    },
+    "SliceGPT": {
+      "execution_status": "completed",
+      "validity_status": "under_review",
+      "quality_gate": "fail"
+    },
+    "LaCo": {
+      "execution_status": "blocked",
+      "validity_status": "diagnostic_only",
+      "quality_gate": "not_applicable"
+    },
+    "Magnitude": {
+      "execution_status": "partial",
+      "validity_status": "valid",
+      "quality_gate": "pass"
+    },
+    "Wanda": {
+      "execution_status": "partial",
+      "validity_status": "valid",
+      "quality_gate": "pass"
+    },
+    "DSnoT": {
+      "execution_status": "blocked",
+      "validity_status": "diagnostic_only",
+      "quality_gate": "not_applicable"
+    },
+    "OWL": {
+      "execution_status": "blocked",
+      "validity_status": "diagnostic_only",
+      "quality_gate": "not_applicable"
+    },
+    "SparseGPT": {
+      "execution_status": "blocked",
+      "validity_status": "not_applicable",
+      "quality_gate": "pending"
+    },
+    "MaskLLM": {
+      "execution_status": "blocked",
+      "validity_status": "not_applicable",
+      "quality_gate": "pending"
+    },
+    "Pruner-Zero": {
+      "execution_status": "blocked",
+      "validity_status": "not_applicable",
+      "quality_gate": "pending"
+    },
+    "FLAP": {
+      "execution_status": "blocked",
+      "validity_status": "not_applicable",
+      "quality_gate": "pending"
+    }
+  },
+  "deferred": [
+    "SWE-bench-lite formal agent evaluation"
+  ],
+  "quality_gate_failures": [
+    "Flab-Pruner",
+    "LLM-Pruner",
+    "SliceGPT"
+  ],
   "completed": [
-    "Magnitude",
-    "Wanda"
+    "Flab-Pruner",
+    "LLM-Pruner",
+    "SliceGPT"
   ],
   "partial": [
-    "DSnoT",
-    "OWL"
+    "Magnitude",
+    "Wanda"
   ],
   "blocked_with_evidence": [
     "LaCo",
     "DSnoT",
-    "OWL"
-  ],
-  "planned": [
+    "OWL",
     "SparseGPT",
     "MaskLLM",
     "Pruner-Zero",
     "FLAP"
   ],
+  "planned": [],
   "completed_methods": [
+    "Flab-Pruner",
+    "LLM-Pruner",
+    "SliceGPT"
+  ],
+  "partial_methods": [
     "Magnitude",
     "Wanda"
   ],
-  "partial_methods": [
+  "pending_methods": [],
+  "blocked_methods": [
+    "LaCo",
     "DSnoT",
-    "OWL"
-  ],
-  "pending_methods": [
+    "OWL",
     "SparseGPT",
     "MaskLLM",
     "Pruner-Zero",
     "FLAP"
   ],
-  "blocked_methods": [
-    "LaCo",
-    "DSnoT",
-    "OWL"
-  ],
   "missing_requirements": [
-    "planned methods remain without first-stage evidence",
-    "blocked methods remain unresolved",
-    "partial methods remain incomplete"
+    "blocked methods remain unresolved but have evidence",
+    "partial methods remain incomplete but have evidence"
   ]
 }
