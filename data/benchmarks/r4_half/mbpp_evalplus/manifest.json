@@ -1,15 +1,14 @@
 {
-  "benchmark": "mbpp_evalplus_half",
-  "split_version": "stage1_r4_half_v1",
-  "source": "evalplus.data.get_mbpp_plus plus google-research-datasets/mbpp sanitized official splits",
-  "selection": "official MBPP split mapping: prompt/train/validation guide, test eval",
-  "total_count": 378,
-  "guide_path": "data/benchmarks/r4_half/mbpp_evalplus/guide.jsonl",
-  "eval_path": "data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl",
-  "guide_sha256": "15b2981cbd9b2eda27643d8a77433880dbc9a9a41a8081f754960d2a0f115b56",
-  "eval_sha256": "fbceea9e416955d1d4cf9ddc5d41d87500153429f4783be9403a1ecb9e98fc07",
-  "guide_count": 154,
-  "eval_count": 224,
+  "protocol": "r4_half",
+  "dataset": "mbpp_evalplus",
+  "benchmark": "mbpp",
+  "split_version": "stage1_round3_v1",
   "contains_solution": false,
-  "notes": "R4 formal split. Guide is for pruning/calibration only; eval is for post-pruning scoring."
+  "guide_path": "data/benchmarks/r4_half/mbpp_evalplus/guide.jsonl",
+  "guide_sha256": "15b2981cbd9b2eda27643d8a77433880dbc9a9a41a8081f754960d2a0f115b56",
+  "guide_count": 154,
+  "eval_path": "data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl",
+  "eval_sha256": "fbceea9e416955d1d4cf9ddc5d41d87500153429f4783be9403a1ecb9e98fc07",
+  "eval_count": 224,
+  "split_policy": "guide_eval_disjoint"
 }

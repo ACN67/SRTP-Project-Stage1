@@ -1,15 +1,14 @@
 {
-  "benchmark": "humaneval_half",
-  "split_version": "stage1_r4_half_v1",
-  "source": "human_eval.data.read_problems",
-  "selection": "stratified by prompt length bucket and example count, then stable alternating assignment",
-  "total_count": 164,
-  "guide_path": "data/benchmarks/r4_half/humaneval/guide.jsonl",
-  "eval_path": "data/benchmarks/r4_half/humaneval/eval.jsonl",
-  "guide_sha256": "786d8c8f197c8c558073f1575731c8dfc8b657cc68dfcc82c9066ab208655b2c",
-  "eval_sha256": "6971a73064bdcf417a4a7babafaf9c46c04260289f58e325f93d86e242902870",
-  "guide_count": 82,
-  "eval_count": 82,
+  "protocol": "r4_half",
+  "dataset": "humaneval",
+  "benchmark": "humaneval",
+  "split_version": "stage1_round3_v1",
   "contains_solution": false,
-  "notes": "R4 formal split. Guide is for pruning/calibration only; eval is for post-pruning scoring."
+  "guide_path": "data/benchmarks/r4_half/humaneval/guide.jsonl",
+  "guide_sha256": "786d8c8f197c8c558073f1575731c8dfc8b657cc68dfcc82c9066ab208655b2c",
+  "guide_count": 82,
+  "eval_path": "data/benchmarks/r4_half/humaneval/eval.jsonl",
+  "eval_sha256": "6971a73064bdcf417a4a7babafaf9c46c04260289f58e325f93d86e242902870",
+  "eval_count": 82,
+  "split_policy": "guide_eval_disjoint"
 }

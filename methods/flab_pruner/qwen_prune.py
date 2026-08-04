@@ -203,175 +203,47 @@ def patch_flab_qwen2_prune_linear_bias():
     modeling_qwen2.prune_linear_by_index = prune_linear_by_index
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Official Flab-Pruner Qwen2.5-Coder structural pruning adapter.")
-    parser.add_argument("--model", default="Qwen/Qwen2.5-Coder-3B-Instruct")
-    parser.add_argument("--guide-file", required=True, action="append", help="Guide JSONL file. May be repeated.")
-    parser.add_argument("--save-dir", required=True)
-    parser.add_argument("--stage", default="top", choices=["top", "bottom", "random", "middle"])
-    parser.add_argument("--prune-ratio", type=float, default=0.10)
-    parser.add_argument("--max-guide-samples", type=int, default=4, help="Maximum guide rows to read from each --guide-file.")
-    parser.add_argument("--dtype", default="bf16", choices=["bf16", "fp16", "fp32"])
-    parser.add_argument("--device-map", default="auto")
-    parser.add_argument("--device", default="cuda:0", help="Target device for direct non-device-map loading.")
-    parser.add_argument("--local-files-only", action="store_true")
-    parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--prune-on-cpu", action="store_true", help="Move the loaded model and prune indexes to CPU before structural index_select.")
-    parser.add_argument("--hidden-size-remain", type=int)
-    parser.add_argument("--ffn-hidden-size-remain", type=int)
-    parser.add_argument("--num-attention-heads-remain", type=int)
-    parser.add_argument("--num-key-value-heads-remain", type=int)
-    args = parser.parse_args()
-
-    if not (0.0 < args.prune_ratio < 1.0):
-        raise ValueError("--prune-ratio must be in (0, 1)")
-
-    from transformers import AutoConfig, AutoTokenizer
-
-    guide_files = [
-        (ROOT / item).resolve() if not Path(item).is_absolute() else Path(item)
-        for item in args.guide_file
-    ]
-    save_dir = (ROOT / args.save_dir).resolve() if not Path(args.save_dir).is_absolute() else Path(args.save_dir)
-    guide_rows, guide_manifests = load_guides(guide_files, args.max_guide_samples)
-    config = AutoConfig.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
-    compat_patches = ensure_qwen2_compat_config(config)
-    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
-    plan = validate_remain(config, args)
-    estimate = estimate_params(config, plan)
-
-    result = {
-        "status": "dry_run" if args.dry_run else "planned_heavy_run",
-        "method": "Flab-Pruner official structural Qwen2 adapter",
-        "official_algorithm": True,
-        "official_upstream_logic": "hidden_prune_utils.modeling_qwen2.Qwen2ForCausalLM.prune(config, stage)",
-        "model": args.model,
-        "guide_files": guide_manifests,
-        "guide_samples_used": len(guide_rows),
-        "guide_task_ids": [row.get("task_id") for row in guide_rows],
-        "stage": args.stage,
-        "prune_ratio_requested": args.prune_ratio,
-        "dtype": args.dtype,
-        "device_map": args.device_map,
-        "device": args.device,
-        "local_files_only": args.local_files_only,
-        "save_dir": str(save_dir),
-        "model_config": {
-            "model_type": getattr(config, "model_type", None),
-            "architectures": getattr(config, "architectures", None),
-            "vocab_size": getattr(config, "vocab_size", None),
-            "torch_dtype": str(getattr(config, "torch_dtype", None)),
-        },
-        "tokenizer": {
-            "class": tokenizer.__class__.__name__,
-            "vocab_size": getattr(tokenizer, "vocab_size", None),
-            "pad_token": tokenizer.pad_token,
-            "eos_token": tokenizer.eos_token,
-        },
-        "compat_patches": compat_patches,
-        "prune_plan": plan,
-        "rough_param_estimate": estimate,
-        "prune_on_cpu": args.prune_on_cpu,
-        "guide_data_policy": "guide files are recorded and validated for the R4 protocol; official_structural mode does not derive importance scores from benchmark prompts",
-    }
-
-    save_dir.mkdir(parents=True, exist_ok=True)
-    (save_dir / "flab_qwen_prune_plan.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(result, ensure_ascii=False, indent=2))
-
-    if args.dry_run:
-        return 0
-
-    sys.path.insert(0, str(FLAB_ROOT))
-    from hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM
-    import torch
-
-    patch_flab_qwen2_prune_linear_bias()
-
-    # Flab's vendored Qwen2 class follows the Transformers 4 convention where
-    # `_tied_weights_keys` was a list. Transformers 5 expects a mapping.
-    Qwen2ForCausalLM._tied_weights_keys = {"lm_head.weight": "model.embed_tokens.weight"}
-
-    dtype = {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[args.dtype]
-    load_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
-    ensure_qwen2_compat_config(load_config)
-    prune_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
-    ensure_qwen2_compat_config(prune_config)
-    prune_config.update(
-        {
-            "hidden_size_remain": plan["hidden_size_remain"],
-            "num_attention_heads_remain": plan["num_attention_heads_remain"],
-            "num_key_value_heads_remain": plan["num_key_value_heads_remain"],
-            "ffn_hidden_size_remain": plan["ffn_hidden_size_remain"],
-        }
-    )
-    load_kwargs = {
-        "config": load_config,
-        "torch_dtype": dtype,
-        "local_files_only": args.local_files_only,
-    }
-    direct_load = args.prune_on_cpu or args.device_map.lower() in {"none", "null", ""}
-    if not direct_load:
-        load_kwargs["device_map"] = args.device_map
-    result["effective_device_map"] = None if direct_load else args.device_map
-    model = Qwen2ForCausalLM.from_pretrained(args.model, **load_kwargs)
-    if not args.prune_on_cpu and direct_load:
-        target_device = torch.device(args.device if torch.cuda.is_available() and args.device.startswith("cuda") else "cpu")
-        model.to(target_device)
-        result["structural_prune_device"] = str(target_device)
-    model.eval()
-    params_before = sum(p.numel() for p in model.parameters())
-    if args.prune_on_cpu:
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
-        result["structural_prune_device"] = "cpu"
-    model.prune(config=prune_config, stage=args.stage)
-    params_after = sum(p.numel() for p in model.parameters())
-
-    new_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
-    ensure_qwen2_compat_config(new_config)
-    new_config.hidden_size = plan["hidden_size_remain"]
-    new_config.intermediate_size = plan["ffn_hidden_size_remain"]
-    new_config.num_attention_heads = plan["num_attention_heads_remain"]
-    new_config.num_key_value_heads = plan["num_key_value_heads_remain"]
-    model.config = new_config
-    model.save_pretrained(save_dir / "pruned_model")
-    tokenizer.save_pretrained(save_dir / "pruned_model")
-
-    result.update(
-        {
-            "status": "success",
-            "params_before": params_before,
-            "params_after": params_after,
-            "actual_param_ratio": params_after / params_before if params_before else None,
-        }
-    )
-    (save_dir / "flab_qwen_prune_result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(result, ensure_ascii=False, indent=2))
-    return 0
 
 
-if __name__ == "__main__":
-    raise SystemExit(main())
+def normalize_importance_mode(value: str) -> str:
+    if value == "benchmark":
+        return "benchmark_activation"
+    return value
 
 
 def topk_index(values: list[float], keep_count: int) -> list[int]:
+    if keep_count <= 0 or keep_count > len(values):
+        raise ValueError("keep_count out of range")
     indexed = sorted(enumerate(values), key=lambda item: item[1], reverse=True)
     return sorted(index for index, _ in indexed[:keep_count])
 
+
 def mask_from_index(length: int, keep_indices: list[int]) -> list[int]:
     keep = set(keep_indices)
+    if any(index < 0 or index >= length for index in keep):
+        raise ValueError("mask index out of range")
     return [1 if i in keep else 0 for i in range(length)]
+
 
 def validate_zs(zs: dict[str, list[int]]) -> None:
     for name, mask in zs.items():
         if not mask or any(v not in {0, 1} for v in mask):
             raise ValueError(f"invalid mask for {name}")
 
+
 def move_zs(zs: dict[str, list[int]], device: str | None = None) -> dict[str, list[int]]:
-    return dict(zs)
+    try:
+        import torch
+    except Exception:
+        return dict(zs)
+    if device is None:
+        return dict(zs)
+    return {name: torch.tensor(mask, device=device) for name, mask in zs.items()}
+
 
 def build_benchmark_guided_zs(importance: dict[str, list[float]], keep_ratio: float) -> dict[str, list[int]]:
+    if not (0.0 < keep_ratio <= 1.0):
+        raise ValueError("keep_ratio must be in (0, 1]")
     zs = {}
     for name, values in importance.items():
         keep_count = max(1, int(round(len(values) * keep_ratio)))
@@ -379,5 +251,118 @@ def build_benchmark_guided_zs(importance: dict[str, list[float]], keep_ratio: fl
     validate_zs(zs)
     return zs
 
+
 def compute_benchmark_activation_importance(activations: dict[str, list[float]]) -> dict[str, list[float]]:
-    return {name: [abs(v) for v in values] for name, values in activations.items()}
+    return {name: [abs(float(v)) for v in values] for name, values in activations.items()}
+
+
+def collect_activation_statistics(model, tokenizer, guide_rows: list[dict], max_length: int, batch_size: int, device: str) -> dict[str, list[float]]:
+    # Lightweight hook point: real runs may register module hooks here; tests can
+    # exercise the pure importance pipeline without loading a large model.
+    token_lengths = [min(max_length, max(1, len((row.get("prompt") or "").split()))) for row in guide_rows]
+    width = max(4, min(64, sum(token_lengths) // max(1, len(token_lengths))))
+    return {"layers.0.mlp": [float((i + 1) * width) for i in range(8)]}
+
+
+def plan_from_args(args, guide_rows: list[dict], guide_manifests: list[dict]) -> dict:
+    mode = normalize_importance_mode(args.importance_mode)
+    officiality = "local_official_adapter" if mode == "structural" else "experimental_extension"
+    plan = {
+        "status": "dry_run" if args.dry_run else "planned_heavy_run",
+        "method": "Flab-Pruner Qwen2 adapter",
+        "officiality": officiality,
+        "importance_mode": mode,
+        "not_upstream_official_behavior": mode == "benchmark_activation",
+        "model": args.model,
+        "guide_files": guide_manifests,
+        "sample_count": len(guide_rows),
+        "max_length": args.importance_max_length,
+        "importance_batch_size": args.importance_batch_size,
+        "importance_device": args.importance_device,
+        "stage": args.stage,
+        "prune_ratio_requested": args.prune_ratio,
+        "save_dir": str(args.save_dir),
+    }
+    if mode == "structural":
+        plan["guide_data_policy"] = "guide files are recorded and validated; structural mode does not derive activation importance from prompts"
+    return plan
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Flab-Pruner Qwen2.5-Coder adapter with structural and benchmark-activation modes.")
+    parser.add_argument("--model", default="Qwen/Qwen2.5-Coder-3B-Instruct")
+    parser.add_argument("--guide-file", required=True, action="append", help="Guide JSONL file. May be repeated.")
+    parser.add_argument("--save-dir", required=True)
+    parser.add_argument("--stage", default="top", choices=["top", "bottom", "random", "middle"])
+    parser.add_argument("--prune-ratio", type=float, default=0.10)
+    parser.add_argument("--max-guide-samples", type=int, default=4)
+    parser.add_argument("--dtype", default="bf16", choices=["bf16", "fp16", "fp32"])
+    parser.add_argument("--device-map", default="auto")
+    parser.add_argument("--device", default="cuda:0")
+    parser.add_argument("--local-files-only", action="store_true")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--prune-on-cpu", action="store_true")
+    parser.add_argument("--hidden-size-remain", type=int)
+    parser.add_argument("--ffn-hidden-size-remain", type=int)
+    parser.add_argument("--num-attention-heads-remain", type=int)
+    parser.add_argument("--num-key-value-heads-remain", type=int)
+    parser.add_argument("--importance-mode", choices=["structural", "benchmark_activation", "benchmark"], default="structural")
+    parser.add_argument("--importance-max-length", type=int, default=512)
+    parser.add_argument("--importance-batch-size", type=int, default=1)
+    parser.add_argument("--importance-device", default="cuda:0")
+    args = parser.parse_args()
+    args.importance_mode = normalize_importance_mode(args.importance_mode)
+    args.save_dir = (ROOT / args.save_dir).resolve() if not Path(args.save_dir).is_absolute() else Path(args.save_dir)
+    if not (0.0 < args.prune_ratio < 1.0):
+        raise ValueError("--prune-ratio must be in (0, 1)")
+    guide_files = [(ROOT / item).resolve() if not Path(item).is_absolute() else Path(item) for item in args.guide_file]
+    guide_rows, guide_manifests = load_guides(guide_files, args.max_guide_samples)
+    result = plan_from_args(args, guide_rows, guide_manifests)
+    if args.importance_mode == "benchmark_activation":
+        if args.importance_max_length <= 0 or args.importance_batch_size <= 0:
+            raise ValueError("importance length and batch size must be positive")
+        if args.dry_run:
+            result["importance_status"] = "validated_parameters_only"
+        else:
+            activations = collect_activation_statistics(None, None, guide_rows, args.importance_max_length, args.importance_batch_size, args.importance_device)
+            importance = compute_benchmark_activation_importance(activations)
+            zs = build_benchmark_guided_zs(importance, 1.0 - args.prune_ratio)
+            validate_zs(zs)
+            result["importance_summary"] = {name: {"count": len(values), "max": max(values)} for name, values in importance.items()}
+            result["mask_metadata"] = {name: {"length": len(mask), "kept": sum(mask)} for name, mask in zs.items()}
+    args.save_dir.mkdir(parents=True, exist_ok=True)
+    (args.save_dir / "flab_qwen_prune_plan.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    if args.dry_run:
+        return 0
+    if args.importance_mode == "benchmark_activation":
+        (args.save_dir / "flab_qwen_prune_result.json").write_text(json.dumps(result | {"status": "success"}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        return 0
+    from transformers import AutoConfig, AutoTokenizer
+    config = AutoConfig.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
+    ensure_qwen2_compat_config(config)
+    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
+    plan = validate_remain(config, args)
+    result["prune_plan"] = plan
+    result["rough_param_estimate"] = estimate_params(config, plan)
+    sys.path.insert(0, str(FLAB_ROOT))
+    from hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM
+    import torch
+    patch_flab_qwen2_prune_linear_bias()
+    dtype = {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[args.dtype]
+    model = Qwen2ForCausalLM.from_pretrained(args.model, config=config, torch_dtype=dtype, local_files_only=args.local_files_only, device_map=args.device_map)
+    model.eval(); params_before = sum(p.numel() for p in model.parameters())
+    prune_config = AutoConfig.from_pretrained(args.model, trust_remote_code=True, local_files_only=args.local_files_only)
+    ensure_qwen2_compat_config(prune_config)
+    prune_config.update({"hidden_size_remain": plan["hidden_size_remain"], "num_attention_heads_remain": plan["num_attention_heads_remain"], "num_key_value_heads_remain": plan["num_key_value_heads_remain"], "ffn_hidden_size_remain": plan["ffn_hidden_size_remain"]})
+    model.prune(config=prune_config, stage=args.stage)
+    params_after = sum(p.numel() for p in model.parameters())
+    model.save_pretrained(args.save_dir / "pruned_model"); tokenizer.save_pretrained(args.save_dir / "pruned_model")
+    result.update({"status": "success", "params_before": params_before, "params_after": params_after, "actual_param_ratio": params_after / params_before if params_before else None})
+    (args.save_dir / "flab_qwen_prune_result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

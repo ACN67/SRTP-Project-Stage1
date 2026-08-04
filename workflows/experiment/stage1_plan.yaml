@@ -13,7 +13,7 @@ jobs:
   cwd: .
   description: Check common Python environment, CUDA visibility, Git LFS, and Docker
     access.
-  command: python workflows/audit/check_environment.py
+  command: python workflows/audit/check_environment.py --output-dir "$RUN_DIR"
   timeout_seconds: 300
   owner: shared
   method_group: common
@@ -367,7 +367,7 @@ jobs:
   - readiness
   - Stage1
   description: Check visible Stage 1 readiness gaps without running heavy experiments.
-  command: python workflows/audit/check_readiness.py || true
+  command: python workflows/audit/check_stage1_completion.py --write
   timeout_seconds: 300
   owner: shared
   method_group: common

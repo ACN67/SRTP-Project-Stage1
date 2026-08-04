@@ -1,12 +1,21 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, csv, hashlib
+import argparse, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
-def sha(p): h=hashlib.sha256(); h.update(p.read_bytes()); return h.hexdigest()
-def main():
-    parser=argparse.ArgumentParser(description='Validate data split registry hashes.'); parser.add_argument('--write', action='store_true'); args=parser.parse_args()
-    with (ROOT/'results/status/data_splits.csv').open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
-    for r in rows: assert sha(ROOT/r['path'])==r['sha256']
-    print(f'splits={len(rows)}'); return 0
+sys.path.insert(0, str(ROOT))
+from workflows.aggregate.registry_utils import ROOT, SPLIT_FIELDS, build_split_rows, csv_text, write_or_check
+
+def main() -> int:
+    parser=argparse.ArgumentParser(description='Build results/status/data_splits.csv.')
+    parser.add_argument('--write', action='store_true')
+    parser.add_argument('--check', action='store_true')
+    parser.add_argument('--output', type=Path, default=ROOT/'results/status/data_splits.csv')
+    args=parser.parse_args()
+    if not args.write and not args.check: args.check=True
+    rows=build_split_rows()
+    text=csv_text(SPLIT_FIELDS, rows)
+    ok=write_or_check(args.output if args.output.is_absolute() else ROOT/args.output, text, args.write, args.check)
+    print('rows='+str(len(rows)))
+    return 0 if ok else 1
 if __name__=='__main__': raise SystemExit(main())

@@ -1,0 +1,29 @@
+{
+  "repository_integrity": true,
+  "stage1_complete": false,
+  "completed_methods": [
+    "Magnitude",
+    "Wanda"
+  ],
+  "partial_methods": [
+    "SliceGPT",
+    "DSnoT",
+    "OWL"
+  ],
+  "pending_methods": [
+    "SparseGPT",
+    "MaskLLM",
+    "Pruner-Zero",
+    "FLAP"
+  ],
+  "blocked_methods": [
+    "LaCo",
+    "DSnoT",
+    "OWL"
+  ],
+  "missing_requirements": [
+    "planned methods remain without first-stage evidence",
+    "blocked methods remain unresolved",
+    "partial methods remain incomplete"
+  ]
+}
