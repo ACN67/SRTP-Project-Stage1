@@ -84,6 +84,8 @@ def test_no_legacy_active_paths() -> None:
     for path in ROOT.rglob("*"):
         if not path.is_file() or ".git" in path.parts:
             continue
+        if "__pycache__" in path.parts or path.suffix == ".pyc":
+            continue
         rel = path.relative_to(ROOT).as_posix()
         if rel.startswith("results/evidence/"):
             continue

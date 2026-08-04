@@ -5,10 +5,9 @@ __pycache__/
 .hf_cache/
 .env
 .DS_Store
-results/raw/*/tmp/
-artifacts/models/cache/
-results/raw/**/tmp/
-results/raw/**/offload/
+results/evidence/**/tmp/
+results/evidence/**/offload/
+results/evidence/**/cache/
 results/**/*.safetensors
 results/**/*.pt
 results/**/tokenizer.json
