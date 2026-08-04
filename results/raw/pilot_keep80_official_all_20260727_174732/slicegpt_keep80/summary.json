@@ -1,0 +1,32 @@
+{
+  "status": "success",
+  "method": "SliceGPT official Qwen2 adapter",
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "local_files_only": true,
+  "cal_dataset": "wikitext2",
+  "cal_guide_files": [
+    "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/humaneval_half/guide.jsonl",
+    "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/mbpp_evalplus_half/guide.jsonl",
+    "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/livecodebench_half/guide.jsonl"
+  ],
+  "cal_guide_samples": 12,
+  "cal_nsamples": 12,
+  "cal_batch_size": 1,
+  "cal_max_seqlen": 512,
+  "sparsity_requested": 0.2,
+  "hidden_size": 2048,
+  "new_embedding_dimension": 1536,
+  "parameters_before": 3085938688,
+  "parameters_after": 2801821696,
+  "parameter_keep_ratio": 0.9079317443652335,
+  "parameter_reduction_rate": 0.0920682556347665,
+  "sliced_state_path": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_keep80/sliced_model/Qwen2.5-Coder-3B-Instruct_0.2.pt",
+  "slicing_config_path": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_keep80/sliced_model/Qwen2.5-Coder-3B-Instruct_0.2.json",
+  "sliced_model": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_keep80/sliced_model",
+  "sliced_model_loader": "scripts.adapt.slicegpt_qwen_official.load_sliced_qwen_model",
+  "process_rss_mb_after": 7614.46484375,
+  "elapsed_seconds": 370.27495312690735,
+  "torch": "2.11.0+cu128"
+}

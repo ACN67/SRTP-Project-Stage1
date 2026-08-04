@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/eval/mbpp_evalplus/generation/samples.jsonl",
+  "base_only": true,
+  "task_count": 224,
+  "base_pass_count": 2,
+  "base_pass_rate": 0.008928571428571428,
+  "base_status_counter": {
+    "fail": 222,
+    "pass": 2
+  }
+}

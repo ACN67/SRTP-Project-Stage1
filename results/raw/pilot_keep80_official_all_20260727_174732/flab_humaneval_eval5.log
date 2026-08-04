@@ -1,0 +1,55 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<02:26,  2.96it/s]Loading weights:   3%|▎         | 14/434 [00:00<00:10, 39.77it/s]Loading weights:   9%|▉         | 39/434 [00:00<00:04, 97.21it/s]Loading weights:  12%|█▏        | 53/434 [00:00<00:03, 107.61it/s]Loading weights:  17%|█▋        | 75/434 [00:00<00:02, 139.61it/s]Loading weights:  21%|██        | 92/434 [00:00<00:02, 145.81it/s]Loading weights:  26%|██▌       | 111/434 [00:01<00:02, 145.50it/s]Loading weights:  31%|███▏      | 136/434 [00:01<00:01, 170.96it/s]Loading weights:  36%|███▌      | 155/434 [00:01<00:01, 174.86it/s]Loading weights:  40%|████      | 174/434 [00:01<00:01, 164.10it/s]Loading weights:  44%|████▍     | 193/434 [00:01<00:01, 171.04it/s]Loading weights:  49%|████▊     | 211/434 [00:01<00:01, 162.35it/s]Loading weights:  53%|█████▎    | 232/434 [00:01<00:01, 161.27it/s]Loading weights:  59%|█████▉    | 256/434 [00:01<00:01, 174.73it/s]Loading weights:  63%|██████▎   | 274/434 [00:01<00:00, 175.55it/s]Loading weights:  67%|██████▋   | 292/434 [00:02<00:00, 171.01it/s]Loading weights:  71%|███████▏  | 310/434 [00:02<00:00, 165.70it/s]Loading weights:  75%|███████▌  | 327/434 [00:02<00:00, 151.11it/s]Loading weights:  79%|███████▉  | 343/434 [00:02<00:00, 149.20it/s]Loading weights:  83%|████████▎ | 362/434 [00:02<00:00, 156.99it/s]Loading weights:  87%|████████▋ | 378/434 [00:02<00:00, 145.89it/s]Loading weights:  92%|█████████▏| 398/434 [00:02<00:00, 150.69it/s]Loading weights:  97%|█████████▋| 421/434 [00:02<00:00, 171.43it/s]Loading weights: 100%|██████████| 434/434 [00:02<00:00, 148.09it/s]
+{"event": "generated", "index": 1, "total": 5, "task_id": "HumanEval/1", "prompt_mode": "humaneval_official", "raw_completion_chars": 1121, "completion_chars": 1122, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 13.008}
+{"event": "generated", "index": 2, "total": 5, "task_id": "HumanEval/5", "prompt_mode": "humaneval_official", "raw_completion_chars": 1044, "completion_chars": 1045, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 12.399}
+{"event": "generated", "index": 3, "total": 5, "task_id": "HumanEval/6", "prompt_mode": "humaneval_official", "raw_completion_chars": 1415, "completion_chars": 1416, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 12.411}
+{"event": "generated", "index": 4, "total": 5, "task_id": "HumanEval/7", "prompt_mode": "humaneval_official", "raw_completion_chars": 1349, "completion_chars": 1350, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 12.345}
+{"event": "generated", "index": 5, "total": 5, "task_id": "HumanEval/11", "prompt_mode": "humaneval_official", "raw_completion_chars": 1082, "completion_chars": 1083, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 13.373}
+{
+  "status": "success",
+  "model": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_keep80_merged",
+  "adapter": "",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_eval5/humaneval/generation/samples.jsonl",
+  "generations": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_eval5/humaneval/generation/generations.jsonl",
+  "task_count": 5,
+  "prompt_mode": "humaneval_official",
+  "official_prompt": true,
+  "lcb_release": null,
+  "lcb_config": null,
+  "lcb_lm_style": null,
+  "elapsed_seconds": 67.5720489025116,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "load_in_8bit": false,
+  "load_in_4bit": false,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "local_files_only": true,
+  "slicegpt_base_model": null,
+  "slicegpt_sparsity": null,
+  "slicegpt_round_interval": null,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 5, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 5, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 5, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 5, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 5, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_eval5/humaneval/generation/samples.jsonl",
+  "base_only": true,
+  "task_count": 5,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 5
+  }
+}

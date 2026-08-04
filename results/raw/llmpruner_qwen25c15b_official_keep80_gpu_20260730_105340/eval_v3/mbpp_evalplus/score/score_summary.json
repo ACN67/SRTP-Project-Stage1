@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340/eval_v3/mbpp_evalplus/generation/samples.jsonl",
+  "base_only": true,
+  "task_count": 224,
+  "base_pass_count": 1,
+  "base_pass_rate": 0.004464285714285714,
+  "base_status_counter": {
+    "fail": 223,
+    "pass": 1
+  }
+}

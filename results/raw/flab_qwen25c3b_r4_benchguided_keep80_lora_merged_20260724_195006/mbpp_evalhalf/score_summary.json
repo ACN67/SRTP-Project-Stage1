@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "data/splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/mbpp_evalhalf/samples.jsonl",
+  "base_only": true,
+  "task_count": 224,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.017857142857142856,
+  "base_status_counter": {
+    "fail": 220,
+    "pass": 4
+  }
+}

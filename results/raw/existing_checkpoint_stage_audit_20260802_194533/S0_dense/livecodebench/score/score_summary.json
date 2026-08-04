@@ -1,0 +1,38 @@
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/S0_dense/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 0,
+  "generated_chars_le_1_count": 0,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}

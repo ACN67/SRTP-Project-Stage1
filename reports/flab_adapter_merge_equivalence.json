@@ -1,0 +1,155 @@
+{
+  "status": "success",
+  "audit_root": "results/raw/existing_checkpoint_stage_audit_20260802_194533",
+  "adapter_model": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/flabpruner_keep80_v2/pruned_model",
+  "adapter": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/flabpruner_keep80_lora_v2/lora_adapter",
+  "merged_model": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/flabpruner_keep80_merged_v2",
+  "sample_count": 20,
+  "max_abs_logit_diff_max": 0.05419921875,
+  "max_abs_logit_diff_mean": 0.03995361328125,
+  "mean_abs_logit_diff_mean": 0.006351229595020413,
+  "top1_token_agreement": 1.0,
+  "greedy_completion_exact_match": 1.0,
+  "per_sample": [
+    {
+      "sample_id": "humaneval:HumanEval/1",
+      "max_abs_logit_diff": 0.0400390625,
+      "mean_abs_logit_diff": 0.007878880016505718,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "humaneval:HumanEval/5",
+      "max_abs_logit_diff": 0.046875,
+      "mean_abs_logit_diff": 0.006773935165256262,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "humaneval:HumanEval/6",
+      "max_abs_logit_diff": 0.044921875,
+      "mean_abs_logit_diff": 0.007044322323054075,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "humaneval:HumanEval/7",
+      "max_abs_logit_diff": 0.0419921875,
+      "mean_abs_logit_diff": 0.006948085501790047,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "humaneval:HumanEval/11",
+      "max_abs_logit_diff": 0.04296875,
+      "mean_abs_logit_diff": 0.00735023058950901,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "humaneval:HumanEval/12",
+      "max_abs_logit_diff": 0.044921875,
+      "mean_abs_logit_diff": 0.007035000715404749,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "humaneval:HumanEval/15",
+      "max_abs_logit_diff": 0.046875,
+      "mean_abs_logit_diff": 0.0064576128497719765,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "humaneval:HumanEval/19",
+      "max_abs_logit_diff": 0.04638671875,
+      "mean_abs_logit_diff": 0.008690898306667805,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "mbpp_evalplus:Mbpp/11",
+      "max_abs_logit_diff": 0.039794921875,
+      "mean_abs_logit_diff": 0.006745760329067707,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "mbpp_evalplus:Mbpp/12",
+      "max_abs_logit_diff": 0.02490234375,
+      "mean_abs_logit_diff": 0.004170793108642101,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "mbpp_evalplus:Mbpp/14",
+      "max_abs_logit_diff": 0.05078125,
+      "mean_abs_logit_diff": 0.007684639189392328,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "mbpp_evalplus:Mbpp/16",
+      "max_abs_logit_diff": 0.029296875,
+      "mean_abs_logit_diff": 0.004402237944304943,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "mbpp_evalplus:Mbpp/17",
+      "max_abs_logit_diff": 0.05419921875,
+      "mean_abs_logit_diff": 0.007853354327380657,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "mbpp_evalplus:Mbpp/18",
+      "max_abs_logit_diff": 0.04296875,
+      "mean_abs_logit_diff": 0.007115036249160767,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "mbpp_evalplus:Mbpp/19",
+      "max_abs_logit_diff": 0.025390625,
+      "mean_abs_logit_diff": 0.0040642875246703625,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "mbpp_evalplus:Mbpp/20",
+      "max_abs_logit_diff": 0.041259765625,
+      "mean_abs_logit_diff": 0.007370294071733952,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "livecodebench:2777",
+      "max_abs_logit_diff": 0.029296875,
+      "mean_abs_logit_diff": 0.004320865962654352,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "livecodebench:2728",
+      "max_abs_logit_diff": 0.041748046875,
+      "mean_abs_logit_diff": 0.005844102706760168,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "livecodebench:2784",
+      "max_abs_logit_diff": 0.02734375,
+      "mean_abs_logit_diff": 0.004111376125365496,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    },
+    {
+      "sample_id": "livecodebench:abc301_b",
+      "max_abs_logit_diff": 0.037109375,
+      "mean_abs_logit_diff": 0.005162878893315792,
+      "top1_agreement": 1,
+      "greedy_completion_exact_match": true
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "default_keep80_merged": {
+    "run_dir": "results/raw/flab_qwen25c3b_r4_default_keep80_lora_merged_20260725_035144",
+    "benchmarks": {
+      "humaneval": {
+        "task_count": 82,
+        "pass_count": 0,
+        "pass_rate": 0.0,
+        "score_summary": "results/raw/flab_qwen25c3b_r4_default_keep80_lora_merged_20260725_035144/humaneval_evalhalf/score_summary.json"
+      },
+      "mbpp": {
+        "task_count": 224,
+        "pass_count": 0,
+        "pass_rate": 0.0,
+        "score_summary": "results/raw/flab_qwen25c3b_r4_default_keep80_lora_merged_20260725_035144/mbpp_evalhalf/score_summary.json"
+      },
+      "livecodebench": {
+        "task_count": 200,
+        "pass_count": 0,
+        "pass_rate": 0.0,
+        "score_summary": "results/raw/flab_qwen25c3b_r4_default_keep80_lora_merged_20260725_035144/livecodebench_evalhalf/score_summary.json"
+      }
+    },
+    "merge": {
+      "status": "success",
+      "base_model": "results/raw/flab_qwen25c3b_r4_default_keep80_prune_20260723_193222/flab_qwen25c3b_r4_default_keep80/pruned_model",
+      "adapter": "results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/default_keep80_lora/lora_adapter",
+      "merged_model": "results/raw/flab_qwen25c3b_r4_default_keep80_lora_merged_20260725_035144/merged_model",
+      "dtype": "fp16",
+      "device": "cpu",
+      "param_count": 2221261568,
+      "process_rss_mb_after": 5376.359375,
+      "elapsed_seconds": 63.44364929199219,
+      "torch": "2.11.0+cu128"
+    }
+  },
+  "benchguided_keep80_merged": {
+    "run_dir": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006",
+    "benchmarks": {
+      "humaneval": {
+        "task_count": 82,
+        "pass_count": 0,
+        "pass_rate": 0.0,
+        "score_summary": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/humaneval_evalhalf/score_summary.json"
+      },
+      "mbpp": {
+        "task_count": 224,
+        "pass_count": 4,
+        "pass_rate": 0.017857142857142856,
+        "score_summary": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/mbpp_evalhalf/score_summary.json"
+      },
+      "livecodebench": {
+        "task_count": 200,
+        "pass_count": 0,
+        "pass_rate": 0.0,
+        "score_summary": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/livecodebench_evalhalf/score_summary.json"
+      }
+    },
+    "merge": {
+      "status": "success",
+      "base_model": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_prune_20260723_192329/flab_qwen25c3b_r4_benchguided_keep80/pruned_model",
+      "adapter": "results/raw/flab_qwen25c3b_r4_lora_recovery_20260724_042157/benchguided_keep80_lora/lora_adapter",
+      "merged_model": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/merged_model",
+      "dtype": "fp16",
+      "device": "cpu",
+      "param_count": 2221261568,
+      "process_rss_mb_after": 5375.453125,
+      "elapsed_seconds": 58.21851396560669,
+      "torch": "2.11.0+cu128"
+    }
+  }
+}

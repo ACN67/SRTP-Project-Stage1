@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340/eval_v3/humaneval/generation/samples.jsonl",
+  "base_only": true,
+  "task_count": 82,
+  "base_pass_count": 2,
+  "base_pass_rate": 0.024390243902439025,
+  "base_status_counter": {
+    "fail": 79,
+    "pass": 2,
+    "timeout": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "base_model": "results/raw/flabpruner_qwen25c3b_official_keep80_gpu_20260728_172449/flabpruner_keep80/pruned_model",
+  "adapter": "results/raw/flabpruner_qwen25c3b_official_keep80_gpu_20260728_172449/flabpruner_keep80_lora/lora_adapter",
+  "merged_model": "results/raw/flabpruner_qwen25c3b_official_keep80_gpu_20260728_172449/flabpruner_keep80_merged",
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "param_count": 2468987648,
+  "process_rss_mb_after": 1714.53125,
+  "elapsed_seconds": 48.32309150695801,
+  "torch": "2.11.0+cu128"
+}

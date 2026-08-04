@@ -1,0 +1,53 @@
+{
+  "flabpruner": {
+    "path": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/shared_lora_data/distill_train.jsonl",
+    "sampled": 20,
+    "empty_answer_rate": 0.0,
+    "keys": [
+      "benchmark",
+      "benchmark_family",
+      "completion",
+      "official_prompt",
+      "prompt",
+      "prompt_mode",
+      "source_prompt",
+      "task_id",
+      "text"
+    ],
+    "note": "token-level labels are produced at training time; full label masking audit needs instrumentation in train_lora_recovery.py"
+  },
+  "llmpruner": {
+    "path": "results/raw/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340/shared_lora_data/distill_train.jsonl",
+    "sampled": 20,
+    "empty_answer_rate": 0.0,
+    "keys": [
+      "benchmark",
+      "benchmark_family",
+      "completion",
+      "official_prompt",
+      "prompt",
+      "prompt_mode",
+      "source_prompt",
+      "task_id",
+      "text"
+    ],
+    "note": "token-level labels are produced at training time; full label masking audit needs instrumentation in train_lora_recovery.py"
+  },
+  "slicegpt": {
+    "path": "results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/shared_lora_data/distill_train.jsonl",
+    "sampled": 20,
+    "empty_answer_rate": 0.0,
+    "keys": [
+      "benchmark",
+      "benchmark_family",
+      "completion",
+      "official_prompt",
+      "prompt",
+      "prompt_mode",
+      "source_prompt",
+      "task_id",
+      "text"
+    ],
+    "note": "token-level labels are produced at training time; full label masking audit needs instrumentation in train_lora_recovery.py"
+  }
+}

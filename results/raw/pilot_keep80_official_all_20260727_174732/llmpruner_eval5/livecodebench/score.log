@@ -1,0 +1,52 @@
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 5, "generation_task_count": 5, "matched_task_count": 5, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 5, "timeout": 6, "num_process_evaluate": 4}
+Evaluating 5...
+  0%|          | 0/5 [00:00<?, ?it/s] 20%|██        | 1/5 [00:00<00:01,  3.51it/s] 80%|████████  | 4/5 [00:00<00:00, 10.89it/s]100%|██████████| 5/5 [00:06<00:00,  1.27s/it]
+{"event": "scored", "index": 1, "total": 5, "task_id": "2777", "pass": true}
+{"event": "scored", "index": 2, "total": 5, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 5, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 5, "task_id": "abc301_b", "pass": false}
+{"event": "scored", "index": 5, "total": 5, "task_id": "abc301_d", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/livecodebench_half/eval.jsonl",
+  "generations": "results/raw/pilot_keep80_official_all_20260727_174732/llmpruner_eval5/livecodebench/generation/generations.jsonl",
+  "task_count": 5,
+  "pass_count": 1,
+  "pass_rate": 0.2,
+  "status_counter": {
+    "pass": 1,
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 5,
+    "generation_task_count": 5,
+    "matched_task_count": 5,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 0,
+  "generated_chars_le_1_count": 0,
+  "official_metrics": {
+    "pass@1": 0.2,
+    "detail": {
+      "pass@1": {
+        "0": 1.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,1838 @@
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:01<05:53,  1.05s/it]Loading weights:  29%|██▉       | 99/338 [00:01<00:02, 116.61it/s]Loading weights:  45%|████▍     | 151/338 [00:01<00:01, 132.31it/s]Loading weights:  55%|█████▌    | 187/338 [00:01<00:01, 142.08it/s]Loading weights:  64%|██████▍   | 216/338 [00:01<00:00, 151.48it/s]Loading weights:  71%|███████▏  | 241/338 [00:02<00:00, 153.74it/s]Loading weights:  78%|███████▊  | 263/338 [00:02<00:00, 153.10it/s]Loading weights:  84%|████████▎ | 283/338 [00:02<00:00, 141.03it/s]Loading weights:  90%|████████▉ | 303/338 [00:02<00:00, 131.63it/s]Loading weights:  94%|█████████▍| 319/338 [00:02<00:00, 119.39it/s]Loading weights:  99%|█████████▊| 333/338 [00:02<00:00, 120.92it/s]Loading weights: 100%|██████████| 338/338 [00:02<00:00, 120.76it/s]
+{"event": "audit_generated", "stage": "F0_dense", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 122, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 83, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 166, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 70, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F0_dense", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 75, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 213, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 212, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 32, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 101, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 19, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 12, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/16", "tokens": 118, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 13, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/17", "tokens": 61, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 14, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/18", "tokens": 138, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 15, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/19", "tokens": 22, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 16, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/20", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F0_dense", "index": 17, "total": 20, "sample_id": "livecodebench:2777", "tokens": 100, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 18, "total": 20, "sample_id": "livecodebench:2728", "tokens": 149, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 19, "total": 20, "sample_id": "livecodebench:2784", "tokens": 122, "hit_max": false}
+{"event": "audit_generated", "stage": "F0_dense", "index": 20, "total": 20, "sample_id": "livecodebench:abc301_b", "tokens": 261, "hit_max": false}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "pass", "base_pass": true}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F0_dense/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.5,
+  "base_status_counter": {
+    "pass": 4,
+    "fail": 4
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F0_dense/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.5,
+  "base_status_counter": {
+    "fail": 4,
+    "pass": 4
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  4.39it/s] 75%|███████▌  | 3/4 [00:00<00:00,  9.44it/s]100%|██████████| 4/4 [00:06<00:00,  1.60s/it]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F0_dense/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 0,
+  "generated_chars_le_1_count": 0,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights:   0%|          | 1/339 [00:01<05:42,  1.01s/it]Loading weights:   5%|▍         | 16/339 [00:01<00:16, 19.24it/s]Loading weights:   9%|▉         | 30/339 [00:01<00:08, 35.75it/s]Loading weights:  16%|█▌        | 53/339 [00:01<00:04, 65.20it/s]Loading weights:  23%|██▎       | 77/339 [00:01<00:02, 90.39it/s]Loading weights:  29%|██▉       | 100/339 [00:01<00:02, 113.97it/s]Loading weights:  37%|███▋      | 126/339 [00:01<00:01, 141.21it/s]Loading weights:  44%|████▎     | 148/339 [00:01<00:01, 153.42it/s]Loading weights:  51%|█████     | 173/339 [00:01<00:00, 174.50it/s]Loading weights:  58%|█████▊    | 196/339 [00:02<00:00, 185.90it/s]Loading weights:  65%|██████▍   | 220/339 [00:02<00:00, 189.33it/s]Loading weights:  71%|███████   | 241/339 [00:02<00:00, 193.56it/s]Loading weights:  77%|███████▋  | 262/339 [00:02<00:00, 182.34it/s]Loading weights:  83%|████████▎ | 282/339 [00:02<00:00, 169.62it/s]Loading weights:  90%|████████▉ | 304/339 [00:02<00:00, 161.97it/s]Loading weights:  97%|█████████▋| 329/339 [00:02<00:00, 177.56it/s]Loading weights: 100%|██████████| 339/339 [00:02<00:00, 118.15it/s]
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 12, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/16", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 13, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/17", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 14, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/18", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 15, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 16, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/20", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 17, "total": 20, "sample_id": "livecodebench:2777", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 18, "total": 20, "sample_id": "livecodebench:2728", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 19, "total": 20, "sample_id": "livecodebench:2784", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "F1_pruned_no_lora", "index": 20, "total": 20, "sample_id": "livecodebench:abc301_b", "tokens": 1024, "hit_max": true}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F1_pruned_no_lora/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F1_pruned_no_lora/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  5.67it/s] 75%|███████▌  | 3/4 [00:00<00:00, 11.70it/s]100%|██████████| 4/4 [00:00<00:00, 12.59it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F1_pruned_no_lora/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 4,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights:   0%|          | 1/339 [00:00<03:54,  1.44it/s]Loading weights:   1%|          | 2/339 [00:01<02:46,  2.02it/s]Loading weights:   3%|▎         | 11/339 [00:01<00:22, 14.58it/s]Loading weights:   5%|▌         | 18/339 [00:01<00:13, 23.39it/s]Loading weights:  12%|█▏        | 41/339 [00:01<00:04, 61.49it/s]Loading weights:  15%|█▌        | 52/339 [00:01<00:04, 69.38it/s]Loading weights:  19%|█▊        | 63/339 [00:01<00:03, 72.49it/s]Loading weights:  22%|██▏       | 76/339 [00:01<00:03, 84.80it/s]Loading weights:  29%|██▉       | 100/339 [00:01<00:02, 108.54it/s]Loading weights:  35%|███▌      | 119/339 [00:01<00:01, 127.22it/s]Loading weights:  40%|███▉      | 134/339 [00:02<00:01, 105.07it/s]Loading weights:  43%|████▎     | 146/339 [00:02<00:02, 89.97it/s] Loading weights:  46%|████▋     | 157/339 [00:02<00:02, 79.93it/s]Loading weights:  49%|████▉     | 166/339 [00:02<00:02, 72.10it/s]Loading weights:  51%|█████▏    | 174/339 [00:02<00:02, 57.80it/s]Loading weights:  55%|█████▍    | 185/339 [00:03<00:02, 64.33it/s]Loading weights:  58%|█████▊    | 196/339 [00:03<00:02, 66.55it/s]Loading weights:  62%|██████▏   | 209/339 [00:03<00:01, 72.96it/s]Loading weights:  65%|██████▍   | 220/339 [00:03<00:01, 75.95it/s]Loading weights:  68%|██████▊   | 232/339 [00:03<00:01, 82.74it/s]Loading weights:  72%|███████▏  | 245/339 [00:03<00:01, 88.88it/s]Loading weights:  76%|███████▌  | 258/339 [00:03<00:00, 95.83it/s]Loading weights:  80%|███████▉  | 270/339 [00:04<00:00, 96.77it/s]Loading weights:  90%|█████████ | 306/339 [00:04<00:00, 161.18it/s]Loading weights: 100%|██████████| 339/339 [00:04<00:00, 81.39it/s] 
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 12, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/16", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 13, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/17", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 14, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/18", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 15, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 16, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/20", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 17, "total": 20, "sample_id": "livecodebench:2777", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 18, "total": 20, "sample_id": "livecodebench:2728", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 19, "total": 20, "sample_id": "livecodebench:2784", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "F2_pruned_lora_adapter", "index": 20, "total": 20, "sample_id": "livecodebench:abc301_b", "tokens": 1024, "hit_max": true}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F2_pruned_lora_adapter/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F2_pruned_lora_adapter/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  5.96it/s]100%|██████████| 4/4 [00:00<00:00, 13.68it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F2_pruned_lora_adapter/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 3,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:46,  3.16it/s]Loading weights:   6%|▌         | 21/338 [00:00<00:04, 64.29it/s]Loading weights:  12%|█▏        | 41/338 [00:00<00:02, 104.05it/s]Loading weights:  19%|█▉        | 65/338 [00:00<00:01, 143.65it/s]Loading weights:  26%|██▌       | 88/338 [00:00<00:01, 165.82it/s]Loading weights:  33%|███▎      | 113/338 [00:00<00:01, 189.41it/s]Loading weights:  40%|████      | 136/338 [00:00<00:01, 192.59it/s]Loading weights:  47%|████▋     | 160/338 [00:01<00:00, 200.37it/s]Loading weights:  54%|█████▍    | 183/338 [00:01<00:00, 194.31it/s]Loading weights:  61%|██████    | 207/338 [00:01<00:00, 200.25it/s]Loading weights:  67%|██████▋   | 228/338 [00:01<00:00, 202.00it/s]Loading weights:  74%|███████▎  | 249/338 [00:01<00:00, 181.36it/s]Loading weights:  79%|███████▉  | 268/338 [00:01<00:00, 166.51it/s]Loading weights:  85%|████████▍ | 286/338 [00:01<00:00, 169.72it/s]Loading weights:  92%|█████████▏| 310/338 [00:01<00:00, 187.37it/s]Loading weights:  99%|█████████▊| 333/338 [00:01<00:00, 198.57it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 169.67it/s]
+{"event": "audit_generated", "stage": "F3_merged", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 12, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/16", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 13, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/17", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 14, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/18", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 15, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 16, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/20", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 17, "total": 20, "sample_id": "livecodebench:2777", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 18, "total": 20, "sample_id": "livecodebench:2728", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 19, "total": 20, "sample_id": "livecodebench:2784", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "F3_merged", "index": 20, "total": 20, "sample_id": "livecodebench:abc301_b", "tokens": 1024, "hit_max": true}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F3_merged/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F3_merged/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  4.41it/s] 75%|███████▌  | 3/4 [00:00<00:00, 10.28it/s]100%|██████████| 4/4 [00:00<00:00, 11.28it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F3_merged/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 3,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<03:10,  1.77it/s]Loading weights:  22%|██▏       | 75/338 [00:00<00:01, 147.82it/s]Loading weights:  34%|███▍      | 115/338 [00:00<00:01, 174.82it/s]Loading weights:  43%|████▎     | 147/338 [00:01<00:01, 183.90it/s]Loading weights:  52%|█████▏    | 175/338 [00:01<00:00, 198.60it/s]Loading weights:  60%|█████▉    | 202/338 [00:01<00:00, 210.98it/s]Loading weights:  67%|██████▋   | 228/338 [00:01<00:00, 216.08it/s]Loading weights:  75%|███████▍  | 253/338 [00:01<00:00, 218.39it/s]Loading weights:  82%|████████▏ | 278/338 [00:01<00:00, 218.60it/s]Loading weights:  89%|████████▉ | 302/338 [00:01<00:00, 186.84it/s]Loading weights:  96%|█████████▌| 323/338 [00:02<00:00, 136.75it/s]Loading weights: 100%|██████████| 338/338 [00:02<00:00, 161.98it/s]
+{"event": "audit_generated", "stage": "L0_dense", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 122, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 83, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 166, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 70, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L0_dense", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 75, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 213, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 212, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 32, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 101, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 19, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 12, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/16", "tokens": 118, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 13, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/17", "tokens": 61, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 14, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/18", "tokens": 138, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 15, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/19", "tokens": 22, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 16, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/20", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L0_dense", "index": 17, "total": 20, "sample_id": "livecodebench:2777", "tokens": 100, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 18, "total": 20, "sample_id": "livecodebench:2728", "tokens": 149, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 19, "total": 20, "sample_id": "livecodebench:2784", "tokens": 122, "hit_max": false}
+{"event": "audit_generated", "stage": "L0_dense", "index": 20, "total": 20, "sample_id": "livecodebench:abc301_b", "tokens": 261, "hit_max": false}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "pass", "base_pass": true}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L0_dense/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.5,
+  "base_status_counter": {
+    "pass": 4,
+    "fail": 4
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L0_dense/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.5,
+  "base_status_counter": {
+    "fail": 4,
+    "pass": 4
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  5.70it/s] 75%|███████▌  | 3/4 [00:00<00:00,  9.27it/s]100%|██████████| 4/4 [00:06<00:00,  2.14s/it]100%|██████████| 4/4 [00:06<00:00,  1.59s/it]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L0_dense/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 0,
+  "generated_chars_le_1_count": 0,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:03,  5.33it/s]Loading weights:  36%|███▋      | 123/338 [00:00<00:00, 525.39it/s]Loading weights:  58%|█████▊    | 195/338 [00:00<00:00, 577.51it/s]Loading weights:  78%|███████▊  | 264/338 [00:00<00:00, 538.04it/s]Loading weights:  96%|█████████▌| 325/338 [00:02<00:00, 87.92it/s] Loading weights: 100%|██████████| 338/338 [00:02<00:00, 135.17it/s]
+{"event": "llmpruner_custom_load_non_strict", "missing": ["lm_head.weight"], "unexpected": []}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 78, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 11, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 64, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 14, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 66, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 79, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 139, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 124, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 94, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 15, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 21, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 12, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/16", "tokens": 78, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 13, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/17", "tokens": 29, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 14, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/18", "tokens": 74, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 15, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/19", "tokens": 40, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 16, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/20", "tokens": 90, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 17, "total": 20, "sample_id": "livecodebench:2777", "tokens": 139, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 18, "total": 20, "sample_id": "livecodebench:2728", "tokens": 64, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 19, "total": 20, "sample_id": "livecodebench:2784", "tokens": 116, "hit_max": false}
+{"event": "audit_generated", "stage": "L1_pruned_no_lora", "index": 20, "total": 20, "sample_id": "livecodebench:abc301_b", "tokens": 1024, "hit_max": true}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L1_pruned_no_lora/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 1,
+  "base_pass_rate": 0.125,
+  "base_status_counter": {
+    "fail": 7,
+    "pass": 1
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L1_pruned_no_lora/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 2,
+  "base_pass_rate": 0.25,
+  "base_status_counter": {
+    "fail": 6,
+    "pass": 2
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  5.02it/s] 75%|███████▌  | 3/4 [00:00<00:00,  9.81it/s]100%|██████████| 4/4 [00:00<00:00, 10.90it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L1_pruned_no_lora/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 1,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:01<08:51,  1.58s/it]Loading weights:  26%|██▌       | 87/338 [00:01<00:03, 70.22it/s]Loading weights:  37%|███▋      | 126/338 [00:02<00:02, 85.32it/s]Loading weights:  45%|████▌     | 153/338 [00:02<00:02, 91.49it/s]Loading weights:  51%|█████▏    | 174/338 [00:02<00:01, 91.91it/s]Loading weights:  57%|█████▋    | 191/338 [00:02<00:01, 87.89it/s]Loading weights:  61%|██████    | 205/338 [00:02<00:01, 86.97it/s]Loading weights:  64%|██████▍   | 217/338 [00:02<00:01, 91.01it/s]Loading weights:  68%|██████▊   | 229/338 [00:03<00:01, 88.46it/s]Loading weights:  71%|███████   | 240/338 [00:03<00:01, 74.00it/s]Loading weights:  75%|███████▌  | 255/338 [00:03<00:01, 78.82it/s]Loading weights:  80%|███████▉  | 269/338 [00:03<00:00, 88.43it/s]Loading weights:  86%|████████▌ | 291/338 [00:03<00:00, 106.37it/s]Loading weights:  90%|████████▉ | 303/338 [00:03<00:00, 107.35it/s]Loading weights:  93%|█████████▎| 316/338 [00:04<00:00, 105.79it/s]Loading weights: 100%|██████████| 338/338 [00:04<00:00, 82.53it/s] 
+{"event": "llmpruner_custom_load_non_strict", "missing": ["lm_head.weight"], "unexpected": []}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 316, "hit_max": false}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 512, "hit_max": true}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "pass", "base_pass": true}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F0_dense/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.5,
+  "base_status_counter": {
+    "pass": 4,
+    "fail": 4
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F0_dense/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.5,
+  "base_status_counter": {
+    "fail": 4,
+    "pass": 4
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  5.96it/s] 75%|███████▌  | 3/4 [00:00<00:00, 11.40it/s]100%|██████████| 4/4 [00:06<00:00,  1.58s/it]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F0_dense/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 0,
+  "generated_chars_le_1_count": 0,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F1_pruned_no_lora/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F1_pruned_no_lora/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  5.07it/s] 75%|███████▌  | 3/4 [00:00<00:00, 10.69it/s]100%|██████████| 4/4 [00:00<00:00, 11.57it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F1_pruned_no_lora/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 4,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F2_pruned_lora_adapter/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F2_pruned_lora_adapter/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  5.24it/s] 75%|███████▌  | 3/4 [00:00<00:00, 11.47it/s]100%|██████████| 4/4 [00:00<00:00, 11.74it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F2_pruned_lora_adapter/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 3,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F3_merged/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F3_merged/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  5.84it/s] 75%|███████▌  | 3/4 [00:00<00:00, 11.24it/s]100%|██████████| 4/4 [00:00<00:00, 12.42it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/F3_merged/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 3,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "pass", "base_pass": true}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L0_dense/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.5,
+  "base_status_counter": {
+    "pass": 4,
+    "fail": 4
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L0_dense/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.5,
+  "base_status_counter": {
+    "fail": 4,
+    "pass": 4
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  6.41it/s] 75%|███████▌  | 3/4 [00:00<00:00, 11.63it/s]100%|██████████| 4/4 [00:06<00:00,  1.58s/it]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L0_dense/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 0,
+  "generated_chars_le_1_count": 0,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L1_pruned_no_lora/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 1,
+  "base_pass_rate": 0.125,
+  "base_status_counter": {
+    "fail": 7,
+    "pass": 1
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L1_pruned_no_lora/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 2,
+  "base_pass_rate": 0.25,
+  "base_status_counter": {
+    "fail": 6,
+    "pass": 2
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  7.30it/s] 75%|███████▌  | 3/4 [00:00<00:00, 12.51it/s]100%|██████████| 4/4 [00:00<00:00, 13.74it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L1_pruned_no_lora/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 1,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<02:55,  1.92it/s]Loading weights:  36%|███▋      | 123/338 [00:00<00:00, 234.11it/s]Loading weights:  50%|█████     | 169/338 [00:01<00:01, 119.74it/s]Loading weights:  58%|█████▊    | 197/338 [00:01<00:01, 99.46it/s] Loading weights:  64%|██████▍   | 217/338 [00:02<00:01, 103.44it/s]Loading weights:  69%|██████▉   | 234/338 [00:02<00:01, 91.58it/s] Loading weights:  73%|███████▎  | 248/338 [00:02<00:00, 92.30it/s]Loading weights:  77%|███████▋  | 260/338 [00:02<00:00, 90.80it/s]Loading weights:  80%|████████  | 271/338 [00:02<00:00, 86.83it/s]Loading weights:  83%|████████▎ | 281/338 [00:02<00:00, 84.61it/s]Loading weights:  87%|████████▋ | 293/338 [00:02<00:00, 87.89it/s]Loading weights:  93%|█████████▎| 315/338 [00:03<00:00, 109.91it/s]Loading weights: 100%|██████████| 338/338 [00:03<00:00, 105.88it/s]
+{"event": "llmpruner_custom_load_non_strict", "missing": ["lm_head.weight"], "unexpected": []}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 316, "hit_max": false}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 12, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/16", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 13, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/17", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 14, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/18", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 15, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 16, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/20", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 17, "total": 20, "sample_id": "livecodebench:2777", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 18, "total": 20, "sample_id": "livecodebench:2728", "tokens": 210, "hit_max": false}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 19, "total": 20, "sample_id": "livecodebench:2784", "tokens": 368, "hit_max": false}
+{"event": "audit_generated", "stage": "L2_pruned_lora_adapter", "index": 20, "total": 20, "sample_id": "livecodebench:abc301_b", "tokens": 390, "hit_max": false}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L2_pruned_lora_adapter/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L2_pruned_lora_adapter/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  4.62it/s] 75%|███████▌  | 3/4 [00:00<00:00, 10.25it/s]100%|██████████| 4/4 [00:00<00:00, 10.88it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/L2_pruned_lora_adapter/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 4,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<03:12,  1.75it/s]Loading weights:  19%|█▊        | 63/338 [00:00<00:02, 114.42it/s]Loading weights:  26%|██▌       | 88/338 [00:00<00:01, 133.77it/s]Loading weights:  33%|███▎      | 111/338 [00:00<00:01, 148.33it/s]Loading weights:  40%|███▉      | 135/338 [00:01<00:01, 143.62it/s]Loading weights:  47%|████▋     | 159/338 [00:01<00:01, 162.85it/s]Loading weights:  54%|█████▍    | 183/338 [00:01<00:00, 169.13it/s]Loading weights:  62%|██████▏   | 209/338 [00:01<00:00, 184.10it/s]Loading weights:  68%|██████▊   | 231/338 [00:01<00:00, 191.03it/s]Loading weights:  75%|███████▍  | 252/338 [00:01<00:00, 194.49it/s]Loading weights:  81%|████████  | 273/338 [00:01<00:00, 184.34it/s]Loading weights:  87%|████████▋ | 293/338 [00:01<00:00, 166.30it/s]Loading weights:  92%|█████████▏| 311/338 [00:02<00:00, 161.47it/s]Loading weights:  97%|█████████▋| 328/338 [00:02<00:00, 159.18it/s]Loading weights: 100%|██████████| 338/338 [00:02<00:00, 151.78it/s]
+{"event": "audit_generated", "stage": "S0_dense", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 122, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 83, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 166, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 70, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S0_dense", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 75, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 213, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 212, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 32, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 101, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 19, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 12, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/16", "tokens": 118, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 13, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/17", "tokens": 61, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 14, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/18", "tokens": 138, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 15, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/19", "tokens": 22, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 16, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/20", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S0_dense", "index": 17, "total": 20, "sample_id": "livecodebench:2777", "tokens": 100, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 18, "total": 20, "sample_id": "livecodebench:2728", "tokens": 149, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 19, "total": 20, "sample_id": "livecodebench:2784", "tokens": 122, "hit_max": false}
+{"event": "audit_generated", "stage": "S0_dense", "index": 20, "total": 20, "sample_id": "livecodebench:abc301_b", "tokens": 261, "hit_max": false}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "pass", "base_pass": true}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/S0_dense/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.5,
+  "base_status_counter": {
+    "pass": 4,
+    "fail": 4
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/S0_dense/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 4,
+  "base_pass_rate": 0.5,
+  "base_status_counter": {
+    "fail": 4,
+    "pass": 4
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  5.24it/s] 75%|███████▌  | 3/4 [00:00<00:00, 10.59it/s]100%|██████████| 4/4 [00:06<00:00,  1.59s/it]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/S0_dense/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 0,
+  "generated_chars_le_1_count": 0,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:04,  5.21it/s]Loading weights:  25%|██▌       | 86/338 [00:00<00:00, 365.73it/s]Loading weights:  41%|████      | 137/338 [00:00<00:00, 319.11it/s]Loading weights:  52%|█████▏    | 177/338 [00:00<00:00, 328.17it/s]Loading weights:  64%|██████▎   | 215/338 [00:00<00:00, 281.73it/s]Loading weights:  73%|███████▎  | 248/338 [00:01<00:00, 114.95it/s]Loading weights:  97%|█████████▋| 327/338 [00:01<00:00, 191.29it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 185.87it/s]
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 12, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/16", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 13, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/17", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 14, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/18", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 15, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 16, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/20", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 17, "total": 20, "sample_id": "livecodebench:2777", "tokens": 1, "hit_max": false}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 18, "total": 20, "sample_id": "livecodebench:2728", "tokens": 1, "hit_max": false}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 19, "total": 20, "sample_id": "livecodebench:2784", "tokens": 1, "hit_max": false}
+{"event": "audit_generated", "stage": "S1_sliced_no_lora", "index": 20, "total": 20, "sample_id": "livecodebench:abc301_b", "tokens": 1, "hit_max": false}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/S1_sliced_no_lora/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/S1_sliced_no_lora/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  4.17it/s] 75%|███████▌  | 3/4 [00:00<00:00,  7.95it/s]100%|██████████| 4/4 [00:00<00:00,  8.91it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/S1_sliced_no_lora/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 4,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<03:28,  1.62it/s]Loading weights:  12%|█▏        | 40/338 [00:00<00:04, 73.69it/s]Loading weights:  18%|█▊        | 62/338 [00:01<00:03, 75.01it/s]Loading weights:  30%|██▉       | 101/338 [00:01<00:02, 109.83it/s]Loading weights:  38%|███▊      | 129/338 [00:02<00:04, 45.37it/s] Loading weights:  42%|████▏     | 141/338 [00:02<00:04, 48.72it/s]Loading weights:  45%|████▍     | 152/338 [00:03<00:05, 33.19it/s]Loading weights:  47%|████▋     | 160/338 [00:04<00:07, 24.23it/s]Loading weights:  51%|█████     | 171/338 [00:05<00:08, 19.83it/s]Loading weights:  52%|█████▏    | 176/338 [00:05<00:09, 17.53it/s]Loading weights:  55%|█████▍    | 185/338 [00:06<00:10, 15.16it/s]Loading weights:  58%|█████▊    | 197/338 [00:06<00:06, 21.31it/s]Loading weights:  61%|██████    | 207/338 [00:07<00:06, 19.19it/s]Loading weights:  65%|██████▍   | 219/338 [00:07<00:05, 20.24it/s]Loading weights:  66%|██████▌   | 223/338 [00:08<00:08, 12.96it/s]Loading weights:  72%|███████▏  | 244/338 [00:10<00:08, 10.85it/s]Loading weights:  75%|███████▌  | 255/338 [00:11<00:05, 14.32it/s]Loading weights:  77%|███████▋  | 260/338 [00:11<00:05, 13.63it/s]Loading weights:  79%|███████▉  | 267/338 [00:11<00:04, 14.65it/s]Loading weights:  83%|████████▎ | 279/338 [00:12<00:03, 15.78it/s]Loading weights:  83%|████████▎ | 282/338 [00:13<00:05, 10.45it/s]Loading weights:  90%|████████▉ | 303/338 [00:14<00:02, 17.18it/s]Loading weights:  93%|█████████▎| 316/338 [00:14<00:00, 23.53it/s]Loading weights:  97%|█████████▋| 328/338 [00:14<00:00, 30.84it/s]Loading weights: 100%|██████████| 338/338 [00:14<00:00, 23.52it/s]
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 1, "total": 20, "sample_id": "humaneval:HumanEval/1", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 2, "total": 20, "sample_id": "humaneval:HumanEval/5", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 3, "total": 20, "sample_id": "humaneval:HumanEval/6", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 4, "total": 20, "sample_id": "humaneval:HumanEval/7", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 5, "total": 20, "sample_id": "humaneval:HumanEval/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 6, "total": 20, "sample_id": "humaneval:HumanEval/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 7, "total": 20, "sample_id": "humaneval:HumanEval/15", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 8, "total": 20, "sample_id": "humaneval:HumanEval/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 9, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/11", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 10, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/12", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 11, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/14", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 12, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/16", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 13, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/17", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 14, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/18", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 15, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/19", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 16, "total": 20, "sample_id": "mbpp_evalplus:Mbpp/20", "tokens": 512, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 17, "total": 20, "sample_id": "livecodebench:2777", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 18, "total": 20, "sample_id": "livecodebench:2728", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 19, "total": 20, "sample_id": "livecodebench:2784", "tokens": 1024, "hit_max": true}
+{"event": "audit_generated", "stage": "S2_sliced_lora_adapter", "index": 20, "total": 20, "sample_id": "livecodebench:abc301_b", "tokens": 1024, "hit_max": true}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/humaneval.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/S2_sliced_lora_adapter/humaneval/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 8, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 8, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 8, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 8, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 8, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 8, "task_id": "Mbpp/18", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 8, "task_id": "Mbpp/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 8, "task_id": "Mbpp/20", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/mbpp_evalplus.jsonl",
+  "samples": "results/raw/existing_checkpoint_stage_audit_20260802_194533/S2_sliced_lora_adapter/mbpp_evalplus/samples.jsonl",
+  "base_only": true,
+  "task_count": 8,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 8
+  }
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 4, "generation_task_count": 4, "matched_task_count": 4, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 4, "timeout": 6, "num_process_evaluate": 2}
+Evaluating 4...
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  4.00it/s] 75%|███████▌  | 3/4 [00:00<00:00,  9.16it/s]100%|██████████| 4/4 [00:00<00:00,  9.83it/s]
+{"event": "scored", "index": 1, "total": 4, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 4, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 4, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 4, "task_id": "abc301_b", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/existing_checkpoint_stage_audit_20260802_194533/fixed_splits/livecodebench.jsonl",
+  "generations": "results/raw/existing_checkpoint_stage_audit_20260802_194533/S2_sliced_lora_adapter/livecodebench/generations.jsonl",
+  "task_count": 4,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 4
+  },
+  "id_coverage": {
+    "split_task_count": 4,
+    "generation_task_count": 4,
+    "matched_task_count": 4,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 3,
+  "generated_chars_le_1_count": 1,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      }
+    }
+  }
+}
+{
+  "csv": "/home/keshu/projects/srtp-code-llm-pruning/reports/existing_checkpoint_stage_metrics.csv",
+  "summary": [
+    {
+      "method": "FlabPruner",
+      "stage": "F0_dense",
+      "n": 20,
+      "pass_rate": 0.4,
+      "hit_max_rate": 0.1,
+      "eos_rate": 0.2,
+      "parse_success_rate": 0.55,
+      "mean_generated_tokens": 154.4
+    },
+    {
+      "method": "FlabPruner",
+      "stage": "F1_pruned_no_lora",
+      "n": 20,
+      "pass_rate": 0.0,
+      "hit_max_rate": 1.0,
+      "eos_rate": 0.0,
+      "parse_success_rate": 0.4,
+      "mean_generated_tokens": 614.4
+    },
+    {
+      "method": "FlabPruner",
+      "stage": "F2_pruned_lora_adapter",
+      "n": 20,
+      "pass_rate": 0.0,
+      "hit_max_rate": 1.0,
+      "eos_rate": 0.0,
+      "parse_success_rate": 0.55,
+      "mean_generated_tokens": 614.4
+    },
+    {
+      "method": "FlabPruner",
+      "stage": "F3_merged",
+      "n": 20,
+      "pass_rate": 0.0,
+      "hit_max_rate": 1.0,
+      "eos_rate": 0.0,
+      "parse_success_rate": 0.55,
+      "mean_generated_tokens": 614.4
+    },
+    {
+      "method": "LLM-Pruner",
+      "stage": "L0_dense",
+      "n": 20,
+      "pass_rate": 0.4,
+      "hit_max_rate": 0.1,
+      "eos_rate": 0.2,
+      "parse_success_rate": 0.55,
+      "mean_generated_tokens": 154.4
+    },
+    {
+      "method": "LLM-Pruner",
+      "stage": "L1_pruned_no_lora",
+      "n": 20,
+      "pass_rate": 0.15,
+      "hit_max_rate": 0.05,
+      "eos_rate": 0.15,
+      "parse_success_rate": 0.6,
+      "mean_generated_tokens": 117.95
+    },
+    {
+      "method": "LLM-Pruner",
+      "stage": "L2_pruned_lora_adapter",
+      "n": 20,
+      "pass_rate": 0.0,
+      "hit_max_rate": 0.8,
+      "eos_rate": 0.15,
+      "parse_success_rate": 0.2,
+      "mean_generated_tokens": 499.4
+    },
+    {
+      "method": "SliceGPT",
+      "stage": "S0_dense",
+      "n": 20,
+      "pass_rate": 0.4,
+      "hit_max_rate": 0.1,
+      "eos_rate": 0.2,
+      "parse_success_rate": 0.55,
+      "mean_generated_tokens": 154.4
+    },
+    {
+      "method": "SliceGPT",
+      "stage": "S1_sliced_no_lora",
+      "n": 20,
+      "pass_rate": 0.0,
+      "hit_max_rate": 0.8,
+      "eos_rate": 0.2,
+      "parse_success_rate": 0.2,
+      "mean_generated_tokens": 409.8
+    },
+    {
+      "method": "SliceGPT",
+      "stage": "S2_sliced_lora_adapter",
+      "n": 20,
+      "pass_rate": 0.0,
+      "hit_max_rate": 1.0,
+      "eos_rate": 0.0,
+      "parse_success_rate": 0.2,
+      "mean_generated_tokens": 614.4
+    }
+  ]
+}

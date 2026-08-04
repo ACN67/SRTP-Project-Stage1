@@ -1,0 +1,55 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<03:03,  2.36it/s]Loading weights:  18%|█▊        | 76/434 [00:00<00:01, 190.15it/s]Loading weights:  36%|███▌      | 155/434 [00:00<00:00, 347.94it/s]Loading weights:  53%|█████▎    | 232/434 [00:00<00:00, 452.65it/s]Loading weights:  70%|███████   | 305/434 [00:00<00:00, 528.22it/s]Loading weights:  86%|████████▋ | 375/434 [00:00<00:00, 576.03it/s]Loading weights: 100%|██████████| 434/434 [00:01<00:00, 432.74it/s]
+{"event": "generated", "index": 1, "total": 5, "task_id": "Mbpp/11", "prompt_mode": "mbpp_evalplus_official", "raw_completion_chars": 674, "completion_chars": 675, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 17.044}
+{"event": "generated", "index": 2, "total": 5, "task_id": "Mbpp/12", "prompt_mode": "mbpp_evalplus_official", "raw_completion_chars": 1012, "completion_chars": 1013, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 14.993}
+{"event": "generated", "index": 3, "total": 5, "task_id": "Mbpp/14", "prompt_mode": "mbpp_evalplus_official", "raw_completion_chars": 699, "completion_chars": 700, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 14.934}
+{"event": "generated", "index": 4, "total": 5, "task_id": "Mbpp/16", "prompt_mode": "mbpp_evalplus_official", "raw_completion_chars": 864, "completion_chars": 865, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 13.773}
+{"event": "generated", "index": 5, "total": 5, "task_id": "Mbpp/17", "prompt_mode": "mbpp_evalplus_official", "raw_completion_chars": 1185, "completion_chars": 1186, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 14.423}
+{
+  "status": "success",
+  "model": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_keep80_merged",
+  "adapter": "",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_eval5/mbpp_evalplus/generation/samples.jsonl",
+  "generations": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_eval5/mbpp_evalplus/generation/generations.jsonl",
+  "task_count": 5,
+  "prompt_mode": "mbpp_evalplus_official",
+  "official_prompt": true,
+  "lcb_release": null,
+  "lcb_config": null,
+  "lcb_lm_style": null,
+  "elapsed_seconds": 77.22266125679016,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "load_in_8bit": false,
+  "load_in_4bit": false,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "local_files_only": true,
+  "slicegpt_base_model": null,
+  "slicegpt_sparsity": null,
+  "slicegpt_round_interval": null,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 5, "task_id": "Mbpp/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 5, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 5, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 5, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 5, "task_id": "Mbpp/17", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_eval5/mbpp_evalplus/generation/samples.jsonl",
+  "base_only": true,
+  "task_count": 5,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 5
+  }
+}

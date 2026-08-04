@@ -1,0 +1,20 @@
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 5, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 5, "task_id": "HumanEval/5", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 3, "total": 5, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 5, "task_id": "HumanEval/7", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 5, "total": 5, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/pilot_keep80_official_all_20260727_174732/llmpruner_eval5/humaneval/generation/samples.jsonl",
+  "base_only": true,
+  "task_count": 5,
+  "base_pass_count": 2,
+  "base_pass_rate": 0.4,
+  "base_status_counter": {
+    "fail": 3,
+    "pass": 2
+  }
+}

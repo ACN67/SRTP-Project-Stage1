@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "base_model": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/flabpruner_keep80_v2/pruned_model",
+  "adapter": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/flabpruner_keep80_lora_v2/lora_adapter",
+  "merged_model": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/flabpruner_keep80_merged_v2",
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "param_count": 1185505536,
+  "process_rss_mb_after": 1347.6328125,
+  "elapsed_seconds": 6.028876543045044,
+  "torch": "2.11.0+cu128"
+}

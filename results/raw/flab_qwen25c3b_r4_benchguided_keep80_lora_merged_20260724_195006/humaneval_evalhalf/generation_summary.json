@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "model": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/merged_model",
+  "adapter": "",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/humaneval_evalhalf/samples.jsonl",
+  "generations": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/humaneval_evalhalf/generations.jsonl",
+  "task_count": 82,
+  "elapsed_seconds": 561.732932806015,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}

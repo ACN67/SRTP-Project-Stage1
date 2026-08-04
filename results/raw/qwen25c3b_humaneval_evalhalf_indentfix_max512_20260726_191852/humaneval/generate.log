@@ -1,0 +1,128 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<03:29,  2.07it/s]Loading weights:  15%|█▍        | 63/434 [00:00<00:02, 139.32it/s]Loading weights:  22%|██▏       | 96/434 [00:00<00:02, 168.85it/s]Loading weights:  29%|██▉       | 125/434 [00:00<00:01, 167.39it/s]Loading weights:  34%|███▍      | 149/434 [00:01<00:01, 165.93it/s]Loading weights:  39%|███▉      | 171/434 [00:01<00:01, 176.21it/s]Loading weights:  45%|████▍     | 195/434 [00:01<00:01, 177.06it/s]Loading weights:  50%|█████     | 219/434 [00:01<00:01, 184.16it/s]Loading weights:  56%|█████▌    | 243/434 [00:01<00:01, 180.27it/s]Loading weights:  61%|██████    | 263/434 [00:01<00:00, 184.36it/s]Loading weights:  65%|██████▌   | 283/434 [00:01<00:00, 164.62it/s]Loading weights:  70%|██████▉   | 303/434 [00:02<00:01, 100.11it/s]Loading weights:  82%|████████▏ | 356/434 [00:02<00:00, 172.02it/s]Loading weights:  88%|████████▊ | 382/434 [00:02<00:00, 154.26it/s]Loading weights:  93%|█████████▎| 404/434 [00:02<00:00, 129.53it/s]Loading weights:  97%|█████████▋| 422/434 [00:02<00:00, 129.88it/s]Loading weights: 100%|██████████| 434/434 [00:03<00:00, 143.64it/s]
+{"event": "generated", "index": 1, "total": 82, "task_id": "HumanEval/1", "completion_chars": 481, "gen_seconds": 3.926}
+{"event": "generated", "index": 2, "total": 82, "task_id": "HumanEval/5", "completion_chars": 223, "gen_seconds": 1.559}
+{"event": "generated", "index": 3, "total": 82, "task_id": "HumanEval/6", "completion_chars": 440, "gen_seconds": 2.669}
+{"event": "generated", "index": 4, "total": 82, "task_id": "HumanEval/7", "completion_chars": 121, "gen_seconds": 0.898}
+{"event": "generated", "index": 5, "total": 82, "task_id": "HumanEval/11", "completion_chars": 471, "gen_seconds": 3.859}
+{"event": "generated", "index": 6, "total": 82, "task_id": "HumanEval/12", "completion_chars": 280, "gen_seconds": 1.774}
+{"event": "generated", "index": 7, "total": 82, "task_id": "HumanEval/15", "completion_chars": 450, "gen_seconds": 6.153}
+{"event": "generated", "index": 8, "total": 82, "task_id": "HumanEval/19", "completion_chars": 1, "gen_seconds": 7.722}
+{"event": "generated", "index": 9, "total": 82, "task_id": "HumanEval/20", "completion_chars": 1, "gen_seconds": 11.069}
+{"event": "generated", "index": 10, "total": 82, "task_id": "HumanEval/22", "completion_chars": 135, "gen_seconds": 0.956}
+{"event": "generated", "index": 11, "total": 82, "task_id": "HumanEval/24", "completion_chars": 531, "gen_seconds": 7.823}
+{"event": "generated", "index": 12, "total": 82, "task_id": "HumanEval/27", "completion_chars": 512, "gen_seconds": 6.556}
+{"event": "generated", "index": 13, "total": 82, "task_id": "HumanEval/28", "completion_chars": 98, "gen_seconds": 0.704}
+{"event": "generated", "index": 14, "total": 82, "task_id": "HumanEval/29", "completion_chars": 1900, "gen_seconds": 14.047}
+{"event": "generated", "index": 15, "total": 82, "task_id": "HumanEval/32", "completion_chars": 1316, "gen_seconds": 17.664}
+{"event": "generated", "index": 16, "total": 82, "task_id": "HumanEval/33", "completion_chars": 401, "gen_seconds": 12.003}
+{"event": "generated", "index": 17, "total": 82, "task_id": "HumanEval/35", "completion_chars": 334, "gen_seconds": 6.072}
+{"event": "generated", "index": 18, "total": 82, "task_id": "HumanEval/37", "completion_chars": 1, "gen_seconds": 3.952}
+{"event": "generated", "index": 19, "total": 82, "task_id": "HumanEval/39", "completion_chars": 393, "gen_seconds": 9.061}
+{"event": "generated", "index": 20, "total": 82, "task_id": "HumanEval/43", "completion_chars": 1, "gen_seconds": 4.36}
+{"event": "generated", "index": 21, "total": 82, "task_id": "HumanEval/45", "completion_chars": 363, "gen_seconds": 6.047}
+{"event": "generated", "index": 22, "total": 82, "task_id": "HumanEval/47", "completion_chars": 1, "gen_seconds": 3.672}
+{"event": "generated", "index": 23, "total": 82, "task_id": "HumanEval/49", "completion_chars": 1517, "gen_seconds": 15.994}
+{"event": "generated", "index": 24, "total": 82, "task_id": "HumanEval/50", "completion_chars": 1774, "gen_seconds": 15.559}
+{"event": "generated", "index": 25, "total": 82, "task_id": "HumanEval/51", "completion_chars": 378, "gen_seconds": 5.792}
+{"event": "generated", "index": 26, "total": 82, "task_id": "HumanEval/53", "completion_chars": 537, "gen_seconds": 4.45}
+{"event": "generated", "index": 27, "total": 82, "task_id": "HumanEval/54", "completion_chars": 334, "gen_seconds": 5.922}
+{"event": "generated", "index": 28, "total": 82, "task_id": "HumanEval/57", "completion_chars": 351, "gen_seconds": 8.42}
+{"event": "generated", "index": 29, "total": 82, "task_id": "HumanEval/59", "completion_chars": 539, "gen_seconds": 7.609}
+{"event": "generated", "index": 30, "total": 82, "task_id": "HumanEval/61", "completion_chars": 612, "gen_seconds": 6.885}
+{"event": "generated", "index": 31, "total": 82, "task_id": "HumanEval/62", "completion_chars": 467, "gen_seconds": 6.766}
+{"event": "generated", "index": 32, "total": 82, "task_id": "HumanEval/64", "completion_chars": 508, "gen_seconds": 6.289}
+{"event": "generated", "index": 33, "total": 82, "task_id": "HumanEval/67", "completion_chars": 1152, "gen_seconds": 14.166}
+{"event": "generated", "index": 34, "total": 82, "task_id": "HumanEval/69", "completion_chars": 851, "gen_seconds": 14.189}
+{"event": "generated", "index": 35, "total": 82, "task_id": "HumanEval/70", "completion_chars": 463, "gen_seconds": 8.266}
+{"event": "generated", "index": 36, "total": 82, "task_id": "HumanEval/72", "completion_chars": 1, "gen_seconds": 3.084}
+{"event": "generated", "index": 37, "total": 82, "task_id": "HumanEval/73", "completion_chars": 1, "gen_seconds": 3.836}
+{"event": "generated", "index": 38, "total": 82, "task_id": "HumanEval/78", "completion_chars": 457, "gen_seconds": 7.219}
+{"event": "generated", "index": 39, "total": 82, "task_id": "HumanEval/79", "completion_chars": 381, "gen_seconds": 7.759}
+{"event": "generated", "index": 40, "total": 82, "task_id": "HumanEval/80", "completion_chars": 1, "gen_seconds": 3.209}
+{"event": "generated", "index": 41, "total": 82, "task_id": "HumanEval/83", "completion_chars": 299, "gen_seconds": 4.061}
+{"event": "generated", "index": 42, "total": 82, "task_id": "HumanEval/86", "completion_chars": 372, "gen_seconds": 6.958}
+{"event": "generated", "index": 43, "total": 82, "task_id": "HumanEval/87", "completion_chars": 848, "gen_seconds": 14.082}
+{"event": "generated", "index": 44, "total": 82, "task_id": "HumanEval/90", "completion_chars": 567, "gen_seconds": 4.846}
+{"event": "generated", "index": 45, "total": 82, "task_id": "HumanEval/91", "completion_chars": 452, "gen_seconds": 8.027}
+{"event": "generated", "index": 46, "total": 82, "task_id": "HumanEval/94", "completion_chars": 1, "gen_seconds": 10.025}
+{"event": "generated", "index": 47, "total": 82, "task_id": "HumanEval/96", "completion_chars": 1, "gen_seconds": 5.84}
+{"event": "generated", "index": 48, "total": 82, "task_id": "HumanEval/98", "completion_chars": 463, "gen_seconds": 7.288}
+{"event": "generated", "index": 49, "total": 82, "task_id": "HumanEval/100", "completion_chars": 444, "gen_seconds": 7.404}
+{"event": "generated", "index": 50, "total": 82, "task_id": "HumanEval/101", "completion_chars": 359, "gen_seconds": 6.63}
+{"event": "generated", "index": 51, "total": 82, "task_id": "HumanEval/103", "completion_chars": 1, "gen_seconds": 3.467}
+{"event": "generated", "index": 52, "total": 82, "task_id": "HumanEval/105", "completion_chars": 1, "gen_seconds": 4.906}
+{"event": "generated", "index": 53, "total": 82, "task_id": "HumanEval/108", "completion_chars": 1, "gen_seconds": 3.234}
+{"event": "generated", "index": 54, "total": 82, "task_id": "HumanEval/109", "completion_chars": 1, "gen_seconds": 3.193}
+{"event": "generated", "index": 55, "total": 82, "task_id": "HumanEval/111", "completion_chars": 384, "gen_seconds": 7.73}
+{"event": "generated", "index": 56, "total": 82, "task_id": "HumanEval/112", "completion_chars": 425, "gen_seconds": 5.85}
+{"event": "generated", "index": 57, "total": 82, "task_id": "HumanEval/113", "completion_chars": 420, "gen_seconds": 8.036}
+{"event": "generated", "index": 58, "total": 82, "task_id": "HumanEval/116", "completion_chars": 375, "gen_seconds": 6.854}
+{"event": "generated", "index": 59, "total": 82, "task_id": "HumanEval/117", "completion_chars": 1, "gen_seconds": 4.302}
+{"event": "generated", "index": 60, "total": 82, "task_id": "HumanEval/120", "completion_chars": 243, "gen_seconds": 3.149}
+{"event": "generated", "index": 61, "total": 82, "task_id": "HumanEval/121", "completion_chars": 458, "gen_seconds": 9.78}
+{"event": "generated", "index": 62, "total": 82, "task_id": "HumanEval/122", "completion_chars": 814, "gen_seconds": 11.872}
+{"event": "generated", "index": 63, "total": 82, "task_id": "HumanEval/124", "completion_chars": 1, "gen_seconds": 9.624}
+{"event": "generated", "index": 64, "total": 82, "task_id": "HumanEval/125", "completion_chars": 582, "gen_seconds": 10.633}
+{"event": "generated", "index": 65, "total": 82, "task_id": "HumanEval/127", "completion_chars": 965, "gen_seconds": 16.582}
+{"event": "generated", "index": 66, "total": 82, "task_id": "HumanEval/130", "completion_chars": 1, "gen_seconds": 6.473}
+{"event": "generated", "index": 67, "total": 82, "task_id": "HumanEval/133", "completion_chars": 1, "gen_seconds": 3.924}
+{"event": "generated", "index": 68, "total": 82, "task_id": "HumanEval/136", "completion_chars": 1, "gen_seconds": 6.651}
+{"event": "generated", "index": 69, "total": 82, "task_id": "HumanEval/138", "completion_chars": 559, "gen_seconds": 9.295}
+{"event": "generated", "index": 70, "total": 82, "task_id": "HumanEval/139", "completion_chars": 387, "gen_seconds": 6.281}
+{"event": "generated", "index": 71, "total": 82, "task_id": "HumanEval/140", "completion_chars": 393, "gen_seconds": 6.745}
+{"event": "generated", "index": 72, "total": 82, "task_id": "HumanEval/142", "completion_chars": 972, "gen_seconds": 15.769}
+{"event": "generated", "index": 73, "total": 82, "task_id": "HumanEval/144", "completion_chars": 1, "gen_seconds": 4.443}
+{"event": "generated", "index": 74, "total": 82, "task_id": "HumanEval/147", "completion_chars": 509, "gen_seconds": 6.72}
+{"event": "generated", "index": 75, "total": 82, "task_id": "HumanEval/149", "completion_chars": 348, "gen_seconds": 8.239}
+{"event": "generated", "index": 76, "total": 82, "task_id": "HumanEval/153", "completion_chars": 1, "gen_seconds": 4.713}
+{"event": "generated", "index": 77, "total": 82, "task_id": "HumanEval/154", "completion_chars": 487, "gen_seconds": 8.523}
+{"event": "generated", "index": 78, "total": 82, "task_id": "HumanEval/155", "completion_chars": 1, "gen_seconds": 6.888}
+{"event": "generated", "index": 79, "total": 82, "task_id": "HumanEval/156", "completion_chars": 420, "gen_seconds": 12.138}
+{"event": "generated", "index": 80, "total": 82, "task_id": "HumanEval/157", "completion_chars": 1, "gen_seconds": 6.402}
+{"event": "generated", "index": 81, "total": 82, "task_id": "HumanEval/160", "completion_chars": 1536, "gen_seconds": 15.186}
+{"event": "generated", "index": 82, "total": 82, "task_id": "HumanEval/163", "completion_chars": 1, "gen_seconds": 3.828}
+{
+  "status": "success",
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "adapter": "",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/qwen25c3b_humaneval_evalhalf_indentfix_max512_20260726_191852/humaneval/samples.jsonl",
+  "generations": "results/raw/qwen25c3b_humaneval_evalhalf_indentfix_max512_20260726_191852/humaneval/generations.jsonl",
+  "task_count": 82,
+  "elapsed_seconds": 603.5466365814209,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "load_in_8bit": false,
+  "load_in_4bit": false,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+	Command being timed: ".venv-common/bin/python scripts/eval/generate_evalplus_samples.py --model Qwen/Qwen2.5-Coder-3B-Instruct --split data/splits/humaneval_half/eval.jsonl --out-dir results/raw/qwen25c3b_humaneval_evalhalf_indentfix_max512_20260726_191852/humaneval --max-new-tokens 512 --dtype fp16 --device cuda:0"
+	User time (seconds): 543.67
+	System time (seconds): 84.17
+	Percent of CPU this job got: 101%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 10:16.00
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7276924
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 32955
+	Minor (reclaiming a frame) page faults: 1884733
+	Voluntary context switches: 47447
+	Involuntary context switches: 3687
+	Swaps: 0
+	File system inputs: 13692640
+	File system outputs: 1464
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

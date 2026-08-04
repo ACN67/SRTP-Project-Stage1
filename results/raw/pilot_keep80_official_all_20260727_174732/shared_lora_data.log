@@ -1,0 +1,80 @@
+== START shared_lora_data: Mon Jul 27 17:47:32 CST 2026 ==
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:01<11:34,  1.60s/it]Loading weights:  18%|█▊        | 77/434 [00:01<00:05, 62.60it/s]Loading weights:  28%|██▊       | 121/434 [00:01<00:03, 91.40it/s]Loading weights:  36%|███▌      | 155/434 [00:02<00:02, 99.44it/s]Loading weights:  41%|████▏     | 180/434 [00:02<00:02, 105.57it/s]Loading weights:  46%|████▋     | 201/434 [00:02<00:02, 104.04it/s]Loading weights:  50%|█████     | 219/434 [00:02<00:02, 105.57it/s]Loading weights:  54%|█████▍    | 235/434 [00:02<00:01, 109.70it/s]Loading weights:  58%|█████▊    | 250/434 [00:03<00:01, 115.12it/s]Loading weights:  61%|██████    | 265/434 [00:03<00:01, 121.09it/s]Loading weights:  65%|██████▍   | 280/434 [00:03<00:01, 83.87it/s] Loading weights:  67%|██████▋   | 292/434 [00:03<00:01, 82.11it/s]Loading weights:  70%|███████   | 304/434 [00:03<00:01, 85.86it/s]Loading weights:  73%|███████▎  | 315/434 [00:03<00:01, 84.43it/s]Loading weights:  75%|███████▌  | 327/434 [00:05<00:05, 18.99it/s]Loading weights:  78%|███████▊  | 339/434 [00:05<00:03, 24.82it/s]Loading weights:  81%|████████  | 351/434 [00:06<00:02, 31.03it/s]Loading weights:  84%|████████▍ | 364/434 [00:06<00:01, 38.57it/s]Loading weights:  87%|████████▋ | 376/434 [00:06<00:01, 47.23it/s]Loading weights:  89%|████████▉ | 387/434 [00:06<00:01, 42.31it/s]Loading weights:  92%|█████████▏| 399/434 [00:06<00:00, 51.41it/s]Loading weights:  95%|█████████▍| 411/434 [00:06<00:00, 58.78it/s]Loading weights:  98%|█████████▊| 424/434 [00:07<00:00, 68.03it/s]Loading weights: 100%|██████████| 434/434 [00:07<00:00, 61.81it/s]
+{"generated": 1, "task_id": "HumanEval/0", "raw_completion_chars": 251, "completion_chars": 252, "generated_tokens": 62, "hit_max_new_tokens": false, "seconds": 6.115}
+{"generated": 2, "task_id": "HumanEval/2", "raw_completion_chars": 837, "completion_chars": 834, "generated_tokens": 220, "hit_max_new_tokens": false, "seconds": 6.183}
+{"generated": 3, "task_id": "HumanEval/3", "raw_completion_chars": 213, "completion_chars": 214, "generated_tokens": 52, "hit_max_new_tokens": false, "seconds": 1.483}
+{"generated": 4, "task_id": "HumanEval/4", "raw_completion_chars": 258, "completion_chars": 259, "generated_tokens": 72, "hit_max_new_tokens": false, "seconds": 2.146}
+{"generated": 5, "task_id": "Mbpp/2", "raw_completion_chars": 395, "completion_chars": 396, "generated_tokens": 110, "hit_max_new_tokens": false, "seconds": 3.039}
+{"generated": 6, "task_id": "Mbpp/3", "raw_completion_chars": 529, "completion_chars": 526, "generated_tokens": 141, "hit_max_new_tokens": false, "seconds": 3.81}
+{"generated": 7, "task_id": "Mbpp/4", "raw_completion_chars": 276, "completion_chars": 277, "generated_tokens": 104, "hit_max_new_tokens": false, "seconds": 2.868}
+{"generated": 8, "task_id": "Mbpp/6", "raw_completion_chars": 288, "completion_chars": 285, "generated_tokens": 86, "hit_max_new_tokens": false, "seconds": 2.343}
+{"generated": 9, "task_id": "2779", "raw_completion_chars": 709, "completion_chars": 696, "generated_tokens": 178, "hit_max_new_tokens": false, "seconds": 5.012}
+{"generated": 10, "task_id": "2727", "raw_completion_chars": 243, "completion_chars": 230, "generated_tokens": 65, "hit_max_new_tokens": false, "seconds": 1.847}
+{"generated": 11, "task_id": "2730", "raw_completion_chars": 320, "completion_chars": 307, "generated_tokens": 85, "hit_max_new_tokens": false, "seconds": 2.38}
+{"generated": 12, "task_id": "abc301_a", "raw_completion_chars": 681, "completion_chars": 668, "generated_tokens": 202, "hit_max_new_tokens": false, "seconds": 5.6}
+{
+  "status": "success",
+  "teacher_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "guide_files": [
+    {
+      "path": "data/splits/humaneval_half/guide.jsonl",
+      "sha256": "786d8c8f197c8c558073f1575731c8dfc8b657cc68dfcc82c9066ab208655b2c",
+      "samples_used": 4,
+      "benchmarks": [
+        "humaneval"
+      ],
+      "task_ids": [
+        "HumanEval/0",
+        "HumanEval/2",
+        "HumanEval/3",
+        "HumanEval/4"
+      ]
+    },
+    {
+      "path": "data/splits/mbpp_evalplus_half/guide.jsonl",
+      "sha256": "15b2981cbd9b2eda27643d8a77433880dbc9a9a41a8081f754960d2a0f115b56",
+      "samples_used": 4,
+      "benchmarks": [
+        "mbpp_evalplus"
+      ],
+      "task_ids": [
+        "Mbpp/2",
+        "Mbpp/3",
+        "Mbpp/4",
+        "Mbpp/6"
+      ]
+    },
+    {
+      "path": "data/splits/livecodebench_half/guide.jsonl",
+      "sha256": "6ff0ff93e6300c26a144bedbb45b0225781bca300776b7c630f3a26a8d797a0d",
+      "samples_used": 4,
+      "benchmarks": [
+        "livecodebench"
+      ],
+      "task_ids": [
+        "2779",
+        "2727",
+        "2730",
+        "abc301_a"
+      ]
+    }
+  ],
+  "samples": 12,
+  "prompt_policy": {
+    "official_prompt": true,
+    "humaneval": "EvalPlus/HumanEval raw prompt",
+    "mbpp_evalplus": "EvalPlus MBPP raw prompt",
+    "livecodebench": "LiveCodeBench format_prompt_generation + extract_code",
+    "lcb_release": "release_v1",
+    "lcb_config": "release_latest",
+    "lcb_lm_style": "CodeQwenInstruct"
+  },
+  "output": "results/raw/pilot_keep80_official_all_20260727_174732/shared_lora_data/distill_train.jsonl",
+  "teacher_generations": "results/raw/pilot_keep80_official_all_20260727_174732/shared_lora_data/teacher_generations.jsonl",
+  "local_files_only": true,
+  "elapsed_seconds": 79.29165244102478
+}
+== DONE shared_lora_data: 91s ==

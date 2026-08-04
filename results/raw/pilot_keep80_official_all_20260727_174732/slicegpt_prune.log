@@ -1,0 +1,46 @@
+Loading tokenizer from Qwen/Qwen2.5-Coder-3B-Instruct
+Loading Qwen2 weights
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<04:05,  1.76it/s]Loading weights:  23%|██▎       | 99/434 [00:00<00:01, 187.17it/s]Loading weights:  33%|███▎      | 144/434 [00:00<00:01, 202.97it/s]Loading weights:  41%|████      | 179/434 [00:01<00:01, 206.69it/s]Loading weights:  48%|████▊     | 209/434 [00:01<00:01, 191.61it/s]Loading weights:  54%|█████▍    | 234/434 [00:01<00:01, 190.02it/s]Loading weights:  59%|█████▉    | 257/434 [00:02<00:02, 84.04it/s] Loading weights:  64%|██████▍   | 279/434 [00:02<00:02, 74.82it/s]Loading weights:  67%|██████▋   | 292/434 [00:02<00:02, 60.09it/s]Loading weights:  70%|███████   | 304/434 [00:03<00:01, 65.67it/s]Loading weights:  73%|███████▎  | 317/434 [00:03<00:01, 71.03it/s]Loading weights:  76%|███████▌  | 328/434 [00:03<00:01, 72.97it/s]Loading weights:  78%|███████▊  | 339/434 [00:03<00:01, 60.86it/s]Loading weights:  81%|████████  | 351/434 [00:03<00:01, 60.83it/s]Loading weights:  84%|████████▎ | 363/434 [00:04<00:01, 52.80it/s]Loading weights:  86%|████████▋ | 375/434 [00:04<00:01, 55.56it/s]Loading weights:  88%|████████▊ | 382/434 [00:04<00:01, 35.73it/s]Loading weights:  92%|█████████▏| 399/434 [00:04<00:00, 50.89it/s]Loading weights:  95%|█████████▍| 412/434 [00:05<00:00, 59.73it/s]Loading weights:  97%|█████████▋| 423/434 [00:07<00:00, 15.50it/s]Loading weights: 100%|██████████| 434/434 [00:07<00:00, 60.12it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Preparing dataloader
+Filter:   0%|          | 0/12 [00:00<?, ? examples/s]Filter: 100%|██████████| 12/12 [00:00<00:00, 261.00 examples/s]
+Preparing dataloader done
+Replacing layers
+Replacing layers done
+Fusing layernorm modules
+Fusing layernorm modules done
+Rotate and slice layers
+Rotating and slicing:   0%|          | 0/36 [00:00<?, ?layer/s]Rotating and slicing:   3%|▎         | 1/36 [00:03<02:02,  3.50s/layer]Rotating and slicing:   6%|▌         | 2/36 [00:06<01:50,  3.26s/layer]Rotating and slicing:   8%|▊         | 3/36 [00:09<01:48,  3.28s/layer]Rotating and slicing:  11%|█         | 4/36 [00:13<01:43,  3.24s/layer]Rotating and slicing:  14%|█▍        | 5/36 [00:16<01:38,  3.19s/layer]Rotating and slicing:  17%|█▋        | 6/36 [00:19<01:34,  3.17s/layer]Rotating and slicing:  19%|█▉        | 7/36 [00:22<01:30,  3.14s/layer]Rotating and slicing:  22%|██▏       | 8/36 [00:25<01:26,  3.11s/layer]Rotating and slicing:  25%|██▌       | 9/36 [00:28<01:23,  3.10s/layer]Rotating and slicing:  28%|██▊       | 10/36 [00:31<01:20,  3.08s/layer]Rotating and slicing:  31%|███       | 11/36 [00:34<01:16,  3.07s/layer]Rotating and slicing:  33%|███▎      | 12/36 [00:37<01:13,  3.07s/layer]Rotating and slicing:  36%|███▌      | 13/36 [00:41<01:13,  3.19s/layer]Rotating and slicing:  39%|███▉      | 14/36 [00:44<01:12,  3.29s/layer]Rotating and slicing:  42%|████▏     | 15/36 [00:48<01:10,  3.38s/layer]Rotating and slicing:  44%|████▍     | 16/36 [00:51<01:07,  3.37s/layer]Rotating and slicing:  47%|████▋     | 17/36 [00:54<01:03,  3.35s/layer]Rotating and slicing:  50%|█████     | 18/36 [00:59<01:09,  3.84s/layer]Rotating and slicing:  53%|█████▎    | 19/36 [01:03<01:02,  3.68s/layer]Rotating and slicing:  56%|█████▌    | 20/36 [01:06<00:57,  3.58s/layer]Rotating and slicing:  58%|█████▊    | 21/36 [01:09<00:52,  3.47s/layer]Rotating and slicing:  61%|██████    | 22/36 [01:13<00:48,  3.44s/layer]Rotating and slicing:  64%|██████▍   | 23/36 [01:16<00:44,  3.41s/layer]Rotating and slicing:  67%|██████▋   | 24/36 [01:19<00:40,  3.38s/layer]Rotating and slicing:  69%|██████▉   | 25/36 [01:22<00:36,  3.34s/layer]Rotating and slicing:  72%|███████▏  | 26/36 [01:26<00:33,  3.33s/layer]Rotating and slicing:  75%|███████▌  | 27/36 [01:29<00:30,  3.34s/layer]Rotating and slicing:  78%|███████▊  | 28/36 [01:33<00:27,  3.38s/layer]Rotating and slicing:  81%|████████  | 29/36 [01:36<00:23,  3.42s/layer]Rotating and slicing:  83%|████████▎ | 30/36 [01:39<00:20,  3.33s/layer]Rotating and slicing:  86%|████████▌ | 31/36 [01:43<00:16,  3.37s/layer]Rotating and slicing:  89%|████████▉ | 32/36 [01:46<00:13,  3.46s/layer]Rotating and slicing:  92%|█████████▏| 33/36 [01:50<00:10,  3.52s/layer]Rotating and slicing:  94%|█████████▍| 34/36 [01:53<00:06,  3.50s/layer]Rotating and slicing:  97%|█████████▋| 35/36 [01:57<00:03,  3.43s/layer]Rotating and slicing: 100%|██████████| 36/36 [02:00<00:00,  3.41s/layer]Rotating and slicing: 100%|██████████| 36/36 [02:00<00:00,  3.35s/layer]
+Rotate and slice layers done
+{
+  "status": "success",
+  "method": "SliceGPT official Qwen2 adapter",
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "local_files_only": true,
+  "cal_dataset": "wikitext2",
+  "cal_guide_files": [
+    "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/humaneval_half/guide.jsonl",
+    "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/mbpp_evalplus_half/guide.jsonl",
+    "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/livecodebench_half/guide.jsonl"
+  ],
+  "cal_guide_samples": 12,
+  "cal_nsamples": 12,
+  "cal_batch_size": 1,
+  "cal_max_seqlen": 512,
+  "sparsity_requested": 0.2,
+  "hidden_size": 2048,
+  "new_embedding_dimension": 1536,
+  "parameters_before": 3085938688,
+  "parameters_after": 2801821696,
+  "parameter_keep_ratio": 0.9079317443652335,
+  "parameter_reduction_rate": 0.0920682556347665,
+  "sliced_state_path": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_keep80/sliced_model/Qwen2.5-Coder-3B-Instruct_0.2.pt",
+  "slicing_config_path": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_keep80/sliced_model/Qwen2.5-Coder-3B-Instruct_0.2.json",
+  "sliced_model": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_keep80/sliced_model",
+  "sliced_model_loader": "scripts.adapt.slicegpt_qwen_official.load_sliced_qwen_model",
+  "process_rss_mb_after": 7614.46484375,
+  "elapsed_seconds": 370.27495312690735,
+  "torch": "2.11.0+cu128"
+}

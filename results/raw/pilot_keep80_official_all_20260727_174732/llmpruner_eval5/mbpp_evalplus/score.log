@@ -1,0 +1,20 @@
+Load from ground-truth from /home/keshu/.cache/evalplus/ee43ecabebf20deef4bb776a405ac5b1.pkl
+{"event": "scored", "index": 1, "total": 5, "task_id": "Mbpp/11", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 2, "total": 5, "task_id": "Mbpp/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 5, "task_id": "Mbpp/14", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 5, "task_id": "Mbpp/16", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 5, "task_id": "Mbpp/17", "base_status": "pass", "base_pass": true}
+{
+  "status": "success",
+  "benchmark": "mbpp",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/mbpp_evalplus_half/eval.jsonl",
+  "samples": "results/raw/pilot_keep80_official_all_20260727_174732/llmpruner_eval5/mbpp_evalplus/generation/samples.jsonl",
+  "base_only": true,
+  "task_count": 5,
+  "base_pass_count": 2,
+  "base_pass_rate": 0.4,
+  "base_status_counter": {
+    "pass": 2,
+    "fail": 3
+  }
+}

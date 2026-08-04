@@ -1,0 +1,55 @@
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:01<11:46,  1.63s/it]Loading weights:  20%|██        | 87/434 [00:02<00:06, 57.03it/s]Loading weights:  23%|██▎       | 101/434 [00:02<00:06, 54.28it/s]Loading weights:  26%|██▌       | 111/434 [00:02<00:06, 53.11it/s]Loading weights:  27%|██▋       | 119/434 [00:02<00:05, 55.56it/s]Loading weights:  29%|██▉       | 127/434 [00:02<00:05, 56.76it/s]Loading weights:  31%|███▏      | 136/434 [00:02<00:04, 61.50it/s]Loading weights:  33%|███▎      | 144/434 [00:02<00:04, 63.52it/s]Loading weights:  35%|███▌      | 152/434 [00:03<00:09, 29.53it/s]Loading weights:  37%|███▋      | 159/434 [00:04<00:11, 24.07it/s]Loading weights:  39%|███▉      | 171/434 [00:04<00:10, 25.17it/s]Loading weights:  42%|████▏     | 183/434 [00:04<00:08, 28.86it/s]Loading weights:  45%|████▍     | 195/434 [00:05<00:07, 30.30it/s]Loading weights:  46%|████▌     | 199/434 [00:05<00:07, 29.55it/s]Loading weights:  48%|████▊     | 207/434 [00:05<00:09, 22.88it/s]Loading weights:  48%|████▊     | 210/434 [00:06<00:10, 20.42it/s]Loading weights:  50%|█████     | 219/434 [00:06<00:11, 18.43it/s]Loading weights:  53%|█████▎    | 231/434 [00:07<00:09, 21.19it/s]Loading weights:  54%|█████▍    | 234/434 [00:07<00:10, 19.68it/s]Loading weights:  56%|█████▌    | 243/434 [00:07<00:07, 25.01it/s]Loading weights:  59%|█████▉    | 255/434 [00:08<00:06, 27.69it/s]Loading weights:  62%|██████▏   | 267/434 [00:08<00:06, 24.95it/s]Loading weights:  62%|██████▏   | 270/434 [00:09<00:09, 16.84it/s]Loading weights:  64%|██████▍   | 279/434 [00:09<00:07, 21.46it/s]Loading weights:  65%|██████▍   | 282/434 [00:09<00:07, 21.42it/s]Loading weights:  67%|██████▋   | 291/434 [00:10<00:07, 20.34it/s]Loading weights:  70%|██████▉   | 303/434 [00:12<00:13,  9.46it/s]Loading weights:  73%|███████▎  | 315/434 [00:12<00:08, 13.48it/s]Loading weights:  73%|███████▎  | 318/434 [00:12<00:08, 14.13it/s]Loading weights:  75%|███████▌  | 327/434 [00:12<00:06, 17.25it/s]Loading weights:  76%|███████▌  | 330/434 [00:13<00:05, 18.20it/s]Loading weights:  78%|███████▊  | 339/434 [00:13<00:05, 17.82it/s]Loading weights:  81%|████████  | 351/434 [00:13<00:03, 23.92it/s]Loading weights:  82%|████████▏ | 355/434 [00:13<00:03, 25.18it/s]Loading weights:  84%|████████▎ | 363/434 [00:14<00:02, 25.66it/s]Loading weights:  85%|████████▍ | 367/434 [00:14<00:02, 25.08it/s]Loading weights:  86%|████████▋ | 375/434 [00:14<00:02, 21.09it/s]Loading weights:  89%|████████▉ | 387/434 [00:17<00:05,  9.32it/s]Loading weights:  90%|████████▉ | 389/434 [00:17<00:05,  8.91it/s]Loading weights:  92%|█████████▏| 399/434 [00:17<00:02, 12.68it/s]Loading weights:  95%|█████████▍| 411/434 [00:18<00:01, 16.46it/s]Loading weights:  97%|█████████▋| 423/434 [00:18<00:00, 20.83it/s]Loading weights: 100%|██████████| 434/434 [00:18<00:00, 23.46it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+{"event": "generated", "index": 1, "total": 5, "task_id": "HumanEval/1", "prompt_mode": "humaneval_official", "raw_completion_chars": 1874, "completion_chars": 1875, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 30.087}
+{"event": "generated", "index": 2, "total": 5, "task_id": "HumanEval/5", "prompt_mode": "humaneval_official", "raw_completion_chars": 1447, "completion_chars": 1447, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 27.579}
+{"event": "generated", "index": 3, "total": 5, "task_id": "HumanEval/6", "prompt_mode": "humaneval_official", "raw_completion_chars": 2011, "completion_chars": 2012, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 27.334}
+{"event": "generated", "index": 4, "total": 5, "task_id": "HumanEval/7", "prompt_mode": "humaneval_official", "raw_completion_chars": 2391, "completion_chars": 2392, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 28.055}
+{"event": "generated", "index": 5, "total": 5, "task_id": "HumanEval/11", "prompt_mode": "humaneval_official", "raw_completion_chars": 1972, "completion_chars": 1973, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 28.386}
+{
+  "status": "success",
+  "model": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_keep80/sliced_model",
+  "adapter": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_keep80_lora/lora_adapter",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_eval5/humaneval/generation/samples.jsonl",
+  "generations": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_eval5/humaneval/generation/generations.jsonl",
+  "task_count": 5,
+  "prompt_mode": "humaneval_official",
+  "official_prompt": true,
+  "lcb_release": null,
+  "lcb_config": null,
+  "lcb_lm_style": null,
+  "elapsed_seconds": 383.6896131038666,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "load_in_8bit": false,
+  "load_in_4bit": false,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "local_files_only": true,
+  "slicegpt_base_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "slicegpt_sparsity": 0.2,
+  "slicegpt_round_interval": 128,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 5, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 5, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 5, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 5, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 5, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_eval5/humaneval/generation/samples.jsonl",
+  "base_only": true,
+  "task_count": 5,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 5
+  }
+}

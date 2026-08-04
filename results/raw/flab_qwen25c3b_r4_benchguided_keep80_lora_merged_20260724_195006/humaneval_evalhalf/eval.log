@@ -1,0 +1,124 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<02:38,  2.73it/s]Loading weights:   3%|▎         | 15/434 [00:00<00:10, 40.76it/s]Loading weights:   6%|▋         | 28/434 [00:00<00:06, 64.34it/s]Loading weights:  12%|█▏        | 52/434 [00:00<00:03, 108.27it/s]Loading weights:  17%|█▋        | 74/434 [00:00<00:02, 132.06it/s]Loading weights:  21%|██        | 90/434 [00:00<00:02, 136.15it/s]Loading weights:  26%|██▌       | 111/434 [00:01<00:02, 154.11it/s]Loading weights:  29%|██▉       | 128/434 [00:01<00:02, 146.77it/s]Loading weights:  34%|███▍      | 147/434 [00:01<00:01, 148.27it/s]Loading weights:  38%|███▊      | 163/434 [00:01<00:01, 150.66it/s]Loading weights:  42%|████▏     | 183/434 [00:01<00:01, 159.72it/s]Loading weights:  46%|████▌     | 200/434 [00:01<00:01, 153.22it/s]Loading weights:  50%|█████     | 218/434 [00:01<00:01, 155.84it/s]Loading weights:  54%|█████▍    | 234/434 [00:01<00:01, 145.29it/s]Loading weights:  57%|█████▋    | 249/434 [00:01<00:01, 143.60it/s]Loading weights:  62%|██████▏   | 267/434 [00:02<00:01, 131.02it/s]Loading weights:  65%|██████▍   | 281/434 [00:02<00:01, 125.96it/s]Loading weights:  68%|██████▊   | 297/434 [00:02<00:01, 128.80it/s]Loading weights:  72%|███████▏  | 314/434 [00:02<00:00, 136.45it/s]Loading weights:  76%|███████▌  | 328/434 [00:02<00:00, 127.19it/s]Loading weights:  79%|███████▉  | 345/434 [00:02<00:00, 137.44it/s]Loading weights:  84%|████████▎ | 363/434 [00:02<00:00, 115.64it/s]Loading weights:  89%|████████▉ | 387/434 [00:03<00:00, 138.96it/s]Loading weights:  93%|█████████▎| 402/434 [00:03<00:00, 133.90it/s]Loading weights:  96%|█████████▌| 417/434 [00:03<00:00, 124.43it/s]Loading weights:  99%|█████████▉| 430/434 [00:03<00:00, 59.76it/s] Loading weights: 100%|██████████| 434/434 [00:03<00:00, 111.25it/s]
+{"task_id": "HumanEval/1", "completion_chars": 1144, "gen_seconds": 12.79}
+{"task_id": "HumanEval/5", "completion_chars": 769, "gen_seconds": 6.269}
+{"task_id": "HumanEval/6", "completion_chars": 1140, "gen_seconds": 6.293}
+{"task_id": "HumanEval/7", "completion_chars": 524, "gen_seconds": 6.186}
+{"task_id": "HumanEval/11", "completion_chars": 1079, "gen_seconds": 6.166}
+{"task_id": "HumanEval/12", "completion_chars": 1118, "gen_seconds": 6.165}
+{"task_id": "HumanEval/15", "completion_chars": 1226, "gen_seconds": 6.155}
+{"task_id": "HumanEval/19", "completion_chars": 1150, "gen_seconds": 6.192}
+{"task_id": "HumanEval/20", "completion_chars": 662, "gen_seconds": 6.187}
+{"task_id": "HumanEval/22", "completion_chars": 796, "gen_seconds": 6.266}
+{"task_id": "HumanEval/24", "completion_chars": 745, "gen_seconds": 6.225}
+{"task_id": "HumanEval/27", "completion_chars": 617, "gen_seconds": 6.24}
+{"task_id": "HumanEval/28", "completion_chars": 872, "gen_seconds": 6.225}
+{"task_id": "HumanEval/29", "completion_chars": 658, "gen_seconds": 6.173}
+{"task_id": "HumanEval/32", "completion_chars": 755, "gen_seconds": 6.186}
+{"task_id": "HumanEval/33", "completion_chars": 573, "gen_seconds": 6.167}
+{"task_id": "HumanEval/35", "completion_chars": 597, "gen_seconds": 6.131}
+{"task_id": "HumanEval/37", "completion_chars": 1148, "gen_seconds": 6.289}
+{"task_id": "HumanEval/39", "completion_chars": 808, "gen_seconds": 8.891}
+{"task_id": "HumanEval/43", "completion_chars": 1261, "gen_seconds": 8.786}
+{"task_id": "HumanEval/45", "completion_chars": 348, "gen_seconds": 9.227}
+{"task_id": "HumanEval/47", "completion_chars": 737, "gen_seconds": 8.206}
+{"task_id": "HumanEval/49", "completion_chars": 274, "gen_seconds": 7.492}
+{"task_id": "HumanEval/50", "completion_chars": 982, "gen_seconds": 7.716}
+{"task_id": "HumanEval/51", "completion_chars": 377, "gen_seconds": 7.527}
+{"task_id": "HumanEval/53", "completion_chars": 677, "gen_seconds": 7.631}
+{"task_id": "HumanEval/54", "completion_chars": 1242, "gen_seconds": 7.435}
+{"task_id": "HumanEval/57", "completion_chars": 566, "gen_seconds": 7.661}
+{"task_id": "HumanEval/59", "completion_chars": 1008, "gen_seconds": 7.356}
+{"task_id": "HumanEval/61", "completion_chars": 1406, "gen_seconds": 6.284}
+{"task_id": "HumanEval/62", "completion_chars": 680, "gen_seconds": 6.338}
+{"task_id": "HumanEval/64", "completion_chars": 1052, "gen_seconds": 6.345}
+{"task_id": "HumanEval/67", "completion_chars": 349, "gen_seconds": 6.324}
+{"task_id": "HumanEval/69", "completion_chars": 591, "gen_seconds": 6.31}
+{"task_id": "HumanEval/70", "completion_chars": 633, "gen_seconds": 6.285}
+{"task_id": "HumanEval/72", "completion_chars": 1045, "gen_seconds": 6.281}
+{"task_id": "HumanEval/73", "completion_chars": 826, "gen_seconds": 6.242}
+{"task_id": "HumanEval/78", "completion_chars": 1169, "gen_seconds": 6.322}
+{"task_id": "HumanEval/79", "completion_chars": 990, "gen_seconds": 6.371}
+{"task_id": "HumanEval/80", "completion_chars": 1177, "gen_seconds": 6.234}
+{"task_id": "HumanEval/83", "completion_chars": 383, "gen_seconds": 6.26}
+{"task_id": "HumanEval/86", "completion_chars": 319, "gen_seconds": 6.237}
+{"task_id": "HumanEval/87", "completion_chars": 491, "gen_seconds": 6.277}
+{"task_id": "HumanEval/90", "completion_chars": 1121, "gen_seconds": 6.325}
+{"task_id": "HumanEval/91", "completion_chars": 1107, "gen_seconds": 6.33}
+{"task_id": "HumanEval/94", "completion_chars": 357, "gen_seconds": 6.345}
+{"task_id": "HumanEval/96", "completion_chars": 1220, "gen_seconds": 6.382}
+{"task_id": "HumanEval/98", "completion_chars": 455, "gen_seconds": 6.316}
+{"task_id": "HumanEval/100", "completion_chars": 887, "gen_seconds": 6.279}
+{"task_id": "HumanEval/101", "completion_chars": 1158, "gen_seconds": 6.264}
+{"task_id": "HumanEval/103", "completion_chars": 509, "gen_seconds": 6.293}
+{"task_id": "HumanEval/105", "completion_chars": 1138, "gen_seconds": 6.33}
+{"task_id": "HumanEval/108", "completion_chars": 1298, "gen_seconds": 6.255}
+{"task_id": "HumanEval/109", "completion_chars": 974, "gen_seconds": 6.297}
+{"task_id": "HumanEval/111", "completion_chars": 1192, "gen_seconds": 6.235}
+{"task_id": "HumanEval/112", "completion_chars": 1148, "gen_seconds": 6.269}
+{"task_id": "HumanEval/113", "completion_chars": 1332, "gen_seconds": 6.268}
+{"task_id": "HumanEval/116", "completion_chars": 1215, "gen_seconds": 6.37}
+{"task_id": "HumanEval/117", "completion_chars": 514, "gen_seconds": 6.335}
+{"task_id": "HumanEval/120", "completion_chars": 1192, "gen_seconds": 6.329}
+{"task_id": "HumanEval/121", "completion_chars": 906, "gen_seconds": 6.355}
+{"task_id": "HumanEval/122", "completion_chars": 488, "gen_seconds": 6.372}
+{"task_id": "HumanEval/124", "completion_chars": 1244, "gen_seconds": 6.329}
+{"task_id": "HumanEval/125", "completion_chars": 609, "gen_seconds": 6.319}
+{"task_id": "HumanEval/127", "completion_chars": 1276, "gen_seconds": 6.312}
+{"task_id": "HumanEval/130", "completion_chars": 581, "gen_seconds": 6.414}
+{"task_id": "HumanEval/133", "completion_chars": 259, "gen_seconds": 6.298}
+{"task_id": "HumanEval/136", "completion_chars": 790, "gen_seconds": 6.258}
+{"task_id": "HumanEval/138", "completion_chars": 855, "gen_seconds": 6.237}
+{"task_id": "HumanEval/139", "completion_chars": 1184, "gen_seconds": 6.251}
+{"task_id": "HumanEval/140", "completion_chars": 1325, "gen_seconds": 6.228}
+{"task_id": "HumanEval/142", "completion_chars": 727, "gen_seconds": 6.856}
+{"task_id": "HumanEval/144", "completion_chars": 1081, "gen_seconds": 8.152}
+{"task_id": "HumanEval/147", "completion_chars": 1032, "gen_seconds": 8.746}
+{"task_id": "HumanEval/149", "completion_chars": 1264, "gen_seconds": 8.929}
+{"task_id": "HumanEval/153", "completion_chars": 1234, "gen_seconds": 7.799}
+{"task_id": "HumanEval/154", "completion_chars": 1241, "gen_seconds": 7.135}
+{"task_id": "HumanEval/155", "completion_chars": 344, "gen_seconds": 6.994}
+{"task_id": "HumanEval/156", "completion_chars": 653, "gen_seconds": 7.745}
+{"task_id": "HumanEval/157", "completion_chars": 854, "gen_seconds": 8.031}
+{"task_id": "HumanEval/160", "completion_chars": 406, "gen_seconds": 7.499}
+{"task_id": "HumanEval/163", "completion_chars": 751, "gen_seconds": 7.806}
+{
+  "status": "success",
+  "model": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/merged_model",
+  "adapter": "",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/humaneval_evalhalf/samples.jsonl",
+  "generations": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/humaneval_evalhalf/generations.jsonl",
+  "task_count": 82,
+  "elapsed_seconds": 561.732932806015,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0"
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/humaneval_evalhalf/samples.jsonl",
+  "base_only": true,
+  "task_count": 82,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 82
+  }
+}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/flab_qwen25c3b_r4_benchguided_keep80_lora_merged_20260724_195006/humaneval_evalhalf/samples.jsonl",
+  "base_only": true,
+  "task_count": 82,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 82
+  }
+}

@@ -1,0 +1,368 @@
+{
+  "format": "llmpruner_qwen_nonuniform_shapes_v1",
+  "base_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "uniform_layer_shapes": false,
+  "layer_shapes": [
+    {
+      "layer": 0,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 11008,
+      "up_out": 11008,
+      "down_in": 11008
+    },
+    {
+      "layer": 1,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 11008,
+      "up_out": 11008,
+      "down_in": 11008
+    },
+    {
+      "layer": 2,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 11008,
+      "up_out": 11008,
+      "down_in": 11008
+    },
+    {
+      "layer": 3,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 11008,
+      "up_out": 11008,
+      "down_in": 11008
+    },
+    {
+      "layer": 4,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 5,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 6,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 7,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 8,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 9,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 10,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 11,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 12,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 13,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 14,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 15,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 16,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 17,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 18,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 19,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 20,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 21,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 22,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 23,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 24,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 25,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 26,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 27,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 28,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 29,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 30,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 31,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 32,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 33,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 34,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    },
+    {
+      "layer": 35,
+      "q_out": 2048,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 2048,
+      "gate_out": 8806,
+      "up_out": 8806,
+      "down_in": 8806
+    }
+  ],
+  "loader": "scripts.adapt.llmpruner_qwen_official.load_llmpruner_qwen_model"
+}

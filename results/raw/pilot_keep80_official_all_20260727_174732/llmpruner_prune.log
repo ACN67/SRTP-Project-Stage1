@@ -1,0 +1,31 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<03:51,  1.87it/s]Loading weights:  28%|██▊       | 123/434 [00:00<00:01, 239.51it/s]Loading weights:  41%|████      | 176/434 [00:01<00:01, 149.94it/s]Loading weights:  48%|████▊     | 209/434 [00:02<00:02, 92.40it/s] Loading weights:  53%|█████▎    | 231/434 [00:02<00:02, 83.98it/s]Loading weights:  57%|█████▋    | 247/434 [00:02<00:02, 78.64it/s]Loading weights:  60%|█████▉    | 260/434 [00:03<00:02, 62.23it/s]Loading weights:  62%|██████▏   | 270/434 [00:03<00:02, 62.91it/s]Loading weights:  65%|██████▍   | 280/434 [00:03<00:02, 67.27it/s]Loading weights:  67%|██████▋   | 291/434 [00:03<00:02, 66.52it/s]Loading weights:  70%|██████▉   | 303/434 [00:03<00:02, 56.16it/s]Loading weights:  73%|███████▎  | 315/434 [00:03<00:01, 63.67it/s]Loading weights:  75%|███████▌  | 327/434 [00:04<00:01, 62.20it/s]Loading weights:  78%|███████▊  | 339/434 [00:04<00:01, 69.70it/s]Loading weights:  81%|████████  | 351/434 [00:04<00:01, 54.22it/s]Loading weights:  84%|████████▎ | 363/434 [00:04<00:01, 58.47it/s]Loading weights:  86%|████████▋ | 375/434 [00:04<00:01, 58.91it/s]Loading weights:  89%|████████▉ | 387/434 [00:05<00:00, 56.70it/s]Loading weights:  92%|█████████▏| 399/434 [00:05<00:00, 53.66it/s]Loading weights:  95%|█████████▍| 411/434 [00:05<00:00, 50.96it/s]Loading weights:  97%|█████████▋| 422/434 [00:05<00:00, 59.97it/s]Loading weights:  99%|█████████▉| 430/434 [00:06<00:00, 36.04it/s]Loading weights: 100%|██████████| 434/434 [00:06<00:00, 68.37it/s]
+{"event": "taylor_backward", "index": 1, "loss": 0.5750287771224976, "seconds": 14.398648262023926}
+{"event": "taylor_backward", "index": 2, "loss": 1.7702546119689941, "seconds": 6.9442033767700195}
+{"event": "taylor_backward", "index": 3, "loss": 1.2034462690353394, "seconds": 7.174887418746948}
+{"event": "taylor_backward", "index": 4, "loss": 1.294446587562561, "seconds": 5.806572675704956}
+{"event": "taylor_backward", "index": 5, "loss": 1.9191163778305054, "seconds": 4.97865629196167}
+{"event": "taylor_backward", "index": 6, "loss": 3.167560577392578, "seconds": 5.572716474533081}
+{"event": "taylor_backward", "index": 7, "loss": 1.5535773038864136, "seconds": 4.426749229431152}
+{"event": "taylor_backward", "index": 8, "loss": 2.7868270874023438, "seconds": 3.8784873485565186}
+{"event": "taylor_backward", "index": 9, "loss": 0.6278430819511414, "seconds": 20.676270008087158}
+{"event": "taylor_backward", "index": 10, "loss": 0.6147811412811279, "seconds": 16.536885023117065}
+{"event": "taylor_backward", "index": 11, "loss": 0.6384950280189514, "seconds": 16.67982578277588}
+{"event": "taylor_backward", "index": 12, "loss": 1.117188572883606, "seconds": 16.551854610443115}
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/llmpruner_qwen_official.py", line 347, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/llmpruner_qwen_official.py", line 312, in main
+    pruner.step()
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/torch_pruning/pruner/algorithms/metapruner.py", line 187, in step
+    group.prune()
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/torch_pruning/dependency.py", line 182, in prune
+    dep(idxs, **kwargs)
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/torch_pruning/dependency.py", line 111, in __call__
+    result = self.handler(
+             ^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/third_party/llm_pruner/LLMPruner/torch_pruning/pruner/function.py", line 160, in prune_in_channels
+    layer.weight.data[:, keep_idxs])
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 36.00 MiB. GPU 0 has a total capacity of 7.96 GiB of which 0 bytes is free. Including non-PyTorch memory, this process has 17179869184.00 GiB memory in use. Of the allocated memory 13.95 GiB is allocated by PyTorch, and 465.34 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

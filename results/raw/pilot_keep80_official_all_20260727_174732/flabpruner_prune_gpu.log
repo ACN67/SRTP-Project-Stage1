@@ -1,0 +1,242 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] Qwen2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+{
+  "status": "planned_heavy_run",
+  "method": "Flab-Pruner official structural Qwen2 adapter",
+  "official_algorithm": true,
+  "official_upstream_logic": "hidden_prune_utils.modeling_qwen2.Qwen2ForCausalLM.prune(config, stage)",
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "guide_files": [
+    {
+      "path": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/humaneval_half/guide.jsonl",
+      "sha256": "0de295af6224d1e4b57d6c31b93aa4a4644a59f7e0deadb7eedb5bae582bf0fb",
+      "samples_used": 4,
+      "task_ids": [
+        "HumanEval/0",
+        "HumanEval/2",
+        "HumanEval/3",
+        "HumanEval/4"
+      ],
+      "benchmarks": [
+        "humaneval"
+      ]
+    },
+    {
+      "path": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/mbpp_evalplus_half/guide.jsonl",
+      "sha256": "d5f43d1430b2063522eeca361f408eaa0cd2f02a31651801c37305414d80fb8f",
+      "samples_used": 4,
+      "task_ids": [
+        "Mbpp/2",
+        "Mbpp/3",
+        "Mbpp/4",
+        "Mbpp/6"
+      ],
+      "benchmarks": [
+        "mbpp_evalplus"
+      ]
+    },
+    {
+      "path": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/livecodebench_half/guide.jsonl",
+      "sha256": "d2ed7cc7dc32d3394823a5f549e2ed5be39b5b20f61020e5afa9621455455885",
+      "samples_used": 4,
+      "task_ids": [
+        "2779",
+        "2727",
+        "2730",
+        "abc301_a"
+      ],
+      "benchmarks": [
+        "livecodebench"
+      ]
+    }
+  ],
+  "guide_samples_used": 12,
+  "guide_task_ids": [
+    "HumanEval/0",
+    "HumanEval/2",
+    "HumanEval/3",
+    "HumanEval/4",
+    "Mbpp/2",
+    "Mbpp/3",
+    "Mbpp/4",
+    "Mbpp/6",
+    "2779",
+    "2727",
+    "2730",
+    "abc301_a"
+  ],
+  "stage": "top",
+  "prune_ratio_requested": 0.2,
+  "dtype": "fp16",
+  "device_map": "none",
+  "device": "cuda:0",
+  "local_files_only": true,
+  "save_dir": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_keep80",
+  "model_config": {
+    "model_type": "qwen2",
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "vocab_size": 151936,
+    "torch_dtype": "torch.bfloat16"
+  },
+  "tokenizer": {
+    "class": "Qwen2Tokenizer",
+    "vocab_size": 151643,
+    "pad_token": "<|endoftext|>",
+    "eos_token": "<|im_end|>"
+  },
+  "compat_patches": {
+    "rope_theta": 1000000.0,
+    "sliding_window": null
+  },
+  "prune_plan": {
+    "hidden_size": 2048,
+    "hidden_size_remain": 1536,
+    "intermediate_size": 11008,
+    "ffn_hidden_size_remain": 8704,
+    "num_attention_heads": 16,
+    "num_attention_heads_remain": 12,
+    "num_key_value_heads": 2,
+    "num_key_value_heads_remain": 2,
+    "head_dim_original": 128,
+    "head_dim_after": 128,
+    "num_hidden_layers": 36
+  },
+  "rough_param_estimate": {
+    "rough_original_params": 3396861952,
+    "rough_pruned_params": 2108817408,
+    "rough_param_ratio": 0.6208133971291866
+  },
+  "prune_on_cpu": false,
+  "guide_data_policy": "guide files are recorded and validated for the R4 protocol; official Flab structural pruning does not derive importance scores from benchmark prompts"
+}
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<04:17,  1.68it/s]Loading weights:  26%|██▌       | 111/434 [00:00<00:01, 205.91it/s]Loading weights:  38%|███▊      | 165/434 [00:02<00:03, 71.78it/s] Loading weights:  45%|████▌     | 196/434 [00:02<00:03, 60.79it/s]Loading weights:  50%|█████     | 217/434 [00:03<00:03, 69.17it/s]Loading weights:  54%|█████▍    | 236/434 [00:03<00:02, 66.97it/s]Loading weights:  58%|█████▊    | 251/434 [00:03<00:02, 64.99it/s]Loading weights:  61%|██████    | 263/434 [00:03<00:02, 67.74it/s]Loading weights:  63%|██████▎   | 274/434 [00:03<00:02, 66.18it/s]Loading weights:  65%|██████▌   | 284/434 [00:04<00:02, 66.78it/s]Loading weights:  68%|██████▊   | 293/434 [00:04<00:02, 62.47it/s]Loading weights:  70%|██████▉   | 303/434 [00:04<00:02, 65.36it/s]Loading weights:  73%|███████▎  | 315/434 [00:04<00:01, 65.13it/s]Loading weights:  75%|███████▌  | 327/434 [00:04<00:01, 65.16it/s]Loading weights:  78%|███████▊  | 339/434 [00:06<00:05, 18.92it/s]Loading weights:  81%|████████  | 351/434 [00:06<00:03, 23.24it/s]Loading weights:  84%|████████▎ | 363/434 [00:07<00:02, 25.33it/s]Loading weights:  86%|████████▋ | 375/434 [00:07<00:02, 29.21it/s]Loading weights:  89%|████████▉ | 387/434 [00:07<00:01, 37.19it/s]Loading weights:  92%|█████████▏| 399/434 [00:07<00:00, 41.51it/s]Loading weights:  95%|█████████▍| 411/434 [00:07<00:00, 46.38it/s]Loading weights:  97%|█████████▋| 423/434 [00:10<00:00, 14.53it/s]Loading weights:  99%|█████████▊| 428/434 [00:10<00:00, 15.89it/s]Loading weights: 100%|██████████| 434/434 [00:10<00:00, 42.66it/s]
+[transformers] Qwen2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+[transformers] Qwen2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly defined. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:44<00:00, 44.26s/it]Writing model shards: 100%|██████████| 1/1 [00:44<00:00, 44.26s/it]
+{
+  "status": "success",
+  "method": "Flab-Pruner official structural Qwen2 adapter",
+  "official_algorithm": true,
+  "official_upstream_logic": "hidden_prune_utils.modeling_qwen2.Qwen2ForCausalLM.prune(config, stage)",
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "guide_files": [
+    {
+      "path": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/humaneval_half/guide.jsonl",
+      "sha256": "0de295af6224d1e4b57d6c31b93aa4a4644a59f7e0deadb7eedb5bae582bf0fb",
+      "samples_used": 4,
+      "task_ids": [
+        "HumanEval/0",
+        "HumanEval/2",
+        "HumanEval/3",
+        "HumanEval/4"
+      ],
+      "benchmarks": [
+        "humaneval"
+      ]
+    },
+    {
+      "path": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/mbpp_evalplus_half/guide.jsonl",
+      "sha256": "d5f43d1430b2063522eeca361f408eaa0cd2f02a31651801c37305414d80fb8f",
+      "samples_used": 4,
+      "task_ids": [
+        "Mbpp/2",
+        "Mbpp/3",
+        "Mbpp/4",
+        "Mbpp/6"
+      ],
+      "benchmarks": [
+        "mbpp_evalplus"
+      ]
+    },
+    {
+      "path": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/livecodebench_half/guide.jsonl",
+      "sha256": "d2ed7cc7dc32d3394823a5f549e2ed5be39b5b20f61020e5afa9621455455885",
+      "samples_used": 4,
+      "task_ids": [
+        "2779",
+        "2727",
+        "2730",
+        "abc301_a"
+      ],
+      "benchmarks": [
+        "livecodebench"
+      ]
+    }
+  ],
+  "guide_samples_used": 12,
+  "guide_task_ids": [
+    "HumanEval/0",
+    "HumanEval/2",
+    "HumanEval/3",
+    "HumanEval/4",
+    "Mbpp/2",
+    "Mbpp/3",
+    "Mbpp/4",
+    "Mbpp/6",
+    "2779",
+    "2727",
+    "2730",
+    "abc301_a"
+  ],
+  "stage": "top",
+  "prune_ratio_requested": 0.2,
+  "dtype": "fp16",
+  "device_map": "none",
+  "device": "cuda:0",
+  "local_files_only": true,
+  "save_dir": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_keep80",
+  "model_config": {
+    "model_type": "qwen2",
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "vocab_size": 151936,
+    "torch_dtype": "torch.bfloat16"
+  },
+  "tokenizer": {
+    "class": "Qwen2Tokenizer",
+    "vocab_size": 151643,
+    "pad_token": "<|endoftext|>",
+    "eos_token": "<|im_end|>"
+  },
+  "compat_patches": {
+    "rope_theta": 1000000.0,
+    "sliding_window": null
+  },
+  "prune_plan": {
+    "hidden_size": 2048,
+    "hidden_size_remain": 1536,
+    "intermediate_size": 11008,
+    "ffn_hidden_size_remain": 8704,
+    "num_attention_heads": 16,
+    "num_attention_heads_remain": 12,
+    "num_key_value_heads": 2,
+    "num_key_value_heads_remain": 2,
+    "head_dim_original": 128,
+    "head_dim_after": 128,
+    "num_hidden_layers": 36
+  },
+  "rough_param_estimate": {
+    "rough_original_params": 3396861952,
+    "rough_pruned_params": 2108817408,
+    "rough_param_ratio": 0.6208133971291866
+  },
+  "prune_on_cpu": false,
+  "guide_data_policy": "guide files are recorded and validated for the R4 protocol; official Flab structural pruning does not derive importance scores from benchmark prompts",
+  "effective_device_map": null,
+  "structural_prune_device": "cuda:0",
+  "params_before": 3085938688,
+  "params_after": 2109003264,
+  "actual_param_ratio": 0.6834235794123463
+}

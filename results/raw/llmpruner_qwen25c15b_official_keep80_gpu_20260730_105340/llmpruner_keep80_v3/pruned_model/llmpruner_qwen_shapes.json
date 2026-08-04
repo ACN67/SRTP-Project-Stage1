@@ -1,0 +1,288 @@
+{
+  "format": "llmpruner_qwen_nonuniform_shapes_v1",
+  "base_model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "uniform_layer_shapes": false,
+  "layer_shapes": [
+    {
+      "layer": 0,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 8960,
+      "up_out": 8960,
+      "down_in": 8960
+    },
+    {
+      "layer": 1,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 8960,
+      "up_out": 8960,
+      "down_in": 8960
+    },
+    {
+      "layer": 2,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 8960,
+      "up_out": 8960,
+      "down_in": 8960
+    },
+    {
+      "layer": 3,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 8960,
+      "up_out": 8960,
+      "down_in": 8960
+    },
+    {
+      "layer": 4,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 5,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 6,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 7,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 8,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 9,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 10,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 11,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 12,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 13,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 14,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 15,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 16,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 17,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 18,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 19,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 20,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 21,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 22,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 23,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 24,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 25,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 26,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    },
+    {
+      "layer": 27,
+      "q_out": 1536,
+      "k_out": 256,
+      "v_out": 256,
+      "o_in": 1536,
+      "gate_out": 6451,
+      "up_out": 6451,
+      "down_in": 6451
+    }
+  ],
+  "loader": "scripts.adapt.llmpruner_qwen_official.load_llmpruner_qwen_model"
+}

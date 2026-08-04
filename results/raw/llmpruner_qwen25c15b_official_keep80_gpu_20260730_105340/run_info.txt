@@ -1,0 +1,2 @@
+ROOT_OUT=results/raw/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340
+MODEL=Qwen/Qwen2.5-Coder-1.5B-Instruct

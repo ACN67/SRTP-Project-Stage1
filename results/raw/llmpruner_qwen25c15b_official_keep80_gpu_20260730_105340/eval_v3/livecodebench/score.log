@@ -1,0 +1,441 @@
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 200, "generation_task_count": 200, "matched_task_count": 200, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 200, "timeout": 6, "num_process_evaluate": 4}
+Evaluating 200...
+  0%|          | 0/200 [00:00<?, ?it/s]  0%|          | 1/200 [00:00<01:14,  2.69it/s]  2%|▏         | 4/200 [00:00<00:19, 10.09it/s]  4%|▎         | 7/200 [00:00<00:13, 14.72it/s]  5%|▌         | 10/200 [00:00<00:12, 15.62it/s]  7%|▋         | 14/200 [00:00<00:09, 18.63it/s]  9%|▉         | 18/200 [00:01<00:08, 22.17it/s] 10%|█         | 21/200 [00:01<00:09, 17.98it/s] 12%|█▏        | 24/200 [00:01<00:10, 16.63it/s] 14%|█▎        | 27/200 [00:01<00:10, 16.77it/s] 16%|█▌        | 31/200 [00:01<00:08, 19.63it/s] 18%|█▊        | 35/200 [00:01<00:07, 22.24it/s] 20%|█▉        | 39/200 [00:02<00:06, 24.35it/s] 21%|██        | 42/200 [00:02<00:06, 23.44it/s] 22%|██▎       | 45/200 [00:02<00:07, 21.89it/s] 24%|██▍       | 49/200 [00:02<00:06, 23.57it/s] 26%|██▋       | 53/200 [00:02<00:05, 25.94it/s] 28%|██▊       | 57/200 [00:02<00:05, 25.74it/s] 30%|███       | 61/200 [00:02<00:05, 25.49it/s] 32%|███▎      | 65/200 [00:03<00:05, 26.05it/s] 34%|███▍      | 69/200 [00:03<00:06, 19.89it/s] 36%|███▋      | 73/200 [00:03<00:05, 22.80it/s] 38%|███▊      | 76/200 [00:03<00:05, 22.49it/s] 40%|████      | 80/200 [00:03<00:04, 24.85it/s] 42%|████▏     | 83/200 [00:03<00:04, 25.37it/s] 43%|████▎     | 86/200 [00:04<00:05, 20.67it/s] 45%|████▌     | 90/200 [00:04<00:04, 22.53it/s] 46%|████▋     | 93/200 [00:04<00:04, 21.92it/s] 48%|████▊     | 96/200 [00:04<00:05, 19.84it/s] 50%|████▉     | 99/200 [00:04<00:05, 19.51it/s] 52%|█████▏    | 103/200 [00:04<00:04, 21.62it/s] 54%|█████▎    | 107/200 [00:05<00:04, 23.25it/s] 56%|█████▌    | 111/200 [00:05<00:03, 25.32it/s] 57%|█████▋    | 114/200 [00:05<00:03, 21.94it/s] 59%|█████▉    | 118/200 [00:05<00:04, 20.27it/s] 60%|██████    | 121/200 [00:05<00:03, 20.86it/s] 62%|██████▎   | 125/200 [00:05<00:03, 23.01it/s] 64%|██████▍   | 129/200 [00:06<00:02, 25.32it/s] 66%|██████▌   | 132/200 [00:06<00:02, 23.47it/s] 68%|██████▊   | 135/200 [00:06<00:02, 22.99it/s] 69%|██████▉   | 138/200 [00:06<00:03, 19.81it/s] 70%|███████   | 141/200 [00:06<00:03, 18.04it/s] 73%|███████▎  | 146/200 [00:06<00:02, 19.35it/s] 74%|███████▍  | 149/200 [00:07<00:02, 20.56it/s] 76%|███████▋  | 153/200 [00:07<00:01, 23.54it/s] 78%|███████▊  | 156/200 [00:07<00:01, 22.36it/s] 80%|███████▉  | 159/200 [00:07<00:01, 23.56it/s] 82%|████████▏ | 163/200 [00:07<00:01, 26.54it/s] 84%|████████▎ | 167/200 [00:07<00:01, 24.53it/s] 86%|████████▌ | 171/200 [00:07<00:01, 25.46it/s] 88%|████████▊ | 175/200 [00:08<00:00, 25.08it/s] 90%|████████▉ | 179/200 [00:08<00:00, 26.81it/s] 92%|█████████▏| 183/200 [00:08<00:00, 26.55it/s] 94%|█████████▎| 187/200 [00:08<00:00, 25.48it/s] 96%|█████████▌| 191/200 [00:08<00:00, 23.95it/s] 98%|█████████▊| 195/200 [00:08<00:00, 25.80it/s] 99%|█████████▉| 198/200 [00:08<00:00, 26.44it/s]100%|██████████| 200/200 [00:09<00:00, 21.75it/s]
+{"event": "scored", "index": 1, "total": 200, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 200, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 200, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 200, "task_id": "abc301_b", "pass": false}
+{"event": "scored", "index": 5, "total": 200, "task_id": "abc301_d", "pass": false}
+{"event": "scored", "index": 6, "total": 200, "task_id": "abc301_f", "pass": false}
+{"event": "scored", "index": 7, "total": 200, "task_id": "2791", "pass": false}
+{"event": "scored", "index": 8, "total": 200, "task_id": "2792", "pass": false}
+{"event": "scored", "index": 9, "total": 200, "task_id": "abc302_c", "pass": false}
+{"event": "scored", "index": 10, "total": 200, "task_id": "abc302_f", "pass": false}
+{"event": "scored", "index": 11, "total": 200, "task_id": "2816", "pass": false}
+{"event": "scored", "index": 12, "total": 200, "task_id": "2754", "pass": false}
+{"event": "scored", "index": 13, "total": 200, "task_id": "abc303_a", "pass": false}
+{"event": "scored", "index": 14, "total": 200, "task_id": "abc303_c", "pass": false}
+{"event": "scored", "index": 15, "total": 200, "task_id": "2817", "pass": false}
+{"event": "scored", "index": 16, "total": 200, "task_id": "2819", "pass": false}
+{"event": "scored", "index": 17, "total": 200, "task_id": "abc304_a", "pass": false}
+{"event": "scored", "index": 18, "total": 200, "task_id": "abc304_c", "pass": false}
+{"event": "scored", "index": 19, "total": 200, "task_id": "abc304_e", "pass": false}
+{"event": "scored", "index": 20, "total": 200, "task_id": "2757", "pass": false}
+{"event": "scored", "index": 21, "total": 200, "task_id": "2825", "pass": false}
+{"event": "scored", "index": 22, "total": 200, "task_id": "abc305_a", "pass": false}
+{"event": "scored", "index": 23, "total": 200, "task_id": "abc305_c", "pass": false}
+{"event": "scored", "index": 24, "total": 200, "task_id": "abc305_e", "pass": false}
+{"event": "scored", "index": 25, "total": 200, "task_id": "2810", "pass": false}
+{"event": "scored", "index": 26, "total": 200, "task_id": "abc306_a", "pass": false}
+{"event": "scored", "index": 27, "total": 200, "task_id": "abc306_d", "pass": false}
+{"event": "scored", "index": 28, "total": 200, "task_id": "2808", "pass": false}
+{"event": "scored", "index": 29, "total": 200, "task_id": "2845", "pass": false}
+{"event": "scored", "index": 30, "total": 200, "task_id": "2857", "pass": false}
+{"event": "scored", "index": 31, "total": 200, "task_id": "2833", "pass": false}
+{"event": "scored", "index": 32, "total": 200, "task_id": "2854", "pass": false}
+{"event": "scored", "index": 33, "total": 200, "task_id": "abc307_a", "pass": false}
+{"event": "scored", "index": 34, "total": 200, "task_id": "abc307_d", "pass": false}
+{"event": "scored", "index": 35, "total": 200, "task_id": "abc307_e", "pass": false}
+{"event": "scored", "index": 36, "total": 200, "task_id": "2831", "pass": false}
+{"event": "scored", "index": 37, "total": 200, "task_id": "2867", "pass": false}
+{"event": "scored", "index": 38, "total": 200, "task_id": "abc308_a", "pass": false}
+{"event": "scored", "index": 39, "total": 200, "task_id": "abc308_d", "pass": false}
+{"event": "scored", "index": 40, "total": 200, "task_id": "abc308_f", "pass": false}
+{"event": "scored", "index": 41, "total": 200, "task_id": "2873", "pass": false}
+{"event": "scored", "index": 42, "total": 200, "task_id": "2870", "pass": false}
+{"event": "scored", "index": 43, "total": 200, "task_id": "2883", "pass": false}
+{"event": "scored", "index": 44, "total": 200, "task_id": "abc309_a", "pass": false}
+{"event": "scored", "index": 45, "total": 200, "task_id": "abc309_d", "pass": false}
+{"event": "scored", "index": 46, "total": 200, "task_id": "2869", "pass": false}
+{"event": "scored", "index": 47, "total": 200, "task_id": "abc310_a", "pass": false}
+{"event": "scored", "index": 48, "total": 200, "task_id": "abc310_d", "pass": false}
+{"event": "scored", "index": 49, "total": 200, "task_id": "abc310_e", "pass": false}
+{"event": "scored", "index": 50, "total": 200, "task_id": "2844", "pass": false}
+{"event": "scored", "index": 51, "total": 200, "task_id": "2884", "pass": false}
+{"event": "scored", "index": 52, "total": 200, "task_id": "2888", "pass": false}
+{"event": "scored", "index": 53, "total": 200, "task_id": "2882", "pass": false}
+{"event": "scored", "index": 54, "total": 200, "task_id": "2893", "pass": false}
+{"event": "scored", "index": 55, "total": 200, "task_id": "abc311_a", "pass": false}
+{"event": "scored", "index": 56, "total": 200, "task_id": "abc311_d", "pass": false}
+{"event": "scored", "index": 57, "total": 200, "task_id": "abc311_e", "pass": false}
+{"event": "scored", "index": 58, "total": 200, "task_id": "2881", "pass": false}
+{"event": "scored", "index": 59, "total": 200, "task_id": "abc312_a", "pass": false}
+{"event": "scored", "index": 60, "total": 200, "task_id": "abc312_d", "pass": false}
+{"event": "scored", "index": 61, "total": 200, "task_id": "abc312_f", "pass": false}
+{"event": "scored", "index": 62, "total": 200, "task_id": "2856", "pass": false}
+{"event": "scored", "index": 63, "total": 200, "task_id": "2921", "pass": false}
+{"event": "scored", "index": 64, "total": 200, "task_id": "2920", "pass": false}
+{"event": "scored", "index": 65, "total": 200, "task_id": "2955", "pass": false}
+{"event": "scored", "index": 66, "total": 200, "task_id": "abc313_a", "pass": false}
+{"event": "scored", "index": 67, "total": 200, "task_id": "abc313_c", "pass": false}
+{"event": "scored", "index": 68, "total": 200, "task_id": "abc314_b", "pass": false}
+{"event": "scored", "index": 69, "total": 200, "task_id": "abc314_d", "pass": false}
+{"event": "scored", "index": 70, "total": 200, "task_id": "abc314_f", "pass": false}
+{"event": "scored", "index": 71, "total": 200, "task_id": "2902", "pass": false}
+{"event": "scored", "index": 72, "total": 200, "task_id": "3000", "pass": false}
+{"event": "scored", "index": 73, "total": 200, "task_id": "3017", "pass": false}
+{"event": "scored", "index": 74, "total": 200, "task_id": "abc315_b", "pass": false}
+{"event": "scored", "index": 75, "total": 200, "task_id": "abc315_d", "pass": false}
+{"event": "scored", "index": 76, "total": 200, "task_id": "abc315_f", "pass": false}
+{"event": "scored", "index": 77, "total": 200, "task_id": "2811", "pass": false}
+{"event": "scored", "index": 78, "total": 200, "task_id": "2977", "pass": false}
+{"event": "scored", "index": 79, "total": 200, "task_id": "2979", "pass": false}
+{"event": "scored", "index": 80, "total": 200, "task_id": "1873_B", "pass": false}
+{"event": "scored", "index": 81, "total": 200, "task_id": "3032", "pass": false}
+{"event": "scored", "index": 82, "total": 200, "task_id": "2999", "pass": false}
+{"event": "scored", "index": 83, "total": 200, "task_id": "abc318_b", "pass": false}
+{"event": "scored", "index": 84, "total": 200, "task_id": "abc318_d", "pass": false}
+{"event": "scored", "index": 85, "total": 200, "task_id": "2915", "pass": false}
+{"event": "scored", "index": 86, "total": 200, "task_id": "abc319_d", "pass": false}
+{"event": "scored", "index": 87, "total": 200, "task_id": "abc319_e", "pass": false}
+{"event": "scored", "index": 88, "total": 200, "task_id": "3034", "pass": false}
+{"event": "scored", "index": 89, "total": 200, "task_id": "2953", "pass": false}
+{"event": "scored", "index": 90, "total": 200, "task_id": "abc320_a", "pass": false}
+{"event": "scored", "index": 91, "total": 200, "task_id": "abc320_d", "pass": false}
+{"event": "scored", "index": 92, "total": 200, "task_id": "3047", "pass": false}
+{"event": "scored", "index": 93, "total": 200, "task_id": "3093", "pass": false}
+{"event": "scored", "index": 94, "total": 200, "task_id": "3104", "pass": false}
+{"event": "scored", "index": 95, "total": 200, "task_id": "1883_B", "pass": false}
+{"event": "scored", "index": 96, "total": 200, "task_id": "abc321_a", "pass": false}
+{"event": "scored", "index": 97, "total": 200, "task_id": "abc321_d", "pass": false}
+{"event": "scored", "index": 98, "total": 200, "task_id": "abc321_e", "pass": false}
+{"event": "scored", "index": 99, "total": 200, "task_id": "3044", "pass": false}
+{"event": "scored", "index": 100, "total": 200, "task_id": "3080", "pass": false}
+{"event": "scored", "index": 101, "total": 200, "task_id": "abc322_a", "pass": false}
+{"event": "scored", "index": 102, "total": 200, "task_id": "abc322_d", "pass": false}
+{"event": "scored", "index": 103, "total": 200, "task_id": "3141", "pass": false}
+{"event": "scored", "index": 104, "total": 200, "task_id": "abc323_a", "pass": false}
+{"event": "scored", "index": 105, "total": 200, "task_id": "abc323_d", "pass": false}
+{"event": "scored", "index": 106, "total": 200, "task_id": "3151", "pass": false}
+{"event": "scored", "index": 107, "total": 200, "task_id": "3172", "pass": false}
+{"event": "scored", "index": 108, "total": 200, "task_id": "3091", "pass": false}
+{"event": "scored", "index": 109, "total": 200, "task_id": "abc324_a", "pass": false}
+{"event": "scored", "index": 110, "total": 200, "task_id": "abc324_c", "pass": false}
+{"event": "scored", "index": 111, "total": 200, "task_id": "abc324_d", "pass": false}
+{"event": "scored", "index": 112, "total": 200, "task_id": "abc324_f", "pass": false}
+{"event": "scored", "index": 113, "total": 200, "task_id": "3150", "pass": false}
+{"event": "scored", "index": 114, "total": 200, "task_id": "1899_A", "pass": false}
+{"event": "scored", "index": 115, "total": 200, "task_id": "1899_C", "pass": false}
+{"event": "scored", "index": 116, "total": 200, "task_id": "abc325_a", "pass": false}
+{"event": "scored", "index": 117, "total": 200, "task_id": "abc325_c", "pass": false}
+{"event": "scored", "index": 118, "total": 200, "task_id": "abc325_e", "pass": false}
+{"event": "scored", "index": 119, "total": 200, "task_id": "3176", "pass": false}
+{"event": "scored", "index": 120, "total": 200, "task_id": "3106", "pass": false}
+{"event": "scored", "index": 121, "total": 200, "task_id": "abc326_b", "pass": false}
+{"event": "scored", "index": 122, "total": 200, "task_id": "abc326_d", "pass": false}
+{"event": "scored", "index": 123, "total": 200, "task_id": "3171", "pass": false}
+{"event": "scored", "index": 124, "total": 200, "task_id": "3183", "pass": false}
+{"event": "scored", "index": 125, "total": 200, "task_id": "abc327_b", "pass": false}
+{"event": "scored", "index": 126, "total": 200, "task_id": "abc327_c", "pass": false}
+{"event": "scored", "index": 127, "total": 200, "task_id": "abc327_e", "pass": false}
+{"event": "scored", "index": 128, "total": 200, "task_id": "3184", "pass": false}
+{"event": "scored", "index": 129, "total": 200, "task_id": "3199", "pass": false}
+{"event": "scored", "index": 130, "total": 200, "task_id": "abc328_b", "pass": false}
+{"event": "scored", "index": 131, "total": 200, "task_id": "abc328_c", "pass": false}
+{"event": "scored", "index": 132, "total": 200, "task_id": "abc328_e", "pass": false}
+{"event": "scored", "index": 133, "total": 200, "task_id": "3190", "pass": false}
+{"event": "scored", "index": 134, "total": 200, "task_id": "3195", "pass": false}
+{"event": "scored", "index": 135, "total": 200, "task_id": "3207", "pass": false}
+{"event": "scored", "index": 136, "total": 200, "task_id": "abc329_b", "pass": false}
+{"event": "scored", "index": 137, "total": 200, "task_id": "abc329_d", "pass": false}
+{"event": "scored", "index": 138, "total": 200, "task_id": "abc329_f", "pass": false}
+{"event": "scored", "index": 139, "total": 200, "task_id": "3210", "pass": false}
+{"event": "scored", "index": 140, "total": 200, "task_id": "abc330_b", "pass": false}
+{"event": "scored", "index": 141, "total": 200, "task_id": "abc330_d", "pass": false}
+{"event": "scored", "index": 142, "total": 200, "task_id": "3221", "pass": false}
+{"event": "scored", "index": 143, "total": 200, "task_id": "3223", "pass": false}
+{"event": "scored", "index": 144, "total": 200, "task_id": "3231", "pass": false}
+{"event": "scored", "index": 145, "total": 200, "task_id": "abc331_b", "pass": false}
+{"event": "scored", "index": 146, "total": 200, "task_id": "abc331_d", "pass": false}
+{"event": "scored", "index": 147, "total": 200, "task_id": "3212", "pass": false}
+{"event": "scored", "index": 148, "total": 200, "task_id": "3220", "pass": false}
+{"event": "scored", "index": 149, "total": 200, "task_id": "3225", "pass": false}
+{"event": "scored", "index": 150, "total": 200, "task_id": "3234", "pass": false}
+{"event": "scored", "index": 151, "total": 200, "task_id": "abc332_b", "pass": false}
+{"event": "scored", "index": 152, "total": 200, "task_id": "abc332_c", "pass": false}
+{"event": "scored", "index": 153, "total": 200, "task_id": "abc332_d", "pass": false}
+{"event": "scored", "index": 154, "total": 200, "task_id": "abc333_b", "pass": false}
+{"event": "scored", "index": 155, "total": 200, "task_id": "abc333_d", "pass": false}
+{"event": "scored", "index": 156, "total": 200, "task_id": "3226", "pass": false}
+{"event": "scored", "index": 157, "total": 200, "task_id": "3235", "pass": false}
+{"event": "scored", "index": 158, "total": 200, "task_id": "abc334_c", "pass": false}
+{"event": "scored", "index": 159, "total": 200, "task_id": "abc334_e", "pass": false}
+{"event": "scored", "index": 160, "total": 200, "task_id": "3203", "pass": false}
+{"event": "scored", "index": 161, "total": 200, "task_id": "3246", "pass": false}
+{"event": "scored", "index": 162, "total": 200, "task_id": "3267", "pass": false}
+{"event": "scored", "index": 163, "total": 200, "task_id": "3239", "pass": false}
+{"event": "scored", "index": 164, "total": 200, "task_id": "3243", "pass": false}
+{"event": "scored", "index": 165, "total": 200, "task_id": "3251", "pass": false}
+{"event": "scored", "index": 166, "total": 200, "task_id": "abc335_a", "pass": false}
+{"event": "scored", "index": 167, "total": 200, "task_id": "abc335_c", "pass": false}
+{"event": "scored", "index": 168, "total": 200, "task_id": "3240", "pass": false}
+{"event": "scored", "index": 169, "total": 200, "task_id": "abc336_a", "pass": false}
+{"event": "scored", "index": 170, "total": 200, "task_id": "abc336_c", "pass": false}
+{"event": "scored", "index": 171, "total": 200, "task_id": "3244", "pass": false}
+{"event": "scored", "index": 172, "total": 200, "task_id": "3263", "pass": false}
+{"event": "scored", "index": 173, "total": 200, "task_id": "abc337_a", "pass": false}
+{"event": "scored", "index": 174, "total": 200, "task_id": "abc337_c", "pass": false}
+{"event": "scored", "index": 175, "total": 200, "task_id": "3279", "pass": false}
+{"event": "scored", "index": 176, "total": 200, "task_id": "abc338_a", "pass": false}
+{"event": "scored", "index": 177, "total": 200, "task_id": "abc338_c", "pass": false}
+{"event": "scored", "index": 178, "total": 200, "task_id": "abc338_d", "pass": false}
+{"event": "scored", "index": 179, "total": 200, "task_id": "abc338_f", "pass": false}
+{"event": "scored", "index": 180, "total": 200, "task_id": "3265", "pass": false}
+{"event": "scored", "index": 181, "total": 200, "task_id": "3311", "pass": false}
+{"event": "scored", "index": 182, "total": 200, "task_id": "abc339_a", "pass": false}
+{"event": "scored", "index": 183, "total": 200, "task_id": "abc339_c", "pass": false}
+{"event": "scored", "index": 184, "total": 200, "task_id": "3269", "pass": false}
+{"event": "scored", "index": 185, "total": 200, "task_id": "abc340_b", "pass": false}
+{"event": "scored", "index": 186, "total": 200, "task_id": "abc340_c", "pass": false}
+{"event": "scored", "index": 187, "total": 200, "task_id": "abc340_e", "pass": false}
+{"event": "scored", "index": 188, "total": 200, "task_id": "3298", "pass": false}
+{"event": "scored", "index": 189, "total": 200, "task_id": "3308", "pass": false}
+{"event": "scored", "index": 190, "total": 200, "task_id": "3320", "pass": false}
+{"event": "scored", "index": 191, "total": 200, "task_id": "abc341_b", "pass": false}
+{"event": "scored", "index": 192, "total": 200, "task_id": "abc341_d", "pass": false}
+{"event": "scored", "index": 193, "total": 200, "task_id": "abc341_f", "pass": false}
+{"event": "scored", "index": 194, "total": 200, "task_id": "3292", "pass": false}
+{"event": "scored", "index": 195, "total": 200, "task_id": "abc342_b", "pass": false}
+{"event": "scored", "index": 196, "total": 200, "task_id": "abc342_d", "pass": false}
+{"event": "scored", "index": 197, "total": 200, "task_id": "3331", "pass": false}
+{"event": "scored", "index": 198, "total": 200, "task_id": "abc343_b", "pass": false}
+{"event": "scored", "index": 199, "total": 200, "task_id": "abc343_d", "pass": false}
+{"event": "scored", "index": 200, "total": 200, "task_id": "abc343_e", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "data/splits/livecodebench_half/eval.jsonl",
+  "generations": "results/raw/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340/eval_v3/livecodebench/generation/generations.jsonl",
+  "task_count": 200,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 200
+  },
+  "id_coverage": {
+    "split_task_count": 200,
+    "generation_task_count": 200,
+    "matched_task_count": 200,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 161,
+  "generated_chars_le_1_count": 92,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0,
+        "10": 0.0,
+        "11": 0.0,
+        "12": 0.0,
+        "13": 0.0,
+        "14": 0.0,
+        "15": 0.0,
+        "16": 0.0,
+        "17": 0.0,
+        "18": 0.0,
+        "19": 0.0,
+        "20": 0.0,
+        "21": 0.0,
+        "22": 0.0,
+        "23": 0.0,
+        "24": 0.0,
+        "25": 0.0,
+        "26": 0.0,
+        "27": 0.0,
+        "28": 0.0,
+        "29": 0.0,
+        "30": 0.0,
+        "31": 0.0,
+        "32": 0.0,
+        "33": 0.0,
+        "34": 0.0,
+        "35": 0.0,
+        "36": 0.0,
+        "37": 0.0,
+        "38": 0.0,
+        "39": 0.0,
+        "40": 0.0,
+        "41": 0.0,
+        "42": 0.0,
+        "43": 0.0,
+        "44": 0.0,
+        "45": 0.0,
+        "46": 0.0,
+        "47": 0.0,
+        "48": 0.0,
+        "49": 0.0,
+        "50": 0.0,
+        "51": 0.0,
+        "52": 0.0,
+        "53": 0.0,
+        "54": 0.0,
+        "55": 0.0,
+        "56": 0.0,
+        "57": 0.0,
+        "58": 0.0,
+        "59": 0.0,
+        "60": 0.0,
+        "61": 0.0,
+        "62": 0.0,
+        "63": 0.0,
+        "64": 0.0,
+        "65": 0.0,
+        "66": 0.0,
+        "67": 0.0,
+        "68": 0.0,
+        "69": 0.0,
+        "70": 0.0,
+        "71": 0.0,
+        "72": 0.0,
+        "73": 0.0,
+        "74": 0.0,
+        "75": 0.0,
+        "76": 0.0,
+        "77": 0.0,
+        "78": 0.0,
+        "79": 0.0,
+        "80": 0.0,
+        "81": 0.0,
+        "82": 0.0,
+        "83": 0.0,
+        "84": 0.0,
+        "85": 0.0,
+        "86": 0.0,
+        "87": 0.0,
+        "88": 0.0,
+        "89": 0.0,
+        "90": 0.0,
+        "91": 0.0,
+        "92": 0.0,
+        "93": 0.0,
+        "94": 0.0,
+        "95": 0.0,
+        "96": 0.0,
+        "97": 0.0,
+        "98": 0.0,
+        "99": 0.0,
+        "100": 0.0,
+        "101": 0.0,
+        "102": 0.0,
+        "103": 0.0,
+        "104": 0.0,
+        "105": 0.0,
+        "106": 0.0,
+        "107": 0.0,
+        "108": 0.0,
+        "109": 0.0,
+        "110": 0.0,
+        "111": 0.0,
+        "112": 0.0,
+        "113": 0.0,
+        "114": 0.0,
+        "115": 0.0,
+        "116": 0.0,
+        "117": 0.0,
+        "118": 0.0,
+        "119": 0.0,
+        "120": 0.0,
+        "121": 0.0,
+        "122": 0.0,
+        "123": 0.0,
+        "124": 0.0,
+        "125": 0.0,
+        "126": 0.0,
+        "127": 0.0,
+        "128": 0.0,
+        "129": 0.0,
+        "130": 0.0,
+        "131": 0.0,
+        "132": 0.0,
+        "133": 0.0,
+        "134": 0.0,
+        "135": 0.0,
+        "136": 0.0,
+        "137": 0.0,
+        "138": 0.0,
+        "139": 0.0,
+        "140": 0.0,
+        "141": 0.0,
+        "142": 0.0,
+        "143": 0.0,
+        "144": 0.0,
+        "145": 0.0,
+        "146": 0.0,
+        "147": 0.0,
+        "148": 0.0,
+        "149": 0.0,
+        "150": 0.0,
+        "151": 0.0,
+        "152": 0.0,
+        "153": 0.0,
+        "154": 0.0,
+        "155": 0.0,
+        "156": 0.0,
+        "157": 0.0,
+        "158": 0.0,
+        "159": 0.0,
+        "160": 0.0,
+        "161": 0.0,
+        "162": 0.0,
+        "163": 0.0,
+        "164": 0.0,
+        "165": 0.0,
+        "166": 0.0,
+        "167": 0.0,
+        "168": 0.0,
+        "169": 0.0,
+        "170": 0.0,
+        "171": 0.0,
+        "172": 0.0,
+        "173": 0.0,
+        "174": 0.0,
+        "175": 0.0,
+        "176": 0.0,
+        "177": 0.0,
+        "178": 0.0,
+        "179": 0.0,
+        "180": 0.0,
+        "181": 0.0,
+        "182": 0.0,
+        "183": 0.0,
+        "184": 0.0,
+        "185": 0.0,
+        "186": 0.0,
+        "187": 0.0,
+        "188": 0.0,
+        "189": 0.0,
+        "190": 0.0,
+        "191": 0.0,
+        "192": 0.0,
+        "193": 0.0,
+        "194": 0.0,
+        "195": 0.0,
+        "196": 0.0,
+        "197": 0.0,
+        "198": 0.0,
+        "199": 0.0
+      }
+    }
+  }
+}

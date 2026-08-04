@@ -1,0 +1,110 @@
+{
+  "status": "dry_run",
+  "method": "Flab-Pruner official structural Qwen2 adapter",
+  "official_algorithm": true,
+  "official_upstream_logic": "hidden_prune_utils.modeling_qwen2.Qwen2ForCausalLM.prune(config, stage)",
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "guide_files": [
+    {
+      "path": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/humaneval_half/guide.jsonl",
+      "sha256": "0de295af6224d1e4b57d6c31b93aa4a4644a59f7e0deadb7eedb5bae582bf0fb",
+      "samples_used": 4,
+      "task_ids": [
+        "HumanEval/0",
+        "HumanEval/2",
+        "HumanEval/3",
+        "HumanEval/4"
+      ],
+      "benchmarks": [
+        "humaneval"
+      ]
+    },
+    {
+      "path": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/mbpp_evalplus_half/guide.jsonl",
+      "sha256": "d5f43d1430b2063522eeca361f408eaa0cd2f02a31651801c37305414d80fb8f",
+      "samples_used": 4,
+      "task_ids": [
+        "Mbpp/2",
+        "Mbpp/3",
+        "Mbpp/4",
+        "Mbpp/6"
+      ],
+      "benchmarks": [
+        "mbpp_evalplus"
+      ]
+    },
+    {
+      "path": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/livecodebench_half/guide.jsonl",
+      "sha256": "d2ed7cc7dc32d3394823a5f549e2ed5be39b5b20f61020e5afa9621455455885",
+      "samples_used": 4,
+      "task_ids": [
+        "2779",
+        "2727",
+        "2730",
+        "abc301_a"
+      ],
+      "benchmarks": [
+        "livecodebench"
+      ]
+    }
+  ],
+  "guide_samples_used": 12,
+  "guide_task_ids": [
+    "HumanEval/0",
+    "HumanEval/2",
+    "HumanEval/3",
+    "HumanEval/4",
+    "Mbpp/2",
+    "Mbpp/3",
+    "Mbpp/4",
+    "Mbpp/6",
+    "2779",
+    "2727",
+    "2730",
+    "abc301_a"
+  ],
+  "stage": "top",
+  "prune_ratio_requested": 0.2,
+  "dtype": "fp16",
+  "device_map": "auto",
+  "local_files_only": true,
+  "save_dir": "/home/keshu/projects/srtp-code-llm-pruning/results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_keep80_dryrun_local",
+  "model_config": {
+    "model_type": "qwen2",
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "vocab_size": 151936,
+    "torch_dtype": "torch.bfloat16"
+  },
+  "tokenizer": {
+    "class": "Qwen2Tokenizer",
+    "vocab_size": 151643,
+    "pad_token": "<|endoftext|>",
+    "eos_token": "<|im_end|>"
+  },
+  "compat_patches": {
+    "rope_theta": 1000000.0,
+    "sliding_window": null
+  },
+  "prune_plan": {
+    "hidden_size": 2048,
+    "hidden_size_remain": 1536,
+    "intermediate_size": 11008,
+    "ffn_hidden_size_remain": 8704,
+    "num_attention_heads": 16,
+    "num_attention_heads_remain": 12,
+    "num_key_value_heads": 2,
+    "num_key_value_heads_remain": 2,
+    "head_dim_original": 128,
+    "head_dim_after": 128,
+    "num_hidden_layers": 36
+  },
+  "rough_param_estimate": {
+    "rough_original_params": 3396861952,
+    "rough_pruned_params": 2108817408,
+    "rough_param_ratio": 0.6208133971291866
+  },
+  "prune_on_cpu": false,
+  "guide_data_policy": "guide files are recorded and validated for the R4 protocol; official Flab structural pruning does not derive importance scores from benchmark prompts"
+}

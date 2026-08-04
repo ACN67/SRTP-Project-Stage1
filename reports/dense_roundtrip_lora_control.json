@@ -1,0 +1,4 @@
+{
+  "status": "NOT_RUN",
+  "reason": "Existing checkpoint first-break audit was prioritized. Dense LoRA requires new training and should run next only after reviewing current stop/go decision."
+}

@@ -1,0 +1,209 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   5%|▍         | 16/338 [00:00<00:02, 154.97it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 621.09it/s]Loading weights:  62%|██████▏   | 208/338 [00:00<00:00, 767.79it/s]Loading weights:  90%|████████▉ | 303/338 [00:00<00:00, 832.31it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 774.32it/s]
+{"event": "generated", "index": 1, "total": 82, "task_id": "HumanEval/1", "prompt_mode": "humaneval_official", "raw_completion_chars": 1854, "completion_chars": 1851, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 10.158}
+{"event": "generated", "index": 2, "total": 82, "task_id": "HumanEval/5", "prompt_mode": "humaneval_official", "raw_completion_chars": 546, "completion_chars": 547, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.445}
+{"event": "generated", "index": 3, "total": 82, "task_id": "HumanEval/6", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.29}
+{"event": "generated", "index": 4, "total": 82, "task_id": "HumanEval/7", "prompt_mode": "humaneval_official", "raw_completion_chars": 1793, "completion_chars": 1794, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 10.223}
+{"event": "generated", "index": 5, "total": 82, "task_id": "HumanEval/11", "prompt_mode": "humaneval_official", "raw_completion_chars": 1262, "completion_chars": 1263, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 13.049}
+{"event": "generated", "index": 6, "total": 82, "task_id": "HumanEval/12", "prompt_mode": "humaneval_official", "raw_completion_chars": 1332, "completion_chars": 1333, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 14.597}
+{"event": "generated", "index": 7, "total": 82, "task_id": "HumanEval/15", "prompt_mode": "humaneval_official", "raw_completion_chars": 2466, "completion_chars": 2463, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 11.445}
+{"event": "generated", "index": 8, "total": 82, "task_id": "HumanEval/19", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 11.225}
+{"event": "generated", "index": 9, "total": 82, "task_id": "HumanEval/20", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 11.45}
+{"event": "generated", "index": 10, "total": 82, "task_id": "HumanEval/22", "prompt_mode": "humaneval_official", "raw_completion_chars": 1831, "completion_chars": 1832, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 10.497}
+{"event": "generated", "index": 11, "total": 82, "task_id": "HumanEval/24", "prompt_mode": "humaneval_official", "raw_completion_chars": 1726, "completion_chars": 1727, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.656}
+{"event": "generated", "index": 12, "total": 82, "task_id": "HumanEval/27", "prompt_mode": "humaneval_official", "raw_completion_chars": 1608, "completion_chars": 1609, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.624}
+{"event": "generated", "index": 13, "total": 82, "task_id": "HumanEval/28", "prompt_mode": "humaneval_official", "raw_completion_chars": 2752, "completion_chars": 2753, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.491}
+{"event": "generated", "index": 14, "total": 82, "task_id": "HumanEval/29", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.665}
+{"event": "generated", "index": 15, "total": 82, "task_id": "HumanEval/32", "prompt_mode": "humaneval_official", "raw_completion_chars": 534, "completion_chars": 535, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.558}
+{"event": "generated", "index": 16, "total": 82, "task_id": "HumanEval/33", "prompt_mode": "humaneval_official", "raw_completion_chars": 1800, "completion_chars": 1801, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.489}
+{"event": "generated", "index": 17, "total": 82, "task_id": "HumanEval/35", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.632}
+{"event": "generated", "index": 18, "total": 82, "task_id": "HumanEval/37", "prompt_mode": "humaneval_official", "raw_completion_chars": 1772, "completion_chars": 1773, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.576}
+{"event": "generated", "index": 19, "total": 82, "task_id": "HumanEval/39", "prompt_mode": "humaneval_official", "raw_completion_chars": 1211, "completion_chars": 1212, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.901}
+{"event": "generated", "index": 20, "total": 82, "task_id": "HumanEval/43", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.826}
+{"event": "generated", "index": 21, "total": 82, "task_id": "HumanEval/45", "prompt_mode": "humaneval_official", "raw_completion_chars": 2121, "completion_chars": 2122, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.631}
+{"event": "generated", "index": 22, "total": 82, "task_id": "HumanEval/47", "prompt_mode": "humaneval_official", "raw_completion_chars": 1660, "completion_chars": 1661, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.57}
+{"event": "generated", "index": 23, "total": 82, "task_id": "HumanEval/49", "prompt_mode": "humaneval_official", "raw_completion_chars": 1171, "completion_chars": 1171, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.622}
+{"event": "generated", "index": 24, "total": 82, "task_id": "HumanEval/50", "prompt_mode": "humaneval_official", "raw_completion_chars": 1779, "completion_chars": 1780, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.64}
+{"event": "generated", "index": 25, "total": 82, "task_id": "HumanEval/51", "prompt_mode": "humaneval_official", "raw_completion_chars": 1071, "completion_chars": 1072, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.415}
+{"event": "generated", "index": 26, "total": 82, "task_id": "HumanEval/53", "prompt_mode": "humaneval_official", "raw_completion_chars": 2028, "completion_chars": 2029, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.372}
+{"event": "generated", "index": 27, "total": 82, "task_id": "HumanEval/54", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.438}
+{"event": "generated", "index": 28, "total": 82, "task_id": "HumanEval/57", "prompt_mode": "humaneval_official", "raw_completion_chars": 1011, "completion_chars": 1012, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.502}
+{"event": "generated", "index": 29, "total": 82, "task_id": "HumanEval/59", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.496}
+{"event": "generated", "index": 30, "total": 82, "task_id": "HumanEval/61", "prompt_mode": "humaneval_official", "raw_completion_chars": 1901, "completion_chars": 1902, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.462}
+{"event": "generated", "index": 31, "total": 82, "task_id": "HumanEval/62", "prompt_mode": "humaneval_official", "raw_completion_chars": 1319, "completion_chars": 1312, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.452}
+{"event": "generated", "index": 32, "total": 82, "task_id": "HumanEval/64", "prompt_mode": "humaneval_official", "raw_completion_chars": 1499, "completion_chars": 1500, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.556}
+{"event": "generated", "index": 33, "total": 82, "task_id": "HumanEval/67", "prompt_mode": "humaneval_official", "raw_completion_chars": 647, "completion_chars": 648, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.534}
+{"event": "generated", "index": 34, "total": 82, "task_id": "HumanEval/69", "prompt_mode": "humaneval_official", "raw_completion_chars": 1096, "completion_chars": 1097, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.429}
+{"event": "generated", "index": 35, "total": 82, "task_id": "HumanEval/70", "prompt_mode": "humaneval_official", "raw_completion_chars": 1769, "completion_chars": 1770, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.515}
+{"event": "generated", "index": 36, "total": 82, "task_id": "HumanEval/72", "prompt_mode": "humaneval_official", "raw_completion_chars": 1157, "completion_chars": 1158, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.559}
+{"event": "generated", "index": 37, "total": 82, "task_id": "HumanEval/73", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.404}
+{"event": "generated", "index": 38, "total": 82, "task_id": "HumanEval/78", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.343}
+{"event": "generated", "index": 39, "total": 82, "task_id": "HumanEval/79", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.36}
+{"event": "generated", "index": 40, "total": 82, "task_id": "HumanEval/80", "prompt_mode": "humaneval_official", "raw_completion_chars": 1340, "completion_chars": 1340, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.53}
+{"event": "generated", "index": 41, "total": 82, "task_id": "HumanEval/83", "prompt_mode": "humaneval_official", "raw_completion_chars": 1788, "completion_chars": 1788, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 14.317}
+{"event": "generated", "index": 42, "total": 82, "task_id": "HumanEval/86", "prompt_mode": "humaneval_official", "raw_completion_chars": 2419, "completion_chars": 2416, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 14.3}
+{"event": "generated", "index": 43, "total": 82, "task_id": "HumanEval/87", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 11.958}
+{"event": "generated", "index": 44, "total": 82, "task_id": "HumanEval/90", "prompt_mode": "humaneval_official", "raw_completion_chars": 1449, "completion_chars": 1449, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 11.081}
+{"event": "generated", "index": 45, "total": 82, "task_id": "HumanEval/91", "prompt_mode": "humaneval_official", "raw_completion_chars": 1672, "completion_chars": 1673, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 12.19}
+{"event": "generated", "index": 46, "total": 82, "task_id": "HumanEval/94", "prompt_mode": "humaneval_official", "raw_completion_chars": 1422, "completion_chars": 1423, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.932}
+{"event": "generated", "index": 47, "total": 82, "task_id": "HumanEval/96", "prompt_mode": "humaneval_official", "raw_completion_chars": 1789, "completion_chars": 1790, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 10.284}
+{"event": "generated", "index": 48, "total": 82, "task_id": "HumanEval/98", "prompt_mode": "humaneval_official", "raw_completion_chars": 1996, "completion_chars": 1993, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 10.135}
+{"event": "generated", "index": 49, "total": 82, "task_id": "HumanEval/100", "prompt_mode": "humaneval_official", "raw_completion_chars": 521, "completion_chars": 522, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.858}
+{"event": "generated", "index": 50, "total": 82, "task_id": "HumanEval/101", "prompt_mode": "humaneval_official", "raw_completion_chars": 1371, "completion_chars": 1372, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.823}
+{"event": "generated", "index": 51, "total": 82, "task_id": "HumanEval/103", "prompt_mode": "humaneval_official", "raw_completion_chars": 1758, "completion_chars": 1759, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.696}
+{"event": "generated", "index": 52, "total": 82, "task_id": "HumanEval/105", "prompt_mode": "humaneval_official", "raw_completion_chars": 1792, "completion_chars": 1789, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.508}
+{"event": "generated", "index": 53, "total": 82, "task_id": "HumanEval/108", "prompt_mode": "humaneval_official", "raw_completion_chars": 1116, "completion_chars": 1117, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.605}
+{"event": "generated", "index": 54, "total": 82, "task_id": "HumanEval/109", "prompt_mode": "humaneval_official", "raw_completion_chars": 1958, "completion_chars": 1959, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.742}
+{"event": "generated", "index": 55, "total": 82, "task_id": "HumanEval/111", "prompt_mode": "humaneval_official", "raw_completion_chars": 691, "completion_chars": 692, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.745}
+{"event": "generated", "index": 56, "total": 82, "task_id": "HumanEval/112", "prompt_mode": "humaneval_official", "raw_completion_chars": 1926, "completion_chars": 1927, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.867}
+{"event": "generated", "index": 57, "total": 82, "task_id": "HumanEval/113", "prompt_mode": "humaneval_official", "raw_completion_chars": 688, "completion_chars": 689, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.641}
+{"event": "generated", "index": 58, "total": 82, "task_id": "HumanEval/116", "prompt_mode": "humaneval_official", "raw_completion_chars": 1739, "completion_chars": 1740, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.521}
+{"event": "generated", "index": 59, "total": 82, "task_id": "HumanEval/117", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.526}
+{"event": "generated", "index": 60, "total": 82, "task_id": "HumanEval/120", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.58}
+{"event": "generated", "index": 61, "total": 82, "task_id": "HumanEval/121", "prompt_mode": "humaneval_official", "raw_completion_chars": 2649, "completion_chars": 2649, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.395}
+{"event": "generated", "index": 62, "total": 82, "task_id": "HumanEval/122", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.314}
+{"event": "generated", "index": 63, "total": 82, "task_id": "HumanEval/124", "prompt_mode": "humaneval_official", "raw_completion_chars": 1156, "completion_chars": 1157, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.394}
+{"event": "generated", "index": 64, "total": 82, "task_id": "HumanEval/125", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.434}
+{"event": "generated", "index": 65, "total": 82, "task_id": "HumanEval/127", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.491}
+{"event": "generated", "index": 66, "total": 82, "task_id": "HumanEval/130", "prompt_mode": "humaneval_official", "raw_completion_chars": 1759, "completion_chars": 1760, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.503}
+{"event": "generated", "index": 67, "total": 82, "task_id": "HumanEval/133", "prompt_mode": "humaneval_official", "raw_completion_chars": 1672, "completion_chars": 1672, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.489}
+{"event": "generated", "index": 68, "total": 82, "task_id": "HumanEval/136", "prompt_mode": "humaneval_official", "raw_completion_chars": 1431, "completion_chars": 1432, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.611}
+{"event": "generated", "index": 69, "total": 82, "task_id": "HumanEval/138", "prompt_mode": "humaneval_official", "raw_completion_chars": 1802, "completion_chars": 1803, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.549}
+{"event": "generated", "index": 70, "total": 82, "task_id": "HumanEval/139", "prompt_mode": "humaneval_official", "raw_completion_chars": 1842, "completion_chars": 1843, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.487}
+{"event": "generated", "index": 71, "total": 82, "task_id": "HumanEval/140", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.518}
+{"event": "generated", "index": 72, "total": 82, "task_id": "HumanEval/142", "prompt_mode": "humaneval_official", "raw_completion_chars": 1791, "completion_chars": 1788, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.457}
+{"event": "generated", "index": 73, "total": 82, "task_id": "HumanEval/144", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.427}
+{"event": "generated", "index": 74, "total": 82, "task_id": "HumanEval/147", "prompt_mode": "humaneval_official", "raw_completion_chars": 1254, "completion_chars": 1255, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.384}
+{"event": "generated", "index": 75, "total": 82, "task_id": "HumanEval/149", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 9.445}
+{"event": "generated", "index": 76, "total": 82, "task_id": "HumanEval/153", "prompt_mode": "humaneval_official", "raw_completion_chars": 2045, "completion_chars": 2046, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 11.227}
+{"event": "generated", "index": 77, "total": 82, "task_id": "HumanEval/154", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 15.741}
+{"event": "generated", "index": 78, "total": 82, "task_id": "HumanEval/155", "prompt_mode": "humaneval_official", "raw_completion_chars": 1943, "completion_chars": 1943, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 13.264}
+{"event": "generated", "index": 79, "total": 82, "task_id": "HumanEval/156", "prompt_mode": "humaneval_official", "raw_completion_chars": 1407, "completion_chars": 1408, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 10.677}
+{"event": "generated", "index": 80, "total": 82, "task_id": "HumanEval/157", "prompt_mode": "humaneval_official", "raw_completion_chars": 1626, "completion_chars": 1627, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 10.592}
+{"event": "generated", "index": 81, "total": 82, "task_id": "HumanEval/160", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 10.172}
+{"event": "generated", "index": 82, "total": 82, "task_id": "HumanEval/163", "prompt_mode": "humaneval_official", "raw_completion_chars": 1790, "completion_chars": 1791, "generated_tokens": 512, "hit_max_new_tokens": true, "extract_warning": false, "gen_seconds": 10.092}
+{
+  "status": "success",
+  "model": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/flabpruner_keep80_merged_v2",
+  "adapter": "",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/eval_v2/humaneval/generation/samples.jsonl",
+  "generations": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/eval_v2/humaneval/generation/generations.jsonl",
+  "task_count": 82,
+  "prompt_mode": "humaneval_official",
+  "official_prompt": true,
+  "lcb_release": null,
+  "lcb_config": null,
+  "lcb_lm_style": null,
+  "elapsed_seconds": 833.2210612297058,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "load_in_8bit": false,
+  "load_in_4bit": false,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "local_files_only": true,
+  "slicegpt_base_model": null,
+  "slicegpt_sparsity": null,
+  "slicegpt_round_interval": null,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 82, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 82, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 82, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 82, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 82, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 82, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 82, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 82, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 9, "total": 82, "task_id": "HumanEval/20", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 10, "total": 82, "task_id": "HumanEval/22", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 11, "total": 82, "task_id": "HumanEval/24", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 12, "total": 82, "task_id": "HumanEval/27", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 13, "total": 82, "task_id": "HumanEval/28", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 14, "total": 82, "task_id": "HumanEval/29", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 15, "total": 82, "task_id": "HumanEval/32", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 16, "total": 82, "task_id": "HumanEval/33", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 17, "total": 82, "task_id": "HumanEval/35", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 18, "total": 82, "task_id": "HumanEval/37", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 19, "total": 82, "task_id": "HumanEval/39", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 20, "total": 82, "task_id": "HumanEval/43", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 21, "total": 82, "task_id": "HumanEval/45", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 22, "total": 82, "task_id": "HumanEval/47", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 23, "total": 82, "task_id": "HumanEval/49", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 24, "total": 82, "task_id": "HumanEval/50", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 25, "total": 82, "task_id": "HumanEval/51", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 26, "total": 82, "task_id": "HumanEval/53", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 27, "total": 82, "task_id": "HumanEval/54", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 28, "total": 82, "task_id": "HumanEval/57", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 29, "total": 82, "task_id": "HumanEval/59", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 30, "total": 82, "task_id": "HumanEval/61", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 31, "total": 82, "task_id": "HumanEval/62", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 32, "total": 82, "task_id": "HumanEval/64", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 33, "total": 82, "task_id": "HumanEval/67", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 34, "total": 82, "task_id": "HumanEval/69", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 35, "total": 82, "task_id": "HumanEval/70", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 36, "total": 82, "task_id": "HumanEval/72", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 37, "total": 82, "task_id": "HumanEval/73", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 38, "total": 82, "task_id": "HumanEval/78", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 39, "total": 82, "task_id": "HumanEval/79", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 40, "total": 82, "task_id": "HumanEval/80", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 41, "total": 82, "task_id": "HumanEval/83", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 42, "total": 82, "task_id": "HumanEval/86", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 43, "total": 82, "task_id": "HumanEval/87", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 44, "total": 82, "task_id": "HumanEval/90", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 45, "total": 82, "task_id": "HumanEval/91", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 46, "total": 82, "task_id": "HumanEval/94", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 47, "total": 82, "task_id": "HumanEval/96", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 48, "total": 82, "task_id": "HumanEval/98", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 49, "total": 82, "task_id": "HumanEval/100", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 50, "total": 82, "task_id": "HumanEval/101", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 51, "total": 82, "task_id": "HumanEval/103", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 52, "total": 82, "task_id": "HumanEval/105", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 53, "total": 82, "task_id": "HumanEval/108", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 54, "total": 82, "task_id": "HumanEval/109", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 55, "total": 82, "task_id": "HumanEval/111", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 56, "total": 82, "task_id": "HumanEval/112", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 57, "total": 82, "task_id": "HumanEval/113", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 58, "total": 82, "task_id": "HumanEval/116", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 59, "total": 82, "task_id": "HumanEval/117", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 60, "total": 82, "task_id": "HumanEval/120", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 61, "total": 82, "task_id": "HumanEval/121", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 62, "total": 82, "task_id": "HumanEval/122", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 63, "total": 82, "task_id": "HumanEval/124", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 64, "total": 82, "task_id": "HumanEval/125", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 65, "total": 82, "task_id": "HumanEval/127", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 66, "total": 82, "task_id": "HumanEval/130", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 67, "total": 82, "task_id": "HumanEval/133", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 68, "total": 82, "task_id": "HumanEval/136", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 69, "total": 82, "task_id": "HumanEval/138", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 70, "total": 82, "task_id": "HumanEval/139", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 71, "total": 82, "task_id": "HumanEval/140", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 72, "total": 82, "task_id": "HumanEval/142", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 73, "total": 82, "task_id": "HumanEval/144", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 74, "total": 82, "task_id": "HumanEval/147", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 75, "total": 82, "task_id": "HumanEval/149", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 76, "total": 82, "task_id": "HumanEval/153", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 77, "total": 82, "task_id": "HumanEval/154", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 78, "total": 82, "task_id": "HumanEval/155", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 79, "total": 82, "task_id": "HumanEval/156", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 80, "total": 82, "task_id": "HumanEval/157", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 81, "total": 82, "task_id": "HumanEval/160", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 82, "total": 82, "task_id": "HumanEval/163", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/eval_v2/humaneval/generation/samples.jsonl",
+  "base_only": true,
+  "task_count": 82,
+  "base_pass_count": 0,
+  "base_pass_rate": 0.0,
+  "base_status_counter": {
+    "fail": 82
+  }
+}

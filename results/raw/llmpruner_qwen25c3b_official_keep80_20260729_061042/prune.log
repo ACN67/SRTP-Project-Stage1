@@ -1,0 +1,45 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:03<28:15,  3.92s/it]Loading weights:  17%|█▋        | 75/434 [00:04<00:14, 24.21it/s]Loading weights:  20%|██        | 88/434 [00:04<00:13, 25.94it/s]Loading weights:  23%|██▎       | 99/434 [00:04<00:11, 28.62it/s]Loading weights:  25%|██▍       | 108/434 [00:05<00:13, 24.17it/s]Loading weights:  26%|██▋       | 114/434 [00:06<00:22, 14.45it/s]Loading weights:  28%|██▊       | 123/434 [00:07<00:19, 15.64it/s]Loading weights:  29%|██▉       | 127/434 [00:07<00:18, 16.53it/s]Loading weights:  31%|███       | 135/434 [00:07<00:15, 18.79it/s]Loading weights:  34%|███▍      | 147/434 [00:07<00:11, 24.11it/s]Loading weights:  35%|███▍      | 151/434 [00:08<00:11, 24.73it/s]Loading weights:  37%|███▋      | 159/434 [00:08<00:12, 21.86it/s]Loading weights:  39%|███▉      | 171/434 [00:09<00:11, 22.34it/s]Loading weights:  42%|████▏     | 183/434 [00:09<00:12, 20.66it/s]Loading weights:  43%|████▎     | 186/434 [00:09<00:11, 21.07it/s]Loading weights:  45%|████▍     | 195/434 [00:10<00:11, 20.19it/s]Loading weights:  48%|████▊     | 207/434 [00:10<00:10, 22.22it/s]Loading weights:  48%|████▊     | 210/434 [00:11<00:11, 18.98it/s]Loading weights:  50%|█████     | 219/434 [00:11<00:09, 23.07it/s]Loading weights:  51%|█████     | 222/434 [00:11<00:11, 18.34it/s]Loading weights:  53%|█████▎    | 231/434 [00:12<00:09, 21.17it/s]Loading weights:  54%|█████▍    | 234/434 [00:13<00:25,  7.83it/s]Loading weights:  56%|█████▌    | 243/434 [00:14<00:19,  9.93it/s]Loading weights:  59%|█████▉    | 255/434 [00:14<00:12, 14.13it/s]Loading weights:  59%|█████▉    | 258/434 [00:14<00:12, 14.58it/s]Loading weights:  62%|██████▏   | 267/434 [00:15<00:10, 16.15it/s]Loading weights:  64%|██████▍   | 279/434 [00:15<00:07, 19.75it/s]Loading weights:  67%|██████▋   | 291/434 [00:16<00:07, 20.29it/s]Loading weights:  68%|██████▊   | 294/434 [00:16<00:06, 20.34it/s]Loading weights:  70%|██████▉   | 303/434 [00:16<00:05, 26.13it/s]Loading weights:  71%|███████   | 307/434 [00:18<00:14,  8.73it/s]Loading weights:  73%|███████▎  | 315/434 [00:18<00:10, 10.97it/s]Loading weights:  73%|███████▎  | 318/434 [00:18<00:09, 11.67it/s]Loading weights:  75%|███████▌  | 327/434 [00:19<00:06, 16.35it/s]Loading weights:  76%|███████▌  | 330/434 [00:19<00:06, 15.61it/s]Loading weights:  78%|███████▊  | 339/434 [00:19<00:05, 16.21it/s]Loading weights:  81%|████████  | 351/434 [00:25<00:19,  4.28it/s]Loading weights:  84%|████████▎ | 363/434 [00:29<00:19,  3.60it/s]Loading weights:  86%|████████▋ | 375/434 [00:30<00:12,  4.58it/s]Loading weights:  87%|████████▋ | 377/434 [00:31<00:11,  4.86it/s]Loading weights:  88%|████████▊ | 384/434 [00:31<00:08,  5.70it/s]Loading weights:  89%|████████▉ | 387/434 [00:33<00:10,  4.42it/s]Loading weights:  89%|████████▉ | 388/434 [00:33<00:10,  4.51it/s]Loading weights:  90%|████████▉ | 389/434 [00:34<00:13,  3.42it/s]Loading weights:  91%|█████████▏| 397/434 [00:35<00:08,  4.42it/s]Loading weights:  92%|█████████▏| 400/434 [00:38<00:12,  2.80it/s]Loading weights:  95%|█████████▌| 413/434 [00:38<00:03,  5.93it/s]Loading weights:  96%|█████████▌| 415/434 [00:45<00:09,  1.98it/s]Loading weights:  97%|█████████▋| 423/434 [00:45<00:03,  2.84it/s]Loading weights:  98%|█████████▊| 425/434 [00:46<00:02,  3.03it/s]Loading weights: 100%|██████████| 434/434 [00:46<00:00,  9.38it/s]
+{"event": "taylor_backward", "index": 1, "loss": 0.5752832293510437, "seconds": 315.52523493766785}
+{"event": "taylor_backward", "index": 2, "loss": 1.7708971500396729, "seconds": 571.8605725765228}
+{"event": "taylor_backward", "index": 3, "loss": 1.203587293624878, "seconds": 575.3500022888184}
+{"event": "taylor_backward", "index": 4, "loss": 1.2942986488342285, "seconds": 611.8782482147217}
+{"event": "taylor_backward", "index": 5, "loss": 0.8008546233177185, "seconds": 607.969425201416}
+{"event": "taylor_backward", "index": 6, "loss": 0.8783553838729858, "seconds": 744.4897277355194}
+{"event": "taylor_backward", "index": 7, "loss": 1.178849697113037, "seconds": 677.0641069412231}
+{"event": "taylor_backward", "index": 8, "loss": 0.702107846736908, "seconds": 733.3594536781311}
+{"event": "taylor_backward", "index": 9, "loss": 0.8064466714859009, "seconds": 750.7240493297577}
+{"event": "taylor_backward", "index": 10, "loss": 1.2228726148605347, "seconds": 785.8855199813843}
+{"event": "taylor_backward", "index": 11, "loss": 1.0335432291030884, "seconds": 765.7726964950562}
+{"event": "taylor_backward", "index": 12, "loss": 1.0419518947601318, "seconds": 863.9923598766327}
+{"event": "taylor_backward", "index": 13, "loss": 0.916363000869751, "seconds": 786.4392867088318}
+{"event": "taylor_backward", "index": 14, "loss": 1.306389331817627, "seconds": 817.2234768867493}
+{"event": "taylor_backward", "index": 15, "loss": 0.9368488788604736, "seconds": 831.392763376236}
+{"event": "taylor_backward", "index": 16, "loss": 1.0143994092941284, "seconds": 1001.7819197177887}
+{"event": "taylor_backward", "index": 17, "loss": 0.4672699272632599, "seconds": 923.9859435558319}
+{"event": "taylor_backward", "index": 18, "loss": 0.4364580512046814, "seconds": 881.3904161453247}
+{"event": "taylor_backward", "index": 19, "loss": 0.7553667426109314, "seconds": 991.6912457942963}
+{"event": "taylor_backward", "index": 20, "loss": 0.5884350538253784, "seconds": 1044.914526939392}
+{"event": "taylor_backward", "index": 21, "loss": 1.2122920751571655, "seconds": 882.696268081665}
+{"event": "taylor_backward", "index": 22, "loss": 0.4198702275753021, "seconds": 892.1420369148254}
+{"event": "taylor_backward", "index": 23, "loss": 2.1806328296661377, "seconds": 963.6631510257721}
+{"event": "taylor_backward", "index": 24, "loss": 0.5180013179779053, "seconds": 898.3207631111145}
+{"event": "taylor_backward", "index": 25, "loss": 1.163836121559143, "seconds": 996.8367629051208}
+{"event": "taylor_backward", "index": 26, "loss": 0.98592209815979, "seconds": 948.2339162826538}
+{"event": "taylor_backward", "index": 27, "loss": 1.0320385694503784, "seconds": 1076.7196199893951}
+{"event": "taylor_backward", "index": 28, "loss": 0.7430339455604553, "seconds": 1066.2355072498322}
+{"event": "taylor_backward", "index": 29, "loss": 0.7357068657875061, "seconds": 1072.7276141643524}
+{"event": "taylor_backward", "index": 30, "loss": 1.0716170072555542, "seconds": 1080.58669090271}
+{"event": "taylor_backward", "index": 31, "loss": 0.6074904799461365, "seconds": 916.211786031723}
+{"event": "taylor_backward", "index": 32, "loss": 0.5421925187110901, "seconds": 959.2128884792328}
+{"event": "taylor_backward", "index": 33, "loss": 0.9464743137359619, "seconds": 937.6601674556732}
+{"event": "taylor_backward", "index": 34, "loss": 1.1559877395629883, "seconds": 1097.352159500122}
+{"event": "taylor_backward", "index": 35, "loss": 1.0503857135772705, "seconds": 916.069167137146}
+{"event": "taylor_backward", "index": 36, "loss": 1.0384784936904907, "seconds": 932.4748468399048}
+{"event": "taylor_backward", "index": 37, "loss": 0.8562731146812439, "seconds": 877.2862167358398}
+{"event": "taylor_backward", "index": 38, "loss": 0.681552529335022, "seconds": 979.9317197799683}
+{"event": "taylor_backward", "index": 39, "loss": 1.0692647695541382, "seconds": 1002.5713448524475}
+{"event": "taylor_backward", "index": 40, "loss": 0.8293119668960571, "seconds": 848.6923108100891}
+{"event": "taylor_backward", "index": 41, "loss": 0.9848793745040894, "seconds": 913.2049238681793}
+{"event": "taylor_backward", "index": 42, "loss": 1.26904296875, "seconds": 931.4156084060669}
+{"event": "taylor_backward", "index": 43, "loss": 1.013175368309021, "seconds": 1004.2111024856567}

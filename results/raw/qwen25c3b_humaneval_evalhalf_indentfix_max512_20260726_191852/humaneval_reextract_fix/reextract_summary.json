@@ -1,0 +1,10 @@
+{
+  "status": "success",
+  "source_generations": "results/raw/qwen25c3b_humaneval_evalhalf_indentfix_max512_20260726_191852/humaneval/generations.jsonl",
+  "samples": "results/raw/qwen25c3b_humaneval_evalhalf_indentfix_max512_20260726_191852/humaneval_reextract_fix/samples.jsonl",
+  "generations": "results/raw/qwen25c3b_humaneval_evalhalf_indentfix_max512_20260726_191852/humaneval_reextract_fix/generations.jsonl",
+  "task_count": 82,
+  "changed_count": 69,
+  "completion_chars_le_1_before": 24,
+  "completion_chars_le_1_after": 0
+}

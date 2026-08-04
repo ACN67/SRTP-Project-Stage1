@@ -1,0 +1,46 @@
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<03:40,  1.97it/s]Loading weights:  28%|██▊       | 123/434 [00:00<00:01, 265.68it/s]Loading weights:  44%|████▍     | 191/434 [00:01<00:01, 189.28it/s]Loading weights:  54%|█████▍    | 235/434 [00:02<00:01, 101.32it/s]Loading weights:  61%|██████    | 264/434 [00:02<00:02, 81.10it/s] Loading weights:  65%|██████▌   | 284/434 [00:02<00:01, 77.18it/s]Loading weights:  69%|██████▉   | 300/434 [00:03<00:01, 83.01it/s]Loading weights:  73%|███████▎  | 315/434 [00:03<00:01, 75.59it/s]Loading weights:  75%|███████▌  | 327/434 [00:03<00:01, 73.71it/s]Loading weights:  78%|███████▊  | 339/434 [00:03<00:01, 73.43it/s]Loading weights:  81%|████████  | 351/434 [00:03<00:01, 70.14it/s]Loading weights:  84%|████████▎ | 363/434 [00:04<00:00, 71.55it/s]Loading weights:  86%|████████▋ | 375/434 [00:04<00:01, 43.65it/s]Loading weights:  89%|████████▉ | 388/434 [00:04<00:00, 53.07it/s]Loading weights:  92%|█████████▏| 399/434 [00:04<00:00, 59.88it/s]Loading weights:  95%|█████████▍| 411/434 [00:05<00:00, 65.14it/s]Loading weights:  97%|█████████▋| 423/434 [00:05<00:00, 40.79it/s]Loading weights: 100%|██████████| 434/434 [00:05<00:00, 77.20it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+trainable params: 13,938,688 || all params: 2,815,760,384 || trainable%: 0.4950
+{"step": 1, "total_steps": 2, "avg_loss": NaN}
+{"step": 2, "total_steps": 2, "avg_loss": NaN}
+/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in Qwen/Qwen2.5-Coder-3B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+{
+  "status": "success",
+  "base_model": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_keep80/sliced_model",
+  "train_file": "results/raw/pilot_keep80_official_all_20260727_174732/shared_lora_data/distill_train.jsonl",
+  "samples": 12,
+  "output_adapter": "results/raw/pilot_keep80_official_all_20260727_174732/slicegpt_keep80_lora/lora_adapter",
+  "rank": 8,
+  "alpha": 16,
+  "dropout": 0.0,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "epochs": 1.0,
+  "batch_size": 1,
+  "grad_accum": 8,
+  "max_length": 256,
+  "lr": 0.0002,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "load_in_4bit": false,
+  "local_files_only": true,
+  "gradient_checkpointing": true,
+  "llmpruner_base_model": null,
+  "slicegpt_base_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "slicegpt_sparsity": 0.2,
+  "slicegpt_round_interval": 128,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null,
+  "steps": 2,
+  "elapsed_seconds": 212.72927570343018
+}

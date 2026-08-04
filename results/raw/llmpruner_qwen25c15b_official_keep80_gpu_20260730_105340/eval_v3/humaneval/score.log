@@ -1,0 +1,98 @@
+Load from ground-truth from /home/keshu/.cache/evalplus/fe585eb4df8c88d844eeb463ea4d0302.pkl
+{"event": "scored", "index": 1, "total": 82, "task_id": "HumanEval/1", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 2, "total": 82, "task_id": "HumanEval/5", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 3, "total": 82, "task_id": "HumanEval/6", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 4, "total": 82, "task_id": "HumanEval/7", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 5, "total": 82, "task_id": "HumanEval/11", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 6, "total": 82, "task_id": "HumanEval/12", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 7, "total": 82, "task_id": "HumanEval/15", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 8, "total": 82, "task_id": "HumanEval/19", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 9, "total": 82, "task_id": "HumanEval/20", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 10, "total": 82, "task_id": "HumanEval/22", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 11, "total": 82, "task_id": "HumanEval/24", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 12, "total": 82, "task_id": "HumanEval/27", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 13, "total": 82, "task_id": "HumanEval/28", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 14, "total": 82, "task_id": "HumanEval/29", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 15, "total": 82, "task_id": "HumanEval/32", "base_status": "timeout", "base_pass": false}
+{"event": "scored", "index": 16, "total": 82, "task_id": "HumanEval/33", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 17, "total": 82, "task_id": "HumanEval/35", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 18, "total": 82, "task_id": "HumanEval/37", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 19, "total": 82, "task_id": "HumanEval/39", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 20, "total": 82, "task_id": "HumanEval/43", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 21, "total": 82, "task_id": "HumanEval/45", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 22, "total": 82, "task_id": "HumanEval/47", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 23, "total": 82, "task_id": "HumanEval/49", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 24, "total": 82, "task_id": "HumanEval/50", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 25, "total": 82, "task_id": "HumanEval/51", "base_status": "pass", "base_pass": true}
+{"event": "scored", "index": 26, "total": 82, "task_id": "HumanEval/53", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 27, "total": 82, "task_id": "HumanEval/54", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 28, "total": 82, "task_id": "HumanEval/57", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 29, "total": 82, "task_id": "HumanEval/59", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 30, "total": 82, "task_id": "HumanEval/61", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 31, "total": 82, "task_id": "HumanEval/62", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 32, "total": 82, "task_id": "HumanEval/64", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 33, "total": 82, "task_id": "HumanEval/67", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 34, "total": 82, "task_id": "HumanEval/69", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 35, "total": 82, "task_id": "HumanEval/70", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 36, "total": 82, "task_id": "HumanEval/72", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 37, "total": 82, "task_id": "HumanEval/73", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 38, "total": 82, "task_id": "HumanEval/78", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 39, "total": 82, "task_id": "HumanEval/79", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 40, "total": 82, "task_id": "HumanEval/80", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 41, "total": 82, "task_id": "HumanEval/83", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 42, "total": 82, "task_id": "HumanEval/86", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 43, "total": 82, "task_id": "HumanEval/87", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 44, "total": 82, "task_id": "HumanEval/90", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 45, "total": 82, "task_id": "HumanEval/91", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 46, "total": 82, "task_id": "HumanEval/94", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 47, "total": 82, "task_id": "HumanEval/96", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 48, "total": 82, "task_id": "HumanEval/98", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 49, "total": 82, "task_id": "HumanEval/100", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 50, "total": 82, "task_id": "HumanEval/101", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 51, "total": 82, "task_id": "HumanEval/103", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 52, "total": 82, "task_id": "HumanEval/105", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 53, "total": 82, "task_id": "HumanEval/108", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 54, "total": 82, "task_id": "HumanEval/109", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 55, "total": 82, "task_id": "HumanEval/111", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 56, "total": 82, "task_id": "HumanEval/112", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 57, "total": 82, "task_id": "HumanEval/113", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 58, "total": 82, "task_id": "HumanEval/116", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 59, "total": 82, "task_id": "HumanEval/117", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 60, "total": 82, "task_id": "HumanEval/120", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 61, "total": 82, "task_id": "HumanEval/121", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 62, "total": 82, "task_id": "HumanEval/122", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 63, "total": 82, "task_id": "HumanEval/124", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 64, "total": 82, "task_id": "HumanEval/125", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 65, "total": 82, "task_id": "HumanEval/127", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 66, "total": 82, "task_id": "HumanEval/130", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 67, "total": 82, "task_id": "HumanEval/133", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 68, "total": 82, "task_id": "HumanEval/136", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 69, "total": 82, "task_id": "HumanEval/138", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 70, "total": 82, "task_id": "HumanEval/139", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 71, "total": 82, "task_id": "HumanEval/140", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 72, "total": 82, "task_id": "HumanEval/142", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 73, "total": 82, "task_id": "HumanEval/144", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 74, "total": 82, "task_id": "HumanEval/147", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 75, "total": 82, "task_id": "HumanEval/149", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 76, "total": 82, "task_id": "HumanEval/153", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 77, "total": 82, "task_id": "HumanEval/154", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 78, "total": 82, "task_id": "HumanEval/155", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 79, "total": 82, "task_id": "HumanEval/156", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 80, "total": 82, "task_id": "HumanEval/157", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 81, "total": 82, "task_id": "HumanEval/160", "base_status": "fail", "base_pass": false}
+{"event": "scored", "index": 82, "total": 82, "task_id": "HumanEval/163", "base_status": "fail", "base_pass": false}
+{
+  "status": "success",
+  "benchmark": "humaneval",
+  "split": "data/splits/humaneval_half/eval.jsonl",
+  "samples": "results/raw/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340/eval_v3/humaneval/generation/samples.jsonl",
+  "base_only": true,
+  "task_count": 82,
+  "base_pass_count": 2,
+  "base_pass_rate": 0.024390243902439025,
+  "base_status_counter": {
+    "fail": 79,
+    "pass": 2,
+    "timeout": 1
+  }
+}

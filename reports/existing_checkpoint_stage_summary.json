@@ -1,0 +1,102 @@
+[
+  {
+    "method": "FlabPruner",
+    "stage": "F0_dense",
+    "n": 20,
+    "pass_rate": 0.4,
+    "hit_max_rate": 0.1,
+    "eos_rate": 0.2,
+    "parse_success_rate": 0.55,
+    "mean_generated_tokens": 154.4
+  },
+  {
+    "method": "FlabPruner",
+    "stage": "F1_pruned_no_lora",
+    "n": 20,
+    "pass_rate": 0.0,
+    "hit_max_rate": 1.0,
+    "eos_rate": 0.0,
+    "parse_success_rate": 0.4,
+    "mean_generated_tokens": 614.4
+  },
+  {
+    "method": "FlabPruner",
+    "stage": "F2_pruned_lora_adapter",
+    "n": 20,
+    "pass_rate": 0.0,
+    "hit_max_rate": 1.0,
+    "eos_rate": 0.0,
+    "parse_success_rate": 0.55,
+    "mean_generated_tokens": 614.4
+  },
+  {
+    "method": "FlabPruner",
+    "stage": "F3_merged",
+    "n": 20,
+    "pass_rate": 0.0,
+    "hit_max_rate": 1.0,
+    "eos_rate": 0.0,
+    "parse_success_rate": 0.55,
+    "mean_generated_tokens": 614.4
+  },
+  {
+    "method": "LLM-Pruner",
+    "stage": "L0_dense",
+    "n": 20,
+    "pass_rate": 0.4,
+    "hit_max_rate": 0.1,
+    "eos_rate": 0.2,
+    "parse_success_rate": 0.55,
+    "mean_generated_tokens": 154.4
+  },
+  {
+    "method": "LLM-Pruner",
+    "stage": "L1_pruned_no_lora",
+    "n": 20,
+    "pass_rate": 0.15,
+    "hit_max_rate": 0.05,
+    "eos_rate": 0.15,
+    "parse_success_rate": 0.6,
+    "mean_generated_tokens": 117.95
+  },
+  {
+    "method": "LLM-Pruner",
+    "stage": "L2_pruned_lora_adapter",
+    "n": 20,
+    "pass_rate": 0.0,
+    "hit_max_rate": 0.8,
+    "eos_rate": 0.15,
+    "parse_success_rate": 0.2,
+    "mean_generated_tokens": 499.4
+  },
+  {
+    "method": "SliceGPT",
+    "stage": "S0_dense",
+    "n": 20,
+    "pass_rate": 0.4,
+    "hit_max_rate": 0.1,
+    "eos_rate": 0.2,
+    "parse_success_rate": 0.55,
+    "mean_generated_tokens": 154.4
+  },
+  {
+    "method": "SliceGPT",
+    "stage": "S1_sliced_no_lora",
+    "n": 20,
+    "pass_rate": 0.0,
+    "hit_max_rate": 0.8,
+    "eos_rate": 0.2,
+    "parse_success_rate": 0.2,
+    "mean_generated_tokens": 409.8
+  },
+  {
+    "method": "SliceGPT",
+    "stage": "S2_sliced_lora_adapter",
+    "n": 20,
+    "pass_rate": 0.0,
+    "hit_max_rate": 1.0,
+    "eos_rate": 0.0,
+    "parse_success_rate": 0.2,
+    "mean_generated_tokens": 614.4
+  }
+]

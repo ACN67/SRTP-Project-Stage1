@@ -1,0 +1,46 @@
+Loading tokenizer from Qwen/Qwen2.5-Coder-1.5B-Instruct
+Loading Qwen2 weights
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<02:37,  2.14it/s]Loading weights:  44%|████▍     | 148/338 [00:00<00:00, 336.04it/s]Loading weights:  67%|██████▋   | 226/338 [00:00<00:00, 439.14it/s]Loading weights:  89%|████████▉ | 302/338 [00:00<00:00, 467.19it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 373.81it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Preparing dataloader
+Filter:   0%|          | 0/436 [00:00<?, ? examples/s]Filter: 100%|██████████| 436/436 [00:00<00:00, 21778.47 examples/s]
+Preparing dataloader done
+Replacing layers
+Replacing layers done
+Fusing layernorm modules
+Fusing layernorm modules done
+Rotate and slice layers
+Rotating and slicing:   0%|          | 0/28 [00:00<?, ?layer/s]Rotating and slicing:   4%|▎         | 1/28 [00:07<03:19,  7.39s/layer]Rotating and slicing:   7%|▋         | 2/28 [00:13<02:56,  6.79s/layer]Rotating and slicing:  11%|█         | 3/28 [00:19<02:42,  6.51s/layer]Rotating and slicing:  14%|█▍        | 4/28 [00:25<02:31,  6.33s/layer]Rotating and slicing:  18%|█▊        | 5/28 [00:31<02:22,  6.20s/layer]Rotating and slicing:  21%|██▏       | 6/28 [00:37<02:14,  6.13s/layer]Rotating and slicing:  25%|██▌       | 7/28 [00:43<02:07,  6.08s/layer]Rotating and slicing:  29%|██▊       | 8/28 [00:49<02:01,  6.07s/layer]Rotating and slicing:  32%|███▏      | 9/28 [00:56<01:55,  6.08s/layer]Rotating and slicing:  36%|███▌      | 10/28 [01:02<01:49,  6.08s/layer]Rotating and slicing:  39%|███▉      | 11/28 [01:08<01:43,  6.11s/layer]Rotating and slicing:  43%|████▎     | 12/28 [01:14<01:37,  6.11s/layer]Rotating and slicing:  46%|████▋     | 13/28 [01:20<01:31,  6.11s/layer]Rotating and slicing:  50%|█████     | 14/28 [01:26<01:25,  6.09s/layer]Rotating and slicing:  54%|█████▎    | 15/28 [01:32<01:18,  6.05s/layer]Rotating and slicing:  57%|█████▋    | 16/28 [01:38<01:11,  5.99s/layer]Rotating and slicing:  61%|██████    | 17/28 [01:44<01:05,  5.94s/layer]Rotating and slicing:  64%|██████▍   | 18/28 [01:50<00:59,  5.92s/layer]Rotating and slicing:  68%|██████▊   | 19/28 [01:56<00:53,  5.91s/layer]Rotating and slicing:  71%|███████▏  | 20/28 [02:01<00:47,  5.91s/layer]Rotating and slicing:  75%|███████▌  | 21/28 [02:07<00:41,  5.91s/layer]Rotating and slicing:  79%|███████▊  | 22/28 [02:13<00:35,  5.89s/layer]Rotating and slicing:  82%|████████▏ | 23/28 [02:19<00:29,  5.89s/layer]Rotating and slicing:  86%|████████▌ | 24/28 [02:25<00:23,  5.88s/layer]Rotating and slicing:  89%|████████▉ | 25/28 [02:31<00:17,  5.85s/layer]Rotating and slicing:  93%|█████████▎| 26/28 [02:36<00:11,  5.83s/layer]Rotating and slicing:  96%|█████████▋| 27/28 [02:42<00:05,  5.81s/layer]Rotating and slicing: 100%|██████████| 28/28 [02:48<00:00,  5.80s/layer]Rotating and slicing: 100%|██████████| 28/28 [02:48<00:00,  6.02s/layer]
+Rotate and slice layers done
+{
+  "status": "success",
+  "method": "SliceGPT official Qwen2 adapter",
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "local_files_only": true,
+  "cal_dataset": "wikitext2",
+  "cal_guide_files": [
+    "data/splits/humaneval_half/guide.jsonl",
+    "data/splits/mbpp_evalplus_half/guide.jsonl",
+    "data/splits/livecodebench_half/guide.jsonl"
+  ],
+  "cal_guide_samples": 436,
+  "cal_nsamples": 999999,
+  "cal_batch_size": 1,
+  "cal_max_seqlen": 512,
+  "sparsity_requested": 0.45,
+  "hidden_size": 1536,
+  "new_embedding_dimension": 768,
+  "parameters_before": 1543714304,
+  "parameters_after": 1045716992,
+  "parameter_keep_ratio": 0.677403188718526,
+  "parameter_reduction_rate": 0.322596811281474,
+  "sliced_state_path": "results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/slicegpt_keep80/sliced_model/Qwen2.5-Coder-1.5B-Instruct_0.45.pt",
+  "slicing_config_path": "results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/slicegpt_keep80/sliced_model/Qwen2.5-Coder-1.5B-Instruct_0.45.json",
+  "sliced_model": "results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/slicegpt_keep80/sliced_model",
+  "sliced_model_loader": "scripts.adapt.slicegpt_qwen_official.load_sliced_qwen_model",
+  "process_rss_mb_after": 7002.65234375,
+  "elapsed_seconds": 260.3711748123169,
+  "torch": "2.11.0+cu128"
+}

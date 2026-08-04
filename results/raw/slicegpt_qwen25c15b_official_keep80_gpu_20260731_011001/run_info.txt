@@ -1,0 +1,4 @@
+ROOT_OUT=results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001
+MODEL=Qwen/Qwen2.5-Coder-1.5B-Instruct
+SPARSITY=0.45
+ROUND_INTERVAL=128

@@ -1,0 +1,2 @@
+ROOT_OUT=results/raw/qwen25c15b_official_evalhalf_20260729_172949
+MODEL=Qwen/Qwen2.5-Coder-1.5B-Instruct

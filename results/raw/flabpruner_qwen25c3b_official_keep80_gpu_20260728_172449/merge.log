@@ -1,0 +1,15 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/435 [00:00<?, ?it/s]Loading weights:  65%|██████▍   | 281/435 [00:00<00:00, 2807.04it/s]Loading weights: 100%|██████████| 435/435 [00:00<00:00, 3280.00it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:36<00:00, 36.81s/it]Writing model shards: 100%|██████████| 1/1 [00:36<00:00, 36.82s/it]
+{
+  "status": "success",
+  "base_model": "results/raw/flabpruner_qwen25c3b_official_keep80_gpu_20260728_172449/flabpruner_keep80/pruned_model",
+  "adapter": "results/raw/flabpruner_qwen25c3b_official_keep80_gpu_20260728_172449/flabpruner_keep80_lora/lora_adapter",
+  "merged_model": "results/raw/flabpruner_qwen25c3b_official_keep80_gpu_20260728_172449/flabpruner_keep80_merged",
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "param_count": 2468987648,
+  "process_rss_mb_after": 1714.53125,
+  "elapsed_seconds": 48.32309150695801,
+  "torch": "2.11.0+cu128"
+}

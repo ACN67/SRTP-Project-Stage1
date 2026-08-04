@@ -1,0 +1,4 @@
+method,stage,status,max_abs_logit_diff,mean_abs_logit_diff,top1_token_agreement,completion_exact_match,orthogonality_error,note
+FlabPruner,noop_invariant,NOT_RUN,,,,,,Required next; not run in existing-checkpoint-only pass.
+LLM-Pruner,noop_invariant,NOT_RUN,,,,,,Required next; not run in existing-checkpoint-only pass.
+SliceGPT,noop_invariant,NOT_RUN,,,,,,Required next; not run in existing-checkpoint-only pass.

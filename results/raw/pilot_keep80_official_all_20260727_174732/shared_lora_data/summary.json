@@ -1,0 +1,62 @@
+{
+  "status": "success",
+  "teacher_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "guide_files": [
+    {
+      "path": "data/splits/humaneval_half/guide.jsonl",
+      "sha256": "786d8c8f197c8c558073f1575731c8dfc8b657cc68dfcc82c9066ab208655b2c",
+      "samples_used": 4,
+      "benchmarks": [
+        "humaneval"
+      ],
+      "task_ids": [
+        "HumanEval/0",
+        "HumanEval/2",
+        "HumanEval/3",
+        "HumanEval/4"
+      ]
+    },
+    {
+      "path": "data/splits/mbpp_evalplus_half/guide.jsonl",
+      "sha256": "15b2981cbd9b2eda27643d8a77433880dbc9a9a41a8081f754960d2a0f115b56",
+      "samples_used": 4,
+      "benchmarks": [
+        "mbpp_evalplus"
+      ],
+      "task_ids": [
+        "Mbpp/2",
+        "Mbpp/3",
+        "Mbpp/4",
+        "Mbpp/6"
+      ]
+    },
+    {
+      "path": "data/splits/livecodebench_half/guide.jsonl",
+      "sha256": "6ff0ff93e6300c26a144bedbb45b0225781bca300776b7c630f3a26a8d797a0d",
+      "samples_used": 4,
+      "benchmarks": [
+        "livecodebench"
+      ],
+      "task_ids": [
+        "2779",
+        "2727",
+        "2730",
+        "abc301_a"
+      ]
+    }
+  ],
+  "samples": 12,
+  "prompt_policy": {
+    "official_prompt": true,
+    "humaneval": "EvalPlus/HumanEval raw prompt",
+    "mbpp_evalplus": "EvalPlus MBPP raw prompt",
+    "livecodebench": "LiveCodeBench format_prompt_generation + extract_code",
+    "lcb_release": "release_v1",
+    "lcb_config": "release_latest",
+    "lcb_lm_style": "CodeQwenInstruct"
+  },
+  "output": "results/raw/pilot_keep80_official_all_20260727_174732/shared_lora_data/distill_train.jsonl",
+  "teacher_generations": "results/raw/pilot_keep80_official_all_20260727_174732/shared_lora_data/teacher_generations.jsonl",
+  "local_files_only": true,
+  "elapsed_seconds": 79.29165244102478
+}

@@ -1,0 +1,89 @@
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<04:03,  1.78it/s]Loading weights:   3%|▎         | 15/434 [00:00<00:14, 28.15it/s]Loading weights:   7%|▋         | 29/434 [00:00<00:07, 51.60it/s]Loading weights:  12%|█▏        | 51/434 [00:00<00:04, 88.88it/s]Loading weights:  17%|█▋        | 75/434 [00:01<00:02, 124.77it/s]Loading weights:  24%|██▍       | 105/434 [00:01<00:01, 166.92it/s]Loading weights:  29%|██▉       | 126/434 [00:01<00:01, 169.29it/s]Loading weights:  39%|███▉      | 171/434 [00:01<00:01, 242.71it/s]Loading weights:  46%|████▌     | 199/434 [00:01<00:00, 242.35it/s]Loading weights:  52%|█████▏    | 226/434 [00:01<00:01, 122.03it/s]Loading weights:  57%|█████▋    | 247/434 [00:02<00:02, 84.81it/s] Loading weights:  61%|██████    | 263/434 [00:02<00:02, 76.48it/s]Loading weights:  64%|██████▎   | 276/434 [00:02<00:02, 69.14it/s]Loading weights:  66%|██████▌   | 287/434 [00:03<00:02, 62.28it/s]Loading weights:  68%|██████▊   | 296/434 [00:03<00:02, 52.53it/s]Loading weights:  70%|██████▉   | 303/434 [00:03<00:02, 49.15it/s]Loading weights:  71%|███████   | 309/434 [00:03<00:02, 42.69it/s]Loading weights:  73%|███████▎  | 316/434 [00:04<00:03, 39.06it/s]Loading weights:  75%|███████▌  | 327/434 [00:04<00:02, 48.88it/s]Loading weights:  77%|███████▋  | 333/434 [00:04<00:02, 45.65it/s]Loading weights:  78%|███████▊  | 340/434 [00:04<00:02, 44.46it/s]Loading weights:  80%|███████▉  | 347/434 [00:04<00:01, 49.06it/s]Loading weights:  81%|████████▏ | 353/434 [00:04<00:01, 40.90it/s]Loading weights:  84%|████████▎ | 363/434 [00:05<00:01, 51.86it/s]Loading weights:  85%|████████▌ | 370/434 [00:05<00:01, 48.86it/s]Loading weights:  87%|████████▋ | 376/434 [00:05<00:01, 46.81it/s]Loading weights:  89%|████████▉ | 387/434 [00:05<00:00, 57.58it/s]Loading weights:  92%|█████████▏| 399/434 [00:05<00:00, 70.88it/s]Loading weights:  94%|█████████▍| 407/434 [00:05<00:00, 72.85it/s]Loading weights:  96%|█████████▌| 415/434 [00:05<00:00, 66.17it/s]Loading weights:  98%|█████████▊| 424/434 [00:05<00:00, 66.22it/s]Loading weights: 100%|██████████| 434/434 [00:06<00:00, 71.83it/s]
+{"event": "generated", "index": 1, "total": 5, "task_id": "2777", "prompt_mode": "livecodebench_official", "raw_completion_chars": 1912, "completion_chars": 1, "generated_tokens": 1024, "hit_max_new_tokens": true, "extract_warning": true, "gen_seconds": 25.449}
+{"event": "generated", "index": 2, "total": 5, "task_id": "2728", "prompt_mode": "livecodebench_official", "raw_completion_chars": 1399, "completion_chars": 1, "generated_tokens": 1024, "hit_max_new_tokens": true, "extract_warning": true, "gen_seconds": 25.146}
+{"event": "generated", "index": 3, "total": 5, "task_id": "2784", "prompt_mode": "livecodebench_official", "raw_completion_chars": 1496, "completion_chars": 1, "generated_tokens": 1024, "hit_max_new_tokens": true, "extract_warning": true, "gen_seconds": 25.281}
+{"event": "generated", "index": 4, "total": 5, "task_id": "abc301_b", "prompt_mode": "livecodebench_official", "raw_completion_chars": 1409, "completion_chars": 1, "generated_tokens": 1024, "hit_max_new_tokens": true, "extract_warning": true, "gen_seconds": 25.215}
+{"event": "generated", "index": 5, "total": 5, "task_id": "abc301_d", "prompt_mode": "livecodebench_official", "raw_completion_chars": 1593, "completion_chars": 1, "generated_tokens": 1024, "hit_max_new_tokens": true, "extract_warning": true, "gen_seconds": 24.918}
+{
+  "status": "success",
+  "model": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_keep80_merged",
+  "adapter": "",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/livecodebench_half/eval.jsonl",
+  "samples": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_eval5/livecodebench/generation/samples.jsonl",
+  "generations": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_eval5/livecodebench/generation/generations.jsonl",
+  "task_count": 5,
+  "prompt_mode": "livecodebench_official",
+  "official_prompt": true,
+  "lcb_release": "release_v1",
+  "lcb_config": "release_latest",
+  "lcb_lm_style": "CodeQwenInstruct",
+  "elapsed_seconds": 148.05272698402405,
+  "torch": "2.11.0+cu128",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "load_in_8bit": false,
+  "load_in_4bit": false,
+  "llm_int8_enable_fp32_cpu_offload": false,
+  "local_files_only": true,
+  "slicegpt_base_model": null,
+  "slicegpt_sparsity": null,
+  "slicegpt_round_interval": null,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null
+}
+Using the latest cached version of the dataset since livecodebench/code_generation_lite couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'release_latest-version_tag=release_v1' at /home/keshu/.cache/huggingface/datasets/livecodebench___code_generation_lite/release_latest-version_tag=release_v1/0.0.0/4c038560f391c4c05fdf7fd7ae61ae0e6dbd8672f8fe5b95597b78a8dc40a417 (last modified on Sat Jul 18 19:32:48 2026).
+Loaded 400 problems
+{"event": "id_coverage", "split_task_count": 5, "generation_task_count": 5, "matched_task_count": 5, "missing_generation_count": 0, "extra_generation_count": 0, "missing_problem_count": 0, "missing_generation_ids": [], "extra_generation_ids": [], "missing_problem_ids": []}
+{"event": "evaluating", "benchmark": "livecodebench", "task_count": 5, "timeout": 6, "num_process_evaluate": 4}
+Evaluating 5...
+  0%|          | 0/5 [00:00<?, ?it/s] 20%|██        | 1/5 [00:00<00:00,  4.77it/s]100%|██████████| 5/5 [00:00<00:00, 15.35it/s]
+{"event": "scored", "index": 1, "total": 5, "task_id": "2777", "pass": false}
+{"event": "scored", "index": 2, "total": 5, "task_id": "2728", "pass": false}
+{"event": "scored", "index": 3, "total": 5, "task_id": "2784", "pass": false}
+{"event": "scored", "index": 4, "total": 5, "task_id": "abc301_b", "pass": false}
+{"event": "scored", "index": 5, "total": 5, "task_id": "abc301_d", "pass": false}
+{
+  "status": "success",
+  "benchmark": "livecodebench",
+  "release": "release_v1",
+  "config": "release_latest",
+  "split": "results/raw/pilot_keep80_official_all_20260727_174732/pilot_splits/livecodebench_half/eval.jsonl",
+  "generations": "results/raw/pilot_keep80_official_all_20260727_174732/flabpruner_eval5/livecodebench/generation/generations.jsonl",
+  "task_count": 5,
+  "pass_count": 0,
+  "pass_rate": 0.0,
+  "status_counter": {
+    "fail": 5
+  },
+  "id_coverage": {
+    "split_task_count": 5,
+    "generation_task_count": 5,
+    "matched_task_count": 5,
+    "missing_generation_count": 0,
+    "extra_generation_count": 0,
+    "missing_problem_count": 0,
+    "missing_generation_ids": [],
+    "extra_generation_ids": [],
+    "missing_problem_ids": []
+  },
+  "completion_chars_le_1_count": 5,
+  "generated_chars_le_1_count": 2,
+  "official_metrics": {
+    "pass@1": 0.0,
+    "detail": {
+      "pass@1": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:02<16:42,  2.98s/it]Loading weights:  33%|███▎      | 113/338 [00:03<00:04, 51.46it/s]Loading weights:  52%|█████▏    | 175/338 [00:03<00:02, 66.72it/s]Loading weights:  63%|██████▎   | 214/338 [00:03<00:01, 76.44it/s]Loading weights:  72%|███████▏  | 243/338 [00:06<00:02, 37.80it/s]Loading weights:  78%|███████▊  | 262/338 [00:06<00:01, 42.38it/s]Loading weights:  82%|████████▏ | 278/338 [00:06<00:01, 46.42it/s]Loading weights:  86%|████████▋ | 292/338 [00:06<00:00, 47.28it/s]Loading weights:  90%|████████▉ | 303/338 [00:08<00:01, 22.85it/s]Loading weights:  93%|█████████▎| 315/338 [00:08<00:00, 25.91it/s]Loading weights:  95%|█████████▌| 322/338 [00:08<00:00, 27.23it/s]Loading weights:  97%|█████████▋| 329/338 [00:10<00:00, 13.95it/s]Loading weights: 100%|██████████| 338/338 [00:10<00:00, 32.26it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+trainable params: 8,034,304 || all params: 1,053,751,296 || trainable%: 0.7624
+{"step": 1, "total_steps": 55, "avg_loss": NaN}
+{"step": 2, "total_steps": 55, "avg_loss": NaN}
+{"step": 3, "total_steps": 55, "avg_loss": NaN}
+{"step": 4, "total_steps": 55, "avg_loss": NaN}
+{"step": 5, "total_steps": 55, "avg_loss": NaN}
+{"step": 6, "total_steps": 55, "avg_loss": NaN}
+{"step": 7, "total_steps": 55, "avg_loss": NaN}
+{"step": 8, "total_steps": 55, "avg_loss": NaN}
+{"step": 9, "total_steps": 55, "avg_loss": NaN}
+{"step": 10, "total_steps": 55, "avg_loss": NaN}
+{"step": 11, "total_steps": 55, "avg_loss": NaN}
+{"step": 12, "total_steps": 55, "avg_loss": NaN}
+{"step": 13, "total_steps": 55, "avg_loss": NaN}
+{"step": 14, "total_steps": 55, "avg_loss": NaN}
+{"step": 15, "total_steps": 55, "avg_loss": NaN}
+{"step": 16, "total_steps": 55, "avg_loss": NaN}
+{"step": 17, "total_steps": 55, "avg_loss": NaN}
+{"step": 18, "total_steps": 55, "avg_loss": NaN}
+{"step": 19, "total_steps": 55, "avg_loss": NaN}
+{"step": 20, "total_steps": 55, "avg_loss": NaN}
+{"step": 21, "total_steps": 55, "avg_loss": NaN}
+{"step": 22, "total_steps": 55, "avg_loss": NaN}
+{"step": 23, "total_steps": 55, "avg_loss": NaN}
+{"step": 24, "total_steps": 55, "avg_loss": NaN}
+{"step": 25, "total_steps": 55, "avg_loss": NaN}
+{"step": 26, "total_steps": 55, "avg_loss": NaN}
+{"step": 27, "total_steps": 55, "avg_loss": NaN}
+{"step": 28, "total_steps": 55, "avg_loss": NaN}
+{"step": 29, "total_steps": 55, "avg_loss": NaN}
+{"step": 30, "total_steps": 55, "avg_loss": NaN}
+{"step": 31, "total_steps": 55, "avg_loss": NaN}
+{"step": 32, "total_steps": 55, "avg_loss": NaN}
+{"step": 33, "total_steps": 55, "avg_loss": NaN}
+{"step": 34, "total_steps": 55, "avg_loss": NaN}
+{"step": 35, "total_steps": 55, "avg_loss": NaN}
+{"step": 36, "total_steps": 55, "avg_loss": NaN}
+{"step": 37, "total_steps": 55, "avg_loss": NaN}
+{"step": 38, "total_steps": 55, "avg_loss": NaN}
+{"step": 39, "total_steps": 55, "avg_loss": NaN}
+{"step": 40, "total_steps": 55, "avg_loss": NaN}
+{"step": 41, "total_steps": 55, "avg_loss": NaN}
+{"step": 42, "total_steps": 55, "avg_loss": NaN}
+{"step": 43, "total_steps": 55, "avg_loss": NaN}
+{"step": 44, "total_steps": 55, "avg_loss": NaN}
+{"step": 45, "total_steps": 55, "avg_loss": NaN}
+{"step": 46, "total_steps": 55, "avg_loss": NaN}
+{"step": 47, "total_steps": 55, "avg_loss": NaN}
+{"step": 48, "total_steps": 55, "avg_loss": NaN}
+{"step": 49, "total_steps": 55, "avg_loss": NaN}
+{"step": 50, "total_steps": 55, "avg_loss": NaN}
+{"step": 51, "total_steps": 55, "avg_loss": NaN}
+{"step": 52, "total_steps": 55, "avg_loss": NaN}
+{"step": 53, "total_steps": 55, "avg_loss": NaN}
+{"step": 54, "total_steps": 55, "avg_loss": NaN}
+{"step": 55, "total_steps": 55, "avg_loss": NaN}
+/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in Qwen/Qwen2.5-Coder-1.5B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+{
+  "status": "success",
+  "base_model": "results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/slicegpt_keep80/sliced_model",
+  "train_file": "results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/shared_lora_data/distill_train.jsonl",
+  "samples": 436,
+  "output_adapter": "results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/slicegpt_keep80_lora/lora_adapter",
+  "rank": 8,
+  "alpha": 16,
+  "dropout": 0.0,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "epochs": 1.0,
+  "batch_size": 1,
+  "grad_accum": 8,
+  "max_length": 256,
+  "lr": 0.0002,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "load_in_4bit": false,
+  "local_files_only": true,
+  "gradient_checkpointing": true,
+  "llmpruner_base_model": null,
+  "slicegpt_base_model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "slicegpt_sparsity": 0.45,
+  "slicegpt_round_interval": 128,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null,
+  "steps": 55,
+  "elapsed_seconds": 136.91853952407837
+}

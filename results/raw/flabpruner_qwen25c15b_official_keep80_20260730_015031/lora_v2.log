@@ -1,0 +1,97 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 3727.23it/s]
+trainable params: 8,200,192 || all params: 1,193,705,728 || trainable%: 0.6870
+{"step": 1, "total_steps": 55, "avg_loss": NaN}
+{"step": 2, "total_steps": 55, "avg_loss": NaN}
+{"step": 3, "total_steps": 55, "avg_loss": NaN}
+{"step": 4, "total_steps": 55, "avg_loss": NaN}
+{"step": 5, "total_steps": 55, "avg_loss": NaN}
+{"step": 6, "total_steps": 55, "avg_loss": NaN}
+{"step": 7, "total_steps": 55, "avg_loss": NaN}
+{"step": 8, "total_steps": 55, "avg_loss": NaN}
+{"step": 9, "total_steps": 55, "avg_loss": NaN}
+{"step": 10, "total_steps": 55, "avg_loss": NaN}
+{"step": 11, "total_steps": 55, "avg_loss": NaN}
+{"step": 12, "total_steps": 55, "avg_loss": NaN}
+{"step": 13, "total_steps": 55, "avg_loss": NaN}
+{"step": 14, "total_steps": 55, "avg_loss": NaN}
+{"step": 15, "total_steps": 55, "avg_loss": NaN}
+{"step": 16, "total_steps": 55, "avg_loss": NaN}
+{"step": 17, "total_steps": 55, "avg_loss": NaN}
+{"step": 18, "total_steps": 55, "avg_loss": NaN}
+{"step": 19, "total_steps": 55, "avg_loss": NaN}
+{"step": 20, "total_steps": 55, "avg_loss": NaN}
+{"step": 21, "total_steps": 55, "avg_loss": NaN}
+{"step": 22, "total_steps": 55, "avg_loss": NaN}
+{"step": 23, "total_steps": 55, "avg_loss": NaN}
+{"step": 24, "total_steps": 55, "avg_loss": NaN}
+{"step": 25, "total_steps": 55, "avg_loss": NaN}
+{"step": 26, "total_steps": 55, "avg_loss": NaN}
+{"step": 27, "total_steps": 55, "avg_loss": NaN}
+{"step": 28, "total_steps": 55, "avg_loss": NaN}
+{"step": 29, "total_steps": 55, "avg_loss": NaN}
+{"step": 30, "total_steps": 55, "avg_loss": NaN}
+{"step": 31, "total_steps": 55, "avg_loss": NaN}
+{"step": 32, "total_steps": 55, "avg_loss": NaN}
+{"step": 33, "total_steps": 55, "avg_loss": NaN}
+{"step": 34, "total_steps": 55, "avg_loss": NaN}
+{"step": 35, "total_steps": 55, "avg_loss": NaN}
+{"step": 36, "total_steps": 55, "avg_loss": NaN}
+{"step": 37, "total_steps": 55, "avg_loss": NaN}
+{"step": 38, "total_steps": 55, "avg_loss": NaN}
+{"step": 39, "total_steps": 55, "avg_loss": NaN}
+{"step": 40, "total_steps": 55, "avg_loss": NaN}
+{"step": 41, "total_steps": 55, "avg_loss": NaN}
+{"step": 42, "total_steps": 55, "avg_loss": NaN}
+{"step": 43, "total_steps": 55, "avg_loss": NaN}
+{"step": 44, "total_steps": 55, "avg_loss": NaN}
+{"step": 45, "total_steps": 55, "avg_loss": NaN}
+{"step": 46, "total_steps": 55, "avg_loss": NaN}
+{"step": 47, "total_steps": 55, "avg_loss": NaN}
+{"step": 48, "total_steps": 55, "avg_loss": NaN}
+{"step": 49, "total_steps": 55, "avg_loss": NaN}
+{"step": 50, "total_steps": 55, "avg_loss": NaN}
+{"step": 51, "total_steps": 55, "avg_loss": NaN}
+{"step": 52, "total_steps": 55, "avg_loss": NaN}
+{"step": 53, "total_steps": 55, "avg_loss": NaN}
+{"step": 54, "total_steps": 55, "avg_loss": NaN}
+{"step": 55, "total_steps": 55, "avg_loss": NaN}
+{
+  "status": "success",
+  "base_model": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/flabpruner_keep80_v2/pruned_model",
+  "train_file": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/shared_lora_data/distill_train.jsonl",
+  "samples": 436,
+  "output_adapter": "results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/flabpruner_keep80_lora_v2/lora_adapter",
+  "rank": 8,
+  "alpha": 16,
+  "dropout": 0.0,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "epochs": 1.0,
+  "batch_size": 1,
+  "grad_accum": 8,
+  "max_length": 512,
+  "lr": 0.0002,
+  "dtype": "fp16",
+  "device": "cuda:0",
+  "load_mode": "direct",
+  "load_in_4bit": false,
+  "local_files_only": true,
+  "gradient_checkpointing": true,
+  "llmpruner_base_model": null,
+  "slicegpt_base_model": null,
+  "slicegpt_sparsity": null,
+  "slicegpt_round_interval": null,
+  "device_map": null,
+  "max_memory": null,
+  "offload_folder": null,
+  "steps": 55,
+  "elapsed_seconds": 106.91643762588501
+}

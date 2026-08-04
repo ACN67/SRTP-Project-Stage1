@@ -1,0 +1,11 @@
+== START flab_prune: Mon Jul 27 17:49:03 CST 2026 ==
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/flab_qwen_official.py", line 326, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/flab_qwen_official.py", line 225, in main
+    plan = validate_remain(config, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/adapt/flab_qwen_official.py", line 92, in validate_remain
+    raise ValueError(f"hidden_size_remain {hidden_remain} must divide num_attention_heads_remain {heads_remain}")
+ValueError: hidden_size_remain 1536 must divide num_attention_heads_remain 13

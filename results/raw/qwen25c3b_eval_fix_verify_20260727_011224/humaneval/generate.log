@@ -1,0 +1,88 @@
+Traceback (most recent call last):
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/eval/generate_evalplus_samples.py", line 220, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/scripts/eval/generate_evalplus_samples.py", line 81, in main
+    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 904, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1676, in from_pretrained
+    for template in list_repo_templates(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/transformers/utils/hub.py", line 147, in list_repo_templates
+    return [
+           ^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/transformers/utils/hub.py", line 147, in <listcomp>
+    return [
+           ^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 3954, in list_repo_tree
+    for path_info in paginate(path=tree_url, headers=headers, params={"recursive": recursive, "expand": expand}):
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/huggingface_hub/utils/_pagination.py", line 36, in paginate
+    r = session.get(path, params=params, headers=headers, timeout=timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/projects/srtp-code-llm-pruning/.venv-common/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 208, in connect_tcp
+    sock = socket.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/keshu/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/socket.py", line 848, in create_connection
+    sock.connect(sa)
+KeyboardInterrupt
+Command exited with non-zero status 1
+	Command being timed: ".venv-common/bin/python scripts/eval/generate_evalplus_samples.py --model Qwen/Qwen2.5-Coder-3B-Instruct --split data/splits/humaneval_half/eval.jsonl --out-dir results/raw/qwen25c3b_eval_fix_verify_20260727_011224/humaneval --max-new-tokens 512 --dtype fp16 --device cuda:0 --prompt-mode raw"
+	User time (seconds): 5.37
+	System time (seconds): 0.36
+	Percent of CPU this job got: 17%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:33.17
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1003532
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 123
+	Minor (reclaiming a frame) page faults: 142704
+	Voluntary context switches: 398
+	Involuntary context switches: 127
+	Swaps: 0
+	File system inputs: 11872
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
