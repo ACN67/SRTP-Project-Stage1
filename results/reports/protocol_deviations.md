@@ -32,3 +32,6 @@ The benchmark-activation mask path is experimental and blocked because the vendo
 
 ## LaCo smoke boundary
 The LaCo tiny core smoke demonstrates layer similarity scoring and collapse mechanics only. It is diagnostic evidence and not formal CodeLlama R4 evidence.
+
+## Flab capped-32 calibration
+The benchmark-guided HE, MBPP, and LCB variants use capped-32 guide calibration and fixed 20-task non-collapse gates. These are pilot quality gates and are not full-guide formal results.

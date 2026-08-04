@@ -1,0 +1,1 @@
+standard_attempt: load vendored Flab model local_files_only=True

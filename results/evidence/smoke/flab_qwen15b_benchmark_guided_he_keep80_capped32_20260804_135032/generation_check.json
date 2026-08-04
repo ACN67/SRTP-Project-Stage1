@@ -1,0 +1,6 @@
+{
+  "empty_rate": 0.0,
+  "duplicate_rate": 0.95,
+  "median_generated_tokens": 16,
+  "nan_or_inf": false
+}

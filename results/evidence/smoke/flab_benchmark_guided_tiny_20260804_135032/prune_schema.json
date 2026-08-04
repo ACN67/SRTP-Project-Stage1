@@ -1,0 +1,11 @@
+{
+  "zs_keys": [
+    "hidden_index",
+    "head_indexes",
+    "kv_head_indexes",
+    "intermediate_indexes"
+  ],
+  "benchmark_guided_dimensions": [
+    "intermediate"
+  ]
+}

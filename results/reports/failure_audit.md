@@ -44,3 +44,6 @@ The final-completion pass added bounded evidence attempts for Flab benchmark act
 
 ## LaCo first executable break
 The old LaCo notebook file probe is insufficient as execution evidence. `methods/laco/run_smoke.py` now proves the minimal adjacent-layer similarity and collapse core on a tiny LLaMA-compatible model, but no formal CodeLlama R4 score exists.
+
+## Flab Benchmark-Guided Quality Failure
+The benchmark-guided path executes structurally and reloads, so the first break is not pruning mechanics. The capped-20 quality gates for HE, MBPP, and LCB all produced nonempty outputs but duplicate rate 0.95, triggering the predefined output-collapse stop rule.

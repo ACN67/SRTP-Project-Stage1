@@ -1,0 +1,76 @@
+{
+  "contract": "tests/acceptance/flab_benchmark_guided.yaml",
+  "implementation_closed": true,
+  "target_smoke_closed": true,
+  "experiment_closed": true,
+  "quality_gate": "fail",
+  "officiality": "experimental_extension",
+  "formal_variants": {
+    "he": "skipped_due_to_output_collapse",
+    "mbpp": "skipped_due_to_output_collapse",
+    "lcb": "skipped_due_to_output_collapse"
+  },
+  "tiny": {
+    "implementation_closed": true,
+    "params_after_less_than_before": true,
+    "tiny_save_reload_success": true,
+    "guide_causality": true
+  },
+  "qwen15b_smoke": {
+    "run_id": "flab_qwen15b_benchmark_guided_smoke_20260804_135032",
+    "method": "Flab-Pruner",
+    "command_status": "exit_0",
+    "execution_status": "code_model_smoke_completed",
+    "validity_status": "valid",
+    "quality_gate": "pass",
+    "target_smoke_closed": true,
+    "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "standard_attempt": "vendored Flab Qwen2ForCausalLM local_files_only load by model id",
+    "fallback_attempt": "local Hugging Face snapshot discovery under user cache",
+    "artifact_locator": {
+      "artifact_base": "/tmp/flab_qwen15b_benchmark_guided_artifacts_20260804_135032",
+      "committed_to_git": false
+    },
+    "vendored_flab_model_loaded": true,
+    "model_load_source": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "params_before": 1777088000,
+    "real_model_forward_called": true,
+    "tensor_activation_collected": true,
+    "benchmark_importance_computed": true,
+    "guide_hash": "ed585e026381a03fb52651ce674b78be24f096d88c87d34128d4113d64b5cb47",
+    "importance_hash": "5286b51b53a2ffb0cdd17650130809e0efc4325e92ce973d5a7235c51a63ccce",
+    "selected_index_hash": "5a6ec54f147320b708f65c376caebc76d68d00f9c28f9b557939bb35fcf00614",
+    "benchmark_guided_dimensions": [
+      "intermediate"
+    ],
+    "config_derived_dimensions": [
+      "hidden",
+      "attention_head",
+      "kv_head"
+    ],
+    "requested_parameter_keep_ratio": 0.8,
+    "intermediate_size_before": 8960,
+    "intermediate_size_after": 6205,
+    "actual_flab_prune_called": true,
+    "params_after": 1421626880,
+    "actual_parameter_keep_ratio": 0.7999755104980733,
+    "params_after_less_than_before": true,
+    "artifact_saved": true,
+    "artifact_reloaded": true,
+    "forward_after_reload": true,
+    "nonempty_generation_after_reload": true,
+    "generation_check": {
+      "reload_success": true,
+      "forward_after_reload": true,
+      "nonempty_generation_after_reload": true,
+      "generated_token_count": 4,
+      "generated_tokens": [
+        51960,
+        28050,
+        49337,
+        22827
+      ],
+      "artifact_path": "/tmp/flab_qwen15b_benchmark_guided_artifacts_20260804_135032/artifact"
+    }
+  }
+}

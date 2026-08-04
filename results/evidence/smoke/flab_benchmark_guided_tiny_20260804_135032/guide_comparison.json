@@ -1,0 +1,10 @@
+{
+  "same_initial_model_for_guide_comparison": true,
+  "guide_a_hash": "41e8bac40369bf240de8d63224fa2ed5ff681bf4ccf2a6c8d22a6b100f45ba3f",
+  "guide_b_hash": "5a599bc46454fb56cfc752d857f1ec2d36af1b85bcb623ef08134f59d869d212",
+  "guide_a_importance_hash": "787e84e1fe5d283db74756d55ccdcfe0d078ee79011a2100ab79fc754185c9e0",
+  "guide_b_importance_hash": "27fadee93c031dec3ce81380e35c4b340cc03eb7c08a451a63caa5d2722621a3",
+  "selected_indices_a_hash": "39defc27a7d31d11019c6c3ca1cddecd5644dc27819d0e1e011987e7deef1c5f",
+  "selected_indices_b_hash": "694fb20cfc9e21885dbe5e2f735e4346bb53682bb93ae52606876b9aa2af7593",
+  "selected_indices_differ": true
+}

@@ -1,0 +1,7 @@
+{
+  "params_before": 107072,
+  "actual_flab_prune_called": true,
+  "params_after": 76352,
+  "actual_parameter_keep_ratio": 0.7130902570233114,
+  "params_after_less_than_before": true
+}

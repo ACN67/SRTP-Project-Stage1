@@ -1,0 +1,9 @@
+{
+  "command_status": "exit_nonzero",
+  "execution_status": "failed",
+  "validity_status": "diagnostic_only",
+  "quality_gate": "not_applicable",
+  "returncode": 2,
+  "run_id": "flab_acceptance_initial_failure_20260804_135032",
+  "method": "Flab-Pruner"
+}

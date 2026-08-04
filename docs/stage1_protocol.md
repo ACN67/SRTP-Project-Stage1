@@ -26,3 +26,6 @@ Completion criteria require traceable code, benchmark protocol, registry rows, e
 
 ## Registry and evidence relationship
 `results/evidence/` is immutable raw evidence. `results/status/` is the generated status index. The registry can be rebuilt from evidence, manifests, method configuration, and explicit inference rules.
+
+## Flab Benchmark-Guided Experimental Boundary
+The benchmark-guided Flab extension is experimental. It controls FFN intermediate retained indices from guide activations and leaves hidden, attention-head, and KV-head dimensions config-derived. Capped-32 quality gates must not be reported as full formal evaluation.

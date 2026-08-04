@@ -1,0 +1,84 @@
+task_id: flab_benchmark_guided_experimental
+owner: 常珂舒
+
+scope:
+  allowed_methods:
+    - Flab-Pruner
+  forbidden_methods:
+    - LLM-Pruner
+    - SliceGPT
+    - LaCo
+    - Magnitude
+    - Wanda
+    - DSnoT
+    - OWL
+    - SparseGPT
+    - MaskLLM
+    - Pruner-Zero
+    - FLAP
+
+minimum_evidence:
+  implementation: L3_algorithm_tiny_smoke
+  target_model: L4_code_model_smoke
+  experiment: L5_formal_attempt
+
+required_behavior:
+  - vendored_flab_model_loaded
+  - real_model_forward_called
+  - tensor_activation_collected
+  - benchmark_importance_computed
+  - exact_upstream_zs_schema_recorded
+  - guide_derived_indices_created
+  - actual_flab_prune_called
+  - params_after_less_than_before
+  - model_structure_or_config_updated
+  - artifact_saved
+  - artifact_reloaded
+  - forward_after_reload
+  - nonempty_generation_after_reload
+  - guide_hash_recorded
+  - selected_index_hash_recorded
+  - requested_and_actual_keep_ratio_recorded
+
+causality:
+  required:
+    - same_initial_model_for_guide_comparison
+    - guide_a_importance_hash
+    - guide_b_importance_hash
+    - selected_indices_compared
+  rule:
+    at_least_one_selected_structural_dimension_must_differ_between
+    deliberately_distinct_guide_inputs_or_the_run_must_be_marked
+    guide_not_causally_distinguishable
+
+forbidden_success_proxies:
+  - help_exit_zero
+  - import_only
+  - file_exists
+  - dry_run_only
+  - synthetic_activation
+  - prompt_length_importance
+  - summary_status_without_artifact
+  - external_mask_json_without_prune
+  - top_level_api_absence_without_internal_adapter_attempt
+  - expected_outputs_empty
+
+success_requirements:
+  implementation_closed:
+    - tiny_prune_success
+    - params_after_less_than_before
+    - tiny_save_reload_success
+  target_smoke_closed:
+    - qwen15b_prune_success
+    - qwen15b_save_reload_success
+    - qwen15b_nonempty_generation
+  experiment_closed:
+    - all_three_guide_variants_attempted
+    - each_variant_has_valid_artifact_or_explicit_runtime_failure
+    - formal_eval_run_for_each_noncollapsed_variant
+
+blocker_policy:
+  blocker_may_stop_current_run: true
+  blocker_may_set_implementation_closed: false
+  blocker_may_set_owner_execution_closed: false
+  allowed_blocker_codes: []

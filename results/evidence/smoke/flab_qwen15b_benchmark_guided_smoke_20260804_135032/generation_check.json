@@ -1,0 +1,13 @@
+{
+  "reload_success": true,
+  "forward_after_reload": true,
+  "nonempty_generation_after_reload": true,
+  "generated_token_count": 4,
+  "generated_tokens": [
+    51960,
+    28050,
+    49337,
+    22827
+  ],
+  "artifact_path": "/tmp/flab_qwen15b_benchmark_guided_artifacts_20260804_135032/artifact"
+}

@@ -20,8 +20,8 @@
       "quality_gate": "fail"
     },
     "LaCo": {
-      "execution_status": "partial",
-      "validity_status": "diagnostic_only",
+      "execution_status": "skipped",
+      "validity_status": "not_applicable",
       "quality_gate": "not_applicable"
     },
     "Magnitude": {
@@ -79,7 +79,6 @@
     "SliceGPT"
   ],
   "partial": [
-    "LaCo",
     "Magnitude",
     "Wanda"
   ],
@@ -98,7 +97,6 @@
     "SliceGPT"
   ],
   "partial_methods": [
-    "LaCo",
     "Magnitude",
     "Wanda"
   ],

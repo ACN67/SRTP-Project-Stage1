@@ -1,0 +1,13 @@
+{
+  "reload_success": true,
+  "forward_after_reload": true,
+  "nonempty_generation_after_reload": true,
+  "generated_token_count": 4,
+  "generated_tokens": [
+    151,
+    70,
+    37,
+    239
+  ],
+  "artifact_path": "/tmp/flab_benchmark_guided_tiny_artifacts_20260804_135032/artifact_a"
+}

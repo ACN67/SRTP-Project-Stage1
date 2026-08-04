@@ -1,0 +1,47 @@
+{
+  "Qwen2ForCausalLM.prune": {
+    "signature": "(self, config, stage)",
+    "file": "third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py",
+    "line": 1513
+  },
+  "Qwen2ForCausalLM.init_prune_zs": {
+    "signature": "(self, config, stage)",
+    "file": "third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py",
+    "line": 1461
+  },
+  "Qwen2Model.prune": {
+    "signature": "(self, zs)",
+    "file": "third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py",
+    "line": 1260
+  },
+  "Qwen2DecoderLayer.prune": {
+    "signature": "(self, zs, layer_num)",
+    "file": "third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py",
+    "line": 920
+  },
+  "Qwen2Attention.prune": {
+    "signature": "(self, zs, layer_num)",
+    "file": "third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py",
+    "line": 402
+  },
+  "Qwen2FlashAttention2.prune": {
+    "signature": "(self, zs, layer_num)",
+    "file": "third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py",
+    "line": 714
+  },
+  "Qwen2SdpaAttention.prune": {
+    "signature": "(self, zs, layer_num)",
+    "file": "third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py",
+    "line": 818
+  },
+  "Qwen2MLP.prune": {
+    "signature": "(self, zs, layer_num)",
+    "file": "third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py",
+    "line": 261
+  },
+  "Qwen2RMSNorm.prune": {
+    "signature": "(self, hidden_index)",
+    "file": "third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py",
+    "line": 169
+  }
+}

@@ -87,7 +87,7 @@ def test_auxiliary_protocol_and_manifests_are_consistent() -> None:
 
 def test_registry_builders_write_check_and_are_idempotent(tmp_path: Path) -> None:
     work = tmp_path / 'repo'
-    ignore = shutil.ignore_patterns('.git', 'third_party', 'results/evidence')
+    ignore = shutil.ignore_patterns('.git', 'third_party', 'results/evidence', '.venv*', '.pytest_cache')
     shutil.copytree(ROOT, work, ignore=ignore)
     (work / 'results/evidence').mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / 'results/evidence', work / 'results/evidence', dirs_exist_ok=True)

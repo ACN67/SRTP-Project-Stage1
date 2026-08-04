@@ -1,0 +1,99 @@
+{
+  "command_status": "exit_0",
+  "execution_status": "tiny_smoke_completed",
+  "validity_status": "valid",
+  "quality_gate": "pass",
+  "method": "Flab-Pruner",
+  "implementation_closed": true,
+  "target_parameter_keep_ratio": 0.8,
+  "benchmark_guided_dimensions": [
+    "intermediate"
+  ],
+  "config_derived_dimensions": [
+    "hidden",
+    "attention_head",
+    "kv_head"
+  ],
+  "guide_comparison": {
+    "same_initial_model_for_guide_comparison": true,
+    "guide_a_hash": "41e8bac40369bf240de8d63224fa2ed5ff681bf4ccf2a6c8d22a6b100f45ba3f",
+    "guide_b_hash": "5a599bc46454fb56cfc752d857f1ec2d36af1b85bcb623ef08134f59d869d212",
+    "guide_a_importance_hash": "787e84e1fe5d283db74756d55ccdcfe0d078ee79011a2100ab79fc754185c9e0",
+    "guide_b_importance_hash": "27fadee93c031dec3ce81380e35c4b340cc03eb7c08a451a63caa5d2722621a3",
+    "selected_indices_a_hash": "39defc27a7d31d11019c6c3ca1cddecd5644dc27819d0e1e011987e7deef1c5f",
+    "selected_indices_b_hash": "694fb20cfc9e21885dbe5e2f735e4346bb53682bb93ae52606876b9aa2af7593",
+    "selected_indices_differ": true
+  },
+  "a": {
+    "vendored_flab_model_loaded": true,
+    "real_model_forward_called": true,
+    "tensor_activation_collected": true,
+    "benchmark_importance_computed": true,
+    "guide_hash": "41e8bac40369bf240de8d63224fa2ed5ff681bf4ccf2a6c8d22a6b100f45ba3f",
+    "importance_hash": "787e84e1fe5d283db74756d55ccdcfe0d078ee79011a2100ab79fc754185c9e0",
+    "selected_index_hash": "39defc27a7d31d11019c6c3ca1cddecd5644dc27819d0e1e011987e7deef1c5f",
+    "benchmark_guided_dimensions": [
+      "intermediate"
+    ],
+    "config_derived_dimensions": [
+      "hidden",
+      "attention_head",
+      "kv_head"
+    ],
+    "guide_derived_indices_created": true,
+    "model_structure_or_config_updated": true,
+    "artifact_saved": true,
+    "actual_flab_prune_called": true,
+    "params_before": 107072,
+    "params_after": 76352,
+    "actual_parameter_keep_ratio": 0.7130902570233114,
+    "params_after_less_than_before": true,
+    "reload_success": true,
+    "forward_after_reload": true,
+    "nonempty_generation_after_reload": true,
+    "generated_token_count": 4,
+    "generated_tokens": [
+      151,
+      70,
+      37,
+      239
+    ],
+    "artifact_path": "/tmp/flab_benchmark_guided_tiny_artifacts_20260804_135032/artifact_a"
+  },
+  "b": {
+    "vendored_flab_model_loaded": true,
+    "real_model_forward_called": true,
+    "tensor_activation_collected": true,
+    "benchmark_importance_computed": true,
+    "guide_hash": "5a599bc46454fb56cfc752d857f1ec2d36af1b85bcb623ef08134f59d869d212",
+    "importance_hash": "27fadee93c031dec3ce81380e35c4b340cc03eb7c08a451a63caa5d2722621a3",
+    "selected_index_hash": "694fb20cfc9e21885dbe5e2f735e4346bb53682bb93ae52606876b9aa2af7593",
+    "benchmark_guided_dimensions": [
+      "intermediate"
+    ],
+    "config_derived_dimensions": [
+      "hidden",
+      "attention_head",
+      "kv_head"
+    ],
+    "guide_derived_indices_created": true,
+    "model_structure_or_config_updated": true,
+    "artifact_saved": true,
+    "actual_flab_prune_called": true,
+    "params_before": 107072,
+    "params_after": 76352,
+    "actual_parameter_keep_ratio": 0.7130902570233114,
+    "params_after_less_than_before": true,
+    "reload_success": true,
+    "forward_after_reload": true,
+    "nonempty_generation_after_reload": true,
+    "generated_token_count": 4,
+    "generated_tokens": [
+      151,
+      70,
+      63,
+      35
+    ],
+    "artifact_path": "/tmp/flab_benchmark_guided_tiny_artifacts_20260804_135032/artifact_b"
+  }
+}

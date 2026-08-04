@@ -276,17 +276,22 @@ def load_hf_model(model_name: str, dtype: str = "bf16", device_map: str | None =
     )
 
 
-def load_flab_qwen_model(model_name: str, config=None, dtype: str = "bf16", device_map: str | None = "auto", local_files_only: bool = False):
+def load_flab_qwen_model(model_name: str, config=None, dtype: str = "bf16", device_map: str | None = "auto", local_files_only: bool = False, allow_hf_fallback: bool = True):
     sys.path.insert(0, str(FLAB_ROOT))
     import torch
     from transformers import AutoConfig
     from hidden_prune_utils.modeling_qwen2 import Qwen2ForCausalLM
 
+    if isinstance(getattr(Qwen2ForCausalLM, "_tied_weights_keys", None), list):
+        Qwen2ForCausalLM._tied_weights_keys = {}
+
     if config is None:
         try:
             config = AutoConfig.from_pretrained(model_name, trust_remote_code=True, local_files_only=local_files_only)
-        except Exception:
-            return load_hf_model(model_name, dtype=dtype, device_map=device_map, local_files_only=local_files_only)
+        except Exception as exc:
+            if allow_hf_fallback:
+                return load_hf_model(model_name, dtype=dtype, device_map=device_map, local_files_only=local_files_only)
+            raise RuntimeError("vendored Flab model failed to load") from exc
     ensure_qwen2_compat_config(config)
     torch_dtype = {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[dtype]
     return Qwen2ForCausalLM.from_pretrained(model_name, config=config, torch_dtype=torch_dtype, local_files_only=local_files_only, device_map=device_map)
@@ -501,7 +506,7 @@ def main(argv=None) -> int:
             result["importance_status"] = "validated_parameters_only"
         else:
             tokenizer = load_hf_tokenizer(args.model, local_files_only=args.local_files_only)
-            model = load_flab_qwen_model(args.model, dtype=args.dtype, device_map=args.device_map, local_files_only=args.local_files_only)
+            model = load_flab_qwen_model(args.model, dtype=args.dtype, device_map=args.device_map, local_files_only=args.local_files_only, allow_hf_fallback=False)
             params_before = sum(p.numel() for p in model.parameters()) if hasattr(model, "parameters") else None
             activations = collect_activation_statistics(model, tokenizer, guide_rows, args.importance_max_length, args.importance_batch_size, args.importance_device)
             importance = compute_benchmark_activation_importance(activations)

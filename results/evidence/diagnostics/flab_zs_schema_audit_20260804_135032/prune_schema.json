@@ -1,0 +1,65 @@
+{
+  "top_level_prune_signature": "(self, config, stage)",
+  "init_prune_zs_signature": "(self, config, stage)",
+  "internal_prune_signature": "(self, zs)",
+  "zs_container_type": "dict[str, torch.BoolTensor | torch.LongTensor | list[torch.BoolTensor] | list[torch.LongTensor]]",
+  "zs_keys": [
+    "hidden_mask",
+    "hidden_index",
+    "head_masks",
+    "head_indexes",
+    "kv_head_masks",
+    "kv_head_indexes",
+    "intermediate_masks",
+    "intermediate_indexes"
+  ],
+  "index_or_mask_semantics": {
+    "hidden_mask": "global retained hidden-channel boolean mask",
+    "hidden_index": "global retained hidden-channel integer indices",
+    "head_masks": "per-layer attention-head boolean masks",
+    "head_indexes": "per-layer retained attention-head integer indices",
+    "kv_head_masks": "per-layer key/value-head boolean masks",
+    "kv_head_indexes": "per-layer retained key/value-head integer indices",
+    "intermediate_masks": "per-layer MLP intermediate-channel boolean masks",
+    "intermediate_indexes": "per-layer retained MLP intermediate-channel integer indices"
+  },
+  "per_layer_or_global": {
+    "hidden_mask": "global",
+    "hidden_index": "global",
+    "head_masks": "per_layer_list_length_num_hidden_layers",
+    "head_indexes": "per_layer_list_length_num_hidden_layers",
+    "kv_head_masks": "per_layer_list_length_num_hidden_layers",
+    "kv_head_indexes": "per_layer_list_length_num_hidden_layers",
+    "intermediate_masks": "per_layer_list_length_num_hidden_layers",
+    "intermediate_indexes": "per_layer_list_length_num_hidden_layers"
+  },
+  "expected_lengths": {
+    "hidden_mask": "config.hidden_size",
+    "hidden_index": "config.hidden_size_remain",
+    "head_masks[i]": "config.num_attention_heads",
+    "head_indexes[i]": "config.num_attention_heads_remain",
+    "kv_head_masks[i]": "config.num_key_value_heads",
+    "kv_head_indexes[i]": "config.num_key_value_heads_remain",
+    "intermediate_masks[i]": "config.intermediate_size",
+    "intermediate_indexes[i]": "config.ffn_hidden_size_remain"
+  },
+  "config_fields_changed": [
+    "hidden_size",
+    "intermediate_size",
+    "num_attention_heads",
+    "num_key_value_heads"
+  ],
+  "top_level_modules_requiring_sync": [
+    "model.embed_tokens",
+    "model.norm",
+    "lm_head",
+    "config"
+  ],
+  "save_reload_requirements": [
+    "config dimensions must match pruned module shapes",
+    "lm_head input dimension must match hidden_size"
+  ],
+  "preferred_benchmark_guided_dimension": "intermediate_indexes",
+  "supports_internal_model_prune_zs": true,
+  "supports_top_level_prune_config_stage": true
+}

@@ -1,0 +1,99 @@
+jobs:
+  - id: flab_zs_schema_audit
+    method: Flab-Pruner
+    evidence_level: L2_schema_audit
+    dependencies: []
+    command: python workflows/audit/check_flab_benchmark_guided.py --schema-audit
+    expected_outputs:
+      - results/evidence/diagnostics/flab_zs_schema_audit_20260804_135032/prune_schema.json
+      - results/evidence/diagnostics/flab_zs_schema_audit_20260804_135032/call_graph.md
+    content_validators:
+      - prune_schema_has_internal_model_prune_zs
+      - call_graph_records_top_level_and_internal_prune
+    failure_policy: fail_current_job
+    timeout_seconds: 120
+  - id: flab_benchmark_guided_tiny
+    method: Flab-Pruner
+    evidence_level: L3_algorithm_tiny_smoke
+    dependencies:
+      - flab_zs_schema_audit
+    command: python workflows/experiment/run_flab_benchmark_guided.py --job tiny
+    expected_outputs:
+      - results/evidence/smoke/flab_benchmark_guided_tiny_20260804_135032/summary.json
+      - results/evidence/smoke/flab_benchmark_guided_tiny_20260804_135032/parameter_summary_a.json
+      - results/evidence/smoke/flab_benchmark_guided_tiny_20260804_135032/reload_check_a.json
+      - results/evidence/smoke/flab_benchmark_guided_tiny_20260804_135032/guide_comparison.json
+    content_validators:
+      - params_after_less_than_before
+      - reload_success_true
+      - nonempty_generation_true
+      - selected_indices_differ_between_guides
+    failure_policy: fail_current_job
+    timeout_seconds: 600
+
+  - id: flab_qwen15b_benchmark_guided_smoke
+    method: Flab-Pruner
+    evidence_level: L4_code_model_smoke
+    dependencies:
+      - flab_benchmark_guided_tiny
+    command: python workflows/experiment/run_flab_benchmark_guided.py --job qwen15b_smoke
+    expected_outputs:
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_smoke_20260804_135032/summary.json
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_smoke_20260804_135032/stderr.log
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_smoke_20260804_135032/resource_summary.json
+    content_validators:
+      - target_smoke_closed_true_only_if_params_reload_generation_exist
+      - ordinary_hf_model_not_used_for_pruning
+    failure_policy: record_failed_target_smoke_without_closing_completion
+    timeout_seconds: 900
+
+  - id: flab_qwen15b_benchmark_guided_he_keep80_capped32
+    method: Flab-Pruner
+    evidence_level: L5_formal_attempt
+    dependencies:
+      - flab_qwen15b_benchmark_guided_smoke
+    command: python workflows/experiment/run_flab_benchmark_guided_variants.py --variant he
+    expected_outputs:
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_he_keep80_capped32_20260804_135032/summary.json
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_he_keep80_capped32_20260804_135032/parameter_summary.json
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_he_keep80_capped32_20260804_135032/generation_check.json
+    content_validators:
+      - guide_specific_artifact_created
+      - params_after_less_than_before
+      - capped20_noncollapse_gate_recorded
+    failure_policy: record_variant_failure_without_reusing_artifact
+    timeout_seconds: 1200
+
+  - id: flab_qwen15b_benchmark_guided_mbpp_keep80_capped32
+    method: Flab-Pruner
+    evidence_level: L5_formal_attempt
+    dependencies:
+      - flab_qwen15b_benchmark_guided_smoke
+    command: python workflows/experiment/run_flab_benchmark_guided_variants.py --variant mbpp
+    expected_outputs:
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_mbpp_keep80_capped32_20260804_135032/summary.json
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_mbpp_keep80_capped32_20260804_135032/parameter_summary.json
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_mbpp_keep80_capped32_20260804_135032/generation_check.json
+    content_validators:
+      - guide_specific_artifact_created
+      - params_after_less_than_before
+      - capped20_noncollapse_gate_recorded
+    failure_policy: record_variant_failure_without_reusing_artifact
+    timeout_seconds: 1200
+
+  - id: flab_qwen15b_benchmark_guided_lcb_keep80_capped32
+    method: Flab-Pruner
+    evidence_level: L5_formal_attempt
+    dependencies:
+      - flab_qwen15b_benchmark_guided_smoke
+    command: python workflows/experiment/run_flab_benchmark_guided_variants.py --variant lcb
+    expected_outputs:
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_lcb_keep80_capped32_20260804_135032/summary.json
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_lcb_keep80_capped32_20260804_135032/parameter_summary.json
+      - results/evidence/smoke/flab_qwen15b_benchmark_guided_lcb_keep80_capped32_20260804_135032/generation_check.json
+    content_validators:
+      - guide_specific_artifact_created
+      - params_after_less_than_before
+      - capped20_noncollapse_gate_recorded
+    failure_policy: record_variant_failure_without_reusing_artifact
+    timeout_seconds: 1200

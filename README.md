@@ -40,3 +40,7 @@ Stage 1 repository integrity is maintained, but not every planned method has a s
 
 ## Final completion state
 The Keshu-owned completion pass records `owner_execution_closed=true` in `results/status/keshu_completion.json` for Flab-Pruner, LLM-Pruner, SliceGPT, and LaCo. The global audit in `results/status/completion_audit.json` remains `stage1_execution_closed=false` because this pass intentionally did not execute or modify other owners' methods.
+
+
+## Flab Benchmark-Guided Experimental Extension
+Flab-Pruner now has an experimental benchmark-guided path separate from the local official structural route. The extension uses benchmark guide activations to choose MLP `intermediate_indexes`; hidden size, attention heads, and KV heads remain config-derived. The Qwen1.5B smoke produced a reloadable artifact at an external `/tmp` locator and achieved an actual keep ratio of about 0.79998, but all three capped-20 quality gates failed due to duplicated outputs, so full-guide formal evaluation was skipped. Machine-readable status is in `results/status/flab_benchmark_guided_completion.json`.

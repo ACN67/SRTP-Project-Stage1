@@ -91,7 +91,7 @@ def test_benchmark_activation_uses_real_forward_hooks_and_prune(monkeypatch, tmp
     guide.write_text(json.dumps({"task_id": "t0", "prompt": "def f(): pass", "contains_solution": False}) + "\n", encoding="utf-8")
     out = tmp_path / "out"
     monkeypatch.setattr(qwen_prune, "load_hf_tokenizer", FakeAuto.tokenizer_from_pretrained)
-    monkeypatch.setattr(qwen_prune, "load_hf_model", FakeAuto.model_from_pretrained)
+    monkeypatch.setattr(qwen_prune, "load_flab_qwen_model", FakeAuto.model_from_pretrained)
 
     rc = qwen_prune.main(
         [

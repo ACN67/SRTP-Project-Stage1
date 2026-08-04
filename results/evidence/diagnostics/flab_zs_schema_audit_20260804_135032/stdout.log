@@ -1,0 +1,9 @@
+Qwen2ForCausalLM.prune: (self, config, stage) @ third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1513
+Qwen2ForCausalLM.init_prune_zs: (self, config, stage) @ third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1461
+Qwen2Model.prune: (self, zs) @ third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:1260
+Qwen2DecoderLayer.prune: (self, zs, layer_num) @ third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:920
+Qwen2Attention.prune: (self, zs, layer_num) @ third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:402
+Qwen2FlashAttention2.prune: (self, zs, layer_num) @ third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:714
+Qwen2SdpaAttention.prune: (self, zs, layer_num) @ third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:818
+Qwen2MLP.prune: (self, zs, layer_num) @ third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:261
+Qwen2RMSNorm.prune: (self, hidden_index) @ third_party/flab_pruner/hidden_prune_utils/modeling_qwen2.py:169

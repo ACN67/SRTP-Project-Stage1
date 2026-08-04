@@ -19,3 +19,17 @@ Primary code: `methods/flab_pruner/qwen_prune.py`
 
 ## Current Interpretation
 The local official structural adapter remains the primary completed route. The benchmark-activation path now loads the vendored Flab Qwen model path instead of a plain Hugging Face model, but the vendored `prune(config, stage)` API has no verified external per-channel mask schema for the activation masks produced by the benchmark branch. That branch is therefore closed as a code-level blocker, not as a successful benchmark run.
+
+## Benchmark-Guided Experimental Path
+
+Evidence level L3/L4/L5 is recorded for the experimental benchmark-guided extension. This is not an upstream official Flab-Pruner mode.
+
+The enabled benchmark-guided structural dimension is `intermediate_indexes`: guide examples are forwarded through the vendored Qwen2 model, tensor activations are collected from MLP intermediate projections, and the retained FFN intermediate indices are selected from activation importance. The config-derived dimensions are `hidden`, `attention_head`, and `kv_head`, which remain full-size in this implementation.
+
+Primary evidence:
+- Schema audit: `results/evidence/diagnostics/flab_zs_schema_audit_20260804_135032/`.
+- Tiny guide causality smoke: `results/evidence/smoke/flab_benchmark_guided_tiny_20260804_135032/`.
+- Qwen1.5B target smoke: `results/evidence/smoke/flab_qwen15b_benchmark_guided_smoke_20260804_135032/`.
+- Capped quality gates: `results/evidence/smoke/flab_qwen15b_benchmark_guided_he_keep80_capped32_20260804_135032/`, `results/evidence/smoke/flab_qwen15b_benchmark_guided_mbpp_keep80_capped32_20260804_135032/`, and `results/evidence/smoke/flab_qwen15b_benchmark_guided_lcb_keep80_capped32_20260804_135032/`.
+
+The Qwen1.5B smoke reached an actual parameter keep ratio of `0.7999755104980733` (`1777088000` to `1421626880` parameters), saved an external artifact, reloaded it, and produced nonempty greedy output. All three capped-32 variants produced guide-specific artifacts and ran the fixed 20-task non-collapse gate, but each failed quality because duplicate rate was `0.95`; full-guide formal evaluation was therefore skipped by the predefined resource and quality rule.

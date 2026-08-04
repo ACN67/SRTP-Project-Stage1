@@ -27,3 +27,6 @@ SWE-bench-lite dataset smoke is recorded in `results/evidence/smoke/swebench_lit
 Owner: 常珂舒
 
 `results/status/keshu_completion.json` records owner_execution_closed=true for Flab-Pruner, LLM-Pruner, SliceGPT, and LaCo. `results/status/completion_audit.json` keeps stage1_execution_closed=false because this was intentionally owner-scoped.
+
+## Flab Benchmark-Guided Experimental Extension
+Flab benchmark-guided evidence is now separate from official structural evidence. The experimental extension guides only FFN intermediate indices from benchmark activations. Tiny and Qwen1.5B smoke evidence succeeded with real parameter reduction and reload, while HE/MBPP/LCB capped-20 quality gates failed on duplicate output rate and skipped full-guide formal evaluation.

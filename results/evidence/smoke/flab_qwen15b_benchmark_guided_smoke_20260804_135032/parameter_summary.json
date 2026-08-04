@@ -1,0 +1,8 @@
+{
+  "params_before": 1777088000,
+  "params_after": 1421626880,
+  "requested_parameter_keep_ratio": 0.8,
+  "actual_parameter_keep_ratio": 0.7999755104980733,
+  "intermediate_size_before": 8960,
+  "intermediate_size_after": 6205
+}
