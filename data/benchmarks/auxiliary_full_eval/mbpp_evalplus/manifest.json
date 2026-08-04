@@ -1,0 +1,9 @@
+{
+  "benchmark": "mbpp",
+  "split_name": "mbpp_evalplus",
+  "split_version": "stage1_formal_evalplus_v1",
+  "eval_path": "data/benchmarks/smoke/mbpp_evalplus/eval.jsonl",
+  "eval_sha256": "d565b777dcf2d5c04ec2b3ab7f327fb271ee5459539585baff1385ef493cc688",
+  "eval_count": 378,
+  "notes": "Full evalplus MBPP(+) problem set for formal Pass@1 scoring."
+}

@@ -10,18 +10,18 @@ This is an evidence-first checkpoint, not a final root-cause verdict. Existing c
 
 | 组件 | FlabPruner | LLM-Pruner | SliceGPT | 是否共享代码 |
 |---|---|---|---|---|
-| Dense model loader | `AutoConfig` + vendored `Qwen2ForCausalLM` in `scripts/adapt/flab_qwen_official.py` | `AutoModelForCausalLM.from_pretrained` in `scripts/adapt/llmpruner_qwen_official.py` | `AutoConfig` + local `Qwen2ModelAdapter` in `scripts/adapt/slicegpt_qwen_official.py` | no |
+| Dense model loader | `AutoConfig` + vendored `Qwen2ForCausalLM` in `methods/flab_pruner/qwen_prune.py` | `AutoModelForCausalLM.from_pretrained` in `methods/llm_pruner/qwen_prune.py` | `AutoConfig` + local `Qwen2ModelAdapter` in `methods/slicegpt/qwen_prune.py` | no |
 | Tokenizer loader | `AutoTokenizer.from_pretrained` | `AutoTokenizer.from_pretrained` | `AutoTokenizer.from_pretrained` | pattern shared, separate calls |
 | Pruning implementation | vendored Flab Qwen2 `model.prune(config, stage)` | vendored LLM-Pruner `MetaPruner` + `TaylorImportance` | local Qwen adapter over SliceGPT replace/fuse/rotate/slice | no |
 | Save checkpoint | HF `save_pretrained` after Flab prune | HF `save_pretrained` plus `llmpruner_qwen_shapes.json` | SliceGPT state/config + HF files | no |
 | Reload checkpoint | normal HF AutoModel | `load_llmpruner_qwen_model` | `load_sliced_qwen_model` | no |
-| LoRA dataset builder | `scripts/recover/create_distill_dataset.py` | same | same | yes |
-| PEFT configuration | `scripts/recover/train_lora_recovery.py` | same with custom loader | same with custom loader | mostly yes |
-| LoRA trainer | `scripts/recover/train_lora_recovery.py` | same | same | yes |
-| Merge adapter | `scripts/recover/merge_lora_model.py` | not used final | not used final | partly |
-| HumanEval evaluator | `scripts/eval/run_official_eval.sh` | same | same | yes |
-| MBPP evaluator | `scripts/eval/run_official_eval.sh` | same | same | yes |
-| LiveCodeBench evaluator | `scripts/eval/run_official_eval.sh` | same | same | yes |
+| LoRA dataset builder | `workflows/recovery/build_distillation_data.py` | same | same | yes |
+| PEFT configuration | `workflows/recovery/train_lora.py` | same with custom loader | same with custom loader | mostly yes |
+| LoRA trainer | `workflows/recovery/train_lora.py` | same | same | yes |
+| Merge adapter | `workflows/recovery/merge_lora.py` | not used final | not used final | partly |
+| HumanEval evaluator | `workflows/evaluate/run.sh` | same | same | yes |
+| MBPP evaluator | `workflows/evaluate/run.sh` | same | same | yes |
+| LiveCodeBench evaluator | `workflows/evaluate/run.sh` | same | same | yes |
 
 
 ## Existing Final Scores
@@ -36,9 +36,9 @@ SliceGPT final: HumanEval 0/82 = 0.0; MBPP 2/224 = 0.00893; LiveCodeBench 0/200 
 
 ## Existing Evidence
 
-- Flab path: `results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031`. Actual parameter ratio is `0.8939371828221396`. The run records that guide prompts are not used for Flab importance.
-- LLM-Pruner path: `results/raw/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340`. Taylor used 436 guide samples; requested ratio `0.28`; actual parameter ratio `0.8202547406077543`.
-- SliceGPT path: `results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001`. Local Qwen2 adapter run succeeded, but sparsity=0 invariant is still missing.
+- Flab path: `results/evidence/r4_half/flabpruner_qwen25c15b_official_keep80_20260730_015031`. Actual parameter ratio is `0.8939371828221396`. The run records that guide prompts are not used for Flab importance.
+- LLM-Pruner path: `results/evidence/r4_half/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340`. Taylor used 436 guide samples; requested ratio `0.28`; actual parameter ratio `0.8202547406077543`.
+- SliceGPT path: `results/evidence/r4_half/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001`. Local Qwen2 adapter run succeeded, but sparsity=0 invariant is still missing.
 - Saved solutions show different failure modes: Flab often repeats invalid asserts/hits max; LLM-Pruner often emits natural-language explanations; SliceGPT often emits syntactically invalid code. See `reports/raw_completion_failure_taxonomy.csv`.
 
 ## Current Root-Cause Boundary

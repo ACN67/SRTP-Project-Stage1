@@ -1,8 +1,8 @@
 # Official Benchmark Policy
 
 This project treats benchmark evaluation as a formal experimental interface. New
-paper-facing results must use the scripts in `scripts/eval/` documented here.
-Historical logs under `results/raw/` are retained as evidence, but old smoke or
+paper-facing results must use the scripts in `workflows/evaluate/` documented here.
+Historical logs under `results/evidence/` are retained as evidence, but old smoke or
 diagnostic commands are not valid sources for final tables.
 
 ## Sources Of Authority
@@ -28,20 +28,20 @@ when the paper explicitly defines a variant being reproduced.
 
 | Script | Role |
 |---|---|
-| `scripts/eval/generate_official_samples.py` | Generate samples with benchmark-specific official prompts and record audit fields. |
-| `scripts/eval/score_humaneval_official.py` | Score HumanEval split rows with EvalPlus. |
-| `scripts/eval/score_mbpp_evalplus_official.py` | Score MBPP EvalPlus split rows with EvalPlus. |
-| `scripts/eval/score_livecodebench_official.py` | Score LiveCodeBench split rows with LiveCodeBench metrics. |
-| `scripts/eval/run_official_eval.sh` | One-command wrapper that selects the correct official generation and scoring path. |
+| `workflows/evaluate/generate.py` | Generate samples with benchmark-specific official prompts and record audit fields. |
+| `workflows/evaluate/score_humaneval.py` | Score HumanEval split rows with EvalPlus. |
+| `workflows/evaluate/score_mbpp.py` | Score MBPP EvalPlus split rows with EvalPlus. |
+| `workflows/evaluate/score_livecodebench.py` | Score LiveCodeBench split rows with LiveCodeBench metrics. |
+| `workflows/evaluate/run.sh` | One-command wrapper that selects the correct official generation and scoring path. |
 
 ## Required Splits
 
 Formal Stage 1 pruning/recovery results use:
 
 ```text
-data/splits/humaneval_half/
-data/splits/mbpp_evalplus_half/
-data/splits/livecodebench_half/
+data/benchmarks/r4_half/humaneval/
+data/benchmarks/r4_half/mbpp_evalplus/
+data/benchmarks/r4_half/livecodebench/
 ```
 
 Guide split rows may be used for pruning calibration and LoRA recovery data.
@@ -78,33 +78,33 @@ Do not use the following for new paper-facing results:
 HumanEval:
 
 ```bash
-scripts/eval/run_official_eval.sh \
+workflows/evaluate/run.sh \
   --benchmark humaneval \
   --model Qwen/Qwen2.5-Coder-3B-Instruct \
-  --split data/splits/humaneval_half/eval.jsonl \
-  --out-dir results/raw/example_humaneval_official \
+  --split data/benchmarks/r4_half/humaneval/eval.jsonl \
+  --out-dir results/evidence/example_humaneval_official \
   --local-files-only
 ```
 
 MBPP:
 
 ```bash
-scripts/eval/run_official_eval.sh \
+workflows/evaluate/run.sh \
   --benchmark mbpp_evalplus \
   --model Qwen/Qwen2.5-Coder-3B-Instruct \
-  --split data/splits/mbpp_evalplus_half/eval.jsonl \
-  --out-dir results/raw/example_mbpp_official \
+  --split data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl \
+  --out-dir results/evidence/example_mbpp_official \
   --local-files-only
 ```
 
 LiveCodeBench:
 
 ```bash
-scripts/eval/run_official_eval.sh \
+workflows/evaluate/run.sh \
   --benchmark livecodebench \
   --model Qwen/Qwen2.5-Coder-3B-Instruct \
-  --split data/splits/livecodebench_half/eval.jsonl \
-  --out-dir results/raw/example_livecodebench_official \
+  --split data/benchmarks/r4_half/livecodebench/eval.jsonl \
+  --out-dir results/evidence/example_livecodebench_official \
   --local-files-only \
   --lcb-release release_v1 \
   --lcb-config release_latest \

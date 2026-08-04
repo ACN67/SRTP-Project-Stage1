@@ -1,0 +1,12 @@
+{
+  "benchmark": "livecodebench",
+  "split_version": "stage1_smoke_v1",
+  "guide_path": "data/benchmarks/smoke/livecodebench/guide.jsonl",
+  "eval_path": "data/benchmarks/smoke/livecodebench/eval.jsonl",
+  "guide_sha256": "d610fd76a20a0a8dca49a8e1e1855044ccb7db6f27e7f43aa5c36f31770179c7",
+  "eval_sha256": "8cc3b8d6aa98ecd8dd574d0a94c0d41166f9ea9553d9492b45ae1f79565932b1",
+  "guide_count": 4,
+  "eval_count": 4,
+  "contains_solution": false,
+  "notes": "Small deterministic smoke split from LiveCodeBench code_generation_lite, sorted by contest date."
+}

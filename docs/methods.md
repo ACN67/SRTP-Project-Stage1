@@ -1,6 +1,6 @@
 # Method Status
 
-The compact source of truth is `results/stage1/status.csv`. This document explains the same rows in human-readable form.
+The compact source of truth is `results/registries/method_status.csv`. This document explains the same rows in human-readable form.
 
 ## 常珂舒
 
@@ -33,6 +33,6 @@ The compact source of truth is `results/stage1/status.csv`. This document explai
 
 | Method | R2 evidence | R3 evidence |
 |---|---|---|
-| Flab-Pruner | `results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006/` | `results/raw/flab_qwen3b_pruned_humaneval_smoke_eval_20260721_182050/`, `results/raw/flab_qwen3b_pruned_mbpp_smoke_eval_20260721_185132/` |
-| LLM-Pruner | `results/raw/llmpruner_codellama7b_layerwise_cpu_smoke_20260722_222955/` | `results/raw/llmpruner_codellama7b_humaneval_4task_offload_smoke_20260722_232800/`, `results/raw/llmpruner_codellama7b_mbpp_4task_offload_smoke_20260722_233633/` |
-| SliceGPT | `results/raw/slicegpt_codellama7b_min_prune_smoke_20260722_235632/` | `results/raw/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/` |
+| Flab-Pruner | `results/evidence/smoke/flab_qwen3b_humaneval_prune_heavy_20260718_204006/` | `results/evidence/smoke/flab_qwen3b_pruned_humaneval_smoke_eval_20260721_182050/`, `results/evidence/smoke/flab_qwen3b_pruned_mbpp_smoke_eval_20260721_185132/` |
+| LLM-Pruner | `results/evidence/smoke/llmpruner_codellama7b_layerwise_cpu_smoke_20260722_222955/` | `results/evidence/smoke/llmpruner_codellama7b_humaneval_4task_offload_smoke_20260722_232800/`, `results/evidence/smoke/llmpruner_codellama7b_mbpp_4task_offload_smoke_20260722_233633/` |
+| SliceGPT | `results/evidence/smoke/slicegpt_codellama7b_min_prune_smoke_20260722_235632/` | `results/evidence/smoke/slicegpt_codellama7b_r3_humaneval_mbpp_4task_20260723_021439/` |

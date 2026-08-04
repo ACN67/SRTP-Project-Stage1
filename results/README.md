@@ -1,9 +1,12 @@
 # Results
 
-Use this order when reading results:
+Results are split by role:
 
-1. `results/stage1/status.csv` for current progress.
-2. `results/stage1/README.md` for R0-R4 context.
-3. `results/raw/<run_id>/` only when detailed logs or generated outputs are needed.
+- `evidence/`: immutable run directories and raw logs, moved as whole directories.
+- `formal/r4_half/`: generated R4 half summaries.
+- `auxiliary/pan_full_eval/`: Pan auxiliary full-eval aggregate results and protocol snapshot.
+- `registries/`: machine-readable indexes for methods, runs, scores, and external artifacts.
+- `reports/`: audit and diagnostic reports.
 
-`results/raw/` is an evidence archive, not the main navigation surface.
+Pan full-eval aggregate rows are auxiliary evidence and are not entered into R4 half formal scores.
+

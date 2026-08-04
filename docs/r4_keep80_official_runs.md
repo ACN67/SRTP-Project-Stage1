@@ -5,7 +5,7 @@ Flab-Pruner, LLM-Pruner, and SliceGPT. The benchmark guide splits are used only
 from `data/splits/*_half/guide.jsonl`; final scores use only
 `data/splits/*_half/eval.jsonl`.
 
-Benchmark evaluation must use `scripts/eval/run_official_eval.sh`.
+Benchmark evaluation must use `workflows/evaluate/run.sh`.
 
 ## Method Policy
 
@@ -19,29 +19,29 @@ Benchmark evaluation must use `scripts/eval/run_official_eval.sh`.
 
 ```bash
 set -euo pipefail
-cd /home/keshu/projects/srtp-code-llm-pruning
+cd $SRTP_STAGE1_ROOT
 source .venv-common/bin/activate
 
 MODEL="Qwen/Qwen2.5-Coder-3B-Instruct"
 RUN_TAG="qwen25c3b_keep80_official_$(date +%Y%m%d_%H%M%S)"
-ROOT_OUT="results/raw/${RUN_TAG}"
+ROOT_OUT="results/evidence/${RUN_TAG}"
 mkdir -p "$ROOT_OUT"
 
 GUIDE_FILES=(
-  --guide-file data/splits/humaneval_half/guide.jsonl
-  --guide-file data/splits/mbpp_evalplus_half/guide.jsonl
-  --guide-file data/splits/livecodebench_half/guide.jsonl
+  --guide-file data/benchmarks/r4_half/humaneval/guide.jsonl
+  --guide-file data/benchmarks/r4_half/mbpp_evalplus/guide.jsonl
+  --guide-file data/benchmarks/r4_half/livecodebench/guide.jsonl
 )
 ```
 
 ## Official LoRA Data
 
 ```bash
-python scripts/recover/create_distill_dataset.py \
+python workflows/recovery/build_distillation_data.py \
   --teacher-model "$MODEL" \
-  --guide-file data/splits/humaneval_half/guide.jsonl \
-  --guide-file data/splits/mbpp_evalplus_half/guide.jsonl \
-  --guide-file data/splits/livecodebench_half/guide.jsonl \
+  --guide-file data/benchmarks/r4_half/humaneval/guide.jsonl \
+  --guide-file data/benchmarks/r4_half/mbpp_evalplus/guide.jsonl \
+  --guide-file data/benchmarks/r4_half/livecodebench/guide.jsonl \
   --out-dir "$ROOT_OUT/shared_lora_data" \
   --max-new-tokens 512 \
   --dtype fp16 \
@@ -55,7 +55,7 @@ python scripts/recover/create_distill_dataset.py \
 ## Flab-Pruner Keep80
 
 ```bash
-python scripts/adapt/flab_qwen_official.py \
+python methods/flab_pruner/qwen_prune.py \
   --model "$MODEL" \
   "${GUIDE_FILES[@]}" \
   --save-dir "$ROOT_OUT/flabpruner_keep80" \
@@ -66,7 +66,7 @@ python scripts/adapt/flab_qwen_official.py \
   --local-files-only \
   --prune-on-cpu
 
-python scripts/recover/train_lora_recovery.py \
+python workflows/recovery/train_lora.py \
   --base-model "$ROOT_OUT/flabpruner_keep80/pruned_model" \
   --train-file "$ROOT_OUT/shared_lora_data/distill_train.jsonl" \
   --out-dir "$ROOT_OUT/flabpruner_keep80_lora" \
@@ -78,7 +78,7 @@ python scripts/recover/train_lora_recovery.py \
   --grad-accum 8 \
   --max-length 512
 
-python scripts/recover/merge_lora_model.py \
+python workflows/recovery/merge_lora.py \
   --base-model "$ROOT_OUT/flabpruner_keep80/pruned_model" \
   --adapter "$ROOT_OUT/flabpruner_keep80_lora/lora_adapter" \
   --out-dir "$ROOT_OUT/flabpruner_keep80_merged" \
@@ -89,7 +89,7 @@ python scripts/recover/merge_lora_model.py \
 ## LLM-Pruner Keep80
 
 ```bash
-python scripts/adapt/llmpruner_qwen_official.py \
+python methods/llm_pruner/qwen_prune.py \
   --model "$MODEL" \
   --out-dir "$ROOT_OUT/llmpruner_keep80" \
   --mode block_wise \
@@ -104,7 +104,7 @@ python scripts/adapt/llmpruner_qwen_official.py \
   --local-files-only \
   --save-model
 
-python scripts/recover/train_lora_recovery.py \
+python workflows/recovery/train_lora.py \
   --base-model "$ROOT_OUT/llmpruner_keep80/pruned_model" \
   --llmpruner-base-model "$MODEL" \
   --train-file "$ROOT_OUT/shared_lora_data/distill_train.jsonl" \
@@ -117,7 +117,7 @@ python scripts/recover/train_lora_recovery.py \
   --grad-accum 8 \
   --max-length 512
 
-python scripts/recover/merge_lora_model.py \
+python workflows/recovery/merge_lora.py \
   --base-model "$ROOT_OUT/llmpruner_keep80/pruned_model" \
   --adapter "$ROOT_OUT/llmpruner_keep80_lora/lora_adapter" \
   --out-dir "$ROOT_OUT/llmpruner_keep80_merged" \
@@ -128,15 +128,15 @@ python scripts/recover/merge_lora_model.py \
 ## SliceGPT Keep80
 
 ```bash
-python scripts/adapt/slicegpt_qwen_official.py \
+python methods/slicegpt/qwen_prune.py \
   --model "$MODEL" \
   --out-dir "$ROOT_OUT/slicegpt_keep80" \
   --dtype fp16 \
   --device cuda:0 \
   --local-files-only \
-  --cal-guide-file data/splits/humaneval_half/guide.jsonl \
-  --cal-guide-file data/splits/mbpp_evalplus_half/guide.jsonl \
-  --cal-guide-file data/splits/livecodebench_half/guide.jsonl \
+  --cal-guide-file data/benchmarks/r4_half/humaneval/guide.jsonl \
+  --cal-guide-file data/benchmarks/r4_half/mbpp_evalplus/guide.jsonl \
+  --cal-guide-file data/benchmarks/r4_half/livecodebench/guide.jsonl \
   --cal-guide-limit-per-file 999999 \
   --cal-nsamples 999999 \
   --cal-batch-size 1 \
@@ -147,7 +147,7 @@ python scripts/adapt/slicegpt_qwen_official.py \
   --save-sliced-state \
   --save-hf-files
 
-python scripts/recover/train_lora_recovery.py \
+python workflows/recovery/train_lora.py \
   --base-model "$ROOT_OUT/slicegpt_keep80/sliced_model" \
   --slicegpt-base-model "$MODEL" \
   --slicegpt-sparsity 0.20 \
@@ -171,9 +171,9 @@ Flab-Pruner and LLM-Pruner evaluate merged LoRA models:
 for METHOD in flabpruner llmpruner; do
   MODEL_DIR="$ROOT_OUT/${METHOD}_keep80_merged"
 
-  scripts/eval/run_official_eval.sh --benchmark humaneval --model "$MODEL_DIR" --split data/splits/humaneval_half/eval.jsonl --out-dir "$ROOT_OUT/${METHOD}_eval/humaneval"
-  scripts/eval/run_official_eval.sh --benchmark mbpp_evalplus --model "$MODEL_DIR" --split data/splits/mbpp_evalplus_half/eval.jsonl --out-dir "$ROOT_OUT/${METHOD}_eval/mbpp_evalplus"
-  scripts/eval/run_official_eval.sh --benchmark livecodebench --model "$MODEL_DIR" --split data/splits/livecodebench_half/eval.jsonl --out-dir "$ROOT_OUT/${METHOD}_eval/livecodebench" --lcb-release release_v1 --lcb-config release_latest --lcb-lm-style CodeQwenInstruct
+  workflows/evaluate/run.sh --benchmark humaneval --model "$MODEL_DIR" --split data/benchmarks/r4_half/humaneval/eval.jsonl --out-dir "$ROOT_OUT/${METHOD}_eval/humaneval"
+  workflows/evaluate/run.sh --benchmark mbpp_evalplus --model "$MODEL_DIR" --split data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl --out-dir "$ROOT_OUT/${METHOD}_eval/mbpp_evalplus"
+  workflows/evaluate/run.sh --benchmark livecodebench --model "$MODEL_DIR" --split data/benchmarks/r4_half/livecodebench/eval.jsonl --out-dir "$ROOT_OUT/${METHOD}_eval/livecodebench" --lcb-release release_v1 --lcb-config release_latest --lcb-lm-style CodeQwenInstruct
 done
 ```
 
@@ -183,7 +183,7 @@ SliceGPT evaluates the official sliced model with the LoRA adapter loaded:
 SLICE_MODEL="$ROOT_OUT/slicegpt_keep80/sliced_model"
 SLICE_ADAPTER="$ROOT_OUT/slicegpt_keep80_lora/lora_adapter"
 
-scripts/eval/run_official_eval.sh --benchmark humaneval --model "$SLICE_MODEL" --adapter "$SLICE_ADAPTER" --slicegpt-base-model "$MODEL" --slicegpt-sparsity 0.20 --slicegpt-round-interval 128 --split data/splits/humaneval_half/eval.jsonl --out-dir "$ROOT_OUT/slicegpt_eval/humaneval"
-scripts/eval/run_official_eval.sh --benchmark mbpp_evalplus --model "$SLICE_MODEL" --adapter "$SLICE_ADAPTER" --slicegpt-base-model "$MODEL" --slicegpt-sparsity 0.20 --slicegpt-round-interval 128 --split data/splits/mbpp_evalplus_half/eval.jsonl --out-dir "$ROOT_OUT/slicegpt_eval/mbpp_evalplus"
-scripts/eval/run_official_eval.sh --benchmark livecodebench --model "$SLICE_MODEL" --adapter "$SLICE_ADAPTER" --slicegpt-base-model "$MODEL" --slicegpt-sparsity 0.20 --slicegpt-round-interval 128 --split data/splits/livecodebench_half/eval.jsonl --out-dir "$ROOT_OUT/slicegpt_eval/livecodebench" --lcb-release release_v1 --lcb-config release_latest --lcb-lm-style CodeQwenInstruct
+workflows/evaluate/run.sh --benchmark humaneval --model "$SLICE_MODEL" --adapter "$SLICE_ADAPTER" --slicegpt-base-model "$MODEL" --slicegpt-sparsity 0.20 --slicegpt-round-interval 128 --split data/benchmarks/r4_half/humaneval/eval.jsonl --out-dir "$ROOT_OUT/slicegpt_eval/humaneval"
+workflows/evaluate/run.sh --benchmark mbpp_evalplus --model "$SLICE_MODEL" --adapter "$SLICE_ADAPTER" --slicegpt-base-model "$MODEL" --slicegpt-sparsity 0.20 --slicegpt-round-interval 128 --split data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl --out-dir "$ROOT_OUT/slicegpt_eval/mbpp_evalplus"
+workflows/evaluate/run.sh --benchmark livecodebench --model "$SLICE_MODEL" --adapter "$SLICE_ADAPTER" --slicegpt-base-model "$MODEL" --slicegpt-sparsity 0.20 --slicegpt-round-interval 128 --split data/benchmarks/r4_half/livecodebench/eval.jsonl --out-dir "$ROOT_OUT/slicegpt_eval/livecodebench" --lcb-release release_v1 --lcb-config release_latest --lcb-lm-style CodeQwenInstruct
 ```

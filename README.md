@@ -1,58 +1,47 @@
 # SRTP Stage 1: Code LLM Pruning
 
-This repository is the Stage 1 workspace for reproducing code-LLM pruning methods and building a unified benchmark-guided evaluation pipeline.
+This repository records Stage 1 of the SRTP code-LLM pruning reproduction project.
+It is organized around three maintenance entry points:
 
-Stage 1 is about reproducibility, workflow, and evidence. Smoke results are not final performance claims.
+- `data/`: benchmark splits, split roles, and model/upstream manifests.
+- `methods/`: method adapters, method notes, and local patches.
+- `results/`: immutable evidence, formal R4-half registries, Pan auxiliary results, and audit reports.
 
-## Start Here
+Cross-method execution code is under `workflows/`. Environment snapshots and WSL setup helpers are under `environment/`. Upstream projects remain Git submodules in `third_party/`.
 
-| File | Purpose |
-|---|---|
-| `docs/stage1.md` | Stage goal, R0-R4 definitions, model and benchmark policy. |
-| `docs/methods.md` | Method ownership, current progress, blockers, and model choices. |
-| `docs/runbook.md` | How to run checks, smoke jobs, and future R4 jobs. |
-| `docs/official_benchmarks.md` | Official benchmark prompt/scoring policy for formal results. |
-| `docs/r4_keep80_official_runs.md` | Official keep80 run plan for Flab-Pruner, LLM-Pruner, and SliceGPT on Qwen2.5-Coder-3B. |
-| `docs/environment.md` | Local machine, environment, cache, and artifact notes. |
-| `results/stage1/status.csv` | Compact machine-readable progress table. |
-| `results/raw/` | Timestamped raw evidence for every recorded run. |
+## Current State
 
-## Current Scope
+Stage 1 is not a clean success claim. It contains completed runs whose quality gates failed, partial runs, fallback/non-official paths, aggregate-only auxiliary results, and methods still pending.
 
-| Owner | Methods |
-|---|---|
-| 常珂舒 | Flab-Pruner, SliceGPT, LLM-Pruner, LaCo |
-| 潘阔 | Magnitude, Wanda, DSnoT, OWL, benchmark splits |
-| 李长骏 | SparseGPT, MaskLLM, Pruner-Zero, FLAP, resource checks |
+常珂舒侧 WSL worktree content from `$SRTP_STAGE1_ROOT` has been preserved and integrated. Large model artifacts remain outside Git and are listed in `results/registries/artifacts.csv`.
 
-Current model policy:
+Pan auxiliary full-eval results are preserved under `results/auxiliary/pan_full_eval/` and are not directly comparable with R4 half results.
 
-- Use CodeLlama for LLaMA-compatible methods.
-- Use Qwen2.5-Coder for methods with Qwen/Qwen2 support.
-- Use the official model family when neither CodeLlama nor Qwen is practical.
-- Skip methods with too little official support unless explicitly assigned.
+## Key Registries
 
-## Repository Layout
+- `results/registries/methods.csv`
+- `results/registries/runs.csv`
+- `results/registries/scores.csv`
+- `results/registries/artifacts.csv`
 
-```text
-configs/        Experiment plans.
-data/           Dataset splits and model/upstream manifests.
-docs/           Consolidated execution, method, run, and environment docs.
-env/            Per-environment dependency snapshots.
-patches/        Local patches against upstream submodules.
-scripts/        Setup, adaptation, evaluation, audit, and run helpers.
-third_party/    Upstream repositories as Git submodules.
-results/stage1/ Compact R0-R4 progress and formal summaries.
-results/raw/    Timestamped raw logs and generated outputs.
-artifacts/      Local artifact policy; model weights stay out of Git.
-```
+## Formal R4 Half
 
-## Quick Commands
+R4 half data lives in `data/benchmarks/r4_half/`.
+Formal and diagnostic evidence lives in `results/evidence/r4_half/`.
+Generated summaries live in `results/formal/r4_half/`.
+
+## WSL Use
+
+The experimental working location is:
 
 ```bash
-cd ~/projects/srtp-code-llm-pruning
-source scripts/setup/env.sh
-scripts/run/run_plan.sh --plan configs/experiments/stage1_manual_plan.yaml --list
+cd $SRTP_STAGE1_ROOT
 ```
 
-For R4, follow `docs/runbook.md` and `docs/official_benchmarks.md` after confirming the relevant R3 method row is complete in `results/stage1/status.csv`.
+Run active helpers through `workflows/`, for example:
+
+```bash
+source environment/setup/env.sh
+workflows/experiment/run_plan.sh --plan workflows/experiment/stage1_plan.yaml --list
+```
+

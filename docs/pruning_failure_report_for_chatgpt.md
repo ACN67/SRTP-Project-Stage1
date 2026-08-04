@@ -10,7 +10,7 @@ They are not proven to fail at the same stage. Existing evidence covers S0 dense
 
 | Field | Value | Evidence |
 |---|---|---|
-| base_model | `Qwen/Qwen2.5-Coder-1.5B-Instruct` | `results/raw/qwen25c15b_official_evalhalf_20260729_172949/run_info.txt` |
+| base_model | `Qwen/Qwen2.5-Coder-1.5B-Instruct` | `results/evidence/r4_half/qwen25c15b_official_evalhalf_20260729_172949/run_info.txt` |
 | model_revision | local HF cache, exact revision NOT RECORDED | no revision field in run info |
 | tokenizer_revision | local HF cache, exact revision NOT RECORDED | no revision field in run info |
 | dense_parameter_count | 1,543,714,304 trainable params from pruning summaries | `llmpruner_keep80_v3/summary.json`, `flab_qwen_prune_result.json` |
@@ -38,9 +38,9 @@ Dense EOS rate is NOT LOGGED by the current generator. Dense parse success is on
 |---|---|---|---|
 | Upstream commit | `e35e7fc4560369f993d736df1ef5429a74ca6983` | `128a07d977f9b205d60ab14cfbc6a78f8a8e39d2` | `6b12cdee6ad51791d7c776b3a046bc408b9e77e9` |
 | Local commit | `9117e9c340e1c56bc5bd6560c2418688da430853` | `9117e9c340e1c56bc5bd6560c2418688da430853` | `9117e9c340e1c56bc5bd6560c2418688da430853` |
-| Entry script | `scripts/adapt/flab_qwen_official.py` | `scripts/adapt/llmpruner_qwen_official.py` | `scripts/adapt/slicegpt_qwen_official.py` |
+| Entry script | `methods/flab_pruner/qwen_prune.py` | `methods/llm_pruner/qwen_prune.py` | `methods/slicegpt/qwen_prune.py` |
 | Qwen native support | Vendored Qwen2 path, Qwen2.5 compatibility patched | Not official native path; local Qwen2.5 adaptation | Not official native path; local Qwen2 adapter |
-| Local adaptation files | `scripts/adapt/flab_qwen_official.py`; vendored Flab model | `scripts/adapt/llmpruner_qwen_official.py`, custom loader `load_llmpruner_qwen_model` | `scripts/adapt/slicegpt_qwen_official.py`, `Qwen2ModelAdapter`, `load_sliced_qwen_model` |
+| Local adaptation files | `methods/flab_pruner/qwen_prune.py`; vendored Flab model | `methods/llm_pruner/qwen_prune.py`, custom loader `load_llmpruner_qwen_model` | `methods/slicegpt/qwen_prune.py`, `Qwen2ModelAdapter`, `load_sliced_qwen_model` |
 | Pruning basis | structural fixed width/head/FFN config; no guide importance | Taylor `param_first` backward over guide prompts | SliceGPT calibration over guide prompts |
 | Calibration data | guide files recorded/validated only; LoRA uses guide teacher data | 436 guide samples | 436 guide samples |
 | Requested compression | prune_ratio 0.10; explicit hidden/head/FFN targets | pruning_ratio 0.28 | sparsity 0.45 |
@@ -85,12 +85,12 @@ First collapse stage by actual metrics:
 |---|---|---|---|---|
 | tokenizer loader | `AutoTokenizer.from_pretrained` in method scripts and eval generator | partially | NOT fully | tokenizer used successfully in dense eval; no round-trip diff yet |
 | model save/reload | method-specific loaders | no | NOT fully | Flab normal HF; LLM/Slice custom loaders |
-| generation config | `scripts/eval/generate_official_samples.py:309 model.generate` | yes for final eval | partially | dense eval normal-ish; final collapse could be model or loader |
-| LoRA dataset builder | `scripts/recover/create_distill_dataset.py:106 main`, generate at line 185 | yes | partially | `reports/lora_data_audit.json`: sampled empty_answer_rate=0 |
-| label masking | `scripts/recover/train_lora_recovery.py` training loop | yes | NOT RUN audit | token-label masking stats not persisted |
-| PEFT trainer | `scripts/recover/train_lora_recovery.py:59 main` | yes | NOT fully | LoRA summaries show 436 samples, 55 steps |
-| adapter merge | `scripts/recover/merge_lora_model.py` | only Flab final | NOT fully | adapter-vs-merged logit equivalence NOT RUN |
-| HumanEval evaluator | `scripts/eval/run_official_eval.sh`, `score_humaneval_official.py` | yes | likely | dense HumanEval nonzero; official prompt mode logged |
+| generation config | `workflows/evaluate/generate.py:309 model.generate` | yes for final eval | partially | dense eval normal-ish; final collapse could be model or loader |
+| LoRA dataset builder | `workflows/recovery/build_distillation_data.py:106 main`, generate at line 185 | yes | partially | `reports/lora_data_audit.json`: sampled empty_answer_rate=0 |
+| label masking | `workflows/recovery/train_lora.py` training loop | yes | NOT RUN audit | token-label masking stats not persisted |
+| PEFT trainer | `workflows/recovery/train_lora.py:59 main` | yes | NOT fully | LoRA summaries show 436 samples, 55 steps |
+| adapter merge | `workflows/recovery/merge_lora.py` | only Flab final | NOT fully | adapter-vs-merged logit equivalence NOT RUN |
+| HumanEval evaluator | `workflows/evaluate/run.sh`, `score_humaneval_official.py` | yes | likely | dense HumanEval nonzero; official prompt mode logged |
 | MBPP evaluator | `score_mbpp_evalplus_official.py` | yes | likely | dense MBPP 0.5134 |
 | LiveCodeBench evaluator | `score_livecodebench_official.py` | yes | likely | dense LCB 0.14; extractor warnings logged |
 | raw extractor | `generate_official_samples.py:77 build_lcb_prompt_and_extractor`, `build_model_prompt` | yes | partially | dense extraction mostly succeeds; final LCB extraction degrades |
@@ -103,7 +103,7 @@ One shared error could affect all methods through LoRA data/trainer/eval generat
 
 Status: NOT RUN.
 
-Required metrics are unavailable: parameter_count after save/reload, config_diff, tokenizer_diff, generation_config_diff, max_abs_logit_diff, mean_abs_logit_diff, top1_token_agreement, completion_exact_match, smoke_pass_rate. Evidence gap: no directory corresponding to dense `save_pretrained -> reload -> smoke` was found in `results/raw/qwen25c15b*`.
+Required metrics are unavailable: parameter_count after save/reload, config_diff, tokenizer_diff, generation_config_diff, max_abs_logit_diff, mean_abs_logit_diff, top1_token_agreement, completion_exact_match, smoke_pass_rate. Evidence gap: no directory corresponding to dense `save_pretrained -> reload -> smoke` was found in `results/evidence/qwen25c15b*`.
 
 ### 6.2 Dense LoRA
 
@@ -115,11 +115,11 @@ Required metrics are unavailable: trainable_parameter_count, matched_lora_module
 
 Facts:
 
-- Entry script: `scripts/adapt/flab_qwen_official.py:206 main`.
+- Entry script: `methods/flab_pruner/qwen_prune.py:206 main`.
 - Validation: `validate_remain` at line 83 enforces Qwen head-dim constraints after a local patch.
 - Tokenizer loading: line 239.
 - Pruning implementation described in the script docstring and result: vendored `hidden_prune_utils.modeling_qwen2.Qwen2ForCausalLM.prune(config, stage)`.
-- Result path: `results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031`.
+- Result path: `results/evidence/r4_half/flabpruner_qwen25c15b_official_keep80_20260730_015031`.
 - Plan: hidden 1536->1280, heads 12->10, KV heads 2->2, FFN 8960->8192, layers 28->28.
 - Actual keep: 0.8939371828221396.
 - Final score: HE 0.0, MBPP 0.004464285714285714, LCB 0.0.
@@ -141,7 +141,7 @@ Answers:
 Minimal code snippet:
 
 ```python
-# scripts/adapt/flab_qwen_official.py
+# methods/flab_pruner/qwen_prune.py
 model.prune(config=prune_config, stage=args.stage)
 ```
 
@@ -149,7 +149,7 @@ model.prune(config=prune_config, stage=args.stage)
 
 Facts:
 
-- Entry script: `scripts/adapt/llmpruner_qwen_official.py:330 main`.
+- Entry script: `methods/llm_pruner/qwen_prune.py:330 main`.
 - Taylor backward: `run_taylor_backward` at line 105.
 - Custom reload: `load_llmpruner_qwen_model` at line 298.
 - Importance type: Taylor `param_first`.
@@ -188,7 +188,7 @@ Answers:
 Minimal code snippet:
 
 ```python
-# scripts/adapt/llmpruner_qwen_official.py
+# methods/llm_pruner/qwen_prune.py
 imp = official_pruner.TaylorImportance(group_reduction=grouping_strategy, taylor=taylor)
 loss = model(input_ids, labels=input_ids).loss
 loss.backward()
@@ -199,10 +199,10 @@ pruner = tp.pruner.MetaPruner(model, forward_prompts, **kwargs)
 
 Facts:
 
-- Entry script: `scripts/adapt/slicegpt_qwen_official.py:323 main`.
+- Entry script: `methods/slicegpt/qwen_prune.py:323 main`.
 - Custom sliced loader: `load_sliced_qwen_model` at line 274.
 - Tokenizer load for sliced path: line 284.
-- Result path: `results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001`.
+- Result path: `results/evidence/r4_half/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001`.
 - Requested sparsity: 0.45.
 - Hidden/new embedding dimension: 1536->768.
 - Actual keep: 0.677403188718526.
@@ -221,7 +221,7 @@ sliced_reloaded_pass_rate: NOT RUN without LoRA
 Answers:
 
 1. Official Qwen adapter: no evidence of upstream native Qwen2.5 adapter; local adapter is used.
-2. Custom path: `scripts/adapt/slicegpt_qwen_official.py`.
+2. Custom path: `methods/slicegpt/qwen_prune.py`.
 3. ModelAdapter/LayerAdapter/compressed layer: implemented locally in that script; exact class definitions should be audited before claiming equivalence.
 4. sparsity=0 invariant: NOT RUN.
 5. norm fusion invariant: NOT RUN.
@@ -239,10 +239,10 @@ Aggregated taxonomy is in `reports/raw_completion_failure_taxonomy.csv`. It samp
 
 Representative paths:
 
-- Dense samples: `results/raw/qwen25c15b_official_evalhalf_20260729_172949/*/generation/samples.jsonl`.
-- Flab final samples: `results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/eval_v2/*/generation/samples.jsonl`.
-- LLM-Pruner final samples: `results/raw/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340/eval_v3/*/generation/samples.jsonl`.
-- SliceGPT final samples: `results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/eval/*/generation/samples.jsonl`.
+- Dense samples: `results/evidence/r4_half/qwen25c15b_official_evalhalf_20260729_172949/*/generation/samples.jsonl`.
+- Flab final samples: `results/evidence/r4_half/flabpruner_qwen25c15b_official_keep80_20260730_015031/eval_v2/*/generation/samples.jsonl`.
+- LLM-Pruner final samples: `results/evidence/r4_half/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340/eval_v3/*/generation/samples.jsonl`.
+- SliceGPT final samples: `results/evidence/r4_half/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/eval/*/generation/samples.jsonl`.
 
 Observed high-level pattern:
 
@@ -276,7 +276,7 @@ Not yet compared: in-memory config vs saved vs reloaded configs; generation_conf
    - Phenomenon: pass@1 nearly zero after pruning+LoRA.
    - Evidence: score summaries listed in Section 4.
    - Affects: all three final methods.
-   - Paths: `results/raw/*qwen25c15b*/*/score_summary.json`.
+   - Paths: `results/evidence/*qwen25c15b*/*/score_summary.json`.
 
 2. Compression/actual-keep accounting is inconsistent across methods.
    - Phenomenon: Flab actual keep 0.8939 despite keep80 intent; SliceGPT actual keep 0.6774.
@@ -314,7 +314,7 @@ Not yet compared: in-memory config vs saved vs reloaded configs; generation_conf
    - Cost: low, minutes.
    - Success: logit diff near zero, completion exact match high, smoke pass similar.
    - Failure: dense after reload degrades.
-   - Output: `results/raw/audit_dense_roundtrip_*`.
+   - Output: `results/evidence/audit_dense_roundtrip_*`.
 
 2. Dense LoRA adapter and merged smoke
    - Purpose: isolate shared LoRA data/trainer/merge.
@@ -322,7 +322,7 @@ Not yet compared: in-memory config vs saved vs reloaded configs; generation_conf
    - Cost: low-medium.
    - Success: no collapse relative to dense.
    - Failure: dense LoRA collapses.
-   - Output: `results/raw/audit_dense_lora_*`.
+   - Output: `results/evidence/audit_dense_lora_*`.
 
 3. Adapter-vs-merged equivalence for Flab
    - Purpose: test merge correctness.
@@ -330,7 +330,7 @@ Not yet compared: in-memory config vs saved vs reloaded configs; generation_conf
    - Cost: low.
    - Success: top1 agreement high, logit diff small.
    - Failure: merged diverges.
-   - Output: `results/raw/audit_flab_merge_equiv_*`.
+   - Output: `results/evidence/audit_flab_merge_equiv_*`.
 
 4. Flab no-op or tiny-ratio smoke
    - Purpose: test method conversion before strong pruning.
@@ -375,17 +375,17 @@ Not yet compared: in-memory config vs saved vs reloaded configs; generation_conf
 - `reports/raw_completion_failure_taxonomy.csv`: sampled failure taxonomy from saved solutions.
 - `reports/lora_data_audit.json`: 20-sample LoRA dataset key/empty-answer audit.
 - `reports/model_config_diff/`: copied pruned/sliced config files for diffing.
-- `patches/flabpruner.patch`: local Flab validation changes.
-- `patches/llmpruner.patch`: local LLM-Pruner gradient checkpoint / CPU grad accumulation changes.
-- `patches/slicegpt.patch`: currently empty because no uncommitted SliceGPT script diff was detected.
-- `results/raw/qwen25c15b_official_evalhalf_20260729_172949/`: dense baseline generations and scores.
-- `results/raw/flabpruner_qwen25c15b_official_keep80_20260730_015031/`: Flab prune/LoRA/merge/eval logs.
-- `results/raw/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340/`: LLM-Pruner prune/LoRA/eval logs.
-- `results/raw/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/`: SliceGPT slice/LoRA/eval logs.
+- `methods/flab_pruner/wsl_local.patch`: local Flab validation changes.
+- `methods/llm_pruner/wsl_local.patch`: local LLM-Pruner gradient checkpoint / CPU grad accumulation changes.
+- `methods/slicegpt/patches/wsl_local.patch`: currently empty because no uncommitted SliceGPT script diff was detected.
+- `results/evidence/r4_half/qwen25c15b_official_evalhalf_20260729_172949/`: dense baseline generations and scores.
+- `results/evidence/r4_half/flabpruner_qwen25c15b_official_keep80_20260730_015031/`: Flab prune/LoRA/merge/eval logs.
+- `results/evidence/r4_half/llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340/`: LLM-Pruner prune/LoRA/eval logs.
+- `results/evidence/r4_half/slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001/`: SliceGPT slice/LoRA/eval logs.
 
 ## Handoff summary
 
-The project moved from Qwen2.5-Coder-3B to `Qwen/Qwen2.5-Coder-1.5B-Instruct` because the 3B LLM-Pruner Taylor path was too slow or unstable on the available 8 GB GPU. Dense 1.5B official half-eval results are nonzero: HumanEval 18/82 (0.2195), MBPP 115/224 (0.5134), LiveCodeBench 28/200 (0.14). Three final pruning+LoRA pipelines were completed. FlabPruner used a vendored Qwen2 structural width/head/FFN pruning path through `scripts/adapt/flab_qwen_official.py`, then PEFT LoRA and merge; final scores are HumanEval 0, MBPP 1/224, LCB 0. LLM-Pruner used local Qwen adaptation in `scripts/adapt/llmpruner_qwen_official.py`, Taylor `param_first` over 436 guide samples, requested ratio 0.28, actual parameter keep 0.8203; final adapter scores are HE 2/82, MBPP 1/224, LCB 0. SliceGPT used a local Qwen adapter in `scripts/adapt/slicegpt_qwen_official.py`, requested sparsity 0.45, actual keep 0.6774, and final adapter scores HE 0, MBPP 2/224, LCB 0.
+The project moved from Qwen2.5-Coder-3B to `Qwen/Qwen2.5-Coder-1.5B-Instruct` because the 3B LLM-Pruner Taylor path was too slow or unstable on the available 8 GB GPU. Dense 1.5B official half-eval results are nonzero: HumanEval 18/82 (0.2195), MBPP 115/224 (0.5134), LiveCodeBench 28/200 (0.14). Three final pruning+LoRA pipelines were completed. FlabPruner used a vendored Qwen2 structural width/head/FFN pruning path through `methods/flab_pruner/qwen_prune.py`, then PEFT LoRA and merge; final scores are HumanEval 0, MBPP 1/224, LCB 0. LLM-Pruner used local Qwen adaptation in `methods/llm_pruner/qwen_prune.py`, Taylor `param_first` over 436 guide samples, requested ratio 0.28, actual parameter keep 0.8203; final adapter scores are HE 2/82, MBPP 1/224, LCB 0. SliceGPT used a local Qwen adapter in `methods/slicegpt/qwen_prune.py`, requested sparsity 0.45, actual keep 0.6774, and final adapter scores HE 0, MBPP 2/224, LCB 0.
 
 The common abnormal symptom is severe final generation collapse, often hitting `max_new_tokens`; Flab and SliceGPT final sampled outputs are especially dominated by hit-max behavior. However, the first collapse stage is not known. Existing data covers only S0 dense and final S6/S7; dense save/reload, dense LoRA adapter/merged, pruned in-memory, pruned save/reload, and no-op method transforms are missing. Therefore it is not justified to conclude that all three algorithms intrinsically fail on code models or that Qwen cannot be pruned. The evidence most strongly supports three hypotheses: unvalidated Qwen method adapters/loaders, mismatched compression accounting or excessive structural change, and possible shared LoRA recovery-chain problems. The evaluator is less likely to be the only cause because dense baseline scores are nonzero under the same official scripts.
 

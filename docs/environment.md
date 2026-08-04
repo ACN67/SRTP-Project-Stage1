@@ -8,7 +8,7 @@
 | GPU | NVIDIA GeForce RTX 5060 Laptop GPU |
 | VRAM | about 8 GiB |
 | WSL memory | about 13 GiB RAM + 32 GiB swap |
-| Main model cache | `/home/keshu/.cache/huggingface/` |
+| Main model cache | `$HOME/.cache/huggingface/` |
 
 The CodeLlama-7B Hugging Face snapshot is kept in the local cache and is not part of Git.
 
@@ -24,7 +24,7 @@ Per-method virtual environments live at repository root:
 ...
 ```
 
-Dependency snapshots are stored under `env/<name>/pip_freeze.txt`.
+Dependency snapshots are stored under `environment/snapshots/<name>/pip_freeze.txt`.
 
 ## Local-Only Artifacts
 
@@ -39,7 +39,7 @@ Large model files are ignored by `.gitignore`:
 Current useful local artifact:
 
 ```text
-results/raw/flab_qwen3b_humaneval_prune_heavy_20260718_204006/flab_qwen3b_humaneval/pruned_model/
+results/evidence/smoke/flab_qwen3b_humaneval_prune_heavy_20260718_204006/flab_qwen3b_humaneval/pruned_model/
 ```
 
 The directory contains the Flab-Pruner Qwen3B smoke-stage pruned model. Keep it local unless a formal artifact storage policy is adopted.

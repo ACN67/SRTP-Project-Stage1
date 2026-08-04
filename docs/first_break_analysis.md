@@ -58,4 +58,4 @@
 - `reports/existing_checkpoint_stage_metrics.csv`
 - `reports/existing_checkpoint_stage_summary.json`
 - `reports/flab_adapter_merge_equivalence.json`
-- `results/raw/existing_checkpoint_stage_audit_20260802_194533/`
+- `results/evidence/diagnostics/existing_checkpoint_stage_audit_20260802_194533/`

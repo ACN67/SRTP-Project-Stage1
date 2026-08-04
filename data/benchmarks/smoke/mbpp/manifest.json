@@ -1,0 +1,12 @@
+{
+  "benchmark": "mbpp",
+  "split_version": "stage1_smoke_v1",
+  "guide_path": "data/benchmarks/smoke/mbpp/guide.jsonl",
+  "eval_path": "data/benchmarks/smoke/mbpp/eval.jsonl",
+  "guide_sha256": "d37125ff3bbee2697e359fde105666df1bcfe19b06192ff937e9b112c038ee0e",
+  "eval_sha256": "e16c98ec1d6bbdf4a92b3d5bd40ce68f746fa4a35fe9b8c6461058109bee4e99",
+  "guide_count": 4,
+  "eval_count": 4,
+  "contains_solution": false,
+  "notes": "Small deterministic smoke split for pipeline checks; not a formal benchmark result split."
+}

@@ -18,7 +18,7 @@
     "task_id": "HumanEval/1",
     "prompt_mode": "humaneval_official",
     "sample_id": "humaneval:HumanEval/1",
-    "split_path": "data/splits/humaneval_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/humaneval/eval.jsonl"
   },
   {
     "benchmark": "humaneval",
@@ -39,7 +39,7 @@
     "task_id": "HumanEval/5",
     "prompt_mode": "humaneval_official",
     "sample_id": "humaneval:HumanEval/5",
-    "split_path": "data/splits/humaneval_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/humaneval/eval.jsonl"
   },
   {
     "benchmark": "humaneval",
@@ -60,7 +60,7 @@
     "task_id": "HumanEval/6",
     "prompt_mode": "humaneval_official",
     "sample_id": "humaneval:HumanEval/6",
-    "split_path": "data/splits/humaneval_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/humaneval/eval.jsonl"
   },
   {
     "benchmark": "humaneval",
@@ -81,7 +81,7 @@
     "task_id": "HumanEval/7",
     "prompt_mode": "humaneval_official",
     "sample_id": "humaneval:HumanEval/7",
-    "split_path": "data/splits/humaneval_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/humaneval/eval.jsonl"
   },
   {
     "benchmark": "humaneval",
@@ -102,7 +102,7 @@
     "task_id": "HumanEval/11",
     "prompt_mode": "humaneval_official",
     "sample_id": "humaneval:HumanEval/11",
-    "split_path": "data/splits/humaneval_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/humaneval/eval.jsonl"
   },
   {
     "benchmark": "humaneval",
@@ -123,7 +123,7 @@
     "task_id": "HumanEval/12",
     "prompt_mode": "humaneval_official",
     "sample_id": "humaneval:HumanEval/12",
-    "split_path": "data/splits/humaneval_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/humaneval/eval.jsonl"
   },
   {
     "benchmark": "humaneval",
@@ -144,7 +144,7 @@
     "task_id": "HumanEval/15",
     "prompt_mode": "humaneval_official",
     "sample_id": "humaneval:HumanEval/15",
-    "split_path": "data/splits/humaneval_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/humaneval/eval.jsonl"
   },
   {
     "benchmark": "humaneval",
@@ -165,7 +165,7 @@
     "task_id": "HumanEval/19",
     "prompt_mode": "humaneval_official",
     "sample_id": "humaneval:HumanEval/19",
-    "split_path": "data/splits/humaneval_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/humaneval/eval.jsonl"
   },
   {
     "benchmark": "mbpp_evalplus",
@@ -181,7 +181,7 @@
     "task_id": "Mbpp/11",
     "prompt_mode": "mbpp_evalplus_official",
     "sample_id": "mbpp_evalplus:Mbpp/11",
-    "split_path": "data/splits/mbpp_evalplus_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl"
   },
   {
     "benchmark": "mbpp_evalplus",
@@ -197,7 +197,7 @@
     "task_id": "Mbpp/12",
     "prompt_mode": "mbpp_evalplus_official",
     "sample_id": "mbpp_evalplus:Mbpp/12",
-    "split_path": "data/splits/mbpp_evalplus_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl"
   },
   {
     "benchmark": "mbpp_evalplus",
@@ -213,7 +213,7 @@
     "task_id": "Mbpp/14",
     "prompt_mode": "mbpp_evalplus_official",
     "sample_id": "mbpp_evalplus:Mbpp/14",
-    "split_path": "data/splits/mbpp_evalplus_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl"
   },
   {
     "benchmark": "mbpp_evalplus",
@@ -229,7 +229,7 @@
     "task_id": "Mbpp/16",
     "prompt_mode": "mbpp_evalplus_official",
     "sample_id": "mbpp_evalplus:Mbpp/16",
-    "split_path": "data/splits/mbpp_evalplus_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl"
   },
   {
     "benchmark": "mbpp_evalplus",
@@ -245,7 +245,7 @@
     "task_id": "Mbpp/17",
     "prompt_mode": "mbpp_evalplus_official",
     "sample_id": "mbpp_evalplus:Mbpp/17",
-    "split_path": "data/splits/mbpp_evalplus_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl"
   },
   {
     "benchmark": "mbpp_evalplus",
@@ -261,7 +261,7 @@
     "task_id": "Mbpp/18",
     "prompt_mode": "mbpp_evalplus_official",
     "sample_id": "mbpp_evalplus:Mbpp/18",
-    "split_path": "data/splits/mbpp_evalplus_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl"
   },
   {
     "benchmark": "mbpp_evalplus",
@@ -277,7 +277,7 @@
     "task_id": "Mbpp/19",
     "prompt_mode": "mbpp_evalplus_official",
     "sample_id": "mbpp_evalplus:Mbpp/19",
-    "split_path": "data/splits/mbpp_evalplus_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl"
   },
   {
     "benchmark": "mbpp_evalplus",
@@ -293,7 +293,7 @@
     "task_id": "Mbpp/20",
     "prompt_mode": "mbpp_evalplus_official",
     "sample_id": "mbpp_evalplus:Mbpp/20",
-    "split_path": "data/splits/mbpp_evalplus_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/mbpp_evalplus/eval.jsonl"
   },
   {
     "benchmark": "livecodebench",
@@ -313,7 +313,7 @@
     "task_id": "2777",
     "prompt_mode": "livecodebench_official",
     "sample_id": "livecodebench:2777",
-    "split_path": "data/splits/livecodebench_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/livecodebench/eval.jsonl"
   },
   {
     "benchmark": "livecodebench",
@@ -333,7 +333,7 @@
     "task_id": "2728",
     "prompt_mode": "livecodebench_official",
     "sample_id": "livecodebench:2728",
-    "split_path": "data/splits/livecodebench_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/livecodebench/eval.jsonl"
   },
   {
     "benchmark": "livecodebench",
@@ -353,7 +353,7 @@
     "task_id": "2784",
     "prompt_mode": "livecodebench_official",
     "sample_id": "livecodebench:2784",
-    "split_path": "data/splits/livecodebench_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/livecodebench/eval.jsonl"
   },
   {
     "benchmark": "livecodebench",
@@ -373,6 +373,6 @@
     "task_id": "abc301_b",
     "prompt_mode": "livecodebench_official",
     "sample_id": "livecodebench:abc301_b",
-    "split_path": "data/splits/livecodebench_half/eval.jsonl"
+    "split_path": "data/benchmarks/r4_half/livecodebench/eval.jsonl"
   }
 ]

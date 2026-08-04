@@ -16,16 +16,16 @@ Qwen family:
 
 ```bash
 cd ~/projects/srtp-code-llm-pruning
-source scripts/setup/env.sh
+source environment/setup/env.sh
 
-RUN_DIR="results/raw/qwen25c3b_r4_distill_$(date +%Y%m%d_%H%M%S)"
+RUN_DIR="results/evidence/qwen25c3b_r4_distill_$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$RUN_DIR"
 
-.venv-common/bin/python scripts/recover/create_distill_dataset.py \
+.venv-common/bin/python workflows/recovery/build_distillation_data.py \
   --teacher-model Qwen/Qwen2.5-Coder-3B-Instruct \
-  --guide-file data/splits/humaneval_half/guide.jsonl \
-  --guide-file data/splits/mbpp_evalplus_half/guide.jsonl \
-  --guide-file data/splits/livecodebench_half/guide.jsonl \
+  --guide-file data/benchmarks/r4_half/humaneval/guide.jsonl \
+  --guide-file data/benchmarks/r4_half/mbpp_evalplus/guide.jsonl \
+  --guide-file data/benchmarks/r4_half/livecodebench/guide.jsonl \
   --out-dir "$RUN_DIR" \
   --max-new-tokens 256 \
   --dtype fp16 \
@@ -37,17 +37,17 @@ CodeLlama family:
 
 ```bash
 cd ~/projects/srtp-code-llm-pruning
-source scripts/setup/env.sh
+source environment/setup/env.sh
 
 SNAPSHOT="$(find ~/.cache/huggingface/hub/models--codellama--CodeLlama-7b-hf/snapshots -mindepth 1 -maxdepth 1 -type d | sort | tail -n 1)"
-RUN_DIR="results/raw/codellama7b_r4_distill_$(date +%Y%m%d_%H%M%S)"
+RUN_DIR="results/evidence/codellama7b_r4_distill_$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$RUN_DIR"
 
-.venv-common/bin/python scripts/recover/create_distill_dataset.py \
+.venv-common/bin/python workflows/recovery/build_distillation_data.py \
   --teacher-model "$SNAPSHOT" \
-  --guide-file data/splits/humaneval_half/guide.jsonl \
-  --guide-file data/splits/mbpp_evalplus_half/guide.jsonl \
-  --guide-file data/splits/livecodebench_half/guide.jsonl \
+  --guide-file data/benchmarks/r4_half/humaneval/guide.jsonl \
+  --guide-file data/benchmarks/r4_half/mbpp_evalplus/guide.jsonl \
+  --guide-file data/benchmarks/r4_half/livecodebench/guide.jsonl \
   --out-dir "$RUN_DIR" \
   --max-new-tokens 256 \
   --dtype fp16 \
@@ -61,14 +61,14 @@ Example for a pruned model:
 
 ```bash
 cd ~/projects/srtp-code-llm-pruning
-source scripts/setup/env.sh
+source environment/setup/env.sh
 
 BASE_MODEL="PATH_TO_PRUNED_MODEL"
 TRAIN_FILE="PATH_TO_DISTILL_RUN/distill_train.jsonl"
-RUN_DIR="results/raw/METHOD_MODEL_r4_lora_$(date +%Y%m%d_%H%M%S)"
+RUN_DIR="results/evidence/METHOD_MODEL_r4_lora_$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$RUN_DIR"
 
-.venv-common/bin/python scripts/recover/train_lora_recovery.py \
+.venv-common/bin/python workflows/recovery/train_lora.py \
   --base-model "$BASE_MODEL" \
   --train-file "$TRAIN_FILE" \
   --out-dir "$RUN_DIR" \
@@ -92,14 +92,14 @@ is kept only as an intermediate recovery artifact until the merged model is prod
 
 ```bash
 cd ~/projects/srtp-code-llm-pruning
-source scripts/setup/env.sh
+source environment/setup/env.sh
 
 BASE_MODEL="PATH_TO_PRUNED_MODEL"
 ADAPTER="PATH_TO_LORA_RUN/lora_adapter"
-MERGED_MODEL="results/raw/METHOD_MODEL_r4_recovered_merged_$(date +%Y%m%d_%H%M%S)/merged_model"
+MERGED_MODEL="results/evidence/METHOD_MODEL_r4_recovered_merged_$(date +%Y%m%d_%H%M%S)/merged_model"
 mkdir -p "$MERGED_MODEL"
 
-.venv-common/bin/python scripts/recover/merge_lora_model.py \
+.venv-common/bin/python workflows/recovery/merge_lora.py \
   --base-model "$BASE_MODEL" \
   --adapter "$ADAPTER" \
   --out-dir "$MERGED_MODEL" \
@@ -112,10 +112,10 @@ mkdir -p "$MERGED_MODEL"
 Use the official benchmark wrapper without `--adapter`.
 
 ```bash
-scripts/eval/run_official_eval.sh \
+workflows/evaluate/run.sh \
   --benchmark humaneval \
   --model "$MERGED_MODEL" \
-  --split data/splits/humaneval_half/eval.jsonl \
+  --split data/benchmarks/r4_half/humaneval/eval.jsonl \
   --out-dir "$EVAL_DIR" \
   --max-new-tokens 256 \
   --dtype fp16
@@ -125,8 +125,8 @@ scripts/eval/run_official_eval.sh \
 
 Flab-Pruner/Qwen:
 
-- default pruned base: `results/raw/flab_qwen25c3b_r4_default_keep80_prune_*/flab_qwen25c3b_r4_default_keep80/pruned_model`
-- benchmark-guided pruned base: `results/raw/flab_qwen25c3b_r4_benchguided_keep80_prune_*/flab_qwen25c3b_r4_benchguided_keep80/pruned_model`
+- default pruned base: `results/evidence/flab_qwen25c3b_r4_default_keep80_prune_*/flab_qwen25c3b_r4_default_keep80/pruned_model`
+- benchmark-guided pruned base: `results/evidence/flab_qwen25c3b_r4_benchguided_keep80_prune_*/flab_qwen25c3b_r4_benchguided_keep80/pruned_model`
 - teacher dataset: Qwen family dataset
 
 LLM-Pruner/CodeLlama:
