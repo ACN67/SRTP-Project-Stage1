@@ -22,4 +22,3 @@ def test_data_split_registry_hash_counts_and_overlap():
                 gids={x.get("task_id") for x in read_jsonl(ROOT/by_role["guide"]["path"])}
                 eids={x.get("task_id") for x in read_jsonl(ROOT/by_role["eval"]["path"])}
                 assert gids.isdisjoint(eids), (protocol,dataset)
-

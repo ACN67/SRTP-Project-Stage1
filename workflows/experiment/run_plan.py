@@ -20,7 +20,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_SUMMARY = ROOT / "results" / "stage1" / "runs.jsonl"
+DEFAULT_SUMMARY = ROOT / "results" / "status" / "manual_runs.jsonl"
 
 
 def now_iso() -> str:
@@ -188,7 +188,10 @@ def write_markdown_summary(jsonl_path: Path, md_path: Path) -> None:
 def run_job(job: dict[str, Any], plan: dict[str, Any], summary_path: Path) -> dict[str, Any]:
     job_id = sanitize_id(job["id"])
     run_id = sanitize_id(job.get("run_id") or f"{job_id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
-    run_dir = ROOT / job.get("run_dir_template", f"results/evidence/{run_id}")
+    evidence_category = job.get("evidence_category")
+    if evidence_category not in {"smoke", "diagnostics", "infrastructure", "r4_half"}:
+        raise ValueError(f"job {job_id} must define evidence_category")
+    run_dir = ROOT / job.get("run_dir_template", f"results/evidence/{evidence_category}/{run_id}")
     run_dir.mkdir(parents=True, exist_ok=True)
 
     cwd = ROOT / job.get("cwd", ".")
@@ -215,7 +218,6 @@ def run_job(job: dict[str, Any], plan: dict[str, Any], summary_path: Path) -> di
         "method": job.get("method", ""),
         "role": job.get("role", ""),
         "recommended_machine": job.get("recommended_machine", ""),
-        "cross_reproduction_by": job.get("cross_reproduction_by", ""),
         "heavy": bool(job.get("heavy", False)),
         "start_time": now_iso(),
         "cwd": str(cwd),

@@ -11,3 +11,7 @@ results/evidence/**/cache/
 results/**/*.safetensors
 results/**/*.pt
 results/**/tokenizer.json
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/

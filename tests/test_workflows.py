@@ -23,4 +23,3 @@ def test_shell_scripts_parse():
     for p in list((ROOT/"workflows").rglob("*.sh")) + list((ROOT/"environment/setup").rglob("*.sh")):
         res=subprocess.run(["bash","-n",str(p)], text=True, capture_output=True)
         assert res.returncode == 0, (p, res.stderr)
-

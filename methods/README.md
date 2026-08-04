@@ -1,8 +1,3 @@
 # Methods
 
-Stage 1 tracks twelve pruning methods. Method directories contain project adapters,
-local patches, and method-specific status notes. Cross-method execution code lives
-under `workflows/`.
-
-Use `results/registries/methods.csv` as the machine-readable status table.
-
+Each method directory has an `Owner:` field and method status. The unified method registry is `results/status/methods.csv`.

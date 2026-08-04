@@ -1,0 +1,14 @@
+method,venv_name,lock_file,extra_install,notes
+flab_pruner,.venv-flab_pruner,environment/locks/shared_pruning.txt,,shared pruning dependency set
+magnitude,.venv-magnitude,environment/locks/shared_pruning.txt,,shared pruning dependency set
+wanda,.venv-wanda,environment/locks/shared_pruning.txt,,shared pruning dependency set
+dsnot,.venv-dsnot,environment/locks/shared_pruning.txt,,shared pruning dependency set
+owl,.venv-owl,environment/locks/shared_pruning.txt,,shared pruning dependency set
+sparsegpt,.venv-sparsegpt,environment/locks/shared_pruning.txt,,shared pruning dependency set
+maskllm,.venv-maskllm,environment/locks/shared_pruning.txt,,shared pruning dependency set
+pruner_zero,.venv-pruner_zero,environment/locks/shared_pruning.txt,,shared pruning dependency set
+flap,.venv-flap,environment/locks/shared_pruning.txt,,shared pruning dependency set
+laco,.venv-laco,environment/locks/shared_pruning.txt,,shared pruning dependency set
+llm_pruner,.venv-llm_pruner,environment/locks/llm_pruner.txt,third_party/llm_pruner,method-specific upstream package
+slicegpt,.venv-slicegpt,environment/locks/slicegpt.txt,third_party/slicegpt editable install,method-specific upstream package
+livecodebench,.venv-livecodebench,environment/locks/livecodebench.txt,third_party/livecodebench editable install,benchmark runner only

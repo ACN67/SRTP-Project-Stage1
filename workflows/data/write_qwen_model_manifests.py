@@ -12,12 +12,12 @@ ROOT = Path(__file__).resolve().parents[2]
 MODELS = {
     "qwen25_coder_15b_instruct": {
         "model_id": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
-        "probe_glob": "results/evidence/qwen25_coder_15b_config_probe_*/qwen_probe.json",
+        "probe_glob": "results/evidence/diagnostics/qwen25_coder_15b_config_probe_*/qwen_probe.json",
         "role": "baseline_and_debug",
     },
     "qwen25_coder_3b_instruct": {
         "model_id": "Qwen/Qwen2.5-Coder-3B-Instruct",
-        "probe_glob": "results/evidence/qwen25_coder_3b_config_probe_*/qwen_probe.json",
+        "probe_glob": "results/evidence/diagnostics/qwen25_coder_3b_config_probe_*/qwen_probe.json",
         "role": "pruning_target_and_comparison",
     },
 }

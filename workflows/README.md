@@ -7,4 +7,3 @@ Cross-method workflow code lives here:
 - `recovery/`: distillation data, LoRA training, and LoRA merge helpers.
 - `experiment/`: plan runner.
 - `audit/`: static and evidence audit tools.
-

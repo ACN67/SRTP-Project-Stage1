@@ -1,4 +1,4 @@
-name: stage1_manual_plan
+name: stage1_plan
 default_timeout_seconds: 7200
 resource_poll_interval_seconds: 5
 env:
@@ -6,6 +6,7 @@ env:
   HF_HUB_ENABLE_HF_TRANSFER: '0'
 jobs:
 - id: env_check
+  evidence_category: smoke
   enabled: true
   heavy: false
   env: common
@@ -20,6 +21,7 @@ jobs:
   role: 公共环境检查
   recommended_machine: all
 - id: official_benchmark_policy_check
+  evidence_category: smoke
   enabled: true
   heavy: false
   env: common
@@ -34,6 +36,7 @@ jobs:
   role: Official benchmark policy audit
   recommended_machine: all
 - id: import_core_method_envs
+  evidence_category: smoke
   enabled: true
   heavy: false
   env: common
@@ -62,6 +65,7 @@ jobs:
   role: 公共方法环境导入检查
   recommended_machine: all
 - id: sparsegpt_opt125m_gmp_smoke
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: sparsegpt
@@ -82,8 +86,8 @@ jobs:
   method: SparseGPT
   role: 官方R1基线/环境审计
   recommended_machine: RTX 4060 or RTX 5060
-  cross_reproduction_by: 常珂舒
 - id: sparsegpt_opt125m_sparsegpt_smoke
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: sparsegpt
@@ -103,8 +107,8 @@ jobs:
   method: SparseGPT
   role: 官方R1复现
   recommended_machine: RTX 4060 or RTX 5060
-  cross_reproduction_by: 常珂舒
 - id: wanda_opt125m_magnitude_smoke
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: wanda
@@ -126,8 +130,8 @@ jobs:
   method: Magnitude
   role: 官方R1/最低基线
   recommended_machine: RTX 4060 or RTX 5060
-  cross_reproduction_by: 李长骏
 - id: wanda_opt125m_wanda_smoke
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: wanda
@@ -148,8 +152,8 @@ jobs:
   method: Wanda
   role: 官方R1复现
   recommended_machine: RTX 4060 or RTX 5060
-  cross_reproduction_by: 李长骏
 - id: prunerzero_opt125m_smoke
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: pruner_zero
@@ -171,8 +175,8 @@ jobs:
   method: Pruner-Zero
   role: 官方R1流程复现
   recommended_machine: RTX 4060 or RTX 5060
-  cross_reproduction_by: 常珂舒
 - id: dsnot_llama_official_template
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: dsnot
@@ -194,8 +198,8 @@ jobs:
   method: DSnoT
   role: 官方R1模板/组合策略
   recommended_machine: RTX 4060 or RTX 5060
-  cross_reproduction_by: 李长骏
 - id: flap_llama_official_template
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: flap
@@ -218,8 +222,8 @@ jobs:
   method: FLAP
   role: 官方R1模板/结构化代表
   recommended_machine: RTX 4060 or RTX 5060
-  cross_reproduction_by: 常珂舒
 - id: llmpruner_tiny_llama_layerwise_smoke
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: llm_pruner
@@ -242,8 +246,8 @@ jobs:
   method: LLM-Pruner
   role: 官方R1最小smoke/tiny LLaMA layer-wise
   recommended_machine: RTX 5060 preferred
-  cross_reproduction_by: 潘阔
 - id: slicegpt_opt125m_smoke
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: slicegpt
@@ -267,8 +271,8 @@ jobs:
   method: SliceGPT
   role: 官方R1最小smoke/OPT小模型
   recommended_machine: RTX 5060 preferred
-  cross_reproduction_by: 潘阔
 - id: slicegpt_phi2_template
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: slicegpt
@@ -289,8 +293,8 @@ jobs:
   method: SliceGPT
   role: 官方R1模板/维度剪枝
   recommended_machine: RTX 5060 preferred
-  cross_reproduction_by: 潘阔
 - id: codellama7b_config_probe
+  evidence_category: smoke
   enabled: false
   heavy: false
   env: common
@@ -310,6 +314,7 @@ jobs:
   role: CodeLlama模型清单/配置探测
   recommended_machine: any with network and HF access if required
 - id: qwen25_coder_15b_config_probe
+  evidence_category: smoke
   enabled: false
   heavy: false
   env: common
@@ -329,8 +334,8 @@ jobs:
   method: Qwen2.5-Coder
   role: R2结构探测/适配前检查
   recommended_machine: any with network
-  cross_reproduction_by: shared
 - id: qwen25_coder_3b_config_probe
+  evidence_category: smoke
   enabled: false
   heavy: false
   env: common
@@ -351,8 +356,8 @@ jobs:
   method: Qwen2.5-Coder
   role: Q3结构探测/3B对比目标检查
   recommended_machine: any with network
-  cross_reproduction_by: shared
 - id: stage1_readiness_check
+  evidence_category: smoke
   enabled: true
   heavy: false
   env: common
@@ -369,8 +374,8 @@ jobs:
   method: readiness
   role: 阶段缺口检查/轻量审计
   recommended_machine: all
-  cross_reproduction_by: shared
 - id: write_qwen_model_manifests
+  evidence_category: smoke
   enabled: false
   heavy: false
   env: common
@@ -388,8 +393,8 @@ jobs:
   method: Qwen2.5-Coder
   role: Qwen模型清单/revision固定
   recommended_machine: any with network
-  cross_reproduction_by: shared
 - id: flab_pruner_import_probe
+  evidence_category: smoke
   enabled: false
   heavy: false
   env: flab_pruner
@@ -420,8 +425,8 @@ jobs:
   method: Flab-Pruner
   role: R0入口检查/Qwen2工具导入
   recommended_machine: any
-  cross_reproduction_by: 潘阔
 - id: flab_qwen3b_humaneval_dry_run
+  evidence_category: smoke
   enabled: false
   heavy: false
   env: flab_pruner
@@ -445,8 +450,8 @@ jobs:
   method: Flab-Pruner
   role: Qwen3B适配dry-run/guide split audit校验
   recommended_machine: any with network
-  cross_reproduction_by: 潘阔
 - id: flab_qwen3b_humaneval_prune_heavy
+  evidence_category: smoke
   enabled: false
   heavy: true
   env: flab_pruner
@@ -470,8 +475,8 @@ jobs:
   method: Flab-Pruner
   role: Qwen3B剪枝长任务/HumanEval guide
   recommended_machine: RTX 5060 preferred; may need long download and memory headroom
-  cross_reproduction_by: 潘阔
 - id: livecodebench_import_and_help
+  evidence_category: smoke
   enabled: false
   heavy: false
   env: livecodebench

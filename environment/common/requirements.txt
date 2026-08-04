@@ -1,0 +1,27 @@
+--index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
+torchaudio==2.11.0+cu128
+--extra-index-url https://pypi.org/simple
+transformers
+accelerate
+datasets
+evaluate
+safetensors
+sentencepiece
+protobuf
+tokenizers
+huggingface_hub
+pandas
+numpy
+scipy
+scikit-learn
+pyyaml
+jsonlines
+psutil
+tqdm
+rich
+einops
+evalplus
+human-eval
+swebench

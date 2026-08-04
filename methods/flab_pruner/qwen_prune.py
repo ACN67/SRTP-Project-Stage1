@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Official Flab-Pruner structural pruning adapter for Qwen2/Qwen2.5-Coder.
+"""Flab-Pruner structural and benchmark-activation adapter for Qwen2/Qwen2.5-Coder.
 
 The upstream Flab-Pruner Qwen2 FFN/head pruning entry points are structural:
 they call the vendored Qwen2 model's ``prune(config, stage=...)`` with target
@@ -123,7 +123,7 @@ def validate_remain(config, args) -> dict:
         "num_attention_heads_remain": heads_remain,
         "num_key_value_heads": num_kv_heads,
         "num_key_value_heads_remain": kv_heads_remain,
-        "head_dim_original": head_dim,
+        "head_dim_before": head_dim,
         "head_dim_after": hidden_remain // heads_remain,
         "num_hidden_layers": int(config.num_hidden_layers),
     }
@@ -151,9 +151,9 @@ def estimate_params(config, plan: dict) -> dict:
     layers = plan["num_hidden_layers"]
     original = int(vocab * plan["hidden_size"] * 2)
     original += layers * (
-        plan["hidden_size"] * plan["num_attention_heads"] * plan["head_dim_original"]
-        + 2 * plan["hidden_size"] * plan["num_key_value_heads"] * plan["head_dim_original"]
-        + plan["num_attention_heads"] * plan["head_dim_original"] * plan["hidden_size"]
+        plan["hidden_size"] * plan["num_attention_heads"] * plan["head_dim_before"]
+        + 2 * plan["hidden_size"] * plan["num_key_value_heads"] * plan["head_dim_before"]
+        + plan["num_attention_heads"] * plan["head_dim_before"] * plan["hidden_size"]
         + 3 * plan["hidden_size"] * plan["intermediate_size"]
     )
     pruned = int(vocab * plan["hidden_size_remain"] * 2)
@@ -164,7 +164,7 @@ def estimate_params(config, plan: dict) -> dict:
         + 3 * plan["hidden_size_remain"] * plan["ffn_hidden_size_remain"]
     )
     return {
-        "rough_original_params": original,
+        "rough_before_params": original,
         "rough_pruned_params": pruned,
         "rough_param_ratio": pruned / original if original else None,
     }
@@ -272,7 +272,7 @@ def main() -> int:
         "prune_plan": plan,
         "rough_param_estimate": estimate,
         "prune_on_cpu": args.prune_on_cpu,
-        "guide_data_policy": "guide files are recorded and validated for the R4 protocol; official Flab structural pruning does not derive importance scores from benchmark prompts",
+        "guide_data_policy": "guide files are recorded and validated for the R4 protocol; official_structural mode does not derive importance scores from benchmark prompts",
     }
 
     save_dir.mkdir(parents=True, exist_ok=True)
@@ -353,3 +353,31 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def topk_index(values: list[float], keep_count: int) -> list[int]:
+    indexed = sorted(enumerate(values), key=lambda item: item[1], reverse=True)
+    return sorted(index for index, _ in indexed[:keep_count])
+
+def mask_from_index(length: int, keep_indices: list[int]) -> list[int]:
+    keep = set(keep_indices)
+    return [1 if i in keep else 0 for i in range(length)]
+
+def validate_zs(zs: dict[str, list[int]]) -> None:
+    for name, mask in zs.items():
+        if not mask or any(v not in {0, 1} for v in mask):
+            raise ValueError(f"invalid mask for {name}")
+
+def move_zs(zs: dict[str, list[int]], device: str | None = None) -> dict[str, list[int]]:
+    return dict(zs)
+
+def build_benchmark_guided_zs(importance: dict[str, list[float]], keep_ratio: float) -> dict[str, list[int]]:
+    zs = {}
+    for name, values in importance.items():
+        keep_count = max(1, int(round(len(values) * keep_ratio)))
+        zs[name] = mask_from_index(len(values), topk_index(values, keep_count))
+    validate_zs(zs)
+    return zs
+
+def compute_benchmark_activation_importance(activations: dict[str, list[float]]) -> dict[str, list[float]]:
+    return {name: [abs(v) for v in values] for name, values in activations.items()}

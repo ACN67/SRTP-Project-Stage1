@@ -53,4 +53,3 @@ def test_formal_excludes_pilot_and_keeps_partial():
     assert any(r["result_completeness"] == "partial" and r["task_count"] == "82" for r in scores)
     old=[r for r in rows("results/status/runs.csv") if r["run_id"] == "qwen25c3b_r4_baseline_evalhalf_20260723_193503"]
     assert old and old[0]["superseded_by"] == "qwen25c3b_official_evalhalf_20260727_135521"
-
