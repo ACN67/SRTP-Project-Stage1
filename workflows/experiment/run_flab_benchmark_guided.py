@@ -2,24 +2,38 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-STAMP = "20260804_135032"
 
 from methods.flab_pruner import benchmark_guided
 from methods.flab_pruner.qwen_prune import load_flab_qwen_model
 
 
-def run_tiny() -> None:
-    out = ROOT / "results/evidence/smoke" / f"flab_benchmark_guided_tiny_{STAMP}"
-    out.mkdir(parents=True, exist_ok=True)
-    (out / "command.sh").write_text("#!/usr/bin/env bash\nset -euo pipefail\npython workflows/experiment/run_flab_benchmark_guided.py --job tiny\n", encoding="utf-8")
+def default_stamp() -> str:
+    return dt.datetime.now().strftime("%Y%m%d_%H%M%S")
+
+
+def prepare_output(default_run_id: str, output_dir: str | None) -> Path:
+    out = Path(output_dir) if output_dir else ROOT / "results/evidence/smoke" / default_run_id
+    if not out.is_absolute():
+        out = ROOT / out
+    if out.exists():
+        raise FileExistsError(f"refusing to overwrite existing evidence directory: {out}")
+    out.mkdir(parents=True)
+    return out
+
+
+def run_tiny(run_id: str | None = None, output_dir: str | None = None) -> None:
+    run_id = run_id or f"flab_benchmark_guided_tiny_{default_stamp()}"
+    out = prepare_output(run_id, output_dir)
+    (out / "command.sh").write_text("#!/usr/bin/env bash\nset -euo pipefail\npython workflows/experiment/run_flab_benchmark_guided.py --job tiny --run-id " + run_id + "\n", encoding="utf-8")
     (out / "command.sh").chmod(0o755)
-    artifact_base = Path("/tmp") / f"flab_benchmark_guided_tiny_artifacts_{STAMP}"
+    artifact_base = Path("/tmp") / f"{run_id}_artifacts"
     result = benchmark_guided.run_tiny_pair(out, target_parameter_keep_ratio=0.80, artifact_base_dir=artifact_base)
     (out / "artifact_locator.json").write_text(json.dumps({"artifact_base": str(artifact_base), "committed_to_git": False}, indent=2) + "\n", encoding="utf-8")
     (out / "stdout.log").write_text(json.dumps(result["summary"], indent=2) + "\n", encoding="utf-8")
@@ -28,16 +42,16 @@ def run_tiny() -> None:
 
 
 
-def run_qwen_smoke() -> None:
-    out = ROOT / "results/evidence/smoke" / f"flab_qwen15b_benchmark_guided_smoke_{STAMP}"
-    out.mkdir(parents=True, exist_ok=True)
-    command = "python workflows/experiment/run_flab_benchmark_guided.py --job qwen15b_smoke"
+def run_qwen_smoke(run_id: str | None = None, output_dir: str | None = None) -> None:
+    run_id = run_id or f"flab_qwen15b_benchmark_guided_smoke_{default_stamp()}"
+    out = prepare_output(run_id, output_dir)
+    command = "python workflows/experiment/run_flab_benchmark_guided.py --job qwen15b_smoke --run-id " + run_id
     (out / "command.sh").write_text("#!/usr/bin/env bash\nset -euo pipefail\n" + command + "\n", encoding="utf-8")
     (out / "command.sh").chmod(0o755)
     stdout = []
     stderr = []
     model_id = "Qwen/Qwen2.5-Coder-1.5B-Instruct"
-    artifact_base = Path("/tmp") / f"flab_qwen15b_benchmark_guided_artifacts_{STAMP}"
+    artifact_base = Path("/tmp") / f"{run_id}_artifacts"
     summary = {
         "run_id": out.name,
         "method": "Flab-Pruner",
@@ -156,11 +170,13 @@ def run_qwen_smoke() -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run Flab benchmark-guided jobs.")
     parser.add_argument("--job", required=True, choices=["tiny", "qwen15b_smoke"])
+    parser.add_argument("--run-id", help="Explicit run id for a new evidence directory.")
+    parser.add_argument("--output-dir", help="Explicit output directory; must not already exist.")
     args = parser.parse_args()
     if args.job == "tiny":
-        run_tiny()
+        run_tiny(args.run_id, args.output_dir)
     elif args.job == "qwen15b_smoke":
-        run_qwen_smoke()
+        run_qwen_smoke(args.run_id, args.output_dir)
     return 0
 
 

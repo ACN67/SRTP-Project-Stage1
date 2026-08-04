@@ -1,0 +1,5 @@
+{
+  "reload_verification_performed": false,
+  "reason": "all /tmp artifacts were already missing; large pruning was not rerun",
+  "prior_reload_evidence_retained": true
+}

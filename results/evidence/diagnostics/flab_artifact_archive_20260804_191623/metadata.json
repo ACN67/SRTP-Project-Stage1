@@ -1,0 +1,7 @@
+{
+  "run_id": "flab_artifact_archive_20260804_191623",
+  "method": "Flab-Pruner",
+  "created_at": "20260804_191623",
+  "scope": "artifact archival audit only",
+  "no_experiments_rerun": true
+}

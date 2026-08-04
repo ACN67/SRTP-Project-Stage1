@@ -30,8 +30,12 @@ The Keshu-owned closure file `results/status/keshu_completion.json` closes only 
 ## Flab external masks
 The benchmark-activation mask path is experimental and blocked because the vendored Qwen prune API accepts config/stage targets rather than a verified external per-channel mask schema.
 
+This item is historical and superseded for the later benchmark-guided extension. The final experimental extension uses internal-zs FFN `intermediate_indexes`, remains `experimental_extension`, and does not claim upstream official benchmark-guided support.
+
 ## LaCo smoke boundary
 The LaCo tiny core smoke demonstrates layer similarity scoring and collapse mechanics only. It is diagnostic evidence and not formal CodeLlama R4 evidence.
 
 ## Flab capped-32 calibration
 The benchmark-guided HE, MBPP, and LCB variants use capped-32 guide calibration and fixed 20-task non-collapse gates. These are pilot quality gates and are not full-guide formal results.
+
+The pilot quality gates failed with duplicate output collapse; scorer execution was skipped and no pass@1 result is registered for these capped-32 runs.

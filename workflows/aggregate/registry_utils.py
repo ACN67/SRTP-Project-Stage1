@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 METHOD_FIELDS = 'method,owner,family,primary_model,upstream_status,adapter_status,smoke_status,r4_status,recovery_status,execution_status,validity_status,quality_gate,officiality,evidence_status,primary_code,readme,notes'.split(',')
 RUN_FIELDS = 'run_id,category,method_scope,model,protocol,variant,round,execution_status,validity_status,quality_gate,officiality,result_completeness,evidence_path,metadata_present,summary_present,superseded_by,notes'.split(',')
 SCORE_FIELDS = 'score_id,run_id,method,model,variant,benchmark,protocol,split,task_count,pass_count,pass_rate,plus_pass_count,plus_pass_rate,metric_name,metric_value,result_completeness,validity_status,evidence_status,source_file,notes'.split(',')
-ARTIFACT_FIELDS = 'artifact_id,run_id,method,artifact_type,storage_root,relative_locator,size_bytes,sha256,availability,committed_to_git,notes'.split(',')
+ARTIFACT_FIELDS = 'artifact_id,run_id,method,variant,artifact_type,model,source_path,persistent_path,availability,size_bytes,sha256,created_at,officiality,protocol,committed_to_git,notes'.split(',')
 SPLIT_FIELDS = 'split_id,dataset,protocol,role,path,task_count,sha256,seed,overlap_policy,source,notes'.split(',')
 FORMAL_BANNED = {'pilot_keep80_official_all_20260727_174732','qwen25c3b_r4_baseline_evalhalf_20260723_193503','qwen25c3b_r4_baseline_evalhalf_recheck_20260726_181426'}
 
@@ -117,9 +117,13 @@ def build_run_rows() -> list[dict[str,str]]:
         if 'partial' in low or rid in {'slicegpt_codellama7b_r4_benchguided_evalhalf_20260726_053225','slicegpt_codellama7b_r4_offload_probe_20260726_044311'}: comp='partial'
         val='invalid' if cat=='superseded' else ('diagnostic_only' if cat in {'diagnostics','infrastructure'} else 'valid')
         if rid.startswith('flab_qwen15b_benchmark_guided_') and 'capped32' in rid:
+            proto='pilot_quality_gate'
             comp='pilot'
             val=summary.get('validity_status','valid')
+            execution='pilot_quality_gate_completed'
+            notes='capped-32 calibration plus 20-task quality gate; formal scorer not executed; full formal skipped due output collapse'
         elif rid.startswith('flab_benchmark_guided_tiny_') or rid.startswith('flab_qwen15b_benchmark_guided_smoke_'):
+            proto='algorithm_tiny_smoke' if rid.startswith('flab_benchmark_guided_tiny_') else 'code_model_smoke'
             comp='complete'
             val=summary.get('validity_status','valid')
         elif rid.startswith('laco_upstream_smoke_'):
@@ -136,13 +140,75 @@ def build_run_rows() -> list[dict[str,str]]:
         method=infer_method(rid)
         execution='superseded' if cat=='superseded' else summary.get('execution_status', ('blocked' if summary.get('status') == 'blocked' else ('partial' if comp=='partial' else 'completed')))
         notes='5-task pilot excluded from formal table' if comp=='pilot' else summary.get('blocker_reason','')
+        if rid.startswith('flab_qwen15b_benchmark_guided_') and 'capped32' in rid:
+            execution='pilot_quality_gate_completed'
+            notes='capped-32 calibration plus 20-task quality gate; formal scorer not executed; full formal skipped due output collapse'
         if rid.startswith('laco_upstream_notebook_probe_attempt_'):
             notes='file_presence_probe; does_not_close_method=true'
         if rid.startswith('laco_upstream_smoke_'):
             notes='diagnostic_only; does_not_change_method_scope_decision=true'
         if rid.startswith('flab_qwen15b_benchmark_activation_he_keep80_attempt_'):
             notes='benchmark activation entered plain HF model path; vendored prune API requires config/stage and no verified external per-channel mask schema'
-        rows.append({'run_id':rid,'category':cat,'method_scope':method,'model':infer_model(rid),'protocol':proto,'variant':infer_variant(d,rid),'round':'R4' if cat=='r4_half' else ('smoke' if cat=='smoke' else 'audit'),'execution_status':execution,'validity_status':val,'quality_gate':summary.get('quality_gate', 'fail' if method in {'Flab-Pruner','LLM-Pruner','SliceGPT'} and cat=='r4_half' else ('not_applicable' if val!='valid' else 'pass')),'officiality':'fallback_non_official' if 'codellama' in low and 'llmpruner' in low else ('experimental_extension' if 'benchguided' in low or 'benchmark_activation' in low else 'local_official_adapter'),'result_completeness':comp,'evidence_path':d.relative_to(ROOT).as_posix(),'metadata_present':str(any(d.glob('metadata.*'))).lower(),'summary_present':str(bool(list(d.rglob('score_summary.json')) or (d/'summary.json').exists())).lower(),'superseded_by':sup,'notes':notes})
+        quality_gate = summary.get('quality_gate', 'fail' if method in {'Flab-Pruner','LLM-Pruner','SliceGPT'} and cat=='r4_half' else ('not_applicable' if val!='valid' else 'pass'))
+        if rid.startswith('flab_qwen15b_benchmark_guided_smoke_'):
+            quality_gate = 'pass_for_execution' if quality_gate == 'pass' else quality_gate
+        rows.append({'run_id':rid,'category':cat,'method_scope':method,'model':infer_model(rid),'protocol':proto,'variant':infer_variant(d,rid),'round':'R4' if cat=='r4_half' else ('smoke' if cat=='smoke' else 'audit'),'execution_status':execution,'validity_status':val,'quality_gate':quality_gate,'officiality':'fallback_non_official' if 'codellama' in low and 'llmpruner' in low else ('experimental_extension' if 'benchguided' in low or 'benchmark_activation' in low or 'benchmark_guided' in low else 'local_official_adapter'),'result_completeness':comp,'evidence_path':d.relative_to(ROOT).as_posix(),'metadata_present':str(any(d.glob('metadata.*'))).lower(),'summary_present':str(bool(list(d.rglob('score_summary.json')) or (d/'summary.json').exists())).lower(),'superseded_by':sup,'notes':notes})
+    return rows
+
+def build_artifact_rows(run_rows: list[dict[str,str]]|None=None) -> list[dict[str,str]]:
+    if run_rows is None:
+        run_rows = build_run_rows()
+    by_run={r['run_id']: r for r in run_rows}
+    rows=[]
+    existing=ROOT/'results/status/artifacts.csv'
+    if existing.exists():
+        for row in read_csv(existing):
+            if row.get('run_id','').startswith('flab_qwen15b_benchmark_guided'):
+                continue
+            rows.append({
+                'artifact_id': row.get('artifact_id',''),
+                'run_id': row.get('run_id',''),
+                'method': row.get('method',''),
+                'variant': row.get('variant',''),
+                'artifact_type': row.get('artifact_type',''),
+                'model': row.get('model',''),
+                'source_path': row.get('source_path',''),
+                'persistent_path': row.get('persistent_path') or '/'.join(x for x in [row.get('storage_root',''), row.get('relative_locator','')] if x),
+                'availability': row.get('availability',''),
+                'size_bytes': row.get('size_bytes',''),
+                'sha256': row.get('sha256',''),
+                'created_at': row.get('created_at',''),
+                'officiality': row.get('officiality',''),
+                'protocol': row.get('protocol',''),
+                'committed_to_git': row.get('committed_to_git','false'),
+                'notes': row.get('notes',''),
+            })
+    manifest=ROOT/'results/evidence/diagnostics'
+    for archive in sorted(manifest.glob('flab_artifact_archive_*/artifact_manifest.json')):
+        data=read_json(archive)
+        for item in data.get('artifacts', []):
+            rr=by_run.get(item['run_id'], {})
+            rows.append({
+                'artifact_id': '',
+                'run_id': item['run_id'],
+                'method': 'Flab-Pruner',
+                'variant': item.get('variant') or rr.get('variant',''),
+                'artifact_type': item.get('artifact_type','pruned_model_directory'),
+                'model': item.get('model') or rr.get('model',''),
+                'source_path': item.get('source_path',''),
+                'persistent_path': item.get('persistent_path',''),
+                'availability': item.get('availability',''),
+                'size_bytes': str(item.get('size_bytes','')),
+                'sha256': item.get('sha256',''),
+                'created_at': item.get('created_at',''),
+                'officiality': item.get('officiality') or rr.get('officiality','experimental_extension'),
+                'protocol': item.get('protocol') or rr.get('protocol',''),
+                'committed_to_git': 'false',
+                'notes': item.get('notes',''),
+            })
+    for idx,row in enumerate(rows, start=1):
+        if not row.get('artifact_id'):
+            row['artifact_id']=f'artifact_{idx:04d}'
     return rows
 
 def benchmark_from_path(path: Path, data: dict) -> str:

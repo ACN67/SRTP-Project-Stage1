@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 from pathlib import Path
 import sys
@@ -11,7 +12,6 @@ from transformers import AutoTokenizer
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-STAMP = "20260804_135032"
 MODEL_ID = "Qwen/Qwen2.5-Coder-1.5B-Instruct"
 
 from methods.flab_pruner import benchmark_guided
@@ -46,16 +46,29 @@ def prompt(row):
     return row.get("prompt") or row.get("question") or row.get("content") or ""
 
 
-def run_variant(key: str) -> None:
+def default_stamp() -> str:
+    return dt.datetime.now().strftime("%Y%m%d_%H%M%S")
+
+
+def prepare_output(run_id: str, output_dir: str | None) -> Path:
+    out = Path(output_dir) if output_dir else ROOT / "results/evidence/smoke" / run_id
+    if not out.is_absolute():
+        out = ROOT / out
+    if out.exists():
+        raise FileExistsError(f"refusing to overwrite existing evidence directory: {out}")
+    out.mkdir(parents=True)
+    return out
+
+
+def run_variant(key: str, run_id: str | None = None, output_dir: str | None = None) -> None:
     variant, manifest_path = VARIANTS[key]
-    run_id = f"flab_qwen15b_{variant}_{STAMP}"
-    out = ROOT / "results/evidence/smoke" / run_id
-    out.mkdir(parents=True, exist_ok=True)
+    run_id = run_id or f"flab_qwen15b_{variant}_{default_stamp()}"
+    out = prepare_output(run_id, output_dir)
     artifact_base = Path("/tmp") / f"{run_id}_artifacts"
     summary = {"run_id": run_id, "method": "Flab-Pruner", "variant": variant, "model": MODEL_ID, "command_status": "exit_nonzero", "execution_status": "failed", "validity_status": "diagnostic_only", "quality_gate": "fail", "protocol_deviation": "calibration_capped32", "artifact_locator": {"artifact_base": str(artifact_base), "committed_to_git": False}}
     stdout=[]; stderr=[]
     def flush():
-        (out/"command.sh").write_text(f"#!/usr/bin/env bash\nset -euo pipefail\npython workflows/experiment/run_flab_benchmark_guided_variants.py --variant {key}\n", encoding="utf-8")
+        (out/"command.sh").write_text(f"#!/usr/bin/env bash\nset -euo pipefail\npython workflows/experiment/run_flab_benchmark_guided_variants.py --variant {key} --run-id {run_id}\n", encoding="utf-8")
         (out/"command.sh").chmod(0o755)
         (out/"stdout.log").write_text("\n".join(stdout)+"\n", encoding="utf-8")
         (out/"stderr.log").write_text("\n".join(stderr)+"\n", encoding="utf-8")
@@ -102,7 +115,7 @@ def run_variant(key: str) -> None:
         median=sorted(token_counts)[len(token_counts)//2] if token_counts else 0
         nan_or_inf=False
         quality_pass = (empty/len(decoded) <= 0.20) and (duplicate/len(decoded) <= 0.50) and median >= 8 and not nan_or_inf and reload_check["reload_success"]
-        summary.update({"command_status":"exit_0", "execution_status":"formal_completed", "validity_status":"valid", "quality_gate":"pass_for_formal_execution" if quality_pass else "fail", "formal_full_eval":"not_run_pending_after_capped32_gate" if quality_pass else "skipped_due_to_output_collapse", "benchmark_guided_dimensions":["intermediate"], "config_derived_dimensions":["hidden","attention_head","kv_head"], "importance_hash": importance.importance_hash, "selected_index_hash": zs.selected_index_hash, "requested_parameter_keep_ratio":0.80, **prune, "reload_success": reload_check["reload_success"], "empty_rate": empty/len(decoded), "duplicate_rate": duplicate/len(decoded), "median_generated_tokens": median, "nan_or_inf": nan_or_inf, "pass_count": 0})
+        summary.update({"command_status":"exit_0", "execution_status":"pilot_quality_gate_completed", "validity_status":"valid", "quality_gate":"pass_for_pilot_quality_gate" if quality_pass else "fail", "formal_full_eval":"not_run_pending_after_capped32_gate" if quality_pass else "skipped_due_to_output_collapse", "score_status":"not_evaluated_due_to_output_collapse", "scorer_executed": False, "benchmark_guided_dimensions":["intermediate"], "config_derived_dimensions":["hidden","attention_head","kv_head"], "importance_hash": importance.importance_hash, "selected_index_hash": zs.selected_index_hash, "requested_parameter_keep_ratio":0.80, **prune, "reload_success": reload_check["reload_success"], "empty_rate": empty/len(decoded), "duplicate_rate": duplicate/len(decoded), "median_generated_tokens": median, "nan_or_inf": nan_or_inf, "pass_count": ""})
         (out/"parameter_summary.json").write_text(json.dumps({k: summary[k] for k in ["params_before","params_after","actual_parameter_keep_ratio","requested_parameter_keep_ratio"]}, indent=2)+"\n", encoding="utf-8")
         (out/"reload_check.json").write_text(json.dumps(reload_check, indent=2)+"\n", encoding="utf-8")
         (out/"generation_check.json").write_text(json.dumps({"empty_rate": summary["empty_rate"], "duplicate_rate": summary["duplicate_rate"], "median_generated_tokens": median, "nan_or_inf": nan_or_inf}, indent=2)+"\n", encoding="utf-8")
@@ -120,8 +133,10 @@ def run_variant(key: str) -> None:
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--variant", required=True, choices=sorted(VARIANTS))
+    parser.add_argument("--run-id", help="Explicit run id for a new evidence directory.")
+    parser.add_argument("--output-dir", help="Explicit output directory; must not already exist.")
     args=parser.parse_args()
-    run_variant(args.variant)
+    run_variant(args.variant, args.run_id, args.output_dir)
 
 if __name__ == "__main__":
     main()

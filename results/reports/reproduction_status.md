@@ -30,3 +30,5 @@ Owner: 常珂舒
 
 ## Flab Benchmark-Guided Experimental Extension
 Flab benchmark-guided evidence is now separate from official structural evidence. The experimental extension guides only FFN intermediate indices from benchmark activations. Tiny and Qwen1.5B smoke evidence succeeded with real parameter reduction and reload, while HE/MBPP/LCB capped-20 quality gates failed on duplicate output rate and skipped full-guide formal evaluation.
+
+The earlier benchmark activation blocker is retained only as a historical attempt and is superseded by the internal-zs adapter evidence. Artifact archive evidence now records the benchmark-guided `/tmp` artifacts as `missing_after_ephemeral_tmp_cleanup`; parameter summaries, reload checks, generation checks, importance hashes, and selected-index hashes remain the evidence of the completed execution.

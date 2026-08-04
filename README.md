@@ -44,3 +44,5 @@ The Keshu-owned completion pass records `owner_execution_closed=true` in `result
 
 ## Flab Benchmark-Guided Experimental Extension
 Flab-Pruner now has an experimental benchmark-guided path separate from the local official structural route. The extension uses benchmark guide activations to choose MLP `intermediate_indexes`; hidden size, attention heads, and KV heads remain config-derived. The Qwen1.5B smoke produced a reloadable artifact at an external `/tmp` locator and achieved an actual keep ratio of about 0.79998, but all three capped-20 quality gates failed due to duplicated outputs, so full-guide formal evaluation was skipped. Machine-readable status is in `results/status/flab_benchmark_guided_completion.json`.
+
+The benchmark-guided Flab extension completed real FFN channel selection and pruning, but all three pilot variants failed the predefined generation-quality gate, so full formal evaluation was not run. The earlier benchmark-activation blocker applied to the first implementation attempt that used a standard Hugging Face model or stopped at the top-level API; it is superseded by the internal-zs adapter evidence.

@@ -54,12 +54,17 @@ def collect_completion() -> dict:
         any_quality_fail = any_quality_fail or data.get("quality_gate") == "fail"
     target_closed = bool(qwen_summary.get("target_smoke_closed") and qwen_summary.get("params_after", 0) < qwen_summary.get("params_before", 0) and qwen_summary.get("nonempty_generation_after_reload"))
     experiment_closed = bool(all_attempted and target_closed)
+    qwen_quality_gate = qwen_summary.get("quality_gate")
+    if qwen_quality_gate == "pass":
+        qwen_summary["quality_gate"] = "pass_for_execution"
     out = {
         "contract": CONTRACT.relative_to(ROOT).as_posix(),
         "implementation_closed": tiny_result.get("implementation_closed", False),
         "target_smoke_closed": target_closed,
         "experiment_closed": experiment_closed,
+        "experiment_execution_closed": experiment_closed,
         "quality_gate": "fail" if any_quality_fail else ("pending" if not experiment_closed else "pass"),
+        "formal_full_evaluation": "skipped_due_to_output_collapse" if any_quality_fail else ("pending" if not experiment_closed else "not_run"),
         "officiality": "experimental_extension",
         "formal_variants": formal_variants,
         "tiny": tiny_result,

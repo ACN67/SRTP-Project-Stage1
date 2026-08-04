@@ -3,7 +3,9 @@
   "implementation_closed": true,
   "target_smoke_closed": true,
   "experiment_closed": true,
+  "experiment_execution_closed": true,
   "quality_gate": "fail",
+  "formal_full_evaluation": "skipped_due_to_output_collapse",
   "officiality": "experimental_extension",
   "formal_variants": {
     "he": "skipped_due_to_output_collapse",
@@ -22,7 +24,7 @@
     "command_status": "exit_0",
     "execution_status": "code_model_smoke_completed",
     "validity_status": "valid",
-    "quality_gate": "pass",
+    "quality_gate": "pass_for_execution",
     "target_smoke_closed": true,
     "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
     "standard_attempt": "vendored Flab Qwen2ForCausalLM local_files_only load by model id",

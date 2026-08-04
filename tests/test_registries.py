@@ -5,7 +5,7 @@ METHODS = ["Flab-Pruner","LLM-Pruner","SliceGPT","LaCo","Magnitude","Wanda","DSn
 METHOD_SCHEMA = "method,owner,family,primary_model,upstream_status,adapter_status,smoke_status,r4_status,recovery_status,execution_status,validity_status,quality_gate,officiality,evidence_status,primary_code,readme,notes".split(",")
 RUN_SCHEMA = "run_id,category,method_scope,model,protocol,variant,round,execution_status,validity_status,quality_gate,officiality,result_completeness,evidence_path,metadata_present,summary_present,superseded_by,notes".split(",")
 SCORE_SCHEMA = "score_id,run_id,method,model,variant,benchmark,protocol,split,task_count,pass_count,pass_rate,plus_pass_count,plus_pass_rate,metric_name,metric_value,result_completeness,validity_status,evidence_status,source_file,notes".split(",")
-ART_SCHEMA = "artifact_id,run_id,method,artifact_type,storage_root,relative_locator,size_bytes,sha256,availability,committed_to_git,notes".split(",")
+ART_SCHEMA = "artifact_id,run_id,method,variant,artifact_type,model,source_path,persistent_path,availability,size_bytes,sha256,created_at,officiality,protocol,committed_to_git,notes".split(",")
 SPLIT_SCHEMA = "split_id,dataset,protocol,role,path,task_count,sha256,seed,overlap_policy,source,notes".split(",")
 
 def rows(rel):

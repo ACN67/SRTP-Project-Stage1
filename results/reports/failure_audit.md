@@ -21,6 +21,8 @@ LoRA recovery and merged artifacts are retained where evidence exists. Merge suc
 ## Flab first break
 Flab-Pruner evidence separates the local official structural adapter from the benchmark-activation experimental extension. The benchmark-activation branch now reaches a vendored API audit, but stops at a structural blocker: `prune(config, stage)` does not expose a verified external per-channel mask schema for activation masks. The structural route still shows output-quality collapse after pruning and attempted recovery.
 
+This structural blocker is historical and superseded for the benchmark-guided extension. The later adapter uses the internal `model.model.prune(zs)` path and real benchmark-derived FFN `intermediate_indexes`; its current first break is post-pruning generation distribution collapse, not API access.
+
 ## LLM-Pruner first break
 LLM-Pruner evidence separates fallback CodeLlama routes from the local Qwen adapter. Failures are represented in `results/status/scores.csv` and remain visible in formal R4-half filtering.
 

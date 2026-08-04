@@ -5,16 +5,15 @@ from workflows.audit import check_keshu_completion
 
 def test_owner_completion_requires_real_flab_and_laco_closure():
     methods = {
-        "Flab-Pruner": {"structural_primary": True, "activation_smoke": False, "activation_blocker": "plain_hf_no_prune"},
+        "Flab-Pruner": {"structural_primary": True, "benchmark_guided_experimental": {"implementation_closed": False, "target_smoke_closed": False}},
         "LLM-Pruner": {"primary_audit": True},
         "SliceGPT": {"primary_audit": True},
-        "LaCo": {"laco_core_smoke": False, "laco_file_probe_only": True},
+        "LaCo": {"registry": {"execution_status": "partial", "validity_status": "diagnostic_only"}},
     }
     out = check_keshu_completion.assess_owner_completion(methods)
     assert out["owner_execution_closed"] is False
-    methods["Flab-Pruner"]["activation_blocker"] = "vendored_config_only_no_external_mask_schema"
-    methods["LaCo"]["laco_core_smoke"] = True
-    methods["LaCo"]["laco_file_probe_only"] = False
+    methods["Flab-Pruner"]["benchmark_guided_experimental"] = {"implementation_closed": True, "target_smoke_closed": True}
+    methods["LaCo"]["registry"] = {"execution_status": "skipped", "validity_status": "not_applicable"}
     out = check_keshu_completion.assess_owner_completion(methods)
     assert out["owner_execution_closed"] is True
 

@@ -1,0 +1,11 @@
+{
+  "run_id": "flab_artifact_archive_20260804_191623",
+  "command_status": "exit_0",
+  "execution_status": "artifact_archive_completed",
+  "availability_counts": {
+    "missing_after_ephemeral_tmp_cleanup": 4
+  },
+  "artifact_root": "~/srtp-artifacts",
+  "artifact_reconstruction_required": true,
+  "old_evidence_modified": false
+}

@@ -20,6 +20,8 @@ Primary code: `methods/flab_pruner/qwen_prune.py`
 ## Current Interpretation
 The local official structural adapter remains the primary completed route. The benchmark-activation path now loads the vendored Flab Qwen model path instead of a plain Hugging Face model, but the vendored `prune(config, stage)` API has no verified external per-channel mask schema for the activation masks produced by the benchmark branch. That branch is therefore closed as a code-level blocker, not as a successful benchmark run.
 
+That blocker is historical: it applied to the first implementation attempt that used a standard Hugging Face model or stopped at the top-level Flab API. It is superseded by the later internal-zs adapter implementation, which drives `model.model.prune(zs)` with benchmark-derived FFN `intermediate_indexes`.
+
 ## Benchmark-Guided Experimental Path
 
 Evidence level L3/L4/L5 is recorded for the experimental benchmark-guided extension. This is not an upstream official Flab-Pruner mode.
@@ -33,3 +35,5 @@ Primary evidence:
 - Capped quality gates: `results/evidence/smoke/flab_qwen15b_benchmark_guided_he_keep80_capped32_20260804_135032/`, `results/evidence/smoke/flab_qwen15b_benchmark_guided_mbpp_keep80_capped32_20260804_135032/`, and `results/evidence/smoke/flab_qwen15b_benchmark_guided_lcb_keep80_capped32_20260804_135032/`.
 
 The Qwen1.5B smoke reached an actual parameter keep ratio of `0.7999755104980733` (`1777088000` to `1421626880` parameters), saved an external artifact, reloaded it, and produced nonempty greedy output. All three capped-32 variants produced guide-specific artifacts and ran the fixed 20-task non-collapse gate, but each failed quality because duplicate rate was `0.95`; full-guide formal evaluation was therefore skipped by the predefined resource and quality rule.
+
+Final archive status: the `/tmp` artifact directories are no longer present, so `results/evidence/diagnostics/flab_artifact_archive_20260804_191623/` records them as `missing_after_ephemeral_tmp_cleanup`. This does not change the prior save/reload/generation evidence, but it means the pruned artifacts are not currently downloadable from a persistent artifact root.

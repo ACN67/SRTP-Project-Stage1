@@ -16,12 +16,13 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 
 
 def laco_closed(method: dict) -> bool:
-    return bool(method.get("laco_core_smoke") or method.get("laco_core_blocker")) and not method.get("laco_file_probe_only")
+    registry = method.get("registry", {})
+    return registry.get("execution_status") == "skipped" and registry.get("validity_status") == "not_applicable"
 
 
 def flab_closed(method: dict) -> bool:
-    blocker = method.get("activation_blocker", "")
-    return bool(method.get("structural_primary")) and bool(method.get("activation_smoke") or blocker == "vendored_config_only_no_external_mask_schema")
+    guided = method.get("benchmark_guided_experimental", {})
+    return bool(method.get("structural_primary")) and guided.get("implementation_closed") is True and guided.get("target_smoke_closed") is True
 
 
 def assess_owner_completion(methods: dict[str, dict]) -> dict:
@@ -53,26 +54,25 @@ def collect_state() -> dict[str, dict]:
     state = {
         "Flab-Pruner": {
             "structural_primary": any("flabpruner_qwen25c15b_official_keep80" in row["run_id"] for row in runs),
-            "activation_smoke": any(row["run_id"].startswith("flab_benchmark_activation_tiny_smoke_") and row["execution_status"] == "completed" for row in runs),
-            "activation_blocker": "vendored_config_only_no_external_mask_schema"
-            if any(row["run_id"].startswith("flab_benchmark_activation_tiny_smoke_") and row["execution_status"] == "blocked" for row in runs)
-            else "",
+            "official_structural": "completed_quality_gate_fail",
+            "benchmark_guided_experimental": json.loads((ROOT / "results/status/flab_benchmark_guided_completion.json").read_text(encoding="utf-8")),
             "registry": next((m for m in methods if m["method"] == "Flab-Pruner"), {}),
         },
         "LLM-Pruner": {
+            "status": "completed_quality_gate_fail",
             "primary_audit": any(row["run_id"].startswith("llmpruner_primary_evidence_audit_") for row in runs),
             "primary_run": "llmpruner_qwen25c15b_official_keep80_gpu_20260730_105340" in run_ids,
             "registry": next((m for m in methods if m["method"] == "LLM-Pruner"), {}),
         },
         "SliceGPT": {
+            "status": "primary_completed_quality_gate_fail",
             "primary_audit": any(row["run_id"].startswith("slicegpt_primary_evidence_audit_") for row in runs),
             "primary_run": "slicegpt_qwen25c15b_official_keep80_gpu_20260731_011001" in run_ids,
             "registry": next((m for m in methods if m["method"] == "SliceGPT"), {}),
         },
         "LaCo": {
-            "laco_core_smoke": any(row["run_id"].startswith("laco_upstream_smoke_") and row["execution_status"] == "completed" for row in runs),
-            "laco_core_blocker": any(row["run_id"].startswith("laco_core_blocker_") for row in runs),
-            "laco_file_probe_only": not any(row["run_id"].startswith("laco_upstream_smoke_") for row in runs),
+            "status": "skipped_by_stage_scope_decision",
+            "diagnostic_only_smoke_retained": any(row["run_id"].startswith("laco_upstream_smoke_") for row in runs),
             "registry": next((m for m in methods if m["method"] == "LaCo"), {}),
         },
     }

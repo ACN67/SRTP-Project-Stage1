@@ -1,5 +1,7 @@
 jobs:
   - id: flab_zs_schema_audit
+    status: historical_completed
+    actual_run_id: flab_zs_schema_audit_20260804_135032
     method: Flab-Pruner
     evidence_level: L2_schema_audit
     dependencies: []
@@ -13,11 +15,13 @@ jobs:
     failure_policy: fail_current_job
     timeout_seconds: 120
   - id: flab_benchmark_guided_tiny
+    status: historical_completed
+    actual_run_id: flab_benchmark_guided_tiny_20260804_135032
     method: Flab-Pruner
     evidence_level: L3_algorithm_tiny_smoke
     dependencies:
       - flab_zs_schema_audit
-    command: python workflows/experiment/run_flab_benchmark_guided.py --job tiny
+    command: python workflows/experiment/run_flab_benchmark_guided.py --job tiny --run-id flab_benchmark_guided_tiny_20260804_135032
     expected_outputs:
       - results/evidence/smoke/flab_benchmark_guided_tiny_20260804_135032/summary.json
       - results/evidence/smoke/flab_benchmark_guided_tiny_20260804_135032/parameter_summary_a.json
@@ -32,11 +36,13 @@ jobs:
     timeout_seconds: 600
 
   - id: flab_qwen15b_benchmark_guided_smoke
+    status: historical_completed
+    actual_run_id: flab_qwen15b_benchmark_guided_smoke_20260804_135032
     method: Flab-Pruner
     evidence_level: L4_code_model_smoke
     dependencies:
       - flab_benchmark_guided_tiny
-    command: python workflows/experiment/run_flab_benchmark_guided.py --job qwen15b_smoke
+    command: python workflows/experiment/run_flab_benchmark_guided.py --job qwen15b_smoke --run-id flab_qwen15b_benchmark_guided_smoke_20260804_135032
     expected_outputs:
       - results/evidence/smoke/flab_qwen15b_benchmark_guided_smoke_20260804_135032/summary.json
       - results/evidence/smoke/flab_qwen15b_benchmark_guided_smoke_20260804_135032/stderr.log
@@ -48,11 +54,13 @@ jobs:
     timeout_seconds: 900
 
   - id: flab_qwen15b_benchmark_guided_he_keep80_capped32
+    status: historical_completed
+    actual_run_id: flab_qwen15b_benchmark_guided_he_keep80_capped32_20260804_135032
     method: Flab-Pruner
     evidence_level: L5_formal_attempt
     dependencies:
       - flab_qwen15b_benchmark_guided_smoke
-    command: python workflows/experiment/run_flab_benchmark_guided_variants.py --variant he
+    command: python workflows/experiment/run_flab_benchmark_guided_variants.py --variant he --run-id flab_qwen15b_benchmark_guided_he_keep80_capped32_20260804_135032
     expected_outputs:
       - results/evidence/smoke/flab_qwen15b_benchmark_guided_he_keep80_capped32_20260804_135032/summary.json
       - results/evidence/smoke/flab_qwen15b_benchmark_guided_he_keep80_capped32_20260804_135032/parameter_summary.json
@@ -65,11 +73,13 @@ jobs:
     timeout_seconds: 1200
 
   - id: flab_qwen15b_benchmark_guided_mbpp_keep80_capped32
+    status: historical_completed
+    actual_run_id: flab_qwen15b_benchmark_guided_mbpp_keep80_capped32_20260804_135032
     method: Flab-Pruner
     evidence_level: L5_formal_attempt
     dependencies:
       - flab_qwen15b_benchmark_guided_smoke
-    command: python workflows/experiment/run_flab_benchmark_guided_variants.py --variant mbpp
+    command: python workflows/experiment/run_flab_benchmark_guided_variants.py --variant mbpp --run-id flab_qwen15b_benchmark_guided_mbpp_keep80_capped32_20260804_135032
     expected_outputs:
       - results/evidence/smoke/flab_qwen15b_benchmark_guided_mbpp_keep80_capped32_20260804_135032/summary.json
       - results/evidence/smoke/flab_qwen15b_benchmark_guided_mbpp_keep80_capped32_20260804_135032/parameter_summary.json
@@ -82,11 +92,13 @@ jobs:
     timeout_seconds: 1200
 
   - id: flab_qwen15b_benchmark_guided_lcb_keep80_capped32
+    status: historical_completed
+    actual_run_id: flab_qwen15b_benchmark_guided_lcb_keep80_capped32_20260804_135032
     method: Flab-Pruner
     evidence_level: L5_formal_attempt
     dependencies:
       - flab_qwen15b_benchmark_guided_smoke
-    command: python workflows/experiment/run_flab_benchmark_guided_variants.py --variant lcb
+    command: python workflows/experiment/run_flab_benchmark_guided_variants.py --variant lcb --run-id flab_qwen15b_benchmark_guided_lcb_keep80_capped32_20260804_135032
     expected_outputs:
       - results/evidence/smoke/flab_qwen15b_benchmark_guided_lcb_keep80_capped32_20260804_135032/summary.json
       - results/evidence/smoke/flab_qwen15b_benchmark_guided_lcb_keep80_capped32_20260804_135032/parameter_summary.json
