@@ -1,0 +1,10 @@
+method,sparsity,benchmark,metric,value,pass_rate,run_id
+Dense,0.0,humaneval,pass_count,12/82,0.14634146341463414,results/raw/pan_half_align_20260806_174220/dense_baseline/humaneval
+Dense,0.0,mbpp,pass_count,147/224,0.65625,results/raw/pan_half_align_20260806_174220/dense_baseline/mbpp
+Dense,0.0,livecodebench,pass_count,16/200,0.08,results/raw/pan_half_align_20260806_174220/dense_baseline/livecodebench
+Magnitude,0.10,humaneval,pass_count,13/82,0.15853658536585366,results/raw/pan_half_align_20260806_174220/magnitude_he_s0p10/humaneval
+Magnitude,0.10,mbpp,pass_count,148/224,0.6607142857142857,results/raw/pan_half_align_20260806_174220/magnitude_he_s0p10/mbpp
+Magnitude,0.10,livecodebench,pass_count,13/200,0.065,results/raw/pan_half_align_20260806_174220/magnitude_he_s0p10/livecodebench
+Wanda,0.10,humaneval,pass_count,12/82,0.14634146341463414,results/raw/pan_half_align_20260806_174220/wanda_he_s0p10/humaneval
+Wanda,0.10,mbpp,pass_count,153/224,0.6830357142857143,results/raw/pan_half_align_20260806_174220/wanda_he_s0p10/mbpp
+Wanda,0.10,livecodebench,pass_count,14/200,0.07,results/raw/pan_half_align_20260806_174220/wanda_he_s0p10/livecodebench
